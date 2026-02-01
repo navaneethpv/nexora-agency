@@ -11,8 +11,21 @@ const bricolageGrotesque = Bricolage_Grotesque({
 
 export const metadata: Metadata = {
   title: "Nexora | Web Development Agency",
-  description: "Nexora is a premium web development and digital solutions agency. We build clean, scalable, and performance-focused websites and web applications for startups, businesses, and institutions using cutting-edge technologies.",
+  description: "Nexora is a premium web development and digital solutions agency. We build clean, scalable, and performance-focused websites and web applications for startups, businesses, and institutions using cutting-technologies.",
   keywords: ["web development", "digital solutions", "next.js", "react", "premium design", "software agency"],
+  openGraph: {
+    title: "Nexora | Web Development Agency",
+    description: "Premium web development and digital solutions for next-gen brands.",
+    url: "https://nexora.tech",
+    siteName: "Nexora",
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Nexora | Web Development Agency",
+    description: "Premium web development and digital solutions for next-gen brands.",
+  },
 };
 
 export default function RootLayout({
