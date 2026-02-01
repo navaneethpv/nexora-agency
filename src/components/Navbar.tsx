@@ -16,6 +16,15 @@ export default function Navbar() {
         return () => window.removeEventListener("scroll", handleScroll);
     }, []);
 
+    const [hoveredPath, setHoveredPath] = useState<string | null>(null);
+
+    const navLinks = [
+        { name: "About", href: "#about" },
+        { name: "Services", href: "#services" },
+        { name: "Work", href: "#work" },
+        { name: "Contact", href: "#contact" },
+    ];
+
     return (
         <nav className="fixed top-8 left-1/2 -translate-x-1/2 z-50 w-full max-w-[80%] px-6">
             <motion.div
@@ -29,9 +38,9 @@ export default function Navbar() {
                     boxShadow: scrolled ? "0 8px 32px 0 rgba(0, 0, 0, 0.8)" : "none"
                 }}
                 transition={{ duration: 0.5 }}
-                className="rounded-full p-2.5 flex items-center justify-between w-full border transition-colors duration-500"
+                className="rounded-full p-2 flex items-center justify-between w-full border transition-all duration-500"
             >
-                <div className="flex items-center gap-16 pl-10 pr-2 w-full justify-between">
+                <div className="flex items-center gap-16 pl-8 pr-2 w-full justify-between">
                     <Link href="/" className="hover:opacity-80 transition-opacity whitespace-nowrap">
                         <Image
                             src="/logo.png"
@@ -42,15 +51,48 @@ export default function Navbar() {
                         />
                     </Link>
 
-                    <div className="hidden md:flex items-center gap-10 text-sm font-bold text-secondary">
-                        <Link href="#about" className="hover:text-white transition-colors duration-300">About</Link>
-                        <Link href="#services" className="hover:text-white transition-colors duration-300">Services</Link>
-                        <Link href="#work" className="hover:text-white transition-colors duration-300">Work</Link>
-                        <Link href="#contact" className="hover:text-white transition-colors duration-300">Contact</Link>
-                    </div>
+                    <nav
+                        className="hidden md:flex items-center gap-2 relative px-2 py-1"
+                        onMouseLeave={() => setHoveredPath(null)}
+                    >
+                        {navLinks.map((link, i) => (
+                            <motion.div
+                                key={link.name}
+                                initial={{ opacity: 0, y: -10 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                transition={{ delay: 0.1 + i * 0.1 }}
+                                className="relative"
+                            >
+                                <Link
+                                    href={link.href}
+                                    onMouseEnter={() => setHoveredPath(link.href)}
+                                    className="relative px-4 py-2 text-sm font-bold text-secondary hover:text-white transition-colors duration-300 rounded-full block"
+                                >
+                                    <span className="relative z-10">{link.name}</span>
+                                    <AnimatePresence>
+                                        {hoveredPath === link.href && (
+                                            <motion.div
+                                                layoutId="nav-hover"
+                                                className="absolute inset-0 bg-white/10 rounded-full z-0"
+                                                initial={{ opacity: 0, scale: 0.9 }}
+                                                animate={{ opacity: 1, scale: 1 }}
+                                                exit={{ opacity: 0, scale: 0.9 }}
+                                                transition={{
+                                                    type: "spring",
+                                                    bounce: 0.25,
+                                                    stiffness: 130,
+                                                    damping: 18,
+                                                }}
+                                            />
+                                        )}
+                                    </AnimatePresence>
+                                </Link>
+                            </motion.div>
+                        ))}
+                    </nav>
 
                     <div className="flex items-center">
-                        <button className="bg-accent text-white px-8 py-3 rounded-full text-sm font-bold hover:brightness-110 transition-all shadow-xl shadow-accent/30 active:scale-95 whitespace-nowrap">
+                        <button className="bg-accent text-white px-8 py-3 rounded-full text-sm font-bold hover:brightness-110 transition-all shadow-xl shadow-accent/30 active:scale-95 whitespace-nowrap bg-linear-to-r from-accent to-accent/80">
                             Get in Touch
                         </button>
                     </div>
