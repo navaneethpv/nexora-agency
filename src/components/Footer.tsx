@@ -4,6 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { ArrowRight, Instagram, Twitter, Linkedin, Github, Mail, MapPin, Phone } from "lucide-react";
+import { AnimatedSocialIcon } from "./AnimatedSocialIcon";
 
 export default function Footer() {
     return (
@@ -34,21 +35,18 @@ export default function Footer() {
                                 Building next-generation digital experiences with a focus on high-performance, scalability, and premium design.
                             </p>
                             <div className="flex items-center gap-4">
-                                {[
-                                    { icon: Twitter, href: "#" },
-                                    { icon: Linkedin, href: "#" },
-                                    { icon: Github, href: "#" },
-                                    { icon: Instagram, href: "#" },
-                                ].map((item, i) => (
-                                    <motion.a
-                                        key={i}
-                                        href={item.href}
-                                        whileHover={{ y: -4, backgroundColor: "rgba(124, 58, 237, 0.2)" }}
-                                        className="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center text-secondary hover:text-white transition-colors duration-300"
-                                    >
-                                        <item.icon className="w-4 h-4" />
-                                    </motion.a>
-                                ))}
+                                <div className="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center text-secondary hover:text-white transition-all duration-300 hover:bg-white/5">
+                                    <AnimatedSocialIcon type="twitter" href="#" size={16} />
+                                </div>
+                                <div className="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center text-secondary hover:text-white transition-all duration-300 hover:bg-white/5">
+                                    <AnimatedSocialIcon type="linkedin" href="#" size={16} />
+                                </div>
+                                <div className="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center text-secondary hover:text-white transition-all duration-300 hover:bg-white/5">
+                                    <AnimatedSocialIcon type="github" href="#" size={16} />
+                                </div>
+                                <div className="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center text-secondary hover:text-white transition-all duration-300 hover:bg-white/5">
+                                    <AnimatedSocialIcon type="instagram" href="#" size={16} />
+                                </div>
                             </div>
                         </motion.div>
                     </div>
