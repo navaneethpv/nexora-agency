@@ -14,17 +14,17 @@ export default function Home() {
       <Hero />
 
       {/* Logo Wall */}
-      <section className="py-20 flex flex-col items-center">
-        <p className="text-[11px] font-medium text-secondary uppercase tracking-[0.2em] mb-12">
+      <section className="py-16 flex flex-col items-center">
+        <p className="text-[10px] font-medium text-secondary uppercase tracking-[0.2em] mb-8">
           Our designs are featured on:
         </p>
         <div className="section-container">
-          <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-y-12 gap-x-8 opacity-30 grayscale items-center justify-items-center">
-            <div className="h-4 w-32 bg-white/10 rounded-sm" />
-            <div className="h-4 w-28 bg-white/10 rounded-sm" />
-            <div className="h-4 w-36 bg-white/10 rounded-sm" />
-            <div className="h-4 w-24 bg-white/10 rounded-sm" />
-            <div className="h-4 w-30 bg-white/10 rounded-sm" />
+          <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-y-10 gap-x-6 opacity-30 grayscale items-center justify-items-center">
+            <div className="h-5 w-28 bg-white/10 rounded-sm" />
+            <div className="h-5 w-24 bg-white/10 rounded-sm" />
+            <div className="h-5 w-32 bg-white/10 rounded-sm" />
+            <div className="h-5 w-20 bg-white/10 rounded-sm" />
+            <div className="h-5 w-24 bg-white/10 rounded-sm" />
           </div>
         </div>
       </section>
@@ -33,12 +33,12 @@ export default function Home() {
       <Testimonial />
 
       {/* Portfolio Placeholder */}
-      <section className="py-24 bg-white/[0.01]">
+      <section className="py-20 bg-white/[0.01]">
         <div className="section-container">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            <div className="aspect-[4/3] bg-white/5 rounded-[2rem] border border-white/5" />
-            <div className="aspect-[4/3] bg-white/5 rounded-[2rem] border border-white/5" />
-            <div className="aspect-[4/3] bg-white/5 rounded-[2rem] border border-white/5" />
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+            <div className="aspect-[4/3] bg-white/5 rounded-3xl border border-white/5" />
+            <div className="aspect-[4/3] bg-white/5 rounded-3xl border border-white/5" />
+            <div className="aspect-[4/3] bg-white/5 rounded-3xl border border-white/5" />
           </div>
         </div>
       </section>

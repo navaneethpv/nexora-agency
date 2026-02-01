@@ -20,21 +20,21 @@ const steps = [
 
 export default function Process() {
     return (
-        <section id="about" className="py-24 border-t border-white/5">
+        <section id="about" className="py-20 border-t border-white/5">
             <div className="section-container">
-                <div className="max-w-2xl mb-20">
-                    <h2 className="text-4xl md:text-5xl font-bold mb-6 leading-tight">
+                <div className="max-w-xl mb-16">
+                    <h2 className="text-3xl md:text-4xl font-bold mb-4 leading-tight">
                         Begin your design journey in <br />
                         <span className="font-serif-italic font-medium">three effortless steps</span>
                     </h2>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
                     {steps.map((step, index) => (
                         <div key={index} className="flex flex-col">
-                            <span className="text-accent font-bold text-lg mb-6">{step.number}</span>
-                            <h3 className="text-2xl font-bold mb-4">{step.title}</h3>
-                            <p className="text-secondary leading-relaxed">
+                            <span className="text-accent font-bold text-base mb-4">{step.number}</span>
+                            <h3 className="text-xl font-bold mb-3">{step.title}</h3>
+                            <p className="text-secondary text-sm leading-relaxed">
                                 {step.description}
                             </p>
                         </div>
