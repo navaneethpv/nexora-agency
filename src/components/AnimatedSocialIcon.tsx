@@ -11,15 +11,23 @@ interface AnimatedSocialIconProps {
 
 const VARIANTS: Variants = {
     normal: {
+        opacity: 1,
         pathLength: 1,
-        opacity: 0.6,
+        pathOffset: 0,
+        transition: {
+            duration: 0.4,
+            opacity: { duration: 0.1 },
+        },
     },
     animate: (custom: number) => ({
-        pathLength: [0, 1],
         opacity: [0, 1],
+        pathLength: [0, 1],
+        pathOffset: [1, 0],
         transition: {
-            duration: 0.5,
-            delay: custom * 0.1,
+            duration: 0.6,
+            ease: "linear",
+            delay: custom * 0.05,
+            opacity: { duration: 0.1 },
         },
     }),
 };
@@ -66,7 +74,7 @@ export const AnimatedSocialIcon = ({ type, href, size = 18 }: AnimatedSocialIcon
                 width={size}
                 height={size}
                 viewBox="0 0 24 24"
-                fill="currentColor"
+                fill="none"
                 xmlns="http://www.w3.org/2000/svg"
                 className="w-full h-full"
             >
@@ -79,8 +87,9 @@ export const AnimatedSocialIcon = ({ type, href, size = 18 }: AnimatedSocialIcon
                         variants={VARIANTS}
                         custom={i}
                         stroke="currentColor"
-                        strokeWidth="0.5"
-                        fill="currentColor"
+                        strokeWidth="1.5"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
                     />
                 ))}
             </svg>
