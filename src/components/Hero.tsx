@@ -10,26 +10,25 @@ export default function Hero() {
             </div>
 
             <div className="inline-flex items-center gap-2 rounded-full border border-white/5 bg-white/5 px-3 py-1.5 text-[10px] font-medium text-white/70 mb-6">
-                <span className="h-1 w-1 rounded-full bg-[#34C759] animate-pulse-green" />
-                Hurry, only 3 spots left
+                <span className="h-1 w-1 rounded-full bg-accent animate-pulse" />
+                Web Development & Digital Solutions
             </div>
 
             <h1 className="max-w-4xl text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight mb-6 leading-[1.1]">
-                The truly <span className="font-serif-italic font-medium">Nexora</span> <br />
-                design subscription
+                Modern Web Solutions for <br />
+                <span className="italic font-medium text-accent">Growing Teams</span>
             </h1>
 
-            <p className="max-w-md text-base text-secondary mb-8 leading-relaxed">
-                High-end design services, delivered consistently.
-                Replaces unreliable freelancers and expensive agencies for a flat monthly fee.
+            <p className="max-w-2xl text-base text-secondary mb-8 leading-relaxed">
+                Nexora builds clean, scalable, and performance-focused websites and web applications for businesses and institutions.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-3">
-                <button className="bg-accent text-white px-7 py-3 rounded-full text-sm font-semibold hover:brightness-110 transition-all shadow-lg shadow-accent/20">
-                    Book a call
+                <button className="bg-accent text-white px-8 py-3.5 rounded-full text-sm font-semibold hover:brightness-110 transition-all shadow-lg shadow-accent/20">
+                    View Our Work
                 </button>
-                <button className="bg-white/5 border border-white/10 text-white px-7 py-3 rounded-full text-sm font-semibold hover:bg-white/10 transition-all">
-                    See plans
+                <button className="bg-white/5 border border-white/10 text-white px-8 py-3.5 rounded-full text-sm font-semibold hover:bg-white/10 transition-all">
+                    Get in Touch
                 </button>
             </div>
         </section>

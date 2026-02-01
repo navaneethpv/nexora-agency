@@ -4,20 +4,20 @@ import { useState } from "react";
 
 const faqs = [
     {
-        question: "Why wouldn't I just hire a full-time designer?",
-        answer: "The annual cost of a full-time senior-level designer now exceeds $100,000, plus benefits. Aside from that, you may not always have enough work to keep them busy at all times."
+        question: "What is your typical project timeline?",
+        answer: "Timelines vary based on complexity, but most marketing sites are delivered in 4-6 weeks, while complex web applications can take 3-4 months."
     },
     {
-        question: "Is there a limit to how many requests I can have?",
-        answer: "No, you can add as many design requests to your queue as you'd like, and they will be delivered one by one."
+        question: "Do you offer ongoing maintenance?",
+        answer: "Yes, we provide long-term maintenance and support to ensure your product remains secure, updated, and optimized for growth."
     },
     {
-        question: "How fast will I receive my designs?",
-        answer: "On average, you'll receive your designs in two business days or less. Some more complex requests can take longer."
+        question: "Which technologies do you specialize in?",
+        answer: "We specialize in modern, high-performance tech stacks including React, Next.js, TypeScript, and scalable cloud infrastructure."
     },
     {
-        question: "Who are the designers?",
-        answer: "Nexora is an agency of one. This means you'll work directly with me, the founder. However, power-ups like custom illustrations are provided by partner designers."
+        question: "Can you help with existing projects?",
+        answer: "Absolutely. We can perform technical audits, performance optimizations, or help scale out features for existing web platforms."
     }
 ];
 

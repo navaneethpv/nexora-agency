@@ -3,7 +3,7 @@ import Hero from "@/components/Hero";
 import Process from "@/components/Process";
 import Testimonial from "@/components/Testimonial";
 import FeaturesSection from "@/components/FeaturesSection";
-import Pricing from "@/components/Pricing";
+import WhyNexora from "@/components/Pricing";
 import FAQ from "@/components/FAQ";
 import Footer from "@/components/Footer";
 import Image from "next/image";
@@ -18,19 +18,22 @@ const logos = [
 
 const portfolio = [
   {
-    title: "The fastest way to visualize and share your data.",
-    category: "SaaS / Analytics",
+    title: "Website Platform for Business Management",
+    description: "A modern, responsive web interface focused on clarity, performance, and ease of use.",
+    category: "Web App · UI Design · Performance",
     image: "/saas-dashboard.png"
   },
   {
-    title: "Find your logo, own your brand.",
-    category: "Branding / Identity",
-    image: "/branding-logo.png"
+    title: "E-commerce Infrastructure for Retail Scale",
+    description: "High-performance checkout systems and inventory management dashboards.",
+    category: "E-Commerce · Scalable Architecture",
+    image: "/device-mockup.png"
   },
   {
-    title: "High-fidelity renderings for next-gen products.",
-    category: "Design Assets / 3D",
-    image: "/device-mockup.png"
+    title: "Brand Identity & Design System for Startups",
+    description: "Cohesive visual languages that unify product and marketing across all platforms.",
+    category: "Branding · Design Systems",
+    image: "/branding-logo.png"
   }
 ];
 
@@ -41,16 +44,16 @@ export default function Home() {
       <Hero />
 
       {/* Logo Wall */}
-      <section className="py-16 flex flex-col items-center">
-        <p className="text-[10px] font-medium text-secondary uppercase tracking-[0.2em] mb-8">
-          Our designs are featured on:
+      <section className="py-16 flex flex-col items-center border-t border-white/5">
+        <p className="text-[10px] font-medium text-secondary uppercase tracking-[0.2em] mb-10">
+          Built with cutting-edge Technologies
         </p>
         <div className="section-container">
-          <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-y-10 gap-x-6 opacity-30 grayscale items-center justify-items-center">
-            {logos.map((logo, i) => (
+          <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-y-12 gap-x-12 opacity-40 grayscale items-center justify-items-center">
+            {["Next.js", "TypeScript", "React", "Node.js", "Tailwind"].map((tech, i) => (
               <div key={i} className="flex items-center gap-2">
-                <div className="h-5 w-5 rounded-full bg-white/20" />
-                <span className="text-sm font-bold tracking-tighter">{logo.text}</span>
+                <div className="h-4 w-4 rounded-sm bg-white/20" />
+                <span className="text-sm font-bold tracking-tighter">{tech}</span>
               </div>
             ))}
           </div>
@@ -61,12 +64,16 @@ export default function Home() {
       <Testimonial />
 
       {/* Portfolio Section */}
-      <section className="py-20 bg-white/[0.01]">
+      <section id="work" className="py-20 bg-white/1">
         <div className="section-container">
+          <div className="max-w-xl mb-12">
+            <h2 className="text-3xl font-bold mb-4">Selected Work</h2>
+            <p className="text-secondary text-base">Interface details and clean layouts designed for usability and speed.</p>
+          </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {portfolio.map((item, i) => (
               <div key={i} className="group cursor-pointer">
-                <div className="relative aspect-[4/3] bg-white/5 rounded-3xl border border-white/5 overflow-hidden mb-6 group">
+                <div className="relative aspect-4/3 bg-white/5 rounded-3xl border border-white/5 overflow-hidden mb-6 group">
                   <Image
                     src={item.image}
                     alt={item.title}
@@ -78,6 +85,7 @@ export default function Home() {
                 <div className="space-y-2">
                   <p className="text-xs font-semibold text-accent uppercase tracking-wider">{item.category}</p>
                   <h3 className="text-lg font-bold leading-snug group-hover:text-white/90 transition-colors">{item.title}</h3>
+                  <p className="text-sm text-secondary leading-relaxed line-clamp-2">{item.description}</p>
                 </div>
               </div>
             ))}
@@ -86,7 +94,7 @@ export default function Home() {
       </section>
 
       <FeaturesSection />
-      <Pricing />
+      <WhyNexora />
       <FAQ />
       <Footer />
     </main>

@@ -3,33 +3,37 @@
 const steps = [
     {
         number: "01",
-        title: "Subscribe",
-        description: "Pick a plan that suits your needs and subscribe in minutes. No complex contracts."
+        title: "Discover",
+        description: "We understand goals, users, and technical needs."
     },
     {
         number: "02",
-        title: "Receive",
-        description: "Get your designs delivered one by one in just a few business days on average."
+        title: "Design",
+        description: "We create clean, user-focused interfaces."
     },
     {
         number: "03",
-        title: "Revise",
-        description: "Not quite right? Request as many revisions as you need until you're 100% happy."
+        title: "Build",
+        description: "We develop scalable, production-ready systems."
+    },
+    {
+        number: "04",
+        title: "Refine",
+        description: "We test, optimize, and prepare for growth."
     }
 ];
 
 export default function Process() {
     return (
-        <section id="about" className="py-20 border-t border-white/5">
+        <section id="process" className="py-20 border-t border-white/5">
             <div className="section-container">
                 <div className="max-w-xl mb-16">
                     <h2 className="text-3xl md:text-4xl font-bold mb-4 leading-tight">
-                        Begin your design journey in <br />
-                        <span className="font-serif-italic font-medium">three effortless steps</span>
+                        How <span className="italic font-medium text-accent">We Work</span>
                     </h2>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
                     {steps.map((step, index) => (
                         <div key={index} className="flex flex-col">
                             <span className="text-accent font-bold text-base mb-4">{step.number}</span>

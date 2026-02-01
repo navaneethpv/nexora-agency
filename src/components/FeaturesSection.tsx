@@ -2,47 +2,47 @@
 
 const features = [
     {
-        title: "Design board",
-        description: "Add as many design requests to your board as you'd like.",
-        icon: "📂"
+        title: "Web Development",
+        description: "Building clean, scalable, and secure web applications.",
+        icon: "💻"
     },
     {
-        title: "Lightning fast",
-        description: "Receive your designs one by one in just a few days on average.",
+        title: "UI & UX Design",
+        description: "User-focused interfaces designed for clarity and ease of use.",
+        icon: "🎨"
+    },
+    {
+        title: "Performance Optimization",
+        description: "Making your web products lightning-fast and responsive.",
         icon: "⚡"
     },
     {
-        title: "Fixed monthly rate",
-        description: "No surprises here! Pay the same fixed price each month.",
-        icon: "💳"
+        title: "Scalable Architecture",
+        description: "Systems designed to grow seamlessly with your business.",
+        icon: "🏗️"
     },
     {
-        title: "Top-tier quality",
-        description: "Insane design quality at your fingertips whenever you need it.",
+        title: "Responsive Design",
+        description: "Perfect experiences across all devices and screen sizes.",
+        icon: "📱"
+    },
+    {
+        title: "Technical Excellence",
+        description: "A performance-first mindset in every line of code.",
         icon: "💎"
-    },
-    {
-        title: "Flexible and scalable",
-        description: "Scale up or down as your needs change, or cancel anytime.",
-        icon: "📈"
-    },
-    {
-        title: "Unique and all yours",
-        description: "Each of your designs is made especially for you and is 100% yours.",
-        icon: "🔒"
     }
 ];
 
 export default function FeaturesSection() {
     return (
-        <section id="features" className="py-20 bg-white/[0.02] border-y border-white/5">
+        <section id="services" className="py-20 bg-white/2 border-y border-white/5">
             <div className="section-container">
                 <div className="text-center max-w-xl mx-auto mb-16">
                     <h2 className="text-3xl md:text-4xl font-bold mb-4">
-                        Reasons you will <span className="font-serif-italic font-medium">love us</span>
+                        What <span className="italic font-medium text-accent">We Do</span>
                     </h2>
                     <p className="text-secondary text-base">
-                        We've built a design service that actually works for modern brands and startups.
+                        Specialized digital services for modern businesses and institutional scale.
                     </p>
                 </div>
 
