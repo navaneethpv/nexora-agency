@@ -1,8 +1,10 @@
 "use client";
 
 import { motion } from "framer-motion";
+import dynamic from "next/dynamic";
 import { ArrowRight, Sparkles } from "lucide-react";
-import HeroBackground3D from "./HeroBackground3D";
+
+const HeroBackground3D = dynamic(() => import("./HeroBackground3D"), { ssr: false });
 
 export default function Hero() {
     const containerVariants: any = {
@@ -10,20 +12,20 @@ export default function Hero() {
         visible: {
             opacity: 1,
             transition: {
-                staggerChildren: 0.15,
-                delayChildren: 0.2
+                staggerChildren: 0.1,
+                delayChildren: 0.1
             }
         }
     };
 
     const itemVariants: any = {
-        hidden: { opacity: 0, y: 30 },
+        hidden: { opacity: 0.01, y: 20 },
         visible: {
             opacity: 1,
             y: 0,
             transition: {
-                duration: 0.8,
-                ease: [0.21, 0.47, 0.32, 0.98]
+                duration: 0.5,
+                ease: "easeOut"
             }
         }
     };

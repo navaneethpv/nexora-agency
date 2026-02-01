@@ -20,9 +20,16 @@ export default function Navbar() {
         <nav className="fixed top-8 left-1/2 -translate-x-1/2 z-50 w-full max-w-[80%] px-6">
             <motion.div
                 initial={{ y: -20, opacity: 0 }}
-                animate={{ y: 0, opacity: 1 }}
+                animate={{
+                    y: 0,
+                    opacity: 1,
+                    backgroundColor: scrolled ? "rgba(255, 255, 255, 0.05)" : "rgba(255, 255, 255, 0)",
+                    backdropFilter: scrolled ? "blur(24px)" : "blur(0px)",
+                    borderColor: scrolled ? "rgba(255, 255, 255, 0.15)" : "rgba(255, 255, 255, 0)",
+                    boxShadow: scrolled ? "0 8px 32px 0 rgba(0, 0, 0, 0.8)" : "none"
+                }}
                 transition={{ duration: 0.5 }}
-                className="glass-pill rounded-full p-2.5 flex items-center justify-between w-full"
+                className="rounded-full p-2.5 flex items-center justify-between w-full border transition-colors duration-500"
             >
                 <div className="flex items-center gap-16 pl-10 pr-2 w-full justify-between">
                     <Link href="/" className="hover:opacity-80 transition-opacity whitespace-nowrap">
