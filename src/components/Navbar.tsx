@@ -41,7 +41,11 @@ export default function Navbar() {
                 className="rounded-full p-2 flex items-center justify-between w-full border transition-all duration-500"
             >
                 <div className="flex items-center gap-16 pl-8 pr-2 w-full justify-between">
-                    <Link href="/" className="hover:opacity-80 transition-opacity whitespace-nowrap">
+                    <Link
+                        href="/"
+                        onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+                        className="hover:opacity-80 transition-opacity whitespace-nowrap"
+                    >
                         <Image
                             src="/logo.png"
                             alt="Nexora Logo"
