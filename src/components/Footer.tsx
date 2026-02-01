@@ -3,7 +3,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { ArrowRight, Instagram, Twitter, Linkedin, Github, Mail, MapPin, Phone } from "lucide-react";
+import { ArrowRight, Mail, MapPin, Phone } from "lucide-react";
 import { AnimatedSocialIcon } from "./AnimatedSocialIcon";
 
 export default function Footer() {

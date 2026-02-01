@@ -5,7 +5,6 @@ import Image from "next/image";
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { AnimatedSocialIcon } from "./AnimatedSocialIcon";
-import { FaLinkedin } from "react-icons/fa";
 export default function Navbar() {
     const [scrolled, setScrolled] = useState(false);
 
