@@ -1,12 +1,22 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
 import dynamic from "next/dynamic";
+import { useRef } from "react";
 import { ArrowRight, Sparkles } from "lucide-react";
 
 const HeroBackground3D = dynamic(() => import("./HeroBackground3D"), { ssr: false });
 
 export default function Hero() {
+    const containerRef = useRef<HTMLDivElement>(null);
+    const { scrollYProgress } = useScroll({
+        target: containerRef,
+        offset: ["start start", "end start"],
+    });
+
+    const opacity = useTransform(scrollYProgress, [0, 0.8], [1, 0]);
+    const scale = useTransform(scrollYProgress, [0, 0.8], [1, 0.95]);
+    const y = useTransform(scrollYProgress, [0, 0.8], [0, 50]);
     const containerVariants: any = {
         hidden: { opacity: 0 },
         visible: {
@@ -31,10 +41,16 @@ export default function Hero() {
     };
 
     return (
-        <section className="relative pt-40 pb-24 md:pt-48 md:pb-32 flex flex-col items-center text-center px-6 overflow-hidden">
+        <section
+            ref={containerRef}
+            className="relative pt-40 pb-24 md:pt-48 md:pb-32 flex flex-col items-center text-center px-6 overflow-hidden"
+        >
             <HeroBackground3D />
             {/* Background Glows & Orbs */}
-            <div className="absolute inset-0 -z-10 overflow-hidden pointer-events-none">
+            <motion.div
+                style={{ opacity, scale, y }}
+                className="absolute inset-0 -z-10 overflow-hidden pointer-events-none"
+            >
                 <motion.div
                     animate={{
                         scale: [1, 1.2, 1],
@@ -53,12 +69,13 @@ export default function Hero() {
                     transition={{ duration: 20, repeat: Infinity, ease: "easeInOut" }}
                     className="absolute bottom-[-20%] right-[-10%] w-[60vw] h-[60vw] bg-blue-500/10 blur-[140px] rounded-full opacity-40"
                 />
-            </div>
+            </motion.div>
 
             <motion.div
                 variants={containerVariants}
                 initial="hidden"
                 animate="visible"
+                style={{ opacity, scale, y }}
                 className="relative z-10 flex flex-col items-center"
             >
                 <motion.div
