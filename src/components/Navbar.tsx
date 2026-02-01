@@ -4,9 +4,8 @@ import Link from "next/link";
 import Image from "next/image";
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Twitter, Linkedin, Github, Instagram } from "lucide-react";
 import { AnimatedSocialIcon } from "./AnimatedSocialIcon";
-
+import { FaLinkedin } from "react-icons/fa";
 export default function Navbar() {
     const [scrolled, setScrolled] = useState(false);
 
@@ -99,10 +98,10 @@ export default function Navbar() {
 
                     <div className="flex items-center gap-4">
                         <div className="hidden xl:flex items-center gap-3 border-r border-white/10 pr-6 mr-2">
-                            <AnimatedSocialIcon type="twitter" href="#" />
-                            <AnimatedSocialIcon type="linkedin" href="#" />
-                            <AnimatedSocialIcon type="github" href="#" />
-                            <AnimatedSocialIcon type="instagram" href="#" />
+                            <AnimatedSocialIcon type="whatsapp" href="#" size={20} />
+                            <AnimatedSocialIcon type="linkedin" href="#" size={20} />
+                            <AnimatedSocialIcon type="github" href="#" size={20} />
+                            <AnimatedSocialIcon type="instagram" href="#" size={20} />
                         </div>
                         <button className="bg-accent text-white px-5 md:px-8 py-2 md:py-3 rounded-full text-xs md:text-sm font-bold hover:brightness-110 transition-all shadow-xl shadow-accent/30 active:scale-95 whitespace-nowrap bg-linear-to-r from-accent to-accent/80">
                             Get in Touch
