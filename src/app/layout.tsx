@@ -16,7 +16,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Nexora | Web Development Agency",
     description: "Premium web development and digital solutions for next-gen brands.",
-    url: "https://nexora.tech",
+    url: "https://nexoraweb.tech",
     siteName: "Nexora",
     locale: "en_US",
     type: "website",

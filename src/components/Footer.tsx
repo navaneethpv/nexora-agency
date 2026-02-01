@@ -3,68 +3,108 @@
 import Link from "next/link";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Instagram, Twitter, Linkedin, Github, Mail, MapPin, Phone } from "lucide-react";
 
 export default function Footer() {
     return (
-        <footer className="py-16 border-t border-white/5">
+        <footer className="relative pt-24 pb-12 border-t border-white/5 overflow-hidden">
+            {/* Background Glow */}
+            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[400px] bg-accent/5 blur-[120px] rounded-full -z-10 opacity-50" />
+
             <div className="section-container">
-                <motion.div
-                    initial={{ opacity: 0, y: 40 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.8 }}
-                    className="text-center mb-16 md:mb-32 px-4 md:px-0"
-                >
-                    <h2 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight mb-6 md:mb-8 leading-[1.1]">
-                        Let’s Build <br />
-                        <span className="italic font-medium text-accent text-glow">Something Reliable</span>
-                    </h2>
-                    <p className="max-w-2xl mx-auto text-base md:text-lg text-secondary mb-10 md:mb-12 leading-relaxed font-medium">
-                        If you’re looking for a dependable team to design and build your next digital product, Nexora is ready to help.
-                    </p>
-                    <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                        <button className="group bg-accent text-white px-8 md:px-10 py-4 md:py-5 rounded-full text-sm md:text-base font-bold hover:brightness-110 transition-all shadow-xl shadow-accent/30 flex items-center justify-center gap-3">
-                            Contact Nexora
-                            <ArrowRight className="w-4 h-4 md:w-5 md:h-5 group-hover:translate-x-1 transition-transform" />
-                        </button>
+                <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 mb-24 px-4 md:px-0">
+                    {/* Brand Section */}
+                    <div className="lg:col-span-5 space-y-8">
+                        <motion.div
+                            initial={{ opacity: 0, y: 20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            className="space-y-6"
+                        >
+                            <Link href="/" className="inline-block">
+                                <Image
+                                    src="/logo.png"
+                                    alt="Nexora Logo"
+                                    width={180}
+                                    height={45}
+                                    className="h-10 w-auto brightness-200"
+                                />
+                            </Link>
+                            <p className="text-secondary text-lg max-w-md leading-relaxed font-medium">
+                                Building next-generation digital experiences with a focus on high-performance, scalability, and premium design.
+                            </p>
+                            <div className="flex items-center gap-4">
+                                {[
+                                    { icon: Twitter, href: "#" },
+                                    { icon: Linkedin, href: "#" },
+                                    { icon: Github, href: "#" },
+                                    { icon: Instagram, href: "#" },
+                                ].map((item, i) => (
+                                    <motion.a
+                                        key={i}
+                                        href={item.href}
+                                        whileHover={{ y: -4, backgroundColor: "rgba(124, 58, 237, 0.2)" }}
+                                        className="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center text-secondary hover:text-white transition-colors duration-300"
+                                    >
+                                        <item.icon className="w-4 h-4" />
+                                    </motion.a>
+                                ))}
+                            </div>
+                        </motion.div>
                     </div>
-                </motion.div>
 
-                <div id="contact" className="pt-8 flex flex-col md:flex-row justify-between items-start md:items-center gap-8 text-[12px] font-medium text-secondary border-t border-white/5">
-                    <div className="space-y-4">
-                        <div className="flex items-center gap-2">
-                            <Image
-                                src="/logo.png"
-                                alt="Nexora Logo"
-                                width={100}
-                                height={28}
-                                className="h-6 w-auto brightness-200"
-                            />
+                    {/* Links Grid */}
+                    <div className="lg:col-span-7 grid grid-cols-2 md:grid-cols-3 gap-12">
+                        <div className="space-y-6">
+                            <h4 className="text-white font-bold text-sm uppercase tracking-widest">Services</h4>
+                            <div className="flex flex-col gap-4 text-secondary text-sm font-medium">
+                                <Link href="#" className="hover:text-white transition-colors">Web Development</Link>
+                                <Link href="#" className="hover:text-white transition-colors">UI/UX Design</Link>
+                                <Link href="#" className="hover:text-white transition-colors">Brand Identity</Link>
+                                <Link href="#" className="hover:text-white transition-colors">Performance</Link>
+                            </div>
                         </div>
-                        <p className="max-w-[200px] leading-relaxed">
-                            Web Development & <br />
-                            Digital Solutions Company
-                        </p>
-                    </div>
 
-                    <div className="flex flex-col md:flex-row items-start md:items-center gap-8 md:gap-12">
-                        <div className="flex flex-col gap-3">
-                            <span className="text-white">Navigation</span>
-                            <div className="flex flex-col gap-2">
-                                <Link href="#" className="hover:text-white transition-colors">About</Link>
-                                <Link href="#" className="hover:text-white transition-colors">Services</Link>
+                        <div className="space-y-6">
+                            <h4 className="text-white font-bold text-sm uppercase tracking-widest">Company</h4>
+                            <div className="flex flex-col gap-4 text-secondary text-sm font-medium">
+                                <Link href="#" className="hover:text-white transition-colors">About Us</Link>
                                 <Link href="#" className="hover:text-white transition-colors">Work</Link>
-                                <Link href="#" className="hover:text-white transition-colors">Contact</Link>
+                                <Link href="#" className="hover:text-white transition-colors">Process</Link>
+                                <Link href="#" className="hover:text-white transition-colors">Join Us</Link>
                             </div>
                         </div>
-                        <div className="flex flex-col gap-3">
-                            <span className="text-white">Contact</span>
-                            <div className="flex flex-col gap-2">
-                                <span className="hover:text-white transition-colors cursor-pointer">contact@nexora.tech</span>
-                                <span className="text-accent">© 2026 Nexora</span>
+
+                        <div className="space-y-6 col-span-2 md:col-span-1">
+                            <h4 className="text-white font-bold text-sm uppercase tracking-widest">Contact</h4>
+                            <div className="flex flex-col gap-4 text-secondary text-sm font-medium">
+                                <a href="mailto:contact@nexoraweb.tech" className="flex items-center gap-2 hover:text-white transition-colors">
+                                    <Mail className="w-3.5 h-3.5" />
+                                    <span>contact@nexoraweb.tech</span>
+                                </a>
+                                <div className="flex items-start gap-2">
+                                    <MapPin className="w-3.5 h-3.5 mt-0.5 shrink-0" />
+                                    <span>Global·Remote Engineering</span>
+                                </div>
+                                <div className="pt-2">
+                                    <button className="text-accent font-bold hover:underline inline-flex items-center gap-1 group">
+                                        Book a call
+                                        <ArrowRight className="w-3 h-3 group-hover:translate-x-1 transition-transform" />
+                                    </button>
+                                </div>
                             </div>
                         </div>
+                    </div>
+                </div>
+
+                {/* Bottom Bar */}
+                <div className="pt-12 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-6 px-4 md:px-0">
+                    <p className="text-secondary/60 text-[12px] font-medium tracking-wide">
+                        © 2026 NEXORA AGENCY. ALL RIGHTS RESERVED.
+                    </p>
+                    <div className="flex items-center gap-8 text-[12px] font-medium text-secondary/60 tracking-wide">
+                        <Link href="#" className="hover:text-white transition-colors">PRIVACY POLICY</Link>
+                        <Link href="#" className="hover:text-white transition-colors">TERMS OF SERVICE</Link>
                     </div>
                 </div>
             </div>
