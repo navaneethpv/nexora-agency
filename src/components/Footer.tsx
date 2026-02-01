@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 
@@ -33,7 +34,13 @@ export default function Footer() {
                 <div id="contact" className="pt-8 flex flex-col md:flex-row justify-between items-start md:items-center gap-8 text-[12px] font-medium text-secondary border-t border-white/5">
                     <div className="space-y-4">
                         <div className="flex items-center gap-2">
-                            <span className="text-white font-bold text-sm tracking-tight">Nexora</span>
+                            <Image
+                                src="/logo.png"
+                                alt="Nexora Logo"
+                                width={100}
+                                height={28}
+                                className="h-6 w-auto brightness-200"
+                            />
                         </div>
                         <p className="max-w-[200px] leading-relaxed">
                             Web Development & <br />

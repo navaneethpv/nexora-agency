@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
@@ -24,8 +25,14 @@ export default function Navbar() {
                 className="glass-pill rounded-full p-2 flex items-center justify-between w-full"
             >
                 <div className="flex items-center gap-12 pl-6 pr-1 w-full justify-between">
-                    <Link href="/" className="text-xl font-bold tracking-tight text-white hover:opacity-80 transition-opacity whitespace-nowrap">
-                        Nexora
+                    <Link href="/" className="hover:opacity-80 transition-opacity whitespace-nowrap">
+                        <Image
+                            src="/logo.png"
+                            alt="Nexora Logo"
+                            width={120}
+                            height={34}
+                            className="h-8 w-auto brightness-200"
+                        />
                     </Link>
 
                     <div className="hidden md:flex items-center gap-10 text-sm font-bold text-secondary">

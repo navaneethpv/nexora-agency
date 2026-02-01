@@ -11,11 +11,9 @@ import FAQ from "@/components/FAQ";
 import Footer from "@/components/Footer";
 import Image from "next/image";
 import { ExternalLink } from "lucide-react";
-import { FaReact } from "react-icons/fa";
-import { RiNextjsFill } from "react-icons/ri";
-import { SiTypescript } from "react-icons/si";
-import { FaNodeJs } from "react-icons/fa";
-import { RiTailwindCssFill } from "react-icons/ri";
+import { FaReact, FaNodeJs, FaFigma } from "react-icons/fa";
+import { RiNextjsFill, RiTailwindCssFill } from "react-icons/ri";
+import { SiTypescript, SiAdobephotoshop, SiExpress, SiMongodb } from "react-icons/si";
 
 
 const techStack = [
@@ -24,6 +22,10 @@ const techStack = [
   { name: "React", icon: FaReact },
   { name: "Node.js", icon: FaNodeJs },
   { name: "Tailwind", icon: RiTailwindCssFill },
+  { name: "Photoshop", icon: SiAdobephotoshop },
+  { name: "Figma", icon: FaFigma },
+  { name: "Express", icon: SiExpress },
+  { name: "MongoDB", icon: SiMongodb },
 ];
 
 const portfolio = [
@@ -53,7 +55,7 @@ export default function Home() {
       <Navbar />
       <Hero />
 
-      {/* Logo Wall / Tech Stack */}
+      {/* Logo Wall / Tech Stack - Infinite Carousel */}
       <section className="py-24 flex flex-col items-center border-t border-white/5 relative bg-white/2 overflow-hidden">
         {/* Ambient Glows */}
         <div className="absolute top-1/2 left-1/4 -translate-y-1/2 w-64 h-64 bg-accent/10 blur-[100px] rounded-full pointer-events-none" />
@@ -69,21 +71,20 @@ export default function Home() {
         </motion.p>
 
         <div className="w-full relative z-10">
-          <div className="section-container">
-            <div className="flex flex-wrap justify-center items-center gap-x-16 gap-y-12">
-              {techStack.map((tech, i) => (
-                <motion.div
+          <div className="flex overflow-hidden mask-[linear-gradient(to_right,transparent,black_10%,black_90%,transparent)]">
+            <motion.div
+              animate={{ x: "-50%" }}
+              transition={{
+                duration: 25,
+                repeat: Infinity,
+                ease: "linear"
+              }}
+              className="flex flex-nowrap gap-32 items-center shrink-0 pr-32"
+            >
+              {[...techStack, ...techStack].map((tech, i) => (
+                <div
                   key={i}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{
-                    duration: 0.8,
-                    delay: i * 0.1,
-                    ease: [0.21, 0.47, 0.32, 0.98]
-                  }}
-                  whileHover={{ y: -8, scale: 1.05 }}
-                  className="flex items-center gap-4 group cursor-pointer"
+                  className="flex items-center gap-4 group cursor-default shrink-0"
                 >
                   <div className="relative">
                     <div className="absolute inset-0 bg-accent/20 blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
@@ -95,9 +96,9 @@ export default function Home() {
                     </span>
                     <div className="h-0.5 w-0 group-hover:w-full bg-accent transition-all duration-500" />
                   </div>
-                </motion.div>
+                </div>
               ))}
-            </div>
+            </motion.div>
           </div>
         </div>
 
