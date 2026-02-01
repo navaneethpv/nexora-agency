@@ -66,7 +66,7 @@ export default function Hero() {
                     className="inline-flex items-center gap-2.5 rounded-full border border-white/10 bg-white/[0.03] px-4 py-2 text-[11px] font-bold text-white/80 mb-10 backdrop-blur-xl ring-1 ring-white/10 shadow-[0_0_20px_rgba(124,58,237,0.1)] group hover:border-accent/30 transition-colors duration-500"
                 >
                     <Sparkles className="w-3.5 h-3.5 text-accent animate-pulse" />
-                    <span className="uppercase tracking-[0.2em]">Web development & digital solutions</span>
+                    <span className="uppercase tracking-[0.2em]">WEB DEVELOPMENT & DIGITAL SOLUTIONS</span>
                 </motion.div>
 
                 <motion.h1
@@ -90,7 +90,7 @@ export default function Hero() {
                 >
                     <button className="group relative bg-accent text-white px-10 py-5 rounded-full text-base font-bold hover:brightness-110 transition-all shadow-2xl shadow-accent/40 active:scale-95 flex items-center gap-3 overflow-hidden">
                         <div className="absolute inset-0 bg-white/10 translate-y-full group-hover:translate-y-0 transition-transform duration-300" />
-                        <span className="relative">View Our Work</span>
+                        <span className="relative">View Our Work →</span>
                         <ArrowRight className="w-5 h-5 relative group-hover:translate-x-1 transition-transform duration-300" />
                     </button>
                     <button className="group relative bg-white/5 border border-white/10 text-white px-10 py-5 rounded-full text-base font-bold hover:bg-white/10 transition-all backdrop-blur-xl active:scale-95">
