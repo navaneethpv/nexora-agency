@@ -56,11 +56,19 @@ export default function Process() {
                             transition={{ duration: 0.5, delay: index * 0.15 }}
                             className="flex flex-col relative"
                         >
-                            <div className="flex items-center gap-4 mb-6">
-                                <div className="w-12 h-12 rounded-full border border-white/10 flex items-center justify-center font-bold text-accent bg-white/5 backdrop-blur-sm">
+                            <div className="flex items-center gap-4 mb-6 group">
+                                <div className="w-12 h-12 rounded-full border border-white/10 flex items-center justify-center font-bold text-accent bg-white/5 backdrop-blur-sm group-hover:border-accent/40 group-hover:bg-accent/10 transition-all duration-500">
                                     {step.number}
                                 </div>
-                                <div className="h-px flex-1 bg-white/5 lg:block hidden last:hidden" />
+                                <div className="h-px flex-1 bg-white/5 lg:block hidden last:hidden relative overflow-hidden">
+                                    <motion.div
+                                        initial={{ x: "-100%" }}
+                                        whileInView={{ x: "100%" }}
+                                        viewport={{ once: true }}
+                                        transition={{ duration: 1.5, delay: index * 0.2 + 0.5, ease: "easeInOut" }}
+                                        className="absolute inset-0 bg-accent/30"
+                                    />
+                                </div>
                             </div>
 
                             <div className="text-accent mb-4 scale-110">

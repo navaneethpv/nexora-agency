@@ -52,7 +52,7 @@ export default function WhyNexora() {
                                 </div>
                             </div>
 
-                            <div className="bg-black/40 backdrop-blur-xl border border-white/5 p-8 rounded-[2rem] w-full md:w-[320px] flex flex-col items-center justify-center text-center">
+                            <div className="bg-black/40 backdrop-blur-xl border border-white/5 p-8 rounded-4xl w-full md:w-[320px] flex flex-col items-center justify-center text-center">
                                 <h4 className="text-xl font-bold mb-2">Ready to scale?</h4>
                                 <p className="text-sm text-secondary mb-8">Let's discuss your technical needs.</p>
 

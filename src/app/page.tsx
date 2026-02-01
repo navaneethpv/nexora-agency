@@ -71,7 +71,7 @@ export default function Home() {
         </motion.p>
 
         <div className="w-full relative z-10">
-          <div className="flex overflow-hidden mask-[linear-gradient(to_right,transparent,black_10%,black_90%,transparent)]">
+          <div className="flex overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_10%,black_90%,transparent)]">
             <motion.div
               animate={{ x: "-50%" }}
               transition={{
@@ -82,21 +82,25 @@ export default function Home() {
               className="flex flex-nowrap gap-32 items-center shrink-0 pr-32"
             >
               {[...techStack, ...techStack].map((tech, i) => (
-                <div
+                <motion.div
                   key={i}
-                  className="flex items-center gap-4 group cursor-default shrink-0"
+                  whileHover={{ y: -8, scale: 1.05 }}
+                  className="flex items-center gap-4 group cursor-default shrink-0 transition-transform duration-300"
                 >
                   <div className="relative">
-                    <div className="absolute inset-0 bg-accent/20 blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                    <tech.icon className="w-8 h-8 text-white/40 group-hover:text-white transition-all duration-500 relative z-10" />
+                    <div className="absolute inset-0 bg-accent/30 blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                    <tech.icon className="w-10 h-10 text-white/30 group-hover:text-white transition-all duration-500 relative z-10" />
                   </div>
                   <div className="flex flex-col">
-                    <span className="text-lg font-bold tracking-tight text-white/50 group-hover:text-white transition-colors duration-300">
+                    <span className="text-xl font-bold tracking-tight text-white/40 group-hover:text-white transition-colors duration-300">
                       {tech.name}
                     </span>
-                    <div className="h-0.5 w-0 group-hover:w-full bg-accent transition-all duration-500" />
+                    <motion.div
+                      className="h-0.5 w-0 group-hover:w-full bg-accent transition-all duration-500"
+                      layoutId={`underline-${i}`}
+                    />
                   </div>
-                </div>
+                </motion.div>
               ))}
             </motion.div>
           </div>
@@ -132,7 +136,7 @@ export default function Home() {
                 transition={{ duration: 0.7, delay: i * 0.15 }}
                 className="group cursor-pointer"
               >
-                <div className="relative aspect-4/3 bg-white/5 rounded-[2.5rem] border border-white/5 overflow-hidden mb-8 group ring-1 ring-white/0 hover:ring-accent/30 transition-all duration-500">
+                <div className="relative aspect-4/3 bg-white/5 rounded-4xl border border-white/5 overflow-hidden mb-8 group ring-1 ring-white/0 hover:ring-accent/30 transition-all duration-500">
                   <Image
                     src={item.image}
                     alt={item.title}

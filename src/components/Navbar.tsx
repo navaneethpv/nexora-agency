@@ -17,21 +17,21 @@ export default function Navbar() {
     }, []);
 
     return (
-        <nav className="fixed top-8 left-1/2 -translate-x-1/2 z-50 w-full max-w-3xl px-6">
+        <nav className="fixed top-8 left-1/2 -translate-x-1/2 z-50 w-full max-w-[80%] px-6">
             <motion.div
                 initial={{ y: -20, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
                 transition={{ duration: 0.5 }}
-                className="glass-pill rounded-full p-2 flex items-center justify-between w-full"
+                className="glass-pill rounded-full p-2.5 flex items-center justify-between w-full"
             >
-                <div className="flex items-center gap-12 pl-6 pr-1 w-full justify-between">
+                <div className="flex items-center gap-16 pl-10 pr-2 w-full justify-between">
                     <Link href="/" className="hover:opacity-80 transition-opacity whitespace-nowrap">
                         <Image
                             src="/logo.png"
                             alt="Nexora Logo"
-                            width={120}
-                            height={34}
-                            className="h-8 w-auto brightness-200"
+                            width={240}
+                            height={60}
+                            className="h-14 w-auto brightness-200"
                         />
                     </Link>
 

@@ -4,71 +4,115 @@ import { motion } from "framer-motion";
 import { ArrowRight, Sparkles } from "lucide-react";
 
 export default function Hero() {
+    const containerVariants: any = {
+        hidden: { opacity: 0 },
+        visible: {
+            opacity: 1,
+            transition: {
+                staggerChildren: 0.15,
+                delayChildren: 0.2
+            }
+        }
+    };
+
+    const itemVariants: any = {
+        hidden: { opacity: 0, y: 30 },
+        visible: {
+            opacity: 1,
+            y: 0,
+            transition: {
+                duration: 0.8,
+                ease: [0.21, 0.47, 0.32, 0.98]
+            }
+        }
+    };
+
     return (
-        <section className="relative pt-32 pb-16 md:pt-40 md:pb-24 flex flex-col items-center text-center px-6 overflow-hidden">
-            {/* Background Glows */}
-            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full -z-10 pointer-events-none">
-                <motion.div
-                    animate={{
-                        scale: [1, 1.1, 1],
-                        opacity: [0.3, 0.5, 0.3]
-                    }}
-                    transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-                    className="absolute top-[-20%] left-[-10%] w-[60%] h-[60%] bg-accent/20 blur-[120px] rounded-full"
-                />
+        <section className="relative pt-40 pb-24 md:pt-48 md:pb-32 flex flex-col items-center text-center px-6 overflow-hidden">
+            {/* Background Glows & Orbs */}
+            <div className="absolute inset-0 -z-10 overflow-hidden pointer-events-none">
                 <motion.div
                     animate={{
                         scale: [1, 1.2, 1],
-                        opacity: [0.2, 0.4, 0.2]
+                        x: [0, 50, 0],
+                        y: [0, 30, 0],
                     }}
-                    transition={{ duration: 10, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-                    className="absolute top-[-10%] right-[-10%] w-[50%] h-[50%] bg-blue-500/10 blur-[100px] rounded-full"
+                    transition={{ duration: 15, repeat: Infinity, ease: "easeInOut" }}
+                    className="absolute top-[-20%] left-[-10%] w-[70vw] h-[70vw] bg-accent/15 blur-[140px] rounded-full opacity-60"
+                />
+                <motion.div
+                    animate={{
+                        scale: [1.2, 1, 1.2],
+                        x: [0, -40, 0],
+                        y: [0, -50, 0],
+                    }}
+                    transition={{ duration: 20, repeat: Infinity, ease: "easeInOut" }}
+                    className="absolute bottom-[-20%] right-[-10%] w-[60vw] h-[60vw] bg-blue-500/10 blur-[140px] rounded-full opacity-40"
                 />
             </div>
 
             <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5 }}
-                className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-1.5 text-[11px] font-semibold text-white/80 mb-8 backdrop-blur-sm"
+                variants={containerVariants}
+                initial="hidden"
+                animate="visible"
+                className="relative z-10 flex flex-col items-center"
             >
-                <Sparkles className="w-3.5 h-3.5 text-accent animate-pulse" />
-                <span>Web Development & Digital Solutions</span>
+                <motion.div
+                    variants={itemVariants}
+                    className="inline-flex items-center gap-2.5 rounded-full border border-white/10 bg-white/[0.03] px-4 py-2 text-[11px] font-bold text-white/80 mb-10 backdrop-blur-xl ring-1 ring-white/10 shadow-[0_0_20px_rgba(124,58,237,0.1)] group hover:border-accent/30 transition-colors duration-500"
+                >
+                    <Sparkles className="w-3.5 h-3.5 text-accent animate-pulse" />
+                    <span className="uppercase tracking-[0.2em]">Web development & digital solutions</span>
+                </motion.div>
+
+                <motion.h1
+                    variants={itemVariants}
+                    className="max-w-5xl text-6xl md:text-7xl lg:text-8xl font-bold tracking-tight mb-8 leading-[1.02]"
+                >
+                    Modern Web Solutions for <br />
+                    <span className="italic font-medium text-accent text-glow bg-clip-text text-transparent bg-linear-to-b from-accent to-accent/60">Growing Teams</span>
+                </motion.h1>
+
+                <motion.p
+                    variants={itemVariants}
+                    className="max-w-2xl text-lg md:text-xl text-secondary mb-12 leading-relaxed font-medium opacity-90"
+                >
+                    Nexora builds clean, scalable, and performance-focused websites and web applications for businesses and institutions.
+                </motion.p>
+
+                <motion.div
+                    variants={itemVariants}
+                    className="flex flex-col sm:flex-row gap-5 justify-center items-center"
+                >
+                    <button className="group relative bg-accent text-white px-10 py-5 rounded-full text-base font-bold hover:brightness-110 transition-all shadow-2xl shadow-accent/40 active:scale-95 flex items-center gap-3 overflow-hidden">
+                        <div className="absolute inset-0 bg-white/10 translate-y-full group-hover:translate-y-0 transition-transform duration-300" />
+                        <span className="relative">View Our Work</span>
+                        <ArrowRight className="w-5 h-5 relative group-hover:translate-x-1 transition-transform duration-300" />
+                    </button>
+                    <button className="group relative bg-white/5 border border-white/10 text-white px-10 py-5 rounded-full text-base font-bold hover:bg-white/10 transition-all backdrop-blur-xl active:scale-95">
+                        <div className="absolute inset-0 bg-white/5 opacity-0 group-hover:opacity-100 transition-opacity rounded-full shadow-[0_0_20px_rgba(255,255,255,0.05)]" />
+                        <span className="relative">Get in Touch</span>
+                    </button>
+                </motion.div>
             </motion.div>
 
-            <motion.h1
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.1 }}
-                className="max-w-4xl text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight mb-8 leading-[1.05]"
-            >
-                Modern Web Solutions for <br />
-                <span className="italic font-medium text-accent text-glow">Growing Teams</span>
-            </motion.h1>
-
-            <motion.p
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.2 }}
-                className="max-w-2xl text-lg text-secondary mb-10 leading-relaxed font-medium"
-            >
-                Nexora builds clean, scalable, and performance-focused websites and web applications for businesses and institutions.
-            </motion.p>
-
+            {/* Subtle floating decorative elements */}
             <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.3 }}
-                className="flex flex-col sm:flex-row gap-4 justify-center items-center"
-            >
-                <button className="group bg-accent text-white px-8 py-4 rounded-full text-base font-bold hover:brightness-110 transition-all shadow-lg shadow-accent/25 flex items-center gap-2">
-                    View Our Work
-                    <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                </button>
-                <button className="bg-white/5 border border-white/10 text-white px-8 py-4 rounded-full text-base font-bold hover:bg-white/10 transition-all backdrop-blur-md">
-                    Get in Touch
-                </button>
-            </motion.div>
+                animate={{
+                    y: [0, -20, 0],
+                    rotate: [0, 5, 0]
+                }}
+                transition={{ duration: 7, repeat: Infinity, ease: "easeInOut" }}
+                className="absolute top-1/4 left-10 w-4 h-4 rounded bg-accent/20 blur-sm md:block hidden"
+            />
+            <motion.div
+                animate={{
+                    y: [0, 20, 0],
+                    rotate: [0, -5, 0]
+                }}
+                transition={{ duration: 9, repeat: Infinity, ease: "easeInOut" }}
+                className="absolute bottom-1/4 right-10 w-6 h-6 rounded-full bg-blue-500/20 blur-sm md:block hidden"
+            />
         </section>
     );
 }
