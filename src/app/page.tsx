@@ -10,14 +10,20 @@ import WhyNexora from "@/components/Pricing";
 import FAQ from "@/components/FAQ";
 import Footer from "@/components/Footer";
 import Image from "next/image";
-import { ExternalLink, Layers, Terminal, Cpu, Database, Palette } from "lucide-react";
+import { ExternalLink } from "lucide-react";
+import { FaReact } from "react-icons/fa";
+import { RiNextjsFill } from "react-icons/ri";
+import { SiTypescript } from "react-icons/si";
+import { FaNodeJs } from "react-icons/fa";
+import { RiTailwindCssFill } from "react-icons/ri";
+
 
 const techStack = [
-  { name: "Next.js", icon: Layers },
-  { name: "TypeScript", icon: Terminal },
-  { name: "React", icon: Cpu },
-  { name: "Node.js", icon: Database },
-  { name: "Tailwind", icon: Palette },
+  { name: "Next.js", icon: RiNextjsFill },
+  { name: "TypeScript", icon: SiTypescript },
+  { name: "React", icon: FaReact },
+  { name: "Node.js", icon: FaNodeJs },
+  { name: "Tailwind", icon: RiTailwindCssFill },
 ];
 
 const portfolio = [
