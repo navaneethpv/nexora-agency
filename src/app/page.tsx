@@ -1,3 +1,6 @@
+"use client";
+
+import { motion } from "framer-motion";
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import Process from "@/components/Process";
@@ -7,13 +10,14 @@ import WhyNexora from "@/components/Pricing";
 import FAQ from "@/components/FAQ";
 import Footer from "@/components/Footer";
 import Image from "next/image";
+import { ExternalLink, Layers, Terminal, Cpu, Database, Palette } from "lucide-react";
 
-const logos = [
-  { name: "Logoipsum", text: "Logoipsum" },
-  { name: "LOQQ", text: "LOQQ" },
-  { name: "IPSUM", text: "IPSUM" },
-  { name: "Chain", text: "CHAIN" },
-  { name: "Nexora", text: "NEXORA" },
+const techStack = [
+  { name: "Next.js", icon: Layers },
+  { name: "TypeScript", icon: Terminal },
+  { name: "React", icon: Cpu },
+  { name: "Node.js", icon: Database },
+  { name: "Tailwind", icon: Palette },
 ];
 
 const portfolio = [
@@ -44,17 +48,29 @@ export default function Home() {
       <Hero />
 
       {/* Logo Wall */}
-      <section className="py-16 flex flex-col items-center border-t border-white/5">
-        <p className="text-[10px] font-medium text-secondary uppercase tracking-[0.2em] mb-10">
+      <section className="py-20 flex flex-col items-center border-t border-white/5 relative bg-white/1">
+        <motion.p
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          className="text-[11px] font-bold text-secondary uppercase tracking-[0.3em] mb-12 opacity-80"
+        >
           Built with cutting-edge Technologies
-        </p>
+        </motion.p>
         <div className="section-container">
-          <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-y-12 gap-x-12 opacity-40 grayscale items-center justify-items-center">
-            {["Next.js", "TypeScript", "React", "Node.js", "Tailwind"].map((tech, i) => (
-              <div key={i} className="flex items-center gap-2">
-                <div className="h-4 w-4 rounded-sm bg-white/20" />
-                <span className="text-sm font-bold tracking-tighter">{tech}</span>
-              </div>
+          <div className="flex flex-wrap justify-center items-center gap-x-12 gap-y-10 opacity-30 grayscale hover:grayscale-0 hover:opacity-100 transition-all duration-700 ease-in-out">
+            {techStack.map((tech, i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, scale: 0.9 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.1 }}
+                className="flex items-center gap-3 group cursor-default"
+              >
+                <tech.icon className="w-5 h-5 text-white/50 group-hover:text-accent transition-colors" />
+                <span className="text-base font-bold tracking-tight text-white/80 group-hover:text-white transition-colors">{tech.name}</span>
+              </motion.div>
             ))}
           </div>
         </div>
@@ -64,30 +80,48 @@ export default function Home() {
       <Testimonial />
 
       {/* Portfolio Section */}
-      <section id="work" className="py-20 bg-white/1">
+      <section id="work" className="py-28 bg-white/1 relative">
         <div className="section-container">
-          <div className="max-w-xl mb-12">
-            <h2 className="text-3xl font-bold mb-4">Selected Work</h2>
-            <p className="text-secondary text-base">Interface details and clean layouts designed for usability and speed.</p>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="max-w-xl mb-16"
+          >
+            <h2 className="text-4xl md:text-5xl font-bold mb-6">Selected Work</h2>
+            <p className="text-secondary text-lg font-medium">Interface details and clean layouts designed for usability and speed.</p>
+          </motion.div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {portfolio.map((item, i) => (
-              <div key={i} className="group cursor-pointer">
-                <div className="relative aspect-4/3 bg-white/5 rounded-3xl border border-white/5 overflow-hidden mb-6 group">
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-50px" }}
+                transition={{ duration: 0.7, delay: i * 0.15 }}
+                className="group cursor-pointer"
+              >
+                <div className="relative aspect-4/3 bg-white/5 rounded-[2.5rem] border border-white/5 overflow-hidden mb-8 group ring-1 ring-white/0 hover:ring-accent/30 transition-all duration-500">
                   <Image
                     src={item.image}
                     alt={item.title}
                     fill
-                    className="object-cover group-hover:scale-105 transition-transform duration-500"
+                    className="object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700"
                   />
-                  <div className="absolute inset-0 bg-linear-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+                  <div className="absolute inset-0 bg-linear-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end p-8">
+                    <div className="bg-white/10 backdrop-blur-xl border border-white/10 p-4 rounded-2xl w-full flex justify-between items-center transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
+                      <span className="text-white font-bold text-sm">View Case Study</span>
+                      <ExternalLink className="w-4 h-4 text-white" />
+                    </div>
+                  </div>
                 </div>
-                <div className="space-y-2">
-                  <p className="text-xs font-semibold text-accent uppercase tracking-wider">{item.category}</p>
-                  <h3 className="text-lg font-bold leading-snug group-hover:text-white/90 transition-colors">{item.title}</h3>
-                  <p className="text-sm text-secondary leading-relaxed line-clamp-2">{item.description}</p>
+                <div className="space-y-3 px-2">
+                  <p className="text-xs font-bold text-accent uppercase tracking-[0.2em]">{item.category}</p>
+                  <h3 className="text-2xl font-bold leading-tight group-hover:text-accent transition-colors duration-300">{item.title}</h3>
+                  <p className="text-base text-secondary leading-relaxed font-medium line-clamp-2">{item.description}</p>
                 </div>
-              </div>
+              </motion.div>
             ))}
           </div>
         </div>

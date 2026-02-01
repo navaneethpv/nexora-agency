@@ -1,6 +1,8 @@
 "use client";
 
 import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { Plus } from "lucide-react";
 
 const faqs = [
     {
@@ -27,26 +29,48 @@ export default function FAQ() {
     return (
         <section className="py-20 border-t border-white/5">
             <div className="section-container max-w-2xl">
-                <h2 className="text-3xl font-bold text-center mb-12">
-                    Commonly Asked <span className="font-serif-italic font-medium text-secondary">Questions</span>
-                </h2>
+                <motion.h2
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    className="text-3xl md:text-5xl font-bold text-center mb-16"
+                >
+                    Commonly Asked <span className="italic font-medium text-accent">Questions</span>
+                </motion.h2>
 
-                <div className="space-y-3">
+                <div className="space-y-4">
                     {faqs.map((faq, index) => (
-                        <div key={index} className="border-b border-white/5 pb-3">
+                        <motion.div
+                            key={index}
+                            initial={{ opacity: 0, y: 10 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ delay: index * 0.1 }}
+                            className="border-b border-white/5 pb-4"
+                        >
                             <button
                                 onClick={() => setOpenIndex(openIndex === index ? null : index)}
-                                className="w-full flex justify-between items-center text-left py-3 hover:opacity-70 transition-opacity"
+                                className="w-full flex justify-between items-center text-left py-4 hover:text-accent transition-colors group"
                             >
-                                <span className="text-base font-bold">{faq.question}</span>
-                                <span className={`text-xl transition-transform ${openIndex === index ? 'rotate-45' : ''}`}>+</span>
+                                <span className="text-lg font-bold">{faq.question}</span>
+                                <Plus className={`w-5 h-5 transition-transform duration-300 ${openIndex === index ? 'rotate-45 text-accent' : 'text-secondary group-hover:text-accent'}`} />
                             </button>
-                            {openIndex === index && (
-                                <div className="pb-3 text-sm text-secondary leading-relaxed animate-fade-in">
-                                    {faq.answer}
-                                </div>
-                            )}
-                        </div>
+                            <AnimatePresence>
+                                {openIndex === index && (
+                                    <motion.div
+                                        initial={{ height: 0, opacity: 0 }}
+                                        animate={{ height: "auto", opacity: 1 }}
+                                        exit={{ height: 0, opacity: 0 }}
+                                        transition={{ duration: 0.3, ease: "easeInOut" }}
+                                        className="overflow-hidden"
+                                    >
+                                        <div className="pb-4 text-base text-secondary leading-relaxed font-medium">
+                                            {faq.answer}
+                                        </div>
+                                    </motion.div>
+                                )}
+                            </AnimatePresence>
+                        </motion.div>
                     ))}
                 </div>
             </div>

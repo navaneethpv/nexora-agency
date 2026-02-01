@@ -60,7 +60,7 @@ export default function Process() {
                                 <div className="w-12 h-12 rounded-full border border-white/10 flex items-center justify-center font-bold text-accent bg-white/5 backdrop-blur-sm">
                                     {step.number}
                                 </div>
-                                <div className="h-[1px] flex-1 bg-white/5 lg:block hidden last:hidden" />
+                                <div className="h-px flex-1 bg-white/5 lg:block hidden last:hidden" />
                             </div>
 
                             <div className="text-accent mb-4 scale-110">

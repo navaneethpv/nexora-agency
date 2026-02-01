@@ -38,7 +38,7 @@ const features = [
 
 export default function FeaturesSection() {
     return (
-        <section id="services" className="py-24 bg-white/[0.01] border-y border-white/5 relative overflow-hidden">
+        <section id="services" className="py-24 bg-white/1 border-y border-white/5 relative overflow-hidden">
             <div className="section-container">
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
@@ -64,7 +64,7 @@ export default function FeaturesSection() {
                             viewport={{ once: true }}
                             transition={{ duration: 0.5, delay: index * 0.1 }}
                             whileHover={{ y: -5, borderColor: "rgba(124, 58, 237, 0.3)" }}
-                            className="glass-card p-8 rounded-[2rem] transition-all duration-300 group relative"
+                            className="glass-card p-8 rounded-4xl transition-all duration-300 group relative"
                         >
                             <div className="w-12 h-12 rounded-2xl bg-accent/10 flex items-center justify-center text-accent mb-6 group-hover:bg-accent group-hover:text-white transition-all duration-300">
                                 <feature.icon className="w-6 h-6" />
