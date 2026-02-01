@@ -27,13 +27,13 @@ export default function FAQ() {
     const [openIndex, setOpenIndex] = useState<number | null>(null);
 
     return (
-        <section className="py-20 border-t border-white/5">
+        <section className="py-16 md:py-20 border-t border-white/5 px-4 md:px-0">
             <div className="section-container max-w-2xl">
                 <motion.h2
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
-                    className="text-3xl md:text-5xl font-bold text-center mb-16"
+                    className="text-2xl sm:text-3xl md:text-5xl font-bold text-center mb-10 md:mb-16"
                 >
                     Commonly Asked <span className="italic font-medium text-accent">Questions</span>
                 </motion.h2>
@@ -50,10 +50,10 @@ export default function FAQ() {
                         >
                             <button
                                 onClick={() => setOpenIndex(openIndex === index ? null : index)}
-                                className="w-full flex justify-between items-center text-left py-4 hover:text-accent transition-colors group"
+                                className="w-full flex justify-between items-center text-left py-3 md:py-4 hover:text-accent transition-colors group"
                             >
-                                <span className="text-lg font-bold">{faq.question}</span>
-                                <Plus className={`w-5 h-5 transition-transform duration-300 ${openIndex === index ? 'rotate-45 text-accent' : 'text-secondary group-hover:text-accent'}`} />
+                                <span className="text-base md:text-lg font-bold pr-4">{faq.question}</span>
+                                <Plus className={`w-4 h-4 md:w-5 md:h-5 shrink-0 transition-transform duration-300 ${openIndex === index ? 'rotate-45 text-accent' : 'text-secondary group-hover:text-accent'}`} />
                             </button>
                             <AnimatePresence>
                                 {openIndex === index && (
@@ -64,7 +64,7 @@ export default function FAQ() {
                                         transition={{ duration: 0.3, ease: "easeInOut" }}
                                         className="overflow-hidden"
                                     >
-                                        <div className="pb-4 text-base text-secondary leading-relaxed font-medium">
+                                        <div className="pb-4 text-sm md:text-base text-secondary leading-relaxed font-medium">
                                             {faq.answer}
                                         </div>
                                     </motion.div>

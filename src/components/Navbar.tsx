@@ -26,7 +26,7 @@ export default function Navbar() {
     ];
 
     return (
-        <nav className="fixed top-8 left-1/2 -translate-x-1/2 z-50 w-full max-w-[80%] px-6">
+        <nav className="fixed top-4 md:top-8 left-1/2 -translate-x-1/2 z-50 w-full max-w-[95%] md:max-w-[80%] px-2 md:px-6">
             <motion.div
                 initial={{ y: -20, opacity: 0 }}
                 animate={{
@@ -38,9 +38,9 @@ export default function Navbar() {
                     boxShadow: scrolled ? "0 8px 32px 0 rgba(0, 0, 0, 0.8)" : "none"
                 }}
                 transition={{ duration: 0.5 }}
-                className="rounded-full p-2 flex items-center justify-between w-full border transition-all duration-500"
+                className="rounded-full p-1.5 md:p-2 flex items-center justify-between w-full border transition-all duration-500"
             >
-                <div className="flex items-center gap-16 pl-8 pr-2 w-full justify-between">
+                <div className="flex items-center gap-4 md:gap-16 pl-4 md:pl-8 pr-1 md:pr-2 w-full justify-between">
                     <Link
                         href="/"
                         onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
@@ -51,12 +51,12 @@ export default function Navbar() {
                             alt="Nexora Logo"
                             width={240}
                             height={60}
-                            className="h-14 w-auto brightness-200"
+                            className="h-8 md:h-14 w-auto brightness-200"
                         />
                     </Link>
 
                     <nav
-                        className="hidden md:flex items-center gap-2 relative px-2 py-1"
+                        className="hidden lg:flex items-center gap-2 relative px-2 py-1"
                         onMouseLeave={() => setHoveredPath(null)}
                     >
                         {navLinks.map((link, i) => (
@@ -96,7 +96,7 @@ export default function Navbar() {
                     </nav>
 
                     <div className="flex items-center">
-                        <button className="bg-accent text-white px-8 py-3 rounded-full text-sm font-bold hover:brightness-110 transition-all shadow-xl shadow-accent/30 active:scale-95 whitespace-nowrap bg-linear-to-r from-accent to-accent/80">
+                        <button className="bg-accent text-white px-5 md:px-8 py-2 md:py-3 rounded-full text-xs md:text-sm font-bold hover:brightness-110 transition-all shadow-xl shadow-accent/30 active:scale-95 whitespace-nowrap bg-linear-to-r from-accent to-accent/80">
                             Get in Touch
                         </button>
                     </div>

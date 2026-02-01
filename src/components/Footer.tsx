@@ -14,19 +14,19 @@ export default function Footer() {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.8 }}
-                    className="text-center mb-32"
+                    className="text-center mb-16 md:mb-32 px-4 md:px-0"
                 >
-                    <h2 className="text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight mb-8 leading-[1.1]">
+                    <h2 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight mb-6 md:mb-8 leading-[1.1]">
                         Let’s Build <br />
                         <span className="italic font-medium text-accent text-glow">Something Reliable</span>
                     </h2>
-                    <p className="max-w-2xl mx-auto text-lg md:text-xl text-secondary mb-12 leading-relaxed font-medium">
+                    <p className="max-w-2xl mx-auto text-base md:text-lg text-secondary mb-10 md:mb-12 leading-relaxed font-medium">
                         If you’re looking for a dependable team to design and build your next digital product, Nexora is ready to help.
                     </p>
                     <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                        <button className="group bg-accent text-white px-10 py-5 rounded-full text-base font-bold hover:brightness-110 transition-all shadow-xl shadow-accent/30 flex items-center gap-3">
+                        <button className="group bg-accent text-white px-8 md:px-10 py-4 md:py-5 rounded-full text-sm md:text-base font-bold hover:brightness-110 transition-all shadow-xl shadow-accent/30 flex items-center justify-center gap-3">
                             Contact Nexora
-                            <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                            <ArrowRight className="w-4 h-4 md:w-5 md:h-5 group-hover:translate-x-1 transition-transform" />
                         </button>
                     </div>
                 </motion.div>

@@ -43,7 +43,7 @@ export default function Hero() {
     return (
         <section
             ref={containerRef}
-            className="relative pt-40 pb-24 md:pt-48 md:pb-32 flex flex-col items-center text-center px-6 overflow-hidden"
+            className="relative pt-32 pb-20 md:pt-48 md:pb-32 flex flex-col items-center text-center px-6 overflow-hidden"
         >
             <HeroBackground3D />
             {/* Background Glows & Orbs */}
@@ -58,7 +58,7 @@ export default function Hero() {
                         y: [0, 30, 0],
                     }}
                     transition={{ duration: 15, repeat: Infinity, ease: "easeInOut" }}
-                    className="absolute top-[-20%] left-[-10%] w-[70vw] h-[70vw] bg-accent/15 blur-[140px] rounded-full opacity-60"
+                    className="absolute top-[-20%] left-[-10%] w-[100vw] md:w-[70vw] h-[100vw] md:h-[70vw] bg-accent/15 blur-[80px] md:blur-[140px] rounded-full opacity-60"
                 />
                 <motion.div
                     animate={{
@@ -67,7 +67,7 @@ export default function Hero() {
                         y: [0, -50, 0],
                     }}
                     transition={{ duration: 20, repeat: Infinity, ease: "easeInOut" }}
-                    className="absolute bottom-[-20%] right-[-10%] w-[60vw] h-[60vw] bg-blue-500/10 blur-[140px] rounded-full opacity-40"
+                    className="absolute bottom-[-20%] right-[-10%] w-[90vw] md:w-[60vw] h-[90vw] md:h-[60vw] bg-blue-500/10 blur-[80px] md:blur-[140px] rounded-full opacity-40"
                 />
             </motion.div>
 
@@ -80,7 +80,7 @@ export default function Hero() {
             >
                 <motion.div
                     variants={itemVariants}
-                    className="inline-flex items-center gap-2.5 rounded-full border border-white/10 bg-white/[0.03] px-4 py-2 text-[11px] font-bold text-white/80 mb-10 backdrop-blur-xl ring-1 ring-white/10 shadow-[0_0_20px_rgba(124,58,237,0.1)] group hover:border-accent/30 transition-colors duration-500"
+                    className="inline-flex items-center gap-2.5 rounded-full border border-white/10 bg-white/[0.03] px-4 py-2 text-[10px] md:text-[11px] font-bold text-white/80 mb-6 md:mb-10 backdrop-blur-xl ring-1 ring-white/10 shadow-[0_0_20px_rgba(124,58,237,0.1)] group hover:border-accent/30 transition-colors duration-500"
                 >
                     <Sparkles className="w-3.5 h-3.5 text-accent animate-pulse" />
                     <span className="uppercase tracking-[0.2em]">WEB DEVELOPMENT & DIGITAL SOLUTIONS</span>
@@ -88,7 +88,7 @@ export default function Hero() {
 
                 <motion.h1
                     variants={itemVariants}
-                    className="max-w-5xl text-6xl md:text-7xl lg:text-8xl font-bold tracking-tight mb-8 leading-[1.02]"
+                    className="max-w-5xl text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-bold tracking-tight mb-6 md:mb-8 leading-[1.1] md:leading-[1.02]"
                 >
                     Modern Web Solutions for <br />
                     <span className="italic font-medium text-accent text-glow bg-clip-text text-transparent bg-linear-to-b from-accent to-accent/60">Growing Teams</span>
@@ -96,21 +96,21 @@ export default function Hero() {
 
                 <motion.p
                     variants={itemVariants}
-                    className="max-w-2xl text-lg md:text-xl text-secondary mb-12 leading-relaxed font-medium opacity-90"
+                    className="max-w-2xl text-base md:text-xl text-secondary mb-10 md:mb-12 leading-relaxed font-medium opacity-90"
                 >
                     Nexora builds clean, scalable, and performance-focused websites and web applications for businesses and institutions.
                 </motion.p>
 
                 <motion.div
                     variants={itemVariants}
-                    className="flex flex-col sm:flex-row gap-5 justify-center items-center"
+                    className="flex flex-col sm:flex-row gap-4 md:gap-5 justify-center items-center w-full sm:w-auto px-4 sm:px-0"
                 >
-                    <button className="group relative bg-accent text-white px-10 py-5 rounded-full text-base font-bold hover:brightness-110 transition-all shadow-2xl shadow-accent/40 active:scale-95 flex items-center gap-3 overflow-hidden">
+                    <button className="w-full sm:w-auto group relative bg-accent text-white px-8 md:px-10 py-4 md:py-5 rounded-full text-sm md:text-base font-bold hover:brightness-110 transition-all shadow-2xl shadow-accent/40 active:scale-95 flex items-center justify-center gap-3 overflow-hidden">
                         <div className="absolute inset-0 bg-white/10 translate-y-full group-hover:translate-y-0 transition-transform duration-300" />
                         <span className="relative">View Our Work →</span>
-                        <ArrowRight className="w-5 h-5 relative group-hover:translate-x-1 transition-transform duration-300" />
+                        <ArrowRight className="w-4 h-4 md:w-5 md:h-5 relative group-hover:translate-x-1 transition-transform duration-300" />
                     </button>
-                    <button className="group relative bg-white/5 border border-white/10 text-white px-10 py-5 rounded-full text-base font-bold hover:bg-white/10 transition-all backdrop-blur-xl active:scale-95">
+                    <button className="w-full sm:w-auto group relative bg-white/5 border border-white/10 text-white px-8 md:px-10 py-4 md:py-5 rounded-full text-sm md:text-base font-bold hover:bg-white/10 transition-all backdrop-blur-xl active:scale-95">
                         <div className="absolute inset-0 bg-white/5 opacity-0 group-hover:opacity-100 transition-opacity rounded-full shadow-[0_0_20px_rgba(255,255,255,0.05)]" />
                         <span className="relative">Get in Touch</span>
                     </button>
