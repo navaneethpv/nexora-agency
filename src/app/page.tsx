@@ -53,33 +53,56 @@ export default function Home() {
       <Navbar />
       <Hero />
 
-      {/* Logo Wall */}
-      <section className="py-20 flex flex-col items-center border-t border-white/5 relative bg-white/1">
+      {/* Logo Wall / Tech Stack */}
+      <section className="py-24 flex flex-col items-center border-t border-white/5 relative bg-white/2 overflow-hidden">
+        {/* Ambient Glows */}
+        <div className="absolute top-1/2 left-1/4 -translate-y-1/2 w-64 h-64 bg-accent/10 blur-[100px] rounded-full pointer-events-none" />
+        <div className="absolute top-1/2 right-1/4 -translate-y-1/2 w-64 h-64 bg-blue-500/10 blur-[100px] rounded-full pointer-events-none" />
+
         <motion.p
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
+          initial={{ opacity: 0, y: 10 }}
+          whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-[11px] font-bold text-secondary uppercase tracking-[0.3em] mb-12 opacity-80"
+          className="text-[11px] font-bold text-secondary uppercase tracking-[0.4em] mb-16 relative z-10"
         >
           Built with cutting-edge Technologies
         </motion.p>
-        <div className="section-container">
-          <div className="flex flex-wrap justify-center items-center gap-x-12 gap-y-10 opacity-30 grayscale hover:grayscale-0 hover:opacity-100 transition-all duration-700 ease-in-out">
-            {techStack.map((tech, i) => (
-              <motion.div
-                key={i}
-                initial={{ opacity: 0, scale: 0.9 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.1 }}
-                className="flex items-center gap-3 group cursor-default"
-              >
-                <tech.icon className="w-5 h-5 text-white/50 group-hover:text-accent transition-colors" />
-                <span className="text-base font-bold tracking-tight text-white/80 group-hover:text-white transition-colors">{tech.name}</span>
-              </motion.div>
-            ))}
+
+        <div className="w-full relative z-10">
+          <div className="section-container">
+            <div className="flex flex-wrap justify-center items-center gap-x-16 gap-y-12">
+              {techStack.map((tech, i) => (
+                <motion.div
+                  key={i}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{
+                    duration: 0.8,
+                    delay: i * 0.1,
+                    ease: [0.21, 0.47, 0.32, 0.98]
+                  }}
+                  whileHover={{ y: -8, scale: 1.05 }}
+                  className="flex items-center gap-4 group cursor-pointer"
+                >
+                  <div className="relative">
+                    <div className="absolute inset-0 bg-accent/20 blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                    <tech.icon className="w-8 h-8 text-white/40 group-hover:text-white transition-all duration-500 relative z-10" />
+                  </div>
+                  <div className="flex flex-col">
+                    <span className="text-lg font-bold tracking-tight text-white/50 group-hover:text-white transition-colors duration-300">
+                      {tech.name}
+                    </span>
+                    <div className="h-0.5 w-0 group-hover:w-full bg-accent transition-all duration-500" />
+                  </div>
+                </motion.div>
+              ))}
+            </div>
           </div>
         </div>
+
+        {/* Subtle Decorative Line */}
+        <div className="absolute bottom-0 left-0 w-full h-px bg-linear-to-r from-transparent via-white/5 to-transparent" />
       </section>
 
       <Process />
