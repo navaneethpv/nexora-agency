@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { ArrowRight, Sparkles } from "lucide-react";
+import HeroBackground3D from "./HeroBackground3D";
 
 export default function Hero() {
     const containerVariants: any = {
@@ -29,6 +30,7 @@ export default function Hero() {
 
     return (
         <section className="relative pt-40 pb-24 md:pt-48 md:pb-32 flex flex-col items-center text-center px-6 overflow-hidden">
+            <HeroBackground3D />
             {/* Background Glows & Orbs */}
             <div className="absolute inset-0 -z-10 overflow-hidden pointer-events-none">
                 <motion.div
