@@ -124,7 +124,7 @@ export default function Hero() {
                     className="max-w-5xl text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-bold tracking-tight mb-4 md:mb-8 leading-[1.1] md:leading-[1.02]"
                 >
                     Modern Web Solutions for <br />
-                    <span className="italic font-medium text-accent text-glow bg-clip-text text-transparent bg-linear-to-b from-accent to-accent/60 min-h-[1.1em] inline-block">
+                    <span className="font-medium text-accent text-glow bg-clip-text text-transparent bg-linear-to-b from-accent to-accent/60 min-h-[1.1em] inline-block text-3xl sm:text-5xl md:text-6xl lg:text-7xl">
                         {currentText}
                         <span className="inline-block w-[2px] h-[0.9em] bg-accent ml-1 animate-[pulse_1s_infinite] align-middle">|</span>
                     </span>
