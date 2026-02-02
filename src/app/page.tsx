@@ -86,7 +86,7 @@ export default function Home() {
                 {[...techStack, ...techStack].map((tech, i) => (
                   <motion.div
                     key={i}
-                    whileHover={{ y: -8, scale: 1.05 }}
+                    whileHover={{ y: 0, scale: 1 }}
                     className="flex items-center gap-2 md:gap-4 group cursor-default shrink-0 transition-transform duration-300"
                   >
                     <div className="relative">
