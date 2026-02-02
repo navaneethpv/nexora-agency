@@ -203,12 +203,12 @@ export default function Home() {
                   {/* Narrative Block */}
                   <div className="w-full lg:w-[38%] space-y-8">
                     <div className="space-y-4">
-                      <div className="flex items-center gap-4 text-accent/50 font-bold text-sm tracking-widest uppercase">
+                      <div className="flex items-center gap-4 text-accent font-bold text-sm tracking-widest uppercase group-hover:text-white transition-colors duration-500">
                         <span>0{i + 1}</span>
-                        <div className="h-px w-8 bg-accent/20" />
+                        <div className="h-px w-8 bg-current opacity-20" />
                         <span>CASE STUDY</span>
                       </div>
-                      <h3 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-none tracking-tighter group-hover:text-accent transition-colors duration-500">
+                      <h3 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-none tracking-tighter text-white group-hover:text-accent transition-colors duration-500">
                         {item.title}
                       </h3>
                     </div>
