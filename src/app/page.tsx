@@ -10,6 +10,7 @@ import WhyNexora from "@/components/Pricing";
 import FAQ from "@/components/FAQ";
 import Footer from "@/components/Footer";
 import ScrollReveal from "@/components/ScrollReveal";
+import ShinyText from "@/components/ShinyText";
 import Image from "next/image";
 import { ExternalLink } from "lucide-react";
 import { FaReact, FaNodeJs, FaFigma } from "react-icons/fa";
@@ -62,14 +63,20 @@ export default function Home() {
           <div className="absolute top-1/2 left-1/4 -translate-y-1/2 w-64 h-64 bg-accent/10 blur-[100px] rounded-full pointer-events-none" />
           <div className="absolute top-1/2 right-1/4 -translate-y-1/2 w-64 h-64 bg-blue-500/10 blur-[100px] rounded-full pointer-events-none" />
 
-          <motion.p
+          <motion.div
             initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-[11px] md:text-lg font-bold text-secondary uppercase tracking-[0.4em] mb-16 relative z-10"
+            className="mb-16 relative z-10"
           >
-            Built with cutting-edge Technologies
-          </motion.p>
+            <ShinyText
+              text="Built with cutting-edge Technologies"
+              className="text-[11px] md:text-lg font-bold uppercase tracking-[0.4em]"
+              color="rgba(255,255,255,0.4)"
+              shineColor="#ffffff"
+              speed={3}
+            />
+          </motion.div>
 
           <div className="w-full relative z-10">
             <div className="flex overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_10%,black_90%,transparent)]">
@@ -94,9 +101,13 @@ export default function Home() {
                       <tech.icon className="w-8 h-8 md:w-10 md:h-10 text-white/30 group-hover:text-white transition-all duration-500 relative z-10" />
                     </div>
                     <div className="flex flex-col">
-                      <span className="text-lg md:text-xl font-bold tracking-tight text-white/40 group-hover:text-white transition-colors duration-300">
-                        {tech.name}
-                      </span>
+                      <ShinyText
+                        text={tech.name}
+                        className="text-lg md:text-xl font-bold tracking-tight"
+                        color="rgba(255,255,255,0.4)"
+                        shineColor="#ffffff"
+                        speed={2}
+                      />
                       <motion.div
                         className="h-0.5 w-0 group-hover:w-full bg-accent transition-all duration-500"
                         layoutId={`underline-${i}`}
