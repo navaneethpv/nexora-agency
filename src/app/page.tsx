@@ -81,13 +81,13 @@ export default function Home() {
                   ease: "linear"
                 }}
                 style={{ willChange: "transform" }}
-                className="flex flex-nowrap gap-12 md:gap-32 items-center shrink-0 pr-12 md:pr-32"
+                className="flex flex-nowrap gap-5 md:gap-16 items-center shrink-0 pr-5 md:pr-16"
               >
                 {[...techStack, ...techStack].map((tech, i) => (
                   <motion.div
                     key={i}
                     whileHover={{ y: -8, scale: 1.05 }}
-                    className="flex items-center gap-3 md:gap-4 group cursor-default shrink-0 transition-transform duration-300"
+                    className="flex items-center gap-2 md:gap-4 group cursor-default shrink-0 transition-transform duration-300"
                   >
                     <div className="relative">
                       <div className="absolute inset-0 bg-accent/30 blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
