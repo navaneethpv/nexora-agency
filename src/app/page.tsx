@@ -66,7 +66,7 @@ export default function Home() {
             initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-[11px] font-bold text-secondary uppercase tracking-[0.4em] mb-16 relative z-10"
+            className="text-[11px] md:text-lg font-bold text-secondary uppercase tracking-[0.4em] mb-16 relative z-10"
           >
             Built with cutting-edge Technologies
           </motion.p>

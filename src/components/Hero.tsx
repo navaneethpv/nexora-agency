@@ -19,7 +19,7 @@ export default function Hero() {
     const y = useTransform(scrollYProgress, [0, 0.8], [0, 50]);
 
     // Typing Animation Logic
-    const words = ["Web Development", "UI Design", "Poster Design"];
+    const words = ["Web Development", "UI Design", "Visual Design"];
     const [currentWordIndex, setCurrentWordIndex] = useState(0);
     const [currentText, setCurrentText] = useState("");
     const [isDeleting, setIsDeleting] = useState(false);
