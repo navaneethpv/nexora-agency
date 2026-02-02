@@ -139,6 +139,7 @@ export default function Home() {
         <Testimonial />
       </ScrollReveal>
 
+
       <ScrollReveal>
         <section id="work" className="py-24 md:py-32 bg-black/2 relative overflow-hidden">
           {/* Abstract Background Elements */}
@@ -182,7 +183,7 @@ export default function Home() {
                 >
                   {/* Visual Frame */}
                   <div className="w-full lg:w-[62%] relative">
-                    <div className="relative aspect-[16/10] overflow-hidden rounded-[3rem] border border-white/10 bg-white/2 shadow-[0_0_100px_rgba(0,0,0,0.5)]">
+                    <div className="relative aspect-16/10 overflow-hidden rounded-[3rem] border border-white/10 bg-white/2 shadow-[0_0_100px_rgba(0,0,0,0.5)]">
                       <Image
                         src={item.image}
                         alt={item.title}
@@ -207,7 +208,7 @@ export default function Home() {
                         <div className="h-px w-8 bg-accent/20" />
                         <span>CASE STUDY</span>
                       </div>
-                      <h3 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-[1] tracking-tighter group-hover:text-accent transition-colors duration-500">
+                      <h3 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-none tracking-tighter group-hover:text-accent transition-colors duration-500">
                         {item.title}
                       </h3>
                     </div>
