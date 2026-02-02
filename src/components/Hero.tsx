@@ -122,7 +122,7 @@ export default function Hero() {
                     variants={itemVariants}
                     className="mb-2 md:mb-4"
                 >
-                    <span className="text-[10px] md:text-xs font-bold tracking-[0.4em] text-accent/60 uppercase">A COMPLETE</span>
+                    <span className="text-[13px] md:text-[14px] font-black tracking-[0.4em] text-white/60 uppercase">A COMPLETE</span>
                 </motion.div>
 
                 <motion.h1
