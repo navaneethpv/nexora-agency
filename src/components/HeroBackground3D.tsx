@@ -50,7 +50,15 @@ function ParticleBackground() {
 export default function HeroBackground3D() {
     return (
         <div className="absolute inset-0 -z-20 pointer-events-none overflow-hidden">
-            <Canvas camera={{ position: [0, 0, 1] }}>
+            <Canvas
+                camera={{ position: [0, 0, 1] }}
+                dpr={[1, 2]} // Limit pixel ratio for performance
+                gl={{
+                    antialias: false,
+                    powerPreference: "high-performance",
+                    alpha: true
+                }}
+            >
                 <ParticleBackground />
             </Canvas>
         </div>

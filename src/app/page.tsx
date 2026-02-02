@@ -80,6 +80,7 @@ export default function Home() {
                   repeat: Infinity,
                   ease: "linear"
                 }}
+                style={{ willChange: "transform" }}
                 className="flex flex-nowrap gap-32 items-center shrink-0 pr-32"
               >
                 {[...techStack, ...techStack].map((tech, i) => (
@@ -147,6 +148,8 @@ export default function Home() {
                       src={item.image}
                       alt={item.title}
                       fill
+                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                      quality={85}
                       className="object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700"
                     />
                     <div className="absolute inset-0 bg-linear-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end p-6 md:p-8">

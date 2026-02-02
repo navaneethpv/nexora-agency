@@ -29,16 +29,12 @@ export default function Navbar() {
         <nav className="fixed top-4 md:top-8 left-1/2 -translate-x-1/2 z-50 w-full max-w-[95%] md:max-w-[80%] px-2 md:px-6">
             <motion.div
                 initial={{ y: -20, opacity: 0 }}
-                animate={{
-                    y: 0,
-                    opacity: 1,
-                    backgroundColor: scrolled ? "rgba(255, 255, 255, 0.05)" : "rgba(255, 255, 255, 0)",
-                    backdropFilter: scrolled ? "blur(24px)" : "blur(0px)",
-                    borderColor: scrolled ? "rgba(255, 255, 255, 0.15)" : "rgba(255, 255, 255, 0)",
-                    boxShadow: scrolled ? "0 8px 32px 0 rgba(0, 0, 0, 0.8)" : "none"
-                }}
+                animate={{ y: 0, opacity: 1 }}
                 transition={{ duration: 0.5 }}
-                className="rounded-full p-1.5 md:p-2 flex items-center justify-between w-full border transition-all duration-500"
+                className={`rounded-full p-1.5 md:p-2 flex items-center justify-between w-full border transition-all duration-500 ${scrolled
+                        ? "bg-white/5 backdrop-blur-3xl border-white/15 shadow-[0_8px_32px_0_rgba(0,0,0,0.8)]"
+                        : "bg-transparent backdrop-blur-0 border-transparent shadow-none"
+                    }`}
             >
                 <div className="flex items-center gap-4 md:gap-16 pl-4 md:pl-8 pr-1 md:pr-2 w-full justify-between">
                     <Link
