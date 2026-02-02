@@ -76,7 +76,7 @@ export default function Home() {
               <motion.div
                 animate={{ x: "-50%" }}
                 transition={{
-                  duration: 25,
+                  duration: 40,
                   repeat: Infinity,
                   ease: "linear"
                 }}

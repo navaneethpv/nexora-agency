@@ -12,10 +12,10 @@ export default function ScrollReveal({
     delay?: number;
 }) {
     const directions = {
-        up: { y: 40 },
-        down: { y: -40 },
-        left: { x: 40 },
-        right: { x: -40 },
+        up: { y: 60 },
+        down: { y: -60 },
+        left: { x: 60 },
+        right: { x: -60 },
     };
 
     return (
@@ -23,7 +23,7 @@ export default function ScrollReveal({
             initial={{
                 opacity: 0,
                 ...directions[direction],
-                scale: 0.95
+                scale: 0.98
             }}
             whileInView={{
                 opacity: 1,
@@ -31,11 +31,11 @@ export default function ScrollReveal({
                 y: 0,
                 scale: 1
             }}
-            viewport={{ once: true, margin: "-50px" }}
+            viewport={{ once: true, margin: "-15%" }}
             transition={{
-                duration: 0.8,
+                duration: 1.2,
                 delay,
-                ease: [0.21, 0.47, 0.32, 0.98]
+                ease: [0.22, 1, 0.36, 1] // EaseOutQuint for a more professional arrival
             }}
             style={{ willChange: "transform, opacity" }}
         >

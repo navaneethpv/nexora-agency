@@ -26,8 +26,8 @@ function ParticleBackground() {
 
     useFrame((state, delta) => {
         if (ref.current) {
-            ref.current.rotation.x += delta / 15;
-            ref.current.rotation.y += delta / 20;
+            ref.current.rotation.x += delta / 25;
+            ref.current.rotation.y += delta / 30;
         }
     });
 
