@@ -2,7 +2,7 @@
 
 export default function Testimonial() {
     return (
-        <section className="py-16 md:py-20 px-4 md:px-0">
+        <section className="py-10 md:py-20 px-4 md:px-0">
             <div className="section-container">
                 <div className="bg-white/5 border border-white/5 rounded-3xl md:rounded-[2.5rem] p-6 md:p-16 relative overflow-hidden">
                     <div className="absolute top-0 right-0 p-4 md:p-6 opacity-5 text-[60px] md:text-[100px] italic select-none pointer-events-none">"</div>

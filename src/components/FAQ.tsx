@@ -27,13 +27,13 @@ export default function FAQ() {
     const [openIndex, setOpenIndex] = useState<number | null>(null);
 
     return (
-        <section className="py-16 md:py-20 border-t border-white/5 px-4 md:px-0">
+        <section className="py-10 md:py-20 border-t border-white/5 px-4 md:px-0">
             <div className="section-container max-w-2xl">
                 <motion.h2
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
-                    className="text-2xl sm:text-3xl md:text-5xl font-bold text-center mb-10 md:mb-16"
+                    className="text-2xl sm:text-3xl md:text-5xl font-bold text-center mb-6 md:mb-16"
                 >
                     Commonly Asked <span className="italic font-medium text-accent">Questions</span>
                 </motion.h2>

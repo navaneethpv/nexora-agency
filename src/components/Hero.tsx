@@ -43,7 +43,7 @@ export default function Hero() {
     return (
         <section
             ref={containerRef}
-            className="relative pt-32 pb-20 md:pt-48 md:pb-32 flex flex-col items-center text-center px-6 overflow-hidden"
+            className="relative pt-24 pb-12 md:pt-48 md:pb-32 flex flex-col items-center text-center px-6 overflow-hidden"
         >
             <HeroBackground3D />
             {/* Background Glows & Orbs */}
@@ -90,7 +90,7 @@ export default function Hero() {
 
                 <motion.h1
                     variants={itemVariants}
-                    className="max-w-5xl text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-bold tracking-tight mb-6 md:mb-8 leading-[1.1] md:leading-[1.02]"
+                    className="max-w-5xl text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-bold tracking-tight mb-4 md:mb-8 leading-[1.1] md:leading-[1.02]"
                 >
                     Modern Web Solutions for <br />
                     <span className="italic font-medium text-accent text-glow bg-clip-text text-transparent bg-linear-to-b from-accent to-accent/60">Growing Teams</span>
@@ -98,7 +98,7 @@ export default function Hero() {
 
                 <motion.p
                     variants={itemVariants}
-                    className="max-w-2xl text-base md:text-xl text-secondary mb-10 md:mb-12 leading-relaxed font-medium opacity-90"
+                    className="max-w-2xl text-base md:text-xl text-secondary mb-8 md:mb-12 leading-relaxed font-medium opacity-90"
                 >
                     Nexora builds clean, scalable, and performance-focused websites and web applications for businesses and institutions.
                 </motion.p>

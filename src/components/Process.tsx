@@ -46,7 +46,7 @@ export default function Process() {
                     </h2>
                 </motion.div>
 
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-12 px-4 md:px-0">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-12 px-4 md:px-0">
                     {steps.map((step, index) => (
                         <motion.div
                             key={index}

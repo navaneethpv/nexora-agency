@@ -5,13 +5,13 @@ import { Check } from "lucide-react";
 
 export default function WhyNexora() {
     return (
-        <section id="why" className="py-16 md:py-20 px-4 md:px-0">
+        <section id="why" className="py-10 md:py-20 px-4 md:px-0">
             <div className="section-container">
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
-                    className="text-center max-w-xl mx-auto mb-10 md:mb-12"
+                    className="text-center max-w-xl mx-auto mb-6 md:mb-12"
                 >
                     <h2 className="text-3xl md:text-5xl font-bold mb-4">
                         Why <span className="italic font-medium text-accent">Nexora</span>

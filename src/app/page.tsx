@@ -57,7 +57,7 @@ export default function Home() {
       <Hero />
 
       <ScrollReveal>
-        <section className="py-24 flex flex-col items-center border-t border-white/5 relative bg-white/2 overflow-hidden">
+        <section className="py-16 md:py-24 flex flex-col items-center border-t border-white/5 relative bg-white/2 overflow-hidden">
           {/* Ambient Glows */}
           <div className="absolute top-1/2 left-1/4 -translate-y-1/2 w-64 h-64 bg-accent/10 blur-[100px] rounded-full pointer-events-none" />
           <div className="absolute top-1/2 right-1/4 -translate-y-1/2 w-64 h-64 bg-blue-500/10 blur-[100px] rounded-full pointer-events-none" />
@@ -81,7 +81,7 @@ export default function Home() {
                   ease: "linear"
                 }}
                 style={{ willChange: "transform" }}
-                className="flex flex-nowrap gap-32 items-center shrink-0 pr-32"
+                className="flex flex-nowrap gap-12 md:gap-32 items-center shrink-0 pr-12 md:pr-32"
               >
                 {[...techStack, ...techStack].map((tech, i) => (
                   <motion.div
@@ -121,7 +121,7 @@ export default function Home() {
       </ScrollReveal>
 
       <ScrollReveal>
-        <section id="work" className="py-20 md:py-28 bg-white/1 relative overflow-hidden">
+        <section id="work" className="py-12 md:py-28 bg-white/1 relative overflow-hidden">
           <div className="section-container px-4 md:px-0">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -133,7 +133,7 @@ export default function Home() {
               <p className="text-secondary text-base md:text-lg font-medium">Interface details and clean layouts designed for usability and speed.</p>
             </motion.div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-8">
               {portfolio.map((item, i) => (
                 <motion.div
                   key={i}
