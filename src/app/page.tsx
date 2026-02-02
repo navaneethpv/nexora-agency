@@ -1,6 +1,8 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { useRef, useState, useEffect } from "react";
+
+import { motion, useAnimationFrame, useMotionValue, useTransform } from "framer-motion";
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import Process from "@/components/Process";
@@ -53,6 +55,13 @@ const portfolio = [
 ];
 
 export default function Home() {
+  const baseX = useMotionValue(0);
+  const x = useTransform(baseX, (v) => `${(v % 33.33) - 33.33}%`);
+
+  useAnimationFrame((t, delta) => {
+    baseX.set(baseX.get() - 0.01);
+  });
+
   return (
     <main className="min-h-screen selection:bg-accent/30 selection:text-white">
       <Navbar />
@@ -79,27 +88,29 @@ export default function Home() {
             />
           </motion.div>
 
-          <div className="w-full relative z-10">
-            <div className="flex overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_10%,black_90%,transparent)]">
+          <div className="w-full relative z-10 px-4 md:px-0">
+            <div className="flex overflow-hidden mask-[linear-gradient(to_right,transparent,black_10%,black_90%,transparent)] cursor-grab active:cursor-grabbing">
               <motion.div
-                animate={{ x: "-50%" }}
-                transition={{
-                  duration: 40,
-                  repeat: Infinity,
-                  ease: "linear"
+                style={{ x }}
+                drag="x"
+                dragConstraints={{ left: 0, right: 0 }}
+                onDrag={(e, info) => {
+                  // Allow manual override of the position
+                  baseX.set(baseX.get() + info.delta.x * 0.05);
                 }}
-                style={{ willChange: "transform" }}
-                className="flex flex-nowrap gap-5 md:gap-16 items-center shrink-0 pr-5 md:pr-16"
+                className="flex flex-nowrap gap-5 md:gap-16 items-center shrink-0 py-4"
               >
-                {[...techStack, ...techStack].map((tech, i) => (
+                {[...techStack, ...techStack, ...techStack].map((tech, i) => (
                   <motion.div
                     key={i}
-                    whileHover={{ y: 0, scale: 1 }}
-                    className="flex items-center gap-2 md:gap-4 group cursor-default shrink-0 transition-transform duration-300"
+                    whileHover={{ scale: 1.1 }}
+                    className="flex items-center gap-2 md:gap-4 group shrink-0 transition-transform duration-300"
                   >
                     <div className="relative">
-                      <div className="absolute inset-0 bg-accent/30 blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                      <tech.icon className="w-8 h-8 md:w-10 md:h-10 text-white/30 group-hover:text-white transition-all duration-500 relative z-10" />
+                      <div className="absolute inset-0 bg-accent/30 blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-full" />
+                      <div className="relative z-10 p-2 md:p-3 bg-white/5 rounded-2xl border border-white/5 group-hover:border-accent/30 transition-colors">
+                        <tech.icon className="w-8 h-8 md:w-10 md:h-10 text-white/20 group-hover:text-white transition-all duration-500" />
+                      </div>
                     </div>
                     <div className="flex flex-col">
                       <span className="text-lg md:text-xl font-bold tracking-tight text-white/40 group-hover:text-white transition-colors duration-300">
@@ -107,7 +118,7 @@ export default function Home() {
                       </span>
                       <motion.div
                         className="h-0.5 w-0 group-hover:w-full bg-accent transition-all duration-500"
-                        layoutId={`underline-${i}`}
+                        layoutId={`underline-tech-${i}`}
                       />
                     </div>
                   </motion.div>
