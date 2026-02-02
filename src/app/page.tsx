@@ -13,6 +13,7 @@ import FAQ from "@/components/FAQ";
 import Footer from "@/components/Footer";
 import ScrollReveal from "@/components/ScrollReveal";
 import ShinyText from "@/components/ShinyText";
+import FloatingWhatsApp from "@/components/FloatingWhatsApp";
 import Image from "next/image";
 import { ExternalLink } from "lucide-react";
 import { FaReact, FaNodeJs, FaFigma } from "react-icons/fa";
@@ -244,6 +245,7 @@ export default function Home() {
         <FAQ />
       </ScrollReveal>
       <Footer />
+      <FloatingWhatsApp />
     </main>
   );
 }
