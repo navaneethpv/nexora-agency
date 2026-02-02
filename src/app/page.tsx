@@ -101,13 +101,9 @@ export default function Home() {
                       <tech.icon className="w-8 h-8 md:w-10 md:h-10 text-white/30 group-hover:text-white transition-all duration-500 relative z-10" />
                     </div>
                     <div className="flex flex-col">
-                      <ShinyText
-                        text={tech.name}
-                        className="text-lg md:text-xl font-bold tracking-tight"
-                        color="rgba(255,255,255,0.4)"
-                        shineColor="#ffffff"
-                        speed={2}
-                      />
+                      <span className="text-lg md:text-xl font-bold tracking-tight text-white/40 group-hover:text-white transition-colors duration-300">
+                        {tech.name}
+                      </span>
                       <motion.div
                         className="h-0.5 w-0 group-hover:w-full bg-accent transition-all duration-500"
                         layoutId={`underline-${i}`}

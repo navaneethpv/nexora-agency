@@ -4,8 +4,6 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import dynamic from "next/dynamic";
 import { useRef, useState, useEffect } from "react";
 import { ArrowRight, Sparkles } from "lucide-react";
-import ShinyText from "./ShinyText";
-
 const HeroBackground3D = dynamic(() => import("./HeroBackground3D"), { ssr: false });
 
 export default function Hero() {
@@ -116,34 +114,22 @@ export default function Hero() {
                     variants={itemVariants}
                     className="inline-flex items-center gap-2.5 rounded-full border border-white/10 bg-white/3 px-4 py-2 text-[10px] md:text-[11px] font-bold text-white/80 mb-6 md:mb-10 backdrop-blur-xl ring-1 ring-white/10 shadow-[0_0_20px_rgba(124,58,237,0.1)] group hover:border-accent/30 transition-colors duration-500"
                 >
-                    <Sparkles className="w-3.5 h-3.5 text-accent animate-pulse" />
-                    <ShinyText
-                        text="WEB DEVELOPMENT & DIGITAL SOLUTIONS"
-                        className="uppercase tracking-[0.2em]"
-                        color="rgba(255,255,255,0.7)"
-                        shineColor="#ffffff"
-                        speed={3}
-                    />
+                    <Sparkles className="w-3.5 h-3.5 text-accent" />
+                    <span className="uppercase tracking-[0.2em]">WEB DEVELOPMENT & DIGITAL SOLUTIONS</span>
                 </motion.div>
 
                 <motion.div
                     variants={itemVariants}
                     className="mb-2 md:mb-4"
                 >
-                    <ShinyText
-                        text="A COMPLETE"
-                        className="text-[10px] md:text-xs font-bold tracking-[0.4em] text-accent/60"
-                        color="rgba(124,58,237,0.5)"
-                        shineColor="#ffffff"
-                        speed={4}
-                    />
+                    <span className="text-[10px] md:text-xs font-bold tracking-[0.4em] text-accent/60 uppercase">A COMPLETE</span>
                 </motion.div>
 
                 <motion.h1
                     variants={itemVariants}
                     className="max-w-5xl text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-bold tracking-tight mb-4 md:mb-8 leading-[1.1] md:leading-[1.02]"
                 >
-                    <ShinyText text="Modern Web Solutions for" className="block" color="#b5b5b5" shineColor="#ffffff" speed={3} />
+                    Modern Web Solutions for <br />
                     <span className="font-medium text-accent text-glow bg-clip-text text-transparent bg-linear-to-b from-accent to-accent/60 min-h-[1.1em] inline-block text-3xl sm:text-5xl md:text-6xl lg:text-7xl">
                         {currentText}
                         <span className="inline-block w-[2px] h-[0.9em] bg-accent ml-1 animate-[pulse_1s_infinite] align-middle">|</span>
