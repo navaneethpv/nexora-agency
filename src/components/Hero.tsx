@@ -2,7 +2,7 @@
 
 import { motion, useScroll, useTransform } from "framer-motion";
 import dynamic from "next/dynamic";
-import { useRef } from "react";
+import { useRef, useState, useEffect } from "react";
 import { ArrowRight, Sparkles } from "lucide-react";
 
 const HeroBackground3D = dynamic(() => import("./HeroBackground3D"), { ssr: false });
@@ -17,6 +17,37 @@ export default function Hero() {
     const opacity = useTransform(scrollYProgress, [0, 0.8], [1, 0]);
     const scale = useTransform(scrollYProgress, [0, 0.8], [1, 0.95]);
     const y = useTransform(scrollYProgress, [0, 0.8], [0, 50]);
+
+    // Typing Animation Logic
+    const words = ["Web Development", "UI Design", "Poster Design"];
+    const [currentWordIndex, setCurrentWordIndex] = useState(0);
+    const [currentText, setCurrentText] = useState("");
+    const [isDeleting, setIsDeleting] = useState(false);
+    const [typingSpeed, setTypingSpeed] = useState(150);
+
+    useEffect(() => {
+        const handleTyping = () => {
+            const currentWord = words[currentWordIndex];
+            if (isDeleting) {
+                setCurrentText(currentWord.substring(0, currentText.length - 1));
+                setTypingSpeed(50);
+            } else {
+                setCurrentText(currentWord.substring(0, currentText.length + 1));
+                setTypingSpeed(150);
+            }
+
+            if (!isDeleting && currentText === currentWord) {
+                setTimeout(() => setIsDeleting(true), 1500); // Pause at end
+            } else if (isDeleting && currentText === "") {
+                setIsDeleting(false);
+                setCurrentWordIndex((prev) => (prev + 1) % words.length);
+            }
+        };
+
+        const timer = setTimeout(handleTyping, typingSpeed);
+        return () => clearTimeout(timer);
+    }, [currentText, isDeleting, currentWordIndex]);
+
     const containerVariants: any = {
         hidden: { opacity: 0 },
         visible: {
@@ -59,7 +90,7 @@ export default function Hero() {
                     }}
                     transition={{ duration: 25, repeat: Infinity, ease: "easeInOut" }}
                     style={{ willChange: "transform" }}
-                    className="absolute top-[-20%] left-[-10%] w-[100vw] md:w-[70vw] h-[100vw] md:h-[70vw] bg-accent/15 blur-[80px] md:blur-[140px] rounded-full opacity-60"
+                    className="absolute top-[-20%] left-[-10%] w-screen md:w-[70vw] h-[100vw] md:h-[70vw] bg-accent/15 blur-[80px] md:blur-[140px] rounded-full opacity-60"
                 />
                 <motion.div
                     animate={{
@@ -82,7 +113,7 @@ export default function Hero() {
             >
                 <motion.div
                     variants={itemVariants}
-                    className="inline-flex items-center gap-2.5 rounded-full border border-white/10 bg-white/[0.03] px-4 py-2 text-[10px] md:text-[11px] font-bold text-white/80 mb-6 md:mb-10 backdrop-blur-xl ring-1 ring-white/10 shadow-[0_0_20px_rgba(124,58,237,0.1)] group hover:border-accent/30 transition-colors duration-500"
+                    className="inline-flex items-center gap-2.5 rounded-full border border-white/10 bg-white/3 px-4 py-2 text-[10px] md:text-[11px] font-bold text-white/80 mb-6 md:mb-10 backdrop-blur-xl ring-1 ring-white/10 shadow-[0_0_20px_rgba(124,58,237,0.1)] group hover:border-accent/30 transition-colors duration-500"
                 >
                     <Sparkles className="w-3.5 h-3.5 text-accent animate-pulse" />
                     <span className="uppercase tracking-[0.2em]">WEB DEVELOPMENT & DIGITAL SOLUTIONS</span>
@@ -93,7 +124,10 @@ export default function Hero() {
                     className="max-w-5xl text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-bold tracking-tight mb-4 md:mb-8 leading-[1.1] md:leading-[1.02]"
                 >
                     Modern Web Solutions for <br />
-                    <span className="italic font-medium text-accent text-glow bg-clip-text text-transparent bg-linear-to-b from-accent to-accent/60">Growing Teams</span>
+                    <span className="italic font-medium text-accent text-glow bg-clip-text text-transparent bg-linear-to-b from-accent to-accent/60 min-h-[1.1em] inline-block">
+                        {currentText}
+                        <span className="inline-block w-[2px] h-[0.9em] bg-accent ml-1 animate-[pulse_1s_infinite] align-middle">|</span>
+                    </span>
                 </motion.h1>
 
                 <motion.p

@@ -12,11 +12,11 @@ function ParticleBackground() {
 
     // Generate random points in a sphere
     const positions = useMemo(() => {
-        const pos = new Float32Array(2000 * 3);
-        for (let i = 0; i < 2000; i++) {
+        const pos = new Float32Array(3000 * 3);
+        for (let i = 0; i < 3000; i++) {
             const theta = TWO_PI * Math.random();
             const phi = Math.acos(2 * Math.random() - 1);
-            const r = 1.5 * Math.pow(Math.random(), 1 / 3); // Distributed throughout the sphere
+            const r = 2 * Math.pow(Math.random(), 1 / 3);
             pos[i * 3] = r * Math.sin(phi) * Math.cos(theta);
             pos[i * 3 + 1] = r * Math.sin(phi) * Math.sin(theta);
             pos[i * 3 + 2] = r * Math.cos(phi);
@@ -26,8 +26,8 @@ function ParticleBackground() {
 
     useFrame((state, delta) => {
         if (ref.current) {
-            ref.current.rotation.x += delta / 25;
-            ref.current.rotation.y += delta / 30;
+            ref.current.rotation.x += delta / 40;
+            ref.current.rotation.y += delta / 50;
         }
     });
 
@@ -36,8 +36,8 @@ function ParticleBackground() {
             <Points ref={ref} positions={positions} stride={3} frustumCulled={false}>
                 <PointMaterial
                     transparent
-                    color="#7C3AED"
-                    size={0.003}
+                    color="#ffffff"
+                    size={0.002}
                     sizeAttenuation={true}
                     depthWrite={false}
                     blending={THREE.AdditiveBlending}
