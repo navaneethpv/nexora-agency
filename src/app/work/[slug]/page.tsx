@@ -143,7 +143,7 @@ export default async function ProjectDetails({ params }: { params: Promise<{ slu
             )}
 
             {/* Key Features Section */}
-            <section className={`py-20 md:py-32 bg-white/2 border-t border-white/5 px-4 md:px-0 ${!project.macbookImage ? 'mt-16 md:mt-20' : ''}`}>
+            <section className={`py-20 md:py-32 bg-white/2 border-t border-white/5 px-4 md:px-0 mt-16 ${!project.macbookImage ? 'md:mt-20' : 'md:mt-0'}`}>
                 <div className="section-container">
                     <div className="mb-12 md:mb-20">
                         <ScrollReveal>
