@@ -39,7 +39,7 @@ const portfolio = [
     title: "Resort Website & Admin Portal",
     description: "A modern, responsive resort website with an admin portal to manage rooms, bookings, content, and enquiries through a simple and intuitive interface.",
     category: "WEBSITE",
-    image: "/resort-hospitality.png"
+    image: "/resort-macbook-mockup.png"
   },
   {
     title: "Commercial E-commerce Infrastructure",
