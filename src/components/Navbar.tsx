@@ -36,7 +36,7 @@ export default function Navbar() {
                     : "bg-transparent backdrop-blur-0 border-transparent shadow-none"
                     }`}
             >
-                <div className="flex items-center gap-4 md:gap-16 pl-4 md:pl-8 pr-1 md:pr-2 w-full justify-between">
+                <div className="flex items-center gap-4 lg:gap-8 xl:gap-16 pl-4 md:pl-8 pr-1 md:pr-2 w-full justify-between">
                     <Link
                         href="/"
                         onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
@@ -47,7 +47,8 @@ export default function Navbar() {
                             alt="Nexora Logo"
                             width={240}
                             height={60}
-                            className="h-8 md:h-14 w-auto brightness-200"
+                            className="h-7 md:h-9 lg:h-10 xl:h-12 w-auto brightness-200 transition-all duration-300"
+                            priority
                         />
                     </Link>
 
@@ -66,7 +67,7 @@ export default function Navbar() {
                                 <Link
                                     href={link.href}
                                     onMouseEnter={() => setHoveredPath(link.href)}
-                                    className="relative px-4 py-2 text-sm font-bold text-white/80 hover:text-white transition-colors duration-300 rounded-full block"
+                                    className="relative px-3 lg:px-4 py-2 text-xs lg:text-sm font-bold text-white/80 hover:text-white transition-colors duration-300 rounded-full block"
                                 >
                                     <span className="relative z-10">{link.name}</span>
                                     <AnimatePresence>
@@ -97,7 +98,7 @@ export default function Navbar() {
                             <AnimatedSocialIcon type="github" href="https://github.com/navaneethpv" target="_blank" size={20} />
                             <AnimatedSocialIcon type="instagram" href="https://www.instagram.com/nexoraweb.tech/" target="_blank" size={20} />
                         </div>
-                        <button className="bg-accent text-white px-5 md:px-8 py-2 md:py-3 rounded-full text-xs md:text-sm font-bold hover:brightness-110 transition-all shadow-xl shadow-accent/30 active:scale-95 whitespace-nowrap bg-linear-to-r from-accent to-accent-secondary">
+                        <button className="bg-accent text-white px-4 lg:px-8 py-2 lg:py-3 rounded-full text-[10px] lg:text-sm font-bold hover:brightness-110 transition-all shadow-xl shadow-accent/30 active:scale-95 whitespace-nowrap bg-linear-to-r from-accent to-accent-secondary">
                             Get in Touch
                         </button>
                     </div>
