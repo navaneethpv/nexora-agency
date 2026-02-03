@@ -93,7 +93,7 @@ export default async function ProjectDetails({ params }: { params: Promise<{ slu
             </section>
 
             {/* Challenge & Solution Section */}
-            <section className="pt-20 md:pt-48 pb-0 px-4 md:px-0">
+            <section className="pt-20 md:pt-48 pb-24 md:pb-32 px-4 md:px-0">
                 <div className="section-container">
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-16 md:gap-32">
                         {/* The Challenge */}
@@ -143,7 +143,7 @@ export default async function ProjectDetails({ params }: { params: Promise<{ slu
             )}
 
             {/* Key Features Section */}
-            <section className={`py-20 md:py-32 bg-white/2 border-t border-white/5 px-4 md:px-0 mt-16 ${!project.macbookImage ? 'md:mt-20' : 'md:mt-0'}`}>
+            <section className={`py-20 md:py-32 bg-white/2 border-t border-white/5 px-4 md:px-0 ${!project.macbookImage ? 'mt-16 md:mt-20' : 'mt-16 md:mt-0'}`}>
                 <div className="section-container">
                     <div className="mb-12 md:mb-20">
                         <ScrollReveal>

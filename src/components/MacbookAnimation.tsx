@@ -115,7 +115,7 @@ export default function MacbookAnimation({ texture = "/mac-screen.jpg" }: { text
     if (isMobile) return null;
 
     return (
-        <div ref={containerRef} className="hidden md:block w-full h-screen md:h-[130vh] relative bg-black -mt-16 md:-mt-56 pointer-events-none">
+        <div ref={containerRef} className="hidden md:block w-full h-[120vh] relative bg-black pointer-events-none">
             <div className="sticky top-0 h-screen w-full overflow-hidden flex items-center justify-center">
                 <Canvas
                     camera={{
