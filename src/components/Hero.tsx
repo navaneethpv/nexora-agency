@@ -85,7 +85,7 @@ export default function Hero() {
                     className="absolute top-[-20%] left-[-10%] w-screen md:w-[70vw] h-[100vw] md:h-[70vw] bg-accent/15 blur-[60px] md:blur-[100px] rounded-full opacity-60 animate-float-slow"
                 />
                 <div
-                    className="absolute bottom-[-20%] right-[-10%] w-[90vw] md:w-[60vw] h-[90vw] md:h-[60vw] bg-blue-500/10 blur-[60px] md:blur-[100px] rounded-full opacity-40 animate-float-slower"
+                    className="absolute bottom-[-20%] right-[-10%] w-[90vw] md:w-[60vw] h-[90vw] md:h-[60vw] bg-accent-secondary/10 blur-[60px] md:blur-[100px] rounded-full opacity-40 animate-float-slower"
                 />
             </motion.div>
 
@@ -99,7 +99,7 @@ export default function Hero() {
             >
                 <motion.div
                     variants={itemVariants}
-                    className="inline-flex items-center gap-2.5 rounded-full border border-white/10 bg-white/3 px-4 py-2 text-[10px] md:text-[11px] font-bold text-white/80 mb-6 md:mb-10 backdrop-blur-xl ring-1 ring-white/10 shadow-[0_0_20px_rgba(124,58,237,0.1)] group hover:border-accent/30 transition-colors duration-500"
+                    className="inline-flex items-center gap-2.5 rounded-full border border-white/10 bg-white/3 px-4 py-2 text-[10px] md:text-[11px] font-bold text-white/80 mb-6 md:mb-10 backdrop-blur-xl ring-1 ring-white/10 shadow-[0_0_20px_rgba(11,185,243,0.1)] group hover:border-accent/30 transition-colors duration-500"
                 >
                     <Sparkles className="w-3.5 h-3.5 text-accent" />
                     <span className="uppercase tracking-[0.2em]">WEB DEVELOPMENT & DIGITAL SOLUTIONS</span>
@@ -117,7 +117,7 @@ export default function Hero() {
                     className="max-w-5xl text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-bold tracking-tight mb-4 md:mb-8 leading-[1.1] md:leading-[1.02]"
                 >
                     Modern Web Solutions for <br />
-                    <span className="font-medium text-glow bg-clip-text text-transparent bg-linear-to-b from-accent to-accent/60 min-h-[1.1em] inline-block text-3xl sm:text-5xl md:text-6xl lg:text-7xl">
+                    <span className="font-medium text-glow bg-clip-text text-transparent bg-linear-to-b from-accent to-accent-secondary min-h-[1.1em] inline-block text-3xl sm:text-5xl md:text-6xl lg:text-7xl">
                         {currentText}
                         <span className="inline-block w-[2px] h-[0.9em] bg-accent ml-1 animate-[pulse_1s_infinite] align-middle">|</span>
                     </span>
@@ -134,7 +134,7 @@ export default function Hero() {
                     variants={itemVariants}
                     className="flex flex-col sm:flex-row gap-4 md:gap-5 justify-center items-center w-full sm:w-auto px-4 sm:px-0"
                 >
-                    <button className="w-full sm:w-auto group relative bg-accent text-white px-8 md:px-10 py-4 md:py-5 rounded-full text-sm md:text-base font-bold hover:brightness-110 transition-all shadow-2xl shadow-accent/40 active:scale-95 flex items-center justify-center gap-3 overflow-hidden">
+                    <button className="w-full sm:w-auto group relative text-white px-8 md:px-10 py-4 md:py-5 rounded-full text-sm md:text-base font-bold hover:brightness-110 transition-all shadow-2xl shadow-accent/40 active:scale-95 flex items-center justify-center gap-3 overflow-hidden bg-linear-to-r from-accent to-accent-secondary">
                         <div className="absolute inset-0 bg-white/10 translate-y-full group-hover:translate-y-0 transition-transform duration-300" />
                         <span className="relative">View Our Work →</span>
                         <ArrowRight className="w-4 h-4 md:w-5 md:h-5 relative group-hover:translate-x-1 transition-transform duration-300" />
@@ -161,7 +161,7 @@ export default function Hero() {
                     rotate: [0, -5, 0]
                 }}
                 transition={{ duration: 9, repeat: Infinity, ease: "easeInOut" }}
-                className="absolute bottom-1/4 right-10 w-6 h-6 rounded-full bg-blue-500/20 blur-sm md:block hidden"
+                className="absolute bottom-1/4 right-10 w-6 h-6 rounded-full bg-accent-secondary/20 blur-sm md:block hidden"
             />
         </section>
     );

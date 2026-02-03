@@ -41,19 +41,23 @@ html.lenis body {
 }
 
 :root {
-  --background: #000000;
+  --background: #050505;
   --foreground: #FFFFFF;
-  --accent-purple: #7C3AED;
+  --accent-main: #0BB9F3;
+  --accent-secondary: #0A7FD9;
+  --accent-glow: #38D9FF;
   --secondary-text: #8E8E93;
-  --card-bg: #1C1C1E;
-  --glass-bg: rgba(0, 0, 0, 0.7);
-  --border-subtle: rgba(255, 255, 255, 0.1);
+  --card-bg: #0A0A0B;
+  --glass-bg: rgba(5, 5, 5, 0.7);
+  --border-subtle: rgba(255, 255, 255, 0.08);
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --color-accent: var(--accent-purple);
+  --color-accent: var(--accent-main);
+  --color-accent-secondary: var(--accent-secondary);
+  --color-accent-glow: var(--accent-glow);
   --color-secondary: var(--secondary-text);
   --color-card: var(--card-bg);
   --color-glass: var(--glass-bg);
@@ -93,7 +97,7 @@ body {
   }
 
   .text-glow {
-    text-shadow: 0 0 20px rgba(124, 58, 237, 0.3);
+    text-shadow: 0 0 20px rgba(11, 185, 243, 0.3);
   }
 }
 
@@ -116,15 +120,35 @@ body {
 }
 
 @keyframes float-slow {
-  0%, 100% { transform: translate(0, 0) scale(1); }
-  33% { transform: translate(30px, -50px) scale(1.1); }
-  66% { transform: translate(-20px, 20px) scale(0.95); }
+
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+
+  33% {
+    transform: translate(30px, -50px) scale(1.1);
+  }
+
+  66% {
+    transform: translate(-20px, 20px) scale(0.95);
+  }
 }
 
 @keyframes float-slower {
-  0%, 100% { transform: translate(0, 0) scale(1.1); }
-  33% { transform: translate(-50px, 30px) scale(1); }
-  66% { transform: translate(20px, -20px) scale(1.05); }
+
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1.1);
+  }
+
+  33% {
+    transform: translate(-50px, 30px) scale(1);
+  }
+
+  66% {
+    transform: translate(20px, -20px) scale(1.05);
+  }
 }
 
 .animate-float-slow {
@@ -138,6 +162,7 @@ body {
 }
 
 @keyframes pulse-green {
+
   0%,
   100% {
     opacity: 1;

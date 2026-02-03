@@ -18,7 +18,7 @@ export default function WhyNexora() {
             {/* Soft background ambient glows */}
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full max-w-7xl pointer-events-none opacity-20">
                 <div className="absolute top-0 left-1/4 w-64 h-64 md:w-96 md:h-96 bg-accent/20 blur-[80px] md:blur-[120px] rounded-full" />
-                <div className="absolute bottom-0 right-1/4 w-64 h-64 md:w-96 md:h-96 bg-purple-500/10 blur-[80px] md:blur-[120px] rounded-full" />
+                <div className="absolute bottom-0 right-1/4 w-64 h-64 md:w-96 md:h-96 bg-accent-secondary/10 blur-[80px] md:blur-[120px] rounded-full" />
             </div>
 
             <div className="section-container relative z-10 px-2 sm:px-6">
@@ -89,7 +89,7 @@ export default function WhyNexora() {
                                     </p>
 
                                     <div className="space-y-4 sm:space-y-5 relative z-10">
-                                        <button className="w-full bg-accent text-white py-4 sm:py-5 md:py-6 rounded-xl sm:rounded-2xl md:rounded-3xl font-black text-sm sm:text-base md:text-lg tracking-wide hover:brightness-110 transition-all shadow-xl shadow-accent/20 active:scale-[0.98] group/btn flex items-center justify-center gap-2">
+                                        <button className="w-full bg-accent text-white py-4 sm:py-5 md:py-6 rounded-xl sm:rounded-2xl md:rounded-3xl font-black text-sm sm:text-base md:text-lg tracking-wide hover:brightness-110 transition-all shadow-xl shadow-accent-glow/20 active:scale-[0.98] group/btn flex items-center justify-center gap-2">
                                             Get started
                                             <motion.span animate={{ x: [0, 5, 0] }} transition={{ repeat: Infinity, duration: 1.5 }}>→</motion.span>
                                         </button>

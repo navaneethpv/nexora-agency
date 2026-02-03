@@ -98,7 +98,7 @@ export default function Navbar() {
                             <AnimatedSocialIcon type="github" href="#" size={20} />
                             <AnimatedSocialIcon type="instagram" href="#" size={20} />
                         </div>
-                        <button className="bg-accent text-white px-5 md:px-8 py-2 md:py-3 rounded-full text-xs md:text-sm font-bold hover:brightness-110 transition-all shadow-xl shadow-accent/30 active:scale-95 whitespace-nowrap bg-linear-to-r from-accent to-accent/80">
+                        <button className="bg-accent text-white px-5 md:px-8 py-2 md:py-3 rounded-full text-xs md:text-sm font-bold hover:brightness-110 transition-all shadow-xl shadow-accent/30 active:scale-95 whitespace-nowrap bg-linear-to-r from-accent to-accent-secondary">
                             Get in Touch
                         </button>
                     </div>

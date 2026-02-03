@@ -77,7 +77,7 @@ export default function Home() {
         <section ref={tickerRef} className="py-16 md:py-24 flex flex-col items-center border-t border-white/5 relative bg-white/2 overflow-hidden">
           {/* Ambient Glows */}
           <div className="absolute top-1/2 left-1/4 -translate-y-1/2 w-64 h-64 bg-accent/10 blur-[100px] rounded-full pointer-events-none" />
-          <div className="absolute top-1/2 right-1/4 -translate-y-1/2 w-64 h-64 bg-blue-500/10 blur-[100px] rounded-full pointer-events-none" />
+          <div className="absolute top-1/2 right-1/4 -translate-y-1/2 w-64 h-64 bg-accent-secondary/10 blur-[100px] rounded-full pointer-events-none" />
 
           <motion.div
             initial={{ opacity: 0, y: 10 }}
@@ -148,7 +148,7 @@ export default function Home() {
           {/* Abstract Background Elements */}
           <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
             <div className="absolute top-1/4 -right-20 w-96 h-96 bg-accent/5 blur-[120px] rounded-full" />
-            <div className="absolute -bottom-20 -left-20 w-[500px] h-[500px] bg-blue-500/5 blur-[150px] rounded-full" />
+            <div className="absolute -bottom-20 -left-20 w-[500px] h-[500px] bg-accent-secondary/5 blur-[150px] rounded-full" />
             <div className="absolute inset-0 bg-[radial-gradient(#ffffff,transparent_1px)] bg-size-[40px_40px] opacity-[0.03]" />
           </div>
 
