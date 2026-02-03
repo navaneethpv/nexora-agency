@@ -106,16 +106,16 @@ export default function Home() {
                   <motion.div
                     key={i}
                     whileHover={{ scale: 1.1 }}
-                    className="flex items-center gap-2 md:gap-4 group shrink-0 transition-transform duration-300"
+                    className="flex items-center gap-1.5 md:gap-4 group shrink-0 transition-transform duration-300"
                   >
                     <div className="relative">
                       <div className="absolute inset-0 bg-accent/30 blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-full" />
-                      <div className="relative z-10 p-2 md:p-3 bg-white/5 rounded-2xl border border-white/5 group-hover:border-accent/30 transition-colors">
-                        <tech.icon className="w-8 h-8 md:w-10 md:h-10 text-white/20 group-hover:text-white transition-all duration-500" />
+                      <div className="relative z-10 p-1.5 md:p-3 bg-white/5 rounded-xl md:rounded-2xl border border-white/5 group-hover:border-accent/30 transition-colors">
+                        <tech.icon className="w-6 h-6 md:w-10 md:h-10 text-white/20 group-hover:text-white transition-all duration-500" />
                       </div>
                     </div>
                     <div className="flex flex-col">
-                      <span className="text-lg md:text-xl font-bold tracking-tight text-white/40 group-hover:text-white transition-colors duration-300">
+                      <span className="text-sm md:text-xl font-bold tracking-tight text-white/40 group-hover:text-white transition-colors duration-300">
                         {tech.name}
                       </span>
                       <div className="h-0.5 w-0 group-hover:w-full bg-accent transition-all duration-500" />
