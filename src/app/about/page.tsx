@@ -63,37 +63,48 @@ export default function AboutPage() {
                                     <span>Who We Are</span>
                                 </div>
                                 <h2 className="text-4xl md:text-5xl font-bold leading-tight">
-                                    Merging <span className="text-accent-secondary">Creativity</span> with Reliable Technology.
+                                    Merging <span className="text-accent underline decoration-accent/20 underline-offset-8">Creativity</span> with Reliable Technology.
                                 </h2>
-                                <p className="text-secondary text-lg leading-relaxed">
-                                    Nexora is a digital solutions studio focused on building clean, reliable, and easy-to-use websites.
+                                <p className="text-secondary text-lg leading-relaxed font-medium">
+                                    Nexora is a digital solutions studio focused on building clean, reliable, and easy-to-use digital platforms.
                                 </p>
-                                <p className="text-secondary text-lg leading-relaxed">
-                                    We believe technology should simplify things — not complicate them. Our goal is to create digital platforms that are clear, accessible, and built to grow with your needs.
+                                <p className="text-secondary text-lg leading-relaxed font-medium">
+                                    We believe technology should simplify things, not complicate them. Our goal is to create digital platforms that are clear, accessible, and built to grow with your needs.
                                 </p>
-                                <p className="text-secondary text-lg leading-relaxed">
+                                <p className="text-secondary text-lg leading-relaxed font-medium">
                                     Whether it&apos;s a new website or a modern redesign, we focus on long-term value and usability.
                                 </p>
                             </div>
                         </ScrollReveal>
                         <ScrollReveal>
                             <div className="grid grid-cols-2 gap-4">
-                                <div className="p-8 rounded-3xl glass-card space-y-2 border-l-4 border-l-accent">
-                                    <h3 className="text-lg font-bold text-white">Clear Communication</h3>
-                                    <p className="text-sm text-secondary font-medium lowercase first-letter:uppercase">Simple explanations and transparent workflows.</p>
-                                </div>
-                                <div className="p-8 rounded-3xl glass-card space-y-2 border-l-4 border-l-accent-secondary">
-                                    <h3 className="text-lg font-bold text-white">Modern Approach</h3>
-                                    <p className="text-sm text-secondary font-medium lowercase first-letter:uppercase">Thoughtful design using current technologies.</p>
-                                </div>
-                                <div className="p-8 rounded-3xl glass-card space-y-2 border-l-4 border-l-accent-glow">
-                                    <h3 className="text-lg font-bold text-white">Built on Trust</h3>
-                                    <p className="text-sm text-secondary font-medium lowercase first-letter:uppercase">Honest work with dependable results.</p>
-                                </div>
-                                <div className="p-8 rounded-3xl glass-card space-y-2 border-l-4 border-l-white/20">
-                                    <h3 className="text-lg font-bold text-white">Quality Focused</h3>
-                                    <p className="text-sm text-secondary font-medium lowercase first-letter:uppercase">Care and precision in every detail.</p>
-                                </div>
+                                {[
+                                    { title: "Clear Communication", desc: "Simple explanations and transparent workflows.", accent: "border-l-accent", hover: "group-hover:text-accent" },
+                                    { title: "Modern Approach", desc: "Thoughtful design using current technologies.", accent: "border-l-accent-secondary", hover: "group-hover:text-accent-secondary" },
+                                    { title: "Built on Trust", desc: "Honest work with dependable results.", accent: "border-l-accent-glow", hover: "group-hover:text-accent-glow" },
+                                    { title: "Quality Focused", desc: "Care and precision in every detail.", accent: "border-l-accent", hover: "group-hover:text-accent" }
+                                ].map((card, i) => (
+                                    <motion.div
+                                        key={i}
+                                        whileHover={{
+                                            y: -8,
+                                            scale: 1.02,
+                                            backgroundColor: "rgba(255, 255, 255, 0.06)"
+                                        }}
+                                        transition={{ type: "spring", stiffness: 400, damping: 20 }}
+                                        className={`p-6 md:p-8 rounded-3xl glass-card space-y-2 border-l-4 ${card.accent} group cursor-default relative overflow-hidden`}
+                                    >
+                                        {/* Hover Glow Effect */}
+                                        <div className="absolute inset-0 bg-accent/5 opacity-0 group-hover:opacity-100 blur-2xl transition-opacity duration-500" />
+
+                                        <h3 className={`text-lg font-bold text-white ${card.hover} transition-colors relative z-10`}>
+                                            {card.title}
+                                        </h3>
+                                        <p className="text-sm text-secondary font-medium relative z-10 leading-relaxed">
+                                            {card.desc}
+                                        </p>
+                                    </motion.div>
+                                ))}
                             </div>
                         </ScrollReveal>
                     </div>
