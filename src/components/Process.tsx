@@ -1,84 +1,104 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Search, PenTool, Parentheses, Rocket } from "lucide-react";
+import { Search, PenTool, Braces, Rocket } from "lucide-react";
 
 const steps = [
     {
         number: "01",
         title: "Discover",
-        description: "We understand goals, users, and technical needs.",
+        description: "We understand your vision, target audience, and core technical requirements to build a solid foundation.",
         icon: Search
     },
     {
         number: "02",
         title: "Design",
-        description: "We create clean, user-focused interfaces.",
+        description: "Crafting intuitive, high-fidelity user interfaces that balance aesthetics with functional clarity.",
         icon: PenTool
     },
     {
         number: "03",
         title: "Build",
-        description: "We develop scalable, production-ready systems.",
-        icon: Parentheses
+        description: "Developing robust, scalable production systems using cutting-edge technologies and best practices.",
+        icon: Braces
     },
     {
         number: "04",
         title: "Refine",
-        description: "We test, optimize, and prepare for growth.",
+        description: "Rigorous testing and optimization to ensure your product is polished, fast, and ready for global scale.",
         icon: Rocket
     }
 ];
 
 export default function Process() {
     return (
-        <section id="process" className="py-16 md:py-24 border-t border-white/5">
-            <div className="section-container">
-                <motion.div
-                    initial={{ opacity: 0, x: -20 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.6 }}
-                    className="max-w-xl mb-12 md:mb-20"
-                >
-                    <h2 className="text-3xl md:text-5xl font-bold mb-4 md:mb-6 leading-tight px-4 md:px-0">
-                        How <span className="italic font-medium text-accent">We Work</span>
-                    </h2>
-                </motion.div>
+        <section id="process" className="py-20 md:py-32 relative overflow-hidden">
+            {/* Ambient Background Glow */}
+            <div className="absolute top-1/2 left-0 -translate-y-1/2 w-[500px] h-[500px] bg-accent/5 blur-[120px] rounded-full pointer-events-none" />
 
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-12 px-4 md:px-0">
+            <div className="section-container relative z-10">
+                <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-16 md:mb-24">
+                    <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.6 }}
+                        className="max-w-2xl"
+                    >
+                        <span className="text-accent font-bold text-xs md:text-sm tracking-[0.4em] uppercase block mb-4">OUR METHODOLOGY</span>
+                        <h2 className="text-4xl md:text-6xl font-bold leading-[1.1] tracking-tighter">
+                            A Strategic Path <br />
+                            <span className="italic font-medium text-secondary">to Digital Excellence</span>
+                        </h2>
+                    </motion.div>
+                </div>
+
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-12 relative">
+                    {/* Horizontal Connector Line (Desktop) */}
+                    <div className="absolute top-6 left-0 w-full h-px bg-white/5 hidden lg:block" />
+
                     {steps.map((step, index) => (
                         <motion.div
                             key={index}
-                            initial={{ opacity: 0, y: 20 }}
+                            initial={{ opacity: 0, y: 30 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
-                            transition={{ duration: 0.5, delay: index * 0.15 }}
-                            className="flex flex-col relative"
+                            transition={{ duration: 0.7, delay: index * 0.15 }}
+                            className="group relative"
                         >
-                            <div className="flex items-center gap-4 mb-5 md:mb-6 group">
-                                <div className="w-10 h-10 md:w-12 md:h-12 rounded-full border border-white/10 flex items-center justify-center text-sm md:text-base font-bold text-accent bg-white/5 backdrop-blur-sm group-hover:border-accent/40 group-hover:bg-accent/10 transition-all duration-500">
-                                    {step.number}
+                            {/* Mobile Vertical Line */}
+                            {index !== steps.length - 1 && (
+                                <div className="absolute left-6 top-12 bottom-0 w-px bg-linear-to-b from-accent/30 via-accent/5 to-transparent md:hidden" />
+                            )}
+
+                            <div className="flex flex-row lg:flex-col items-start gap-6 lg:gap-8">
+                                {/* Number & Icon Container */}
+                                <div className="relative shrink-0">
+                                    <div className="w-12 h-12 md:w-14 md:h-14 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center text-accent relative z-10 backdrop-blur-xl group-hover:border-accent/40 group-hover:bg-accent/10 transition-all duration-500 shadow-xl group-hover:shadow-accent/5">
+                                        <step.icon className="w-5 h-5 md:w-6 md:h-6 group-hover:scale-110 transition-transform duration-500" />
+
+                                        {/* Step Number Badge */}
+                                        <div className="absolute -top-2 -right-2 bg-accent text-white text-[10px] font-black w-5 h-5 rounded-full flex items-center justify-center shadow-lg border-2 border-black">
+                                            {step.number}
+                                        </div>
+                                    </div>
+
+                                    {/* Hover Glow */}
+                                    <div className="absolute inset-0 bg-accent/20 blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-700 rounded-full" />
                                 </div>
-                                <div className="h-px flex-1 bg-white/5 lg:block hidden last:hidden relative overflow-hidden">
-                                    <motion.div
-                                        initial={{ x: "-100%" }}
-                                        whileInView={{ x: "100%" }}
-                                        viewport={{ once: true }}
-                                        transition={{ duration: 1.5, delay: index * 0.2 + 0.5, ease: "easeInOut" }}
-                                        className="absolute inset-0 bg-accent/30"
-                                    />
+
+                                <div className="flex-1 space-y-3 md:space-y-4 pt-1 md:pt-0">
+                                    <h3 className="text-xl md:text-2xl font-bold tracking-tight text-white group-hover:text-accent transition-colors duration-500">
+                                        {step.title}
+                                    </h3>
+                                    <p className="text-secondary text-sm md:text-base leading-relaxed font-medium">
+                                        {step.description}
+                                    </p>
+
+                                    {/* Animated Underline (Desktop) */}
+                                    <div className="h-0.5 w-0 md:group-hover:w-full bg-accent transition-all duration-700 hidden lg:block" />
                                 </div>
                             </div>
-
-                            <div className="text-accent mb-3 md:mb-4 scale-100 md:scale-110">
-                                <step.icon className="w-5 h-5" />
-                            </div>
-
-                            <h3 className="text-xl md:text-2xl font-bold mb-3 md:mb-4">{step.title}</h3>
-                            <p className="text-secondary text-xs md:text-sm leading-relaxed font-medium">
-                                {step.description}
-                            </p>
                         </motion.div>
                     ))}
                 </div>
@@ -86,3 +106,4 @@ export default function Process() {
         </section>
     );
 }
+
