@@ -27,16 +27,26 @@ function MacBookModel({
         const m: any = {};
         model.scene.traverse((e) => {
             m[e.name] = e;
-            // Performance: Disable raycasting for every part of the model
+            // Performance: Disable raycasting
             e.raycast = () => null;
+
+            // Remove any glass/shiny overlays that cause "white effect" glares
+            if (e instanceof THREE.Mesh && (e.name.includes("screen") || e.name.includes("glass")) && e.name !== "matte") {
+                e.visible = false;
+            }
         });
         return m;
     }, [model]);
 
-    // Apply texture as a separate effect to avoid any render-loop conflicts
+    // Apply texture with proper color space and no tone mapping for "normal" appearance
     useMemo(() => {
         if (meshes.matte) {
-            meshes.matte.material = new THREE.MeshBasicMaterial({ map: tex });
+            tex.colorSpace = THREE.SRGBColorSpace;
+            meshes.matte.material = new THREE.MeshBasicMaterial({
+                map: tex,
+                toneMapped: false, // Prevents the image from being washed out by scene lighting/renderer
+                color: 0xffffff
+            });
         }
     }, [meshes.matte, tex]);
 
@@ -95,7 +105,7 @@ export default function MacbookAnimation({ texture = "/mac-screen.jpg" }: { text
     const openingProgress = useSpring(rawOpening, springConfig);
 
     return (
-        <div ref={containerRef} className="w-full h-[100vh] md:h-[130vh] relative bg-black -mt-16 md:-mt-56 pointer-events-none">
+        <div ref={containerRef} className="w-full h-screen md:h-[130vh] relative bg-black -mt-16 md:-mt-56 pointer-events-none">
             <div className="sticky top-0 h-screen w-full overflow-hidden flex items-center justify-center">
                 <Canvas
                     camera={{

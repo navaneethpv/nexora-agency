@@ -43,7 +43,7 @@ export default async function ProjectDetails({ params }: { params: Promise<{ slu
                         <span className="text-[10px] md:text-sm font-black tracking-[0.3em] md:tracking-[0.4em] text-accent uppercase mb-4 md:mb-6 block">
                             {project.category}
                         </span>
-                        <h1 className="text-4xl md:text-8xl font-bold tracking-tighter leading-[1] md:leading-[0.9] mb-6 md:mb-10 max-w-4xl">
+                        <h1 className="text-4xl md:text-8xl font-bold tracking-tighter leading-none md:leading-[0.9] mb-6 md:mb-10 max-w-4xl">
                             {project.title}
                         </h1>
                         <p className="text-lg md:text-3xl text-secondary font-medium leading-relaxed max-w-3xl">

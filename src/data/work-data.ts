@@ -18,7 +18,7 @@ export const projects: Project[] = [
         category: "Website · Admin System",
         shortDescription: "A modern resort website with an admin portal to manage rooms, bookings, content, and enquiries.",
         coverImage: "/resort-macbook-mockup.png",
-        macbookImage: "/resort-macbook-mockup.png",
+        macbookImage: "/resort-mac.png",
         overview: "This project focuses on creating a clean and user-friendly website for a resort, along with an internal admin portal to manage daily operations efficiently. The goal was to improve the guest booking experience while giving administrators a simple interface to manage rooms, availability, and enquiries.",
         challenge: [
             "Manual booking management",
@@ -45,7 +45,7 @@ export const projects: Project[] = [
         category: "Institutional Website",
         shortDescription: "A modern, accessible website designed for educational institutions.",
         coverImage: "/institutional-academic.png",
-        macbookImage: "/institutional-academic.png",
+        macbookImage: "/college-mac.png",
         overview: "We developed a structured digital presence for educational institutions, focusing on clear information architecture and accessible user journeys. The platform allows students and faculty to access vital information easily while maintaining a professional and modern aesthetic.",
         challenge: [
             "Overwhelming and cluttered information layout",
