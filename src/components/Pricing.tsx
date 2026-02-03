@@ -23,7 +23,6 @@ export default function WhyNexora() {
                     whileInView={{ opacity: 1, scale: 1 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.5 }}
-                    style={{ willChange: "transform, opacity" }}
                     className="max-w-4xl mx-auto"
                 >
                     <div className="glass-card rounded-3xl md:rounded-[2.5rem] p-6 md:p-12 relative overflow-hidden group">

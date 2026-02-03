@@ -78,14 +78,14 @@ export default function Hero() {
             <HeroBackground3D />
             {/* Background Glows & Orbs */}
             <motion.div
-                style={{ opacity, scale, y, willChange: "transform, opacity" }}
+                style={{ opacity, scale, y }}
                 className="absolute inset-0 -z-10 overflow-hidden pointer-events-none"
             >
                 <div
-                    className="absolute top-[-20%] left-[-10%] w-screen md:w-[70vw] h-[100vw] md:h-[70vw] bg-accent/15 blur-[80px] md:blur-[140px] rounded-full opacity-60 animate-float-slow"
+                    className="absolute top-[-20%] left-[-10%] w-screen md:w-[70vw] h-[100vw] md:h-[70vw] bg-accent/15 blur-[60px] md:blur-[100px] rounded-full opacity-60 animate-float-slow"
                 />
                 <div
-                    className="absolute bottom-[-20%] right-[-10%] w-[90vw] md:w-[60vw] h-[90vw] md:h-[60vw] bg-blue-500/10 blur-[80px] md:blur-[140px] rounded-full opacity-40 animate-float-slower"
+                    className="absolute bottom-[-20%] right-[-10%] w-[90vw] md:w-[60vw] h-[90vw] md:h-[60vw] bg-blue-500/10 blur-[60px] md:blur-[100px] rounded-full opacity-40 animate-float-slower"
                 />
             </motion.div>
 
@@ -94,7 +94,7 @@ export default function Hero() {
                 variants={containerVariants}
                 initial="hidden"
                 animate="visible"
-                style={{ opacity, scale, y, willChange: "transform, opacity" }}
+                style={{ opacity, scale, y }}
                 className="relative z-10 flex flex-col items-center"
             >
                 <motion.div

@@ -64,7 +64,6 @@ export default function FeaturesSection() {
                             viewport={{ once: true }}
                             transition={{ duration: 0.5, delay: index * 0.1 }}
                             whileHover={{ y: -5, borderColor: "rgba(124, 58, 237, 0.3)" }}
-                            style={{ willChange: "transform, opacity" }}
                             className="glass-card p-6 md:p-8 rounded-3xl md:rounded-4xl transition-all duration-300 group relative"
                         >
                             <div className="w-10 h-10 md:w-12 md:h-12 rounded-xl md:rounded-2xl bg-accent/10 flex items-center justify-center text-accent mb-5 md:mb-6 group-hover:bg-accent group-hover:text-white transition-all duration-300">

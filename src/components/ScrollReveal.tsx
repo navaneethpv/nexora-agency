@@ -37,7 +37,6 @@ export default function ScrollReveal({
                 delay,
                 ease: [0.16, 1, 0.3, 1] // Smoother, faster but fluid arrival
             }}
-            style={{ willChange: "transform, opacity" }}
         >
             {children}
         </motion.div>

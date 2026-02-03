@@ -11,7 +11,7 @@ const Word = memo(({ children, progress, range }: WordProps) => {
     const opacity = useTransform(progress, range, [0.15, 1]);
     return (
         <span className="relative inline-block">
-            <motion.span style={{ opacity, willChange: "opacity" }} className="text-white">
+            <motion.span style={{ opacity }} className="text-white">
                 {children}
             </motion.span>
         </span>

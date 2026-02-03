@@ -1,6 +1,7 @@
 "use client";
 
 import { useMemo, useRef } from "react";
+import { useInView } from "framer-motion";
 import { Canvas, useFrame } from "@react-three/fiber";
 import { Points, PointMaterial } from "@react-three/drei";
 import * as THREE from "three";
@@ -48,19 +49,26 @@ function ParticleBackground() {
 }
 
 export default function HeroBackground3D() {
+    const ref = useRef<HTMLDivElement>(null);
+    const isInView = useInView(ref, { margin: "100px" });
+
     return (
-        <div className="absolute inset-0 -z-20 pointer-events-none overflow-hidden">
-            <Canvas
-                camera={{ position: [0, 0, 1] }}
-                dpr={[1, 2]} // Limit pixel ratio for performance
-                gl={{
-                    antialias: false,
-                    powerPreference: "high-performance",
-                    alpha: true
-                }}
-            >
-                <ParticleBackground />
-            </Canvas>
+        <div ref={ref} className="absolute inset-0 -z-20 pointer-events-none overflow-hidden">
+            {isInView && (
+                <Canvas
+                    camera={{ position: [0, 0, 1] }}
+                    dpr={[1, 1.5]} // Slightly reduced for better performance
+                    gl={{
+                        antialias: false,
+                        powerPreference: "high-performance",
+                        alpha: true,
+                        stencil: false,
+                        depth: false,
+                    }}
+                >
+                    <ParticleBackground />
+                </Canvas>
+            )}
         </div>
     );
 }

@@ -32,8 +32,8 @@ export default function Navbar() {
                 animate={{ y: 0, opacity: 1 }}
                 transition={{ duration: 0.5 }}
                 className={`rounded-full p-1.5 md:p-2 flex items-center justify-between w-full border transition-all duration-500 ${scrolled
-                        ? "bg-white/5 backdrop-blur-3xl border-white/15 shadow-[0_8px_32px_0_rgba(0,0,0,0.8)]"
-                        : "bg-transparent backdrop-blur-0 border-transparent shadow-none"
+                    ? "bg-white/5 backdrop-blur-xl border-white/15 shadow-[0_8px_32px_0_rgba(0,0,0,0.8)]"
+                    : "bg-transparent backdrop-blur-0 border-transparent shadow-none"
                     }`}
             >
                 <div className="flex items-center gap-4 md:gap-16 pl-4 md:pl-8 pr-1 md:pr-2 w-full justify-between">

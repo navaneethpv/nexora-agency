@@ -2,7 +2,7 @@
 
 import { useRef, useState, useEffect } from "react";
 
-import { motion, useAnimationFrame, useMotionValue, useTransform } from "framer-motion";
+import { motion, useAnimationFrame, useMotionValue, useTransform, useInView } from "framer-motion";
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import Process from "@/components/Process";
@@ -59,7 +59,11 @@ export default function Home() {
   const baseX = useMotionValue(0);
   const x = useTransform(baseX, (v) => `${(v % 33.33) - 33.33}%`);
 
+  const tickerRef = useRef<HTMLDivElement>(null);
+  const isInView = useInView(tickerRef, { margin: "0px 0px 200px 0px" });
+
   useAnimationFrame((t, delta) => {
+    if (!isInView) return;
     // Smoother ticker movement
     baseX.set(baseX.get() - 0.02);
   });
@@ -70,7 +74,7 @@ export default function Home() {
       <Hero />
 
       <ScrollReveal>
-        <section className="py-16 md:py-24 flex flex-col items-center border-t border-white/5 relative bg-white/2 overflow-hidden">
+        <section ref={tickerRef} className="py-16 md:py-24 flex flex-col items-center border-t border-white/5 relative bg-white/2 overflow-hidden">
           {/* Ambient Glows */}
           <div className="absolute top-1/2 left-1/4 -translate-y-1/2 w-64 h-64 bg-accent/10 blur-[100px] rounded-full pointer-events-none" />
           <div className="absolute top-1/2 right-1/4 -translate-y-1/2 w-64 h-64 bg-blue-500/10 blur-[100px] rounded-full pointer-events-none" />
@@ -93,7 +97,7 @@ export default function Home() {
           <div className="w-full relative z-10 px-4 md:px-0">
             <div className="flex overflow-hidden mask-[linear-gradient(to_right,transparent,black_10%,black_90%,transparent)] cursor-grab active:cursor-grabbing">
               <motion.div
-                style={{ x, willChange: "transform" }}
+                style={{ x }}
                 drag="x"
                 dragConstraints={{ left: 0, right: 0 }}
                 onDrag={(e, info) => {
@@ -180,7 +184,7 @@ export default function Home() {
                         src={item.image}
                         alt={item.title}
                         fill
-                        className="object-cover transition-all duration-1000 group-hover:scale-110 ease-out"
+                        className="object-cover transition-transform duration-1000 group-hover:scale-110 ease-out"
                         sizes="(max-width: 1024px) 100vw, 60vw"
                       />
                       {/* Gradient Mask */}
