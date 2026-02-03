@@ -1,6 +1,7 @@
 "use client";
 
 import { useRef, useState, useEffect } from "react";
+import Link from "next/link";
 
 import { motion, useAnimationFrame, useMotionValue, useTransform, useInView } from "framer-motion";
 import Navbar from "@/components/Navbar";
@@ -39,19 +40,22 @@ const portfolio = [
     title: "Resort Website & Admin Portal",
     description: "A modern, responsive resort website with an admin portal to manage rooms, bookings, content, and enquiries through a simple and intuitive interface.",
     category: "WEBSITE",
-    image: "/resort-macbook-mockup.png"
+    image: "/resort-macbook-mockup.png",
+    href: "/work/resort-website"
   },
   {
     title: "Commercial E-commerce Infrastructure",
     description: "Built for scale with optimized checkout sequences and a fluid product discovery experience for modern retail brands.",
     category: "E-COMMERCE",
-    image: "/device-mockup.png"
+    image: "/device-mockup.png",
+    href: "#"
   },
   {
     title: "Institutional & Academic Website",
     description: "A structured digital presence for educational institutions, focusing on clear information architecture and accessible user journeys.",
     category: "INSTITUTIONAL",
-    image: "/institutional-academic.png"
+    image: "/institutional-academic.png",
+    href: "#"
   }
 ];
 
@@ -217,7 +221,10 @@ export default function Home() {
                     </p>
 
                     <div className="pt-4 md:pt-6">
-                      <button className="group/btn flex items-center gap-4 text-white font-bold text-base md:text-lg">
+                      <Link
+                        href={item.href}
+                        className="group/btn inline-flex items-center gap-4 text-white font-bold text-base md:text-lg"
+                      >
                         <span className="relative pb-1">
                           View Full Impact
                           <div className="absolute bottom-0 left-0 w-full h-px bg-white/20 scale-x-100 group-hover:scale-x-0 transition-transform origin-right duration-500" />
@@ -226,7 +233,7 @@ export default function Home() {
                         <div className="w-10 h-10 md:w-12 md:h-12 rounded-full border border-white/10 flex items-center justify-center group-hover/btn:bg-accent group-hover/btn:border-accent group-hover/btn:text-white text-white/60 transition-all duration-500">
                           <ExternalLink className="w-4 h-4 md:w-5 md:h-5 group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5 transition-transform" />
                         </div>
-                      </button>
+                      </Link>
                     </div>
                   </div>
                 </motion.div>
