@@ -2,7 +2,7 @@
 import React, { useRef, useMemo } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
 import { useGLTF, Environment, Float, useTexture } from "@react-three/drei";
-import { useScroll, useTransform, useMotionValue, motion } from "framer-motion";
+import { useScroll, useTransform, useMotionValue, motion, useSpring } from "framer-motion";
 import * as THREE from "three";
 
 function MacBookModel({ scrollProgress, appearanceY, appearanceScale, ...props }: { scrollProgress: any; appearanceY: any; appearanceScale: any } & any) {
@@ -54,16 +54,23 @@ export default function MacbookAnimation() {
         offset: ["start end", "end start"],
     });
 
-    // Timeline (Percentage of total section scroll):
-    // 0.0 -> 0.2: Appearance (Y movement and Scale) - Lid stays CLOSED (180 deg)
-    const appearanceY = useTransform(scrollYProgress, [0, 0.2], [10, 0]);
-    const appearanceScale = useTransform(scrollYProgress, [0, 0.2], [0.9, 1]);
+    // Spring configuration for premium, smooth transition
+    const springConfig = { stiffness: 80, damping: 20, mass: 1 };
 
-    // 0.2 -> 0.5: Lid opening logic
-    const openingProgress = useTransform(scrollYProgress, [0.2, 0.5], [0, 1]);
+    // Timeline (Percentage of total section scroll):
+    // 0.0 -> 0.3: Appearance (Lid closed)
+    const rawY = useTransform(scrollYProgress, [0, 0.3], [10, 0]);
+    const rawScale = useTransform(scrollYProgress, [0, 0.3], [0.9, 1]);
+    const appearanceY = useSpring(rawY, springConfig);
+    const appearanceScale = useSpring(rawScale, springConfig);
+
+    // 0.3 -> 0.5: Delay buffer (Lid stays closed)
+    // 0.5 -> 0.8: Lid opening logic
+    const rawOpening = useTransform(scrollYProgress, [0.5, 0.8], [0, 1]);
+    const openingProgress = useSpring(rawOpening, springConfig);
 
     return (
-        <div ref={containerRef} className="w-full h-[120vh] relative bg-black -mt-16 md:-mt-32">
+        <div ref={containerRef} className="w-full h-[130vh] relative bg-black -mt-32 md:-mt-56">
             <div className="sticky top-0 h-screen w-full overflow-hidden flex items-center justify-center">
                 <Canvas camera={{ fov: 12, position: [0, -10, 220] }}>
                     <React.Suspense fallback={null}>
