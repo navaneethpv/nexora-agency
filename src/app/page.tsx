@@ -36,10 +36,10 @@ const techStack = [
 
 const portfolio = [
   {
-    title: "Business Platform & Admin Dashboard",
-    description: "A comprehensive digital ecosystem designed for operational efficiency, featuring a high-performance admin interface and seamless user management.",
-    category: "WEB APP",
-    image: "/saas-dashboard.png"
+    title: "Resort Website & Admin Portal",
+    description: "A modern, responsive resort website with an admin portal to manage rooms, bookings, content, and enquiries through a simple and intuitive interface.",
+    category: "WEBSITE",
+    image: "/resort-hospitality.png"
   },
   {
     title: "Commercial E-commerce Infrastructure",
