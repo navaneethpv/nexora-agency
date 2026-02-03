@@ -116,7 +116,7 @@ export default function AboutPage() {
                 <div className="section-container">
                     <div className="text-center max-w-3xl mx-auto mb-20 space-y-4">
                         <h2 className="text-3xl md:text-5xl font-bold">The Nexora Approach</h2>
-                        <p className="text-secondary text-lg">We prioritize clarity and quality at every stage of the development lifecycle.</p>
+                        <p className="text-secondary text-base md:text-lg font-medium">We focus on clarity, quality, and reliability in everything we build.</p>
                     </div>
 
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -124,17 +124,17 @@ export default function AboutPage() {
                             {
                                 icon: <Zap className="text-accent" />,
                                 title: "Clarity",
-                                description: "We remove the mystery from development. You'll always know what we're building, why we're building it, and how it benefits your business."
+                                description: "We remove confusion from the process. You’ll always know what we’re building, why it matters, and how it helps you."
                             },
                             {
                                 icon: <Target className="text-accent-secondary" />,
                                 title: "Quality",
-                                description: "Every line of code is written with performance and security in mind. We don't just build things that work; we build things that last."
+                                description: "We focus on building solutions that are stable, well-designed, and built to last."
                             },
                             {
                                 icon: <Users className="text-accent-glow" />,
                                 title: "Reliability",
-                                description: "We act as your extended team. When you partner with Nexora, you're gaining a partner that is as invested in your results as you are."
+                                description: "We work as a dependable partner, committed to your goals and long-term success."
                             }
                         ].map((item, i) => (
                             <ScrollReveal key={i}>
