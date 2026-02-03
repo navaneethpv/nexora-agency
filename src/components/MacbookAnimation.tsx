@@ -55,15 +55,15 @@ export default function MacbookAnimation() {
     });
 
     // Timeline (Percentage of total section scroll):
-    // 0.0 -> 0.35: Appearance (Y movement and Scale) - Lid stays CLOSED (180 deg)
-    const appearanceY = useTransform(scrollYProgress, [0, 0.35], [20, 0]);
-    const appearanceScale = useTransform(scrollYProgress, [0, 0.35], [0.8, 1]);
+    // 0.0 -> 0.2: Appearance (Y movement and Scale) - Lid stays CLOSED (180 deg)
+    const appearanceY = useTransform(scrollYProgress, [0, 0.2], [10, 0]);
+    const appearanceScale = useTransform(scrollYProgress, [0, 0.2], [0.9, 1]);
 
-    // 0.45 -> 0.75: Lid opening logic
-    const openingProgress = useTransform(scrollYProgress, [0.45, 0.75], [0, 1]);
+    // 0.2 -> 0.5: Lid opening logic
+    const openingProgress = useTransform(scrollYProgress, [0.2, 0.5], [0, 1]);
 
     return (
-        <div ref={containerRef} className="w-full h-[200vh] relative bg-black">
+        <div ref={containerRef} className="w-full h-[120vh] relative bg-black -mt-16 md:-mt-32">
             <div className="sticky top-0 h-screen w-full overflow-hidden flex items-center justify-center">
                 <Canvas camera={{ fov: 12, position: [0, -10, 220] }}>
                     <React.Suspense fallback={null}>

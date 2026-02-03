@@ -101,7 +101,7 @@ export default function ProjectDetails() {
             </section>
 
             {/* Challenge & Solution Section */}
-            <section className="py-24 md:py-48">
+            <section className="pt-24 md:pt-48 pb-0">
                 <div className="section-container">
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-16 md:gap-32">
                         {/* The Challenge */}
