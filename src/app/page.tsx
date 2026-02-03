@@ -36,22 +36,22 @@ const techStack = [
 
 const portfolio = [
   {
-    title: "Business Website & Admin Dashboard",
-    description: "A responsive website and admin interface built to manage content, users, and operations with clarity and performance in mind.",
+    title: "Business Platform & Admin Dashboard",
+    description: "A comprehensive digital ecosystem designed for operational efficiency, featuring a high-performance admin interface and seamless user management.",
     category: "WEB APP",
     image: "/saas-dashboard.png"
   },
   {
-    title: "E-commerce Website for Retail Businesses",
-    description: "Scalable e-commerce websites with optimized checkout flows, product management, and performance-focused architecture.",
+    title: "Commercial E-commerce Infrastructure",
+    description: "Built for scale with optimized checkout sequences and a fluid product discovery experience for modern retail brands.",
     category: "E-COMMERCE",
     image: "/device-mockup.png"
   },
   {
-    title: "Resort & Hospitality Website Experience",
-    description: "Conversion-focused resort websites with booking-friendly layouts, responsive design, and immersive visuals.",
-    category: "WEBSITE",
-    image: "/resort-hospitality.png"
+    title: "Institutional & Academic Website",
+    description: "A structured digital presence for educational institutions, focusing on clear information architecture and accessible user journeys.",
+    category: "INSTITUTIONAL",
+    image: "/institutional-academic.png"
   }
 ];
 
@@ -150,29 +150,16 @@ export default function Home() {
 
           <div className="section-container px-4 md:px-0 relative z-10">
             <motion.div
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="mb-20 md:mb-40"
+              className="mb-24 md:mb-32"
             >
-              <div className="flex flex-col md:flex-row md:items-center justify-between gap-10 bg-white/2 p-7 md:p-16 rounded-[2.5rem] md:rounded-[3.5rem] border border-white/5 backdrop-blur-md relative overflow-hidden group">
-                <div className="absolute top-0 right-0 w-64 h-64 bg-accent/5 blur-[80px] rounded-full group-hover:bg-accent/10 transition-colors duration-1000" />
-                <div className="max-w-2xl relative z-10">
-                  <span className="text-accent font-black text-[10px] md:text-xs tracking-[0.5em] uppercase block mb-4">SELECTED WORK</span>
-                  <h2 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight md:leading-[0.95] tracking-tighter">Strategic Digital <br className="hidden md:block" />Showcase</h2>
-                  <p className="text-secondary text-base md:text-xl font-medium leading-relaxed max-w-xl">We design and develop modern, high-performance websites and web applications tailored to real business needs across multiple industries.</p>
-                </div>
-                <div className="flex md:flex-col items-center md:items-end gap-5 md:gap-2 relative z-10 w-full md:w-auto mt-4 md:mt-0 pt-8 md:pt-0 border-t border-white/5 md:border-0">
-                  <div className="flex flex-col md:items-end">
-                    <span className="text-4xl md:text-6xl font-bold text-white leading-none">25<span className="text-accent">+</span></span>
-                    <span className="text-[10px] md:text-xs font-bold text-secondary tracking-widest uppercase">Active Clients</span>
-                  </div>
-                  <div className="w-px h-10 md:w-20 md:h-px bg-white/10 hidden md:block" />
-                  <div className="flex flex-col md:items-end">
-                    <span className="text-4xl md:text-6xl font-bold text-white leading-none">50<span className="text-accent">+</span></span>
-                    <span className="text-[10px] md:text-xs font-bold text-secondary tracking-widest uppercase">Projects</span>
-                  </div>
-                </div>
+              <div className="max-w-3xl">
+                <h2 className="text-5xl md:text-7xl font-bold mb-8 tracking-tighter">Selected Work</h2>
+                <p className="text-secondary text-lg md:text-2xl font-medium leading-relaxed">
+                  A curated selection of projects showcasing our approach to design, development, and digital problem-solving.
+                </p>
               </div>
             </motion.div>
 
