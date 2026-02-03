@@ -8,7 +8,7 @@ import { AnimatedSocialIcon } from "./AnimatedSocialIcon";
 
 export default function Footer() {
     return (
-        <footer className="relative pt-24 pb-12 border-t border-white/5 overflow-hidden">
+        <footer id="contact" className="relative pt-24 pb-12 border-t border-white/5 overflow-hidden">
             {/* Background Glow */}
             <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[400px] bg-accent/5 blur-[120px] rounded-full -z-10 opacity-50" />
 

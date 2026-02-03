@@ -19,10 +19,10 @@ export default function Navbar() {
     const [hoveredPath, setHoveredPath] = useState<string | null>(null);
 
     const navLinks = [
-        { name: "About", href: "#about" },
-        { name: "Services", href: "#services" },
-        { name: "Work", href: "#work" },
-        { name: "Contact", href: "#contact" },
+        { name: "About", href: "/about" },
+        { name: "Services", href: "/#services" },
+        { name: "Work", href: "/#work" },
+        { name: "Contact", href: "/#contact" },
     ];
 
     return (
