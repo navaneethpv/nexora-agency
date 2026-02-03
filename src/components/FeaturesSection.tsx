@@ -6,32 +6,32 @@ import { Code2, Palette, Zap, Layers, Smartphone, ShieldCheck } from "lucide-rea
 const features = [
     {
         title: "Web Development",
-        description: "Building clean, scalable, and secure web applications.",
+        description: "Custom websites built for institutions and businesses.",
         icon: Code2
     },
     {
-        title: "UI & UX Design",
-        description: "User-focused interfaces designed for clarity and ease of use.",
+        title: "User-Friendly Design",
+        description: "Simple, clean, and easy-to-use interfaces.",
         icon: Palette
     },
     {
-        title: "Performance Optimization",
-        description: "Making your web products lightning-fast and responsive.",
+        title: "Fast & Reliable Websites",
+        description: "Smooth performance with quick loading times.",
         icon: Zap
     },
     {
-        title: "Scalable Architecture",
-        description: "Systems designed to grow seamlessly with your business.",
+        title: "Future-Ready Systems",
+        description: "Digital solutions that grow with your needs.",
         icon: Layers
     },
     {
         title: "Responsive Design",
-        description: "Perfect experiences across all devices and screen sizes.",
+        description: "Perfect experience across all devices.",
         icon: Smartphone
     },
     {
-        title: "Technical Excellence",
-        description: "A performance-first mindset in every line of code.",
+        title: "Secure & Trusted Technology",
+        description: "Safe, stable, and dependable platforms.",
         icon: ShieldCheck
     }
 ];
