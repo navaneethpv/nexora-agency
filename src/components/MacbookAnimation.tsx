@@ -1,7 +1,7 @@
 "use client";
 import React, { useRef, useMemo } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
-import { useGLTF, Environment, Float, useTexture } from "@react-three/drei";
+import { useGLTF, Environment, useTexture } from "@react-three/drei";
 import { useScroll, useTransform, useMotionValue, motion, useSpring } from "framer-motion";
 import * as THREE from "three";
 
@@ -25,11 +25,13 @@ function MacBookModel({
         const m: any = {};
         model.scene.traverse((e) => {
             m[e.name] = e;
+            // Performance: Disable raycasting for every part of the model
+            e.raycast = () => null;
         });
         return m;
     }, [model]);
 
-    // Apply texture once
+    // Apply texture as a separate effect to avoid any render-loop conflicts
     useMemo(() => {
         if (meshes.matte) {
             meshes.matte.material = new THREE.MeshBasicMaterial({ map: tex });
@@ -38,13 +40,11 @@ function MacBookModel({
 
     useFrame(() => {
         if (meshes.screen) {
-            // Rotation logic: Only begins after appearance phase
             const progress = scrollProgress.get();
             meshes.screen.rotation.x = THREE.MathUtils.degToRad(180 - progress * 90);
         }
 
         if (groupRef.current) {
-            // Position and Scale logic (Entrance phase)
             groupRef.current.position.y = -14 + appearanceY.get();
             const s = appearanceScale.get();
             groupRef.current.scale.set(s, s, s);
@@ -65,36 +65,41 @@ export default function MacbookAnimation({ texture = "/mac-screen.jpg" }: { text
         offset: ["start end", "end start"],
     });
 
-    // Spring configuration for premium, smooth transition
-    const springConfig = { stiffness: 80, damping: 20, mass: 1 };
+    // High-responsiveness spring config: Eliminates the "stuck" feeling
+    const springConfig = { stiffness: 100, damping: 30, mass: 1 };
 
-    // Timeline (Percentage of total section scroll):
-    // 0.0 -> 0.3: Appearance (Lid closed)
     const rawY = useTransform(scrollYProgress, [0, 0.3], [10, 0]);
     const rawScale = useTransform(scrollYProgress, [0, 0.3], [0.9, 1]);
     const appearanceY = useSpring(rawY, springConfig);
     const appearanceScale = useSpring(rawScale, springConfig);
 
-    // 0.3 -> 0.5: Delay buffer (Lid stays closed)
-    // 0.5 -> 0.8: Lid opening logic
-    const rawOpening = useTransform(scrollYProgress, [0.5, 0.8], [0, 1]);
+    const rawOpening = useTransform(scrollYProgress, [0.3, 0.45], [0, 1]);
     const openingProgress = useSpring(rawOpening, springConfig);
 
     return (
         <div ref={containerRef} className="w-full h-[130vh] relative bg-black -mt-32 md:-mt-56">
             <div className="sticky top-0 h-screen w-full overflow-hidden flex items-center justify-center">
-                <Canvas camera={{ fov: 12, position: [0, -10, 220] }}>
+                <Canvas
+                    camera={{ fov: 12, position: [0, -10, 220] }}
+                    dpr={[1, 1.5]} // Performance: Cap at 1.5x resolution for a massive performance gain
+                    performance={{ min: 0.6 }}
+                    gl={{
+                        powerPreference: "high-performance",
+                        antialias: false, // Performance: Faster rendering without edge-smoothing overhead
+                        alpha: false,
+                        stencil: false,
+                        depth: true,
+                    }}
+                >
                     <React.Suspense fallback={null}>
                         <Environment preset="city" />
-                        <Float speed={1.5} rotationIntensity={0.1} floatIntensity={0.5}>
-                            <MacBookModel
-                                scrollProgress={openingProgress}
-                                appearanceY={appearanceY}
-                                appearanceScale={appearanceScale}
-                                texture={texture}
-                                position={[0, -14, 20]}
-                            />
-                        </Float>
+                        <MacBookModel
+                            scrollProgress={openingProgress}
+                            appearanceY={appearanceY}
+                            appearanceScale={appearanceScale}
+                            texture={texture}
+                            position={[0, -14, 20]}
+                        />
                     </React.Suspense>
                 </Canvas>
             </div>

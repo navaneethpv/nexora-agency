@@ -41,7 +41,7 @@ export default function WhyNexora() {
                     transition={{ duration: 0.8 }}
                     className="max-w-6xl mx-auto"
                 >
-                    <div className="glass-card rounded-[2rem] sm:rounded-[2.5rem] md:rounded-[4rem] p-6 sm:p-10 md:p-16 lg:p-20 relative overflow-hidden">
+                    <div className="glass-card rounded-4xl sm:rounded-[2.5rem] md:rounded-[4rem] p-6 sm:p-10 md:p-16 lg:p-20 relative overflow-hidden">
                         <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-10 lg:gap-20">
                             {/* Left Content */}
                             <div className="flex-1 space-y-6 md:space-y-10 w-full text-center lg:text-left">
@@ -79,7 +79,7 @@ export default function WhyNexora() {
                             <div className="w-full lg:w-[400px] shrink-0">
                                 <motion.div
                                     whileHover={{ y: -5 }}
-                                    className="bg-black/40 backdrop-blur-2xl border border-white/10 p-8 sm:p-10 md:p-12 rounded-[2rem] sm:rounded-[2.5rem] md:rounded-[3rem] text-center shadow-2xl relative group overflow-hidden"
+                                    className="bg-black/40 backdrop-blur-2xl border border-white/10 p-8 sm:p-10 md:p-12 rounded-4xl sm:rounded-[2.5rem] md:rounded-[3rem] text-center shadow-2xl relative group overflow-hidden"
                                 >
                                     <div className="absolute inset-0 bg-accent/5 opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
 
