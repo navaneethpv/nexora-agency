@@ -105,7 +105,7 @@ export default function MacbookAnimation({ texture = "/mac-screen.jpg" }: { text
     const springConfig = { stiffness: 100, damping: 30, mass: 1 };
 
     const rawY = useTransform(scrollYProgress, [0, 0.3], [10, 0]);
-    const rawScale = useTransform(scrollYProgress, [0, 0.3], [0.9, 1]);
+    const rawScale = useTransform(scrollYProgress, [0, 0.3], [0.9, 1.2]);
     const appearanceY = useSpring(rawY, springConfig);
     const appearanceScale = useSpring(rawScale, springConfig);
 
