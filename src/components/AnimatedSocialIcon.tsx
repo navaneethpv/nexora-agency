@@ -7,6 +7,8 @@ interface AnimatedSocialIconProps {
     type: 'whatsapp' | 'linkedin' | 'github' | 'instagram';
     href: string;
     size?: number;
+    target?: string;
+    rel?: string;
 }
 
 const iconMap = {
@@ -16,12 +18,14 @@ const iconMap = {
     instagram: FaInstagram,
 };
 
-export const AnimatedSocialIcon = ({ type, href, size = 20 }: AnimatedSocialIconProps) => {
+export const AnimatedSocialIcon = ({ type, href, size = 20, target, rel }: AnimatedSocialIconProps) => {
     const Icon = iconMap[type];
 
     return (
         <motion.a
             href={href}
+            target={target}
+            rel={target === "_blank" ? (rel || "noopener noreferrer") : rel}
             initial={{ opacity: 0.6, scale: 1 }}
             whileHover={{
                 opacity: 1,
