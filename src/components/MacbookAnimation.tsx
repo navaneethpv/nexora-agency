@@ -1,5 +1,5 @@
 "use client";
-import React, { useRef, useMemo } from "react";
+import React, { useRef, useMemo, useState, useEffect } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
 import { useGLTF, Environment, useTexture } from "@react-three/drei";
 import { useScroll, useTransform, useMotionValue, motion, useSpring } from "framer-motion";
@@ -10,12 +10,14 @@ function MacBookModel({
     appearanceY,
     appearanceScale,
     texture = "/mac-screen.jpg",
+    isMobile = false,
     ...props
 }: {
     scrollProgress: any;
     appearanceY: any;
     appearanceScale: any;
     texture?: string;
+    isMobile?: boolean;
 } & any) {
     const model = useGLTF("/mac.glb");
     const tex = useTexture(texture) as unknown as THREE.Texture;
@@ -45,8 +47,13 @@ function MacBookModel({
         }
 
         if (groupRef.current) {
-            groupRef.current.position.y = -14 + appearanceY.get();
-            const s = appearanceScale.get();
+            // Adaptive positioning for mobile
+            const baseY = isMobile ? -8 : -14;
+            groupRef.current.position.y = baseY + appearanceY.get();
+
+            // Adjust scale for mobile
+            const baseScale = isMobile ? 0.7 : 1;
+            const s = appearanceScale.get() * baseScale;
             groupRef.current.scale.set(s, s, s);
         }
     });
@@ -60,6 +67,17 @@ function MacBookModel({
 
 export default function MacbookAnimation({ texture = "/mac-screen.jpg" }: { texture?: string }) {
     const containerRef = useRef<HTMLDivElement>(null);
+    const [isMobile, setIsMobile] = useState(false);
+
+    useEffect(() => {
+        const checkMobile = () => {
+            setIsMobile(window.innerWidth < 768);
+        };
+        checkMobile();
+        window.addEventListener('resize', checkMobile);
+        return () => window.removeEventListener('resize', checkMobile);
+    }, []);
+
     const { scrollYProgress } = useScroll({
         target: containerRef,
         offset: ["start end", "end start"],
@@ -77,10 +95,13 @@ export default function MacbookAnimation({ texture = "/mac-screen.jpg" }: { text
     const openingProgress = useSpring(rawOpening, springConfig);
 
     return (
-        <div ref={containerRef} className="w-full h-[130vh] relative bg-black -mt-32 md:-mt-56">
+        <div ref={containerRef} className="w-full h-[100vh] md:h-[130vh] relative bg-black -mt-16 md:-mt-56 pointer-events-none">
             <div className="sticky top-0 h-screen w-full overflow-hidden flex items-center justify-center">
                 <Canvas
-                    camera={{ fov: 12, position: [0, -10, 220] }}
+                    camera={{
+                        fov: isMobile ? 22 : 12,
+                        position: [0, -10, isMobile ? 280 : 220]
+                    }}
                     dpr={[1, 1.5]} // Performance: Cap at 1.5x resolution for a massive performance gain
                     performance={{ min: 0.6 }}
                     gl={{
@@ -98,6 +119,7 @@ export default function MacbookAnimation({ texture = "/mac-screen.jpg" }: { text
                             appearanceY={appearanceY}
                             appearanceScale={appearanceScale}
                             texture={texture}
+                            isMobile={isMobile}
                             position={[0, -14, 20]}
                         />
                     </React.Suspense>
