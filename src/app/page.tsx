@@ -160,7 +160,7 @@ export default function Home() {
               className="mb-24 md:mb-32"
             >
               <div className="max-w-3xl">
-                <h2 className="text-5xl md:text-7xl font-bold mb-8 tracking-tighter">Selected Work</h2>
+                <h2 className="text-5xl md:text-7xl font-bold mb-8 tracking-tighter">Project Showcase</h2>
                 <p className="text-secondary text-lg md:text-2xl font-medium leading-relaxed">
                   A curated selection of projects showcasing our approach to design, development, and digital problem-solving.
                 </p>
@@ -202,9 +202,9 @@ export default function Home() {
                   {/* Narrative Block */}
                   <div className="w-full lg:w-[40%] space-y-6 md:space-y-8 px-4 md:px-0">
                     <div className="space-y-3 md:space-y-4">
-                      <div className="flex items-center gap-3 text-accent font-bold text-xs md:text-sm tracking-[0.3em] uppercase">
+                      <div className="flex items-center gap-3 text-accent group-hover:text-white font-bold text-xs md:text-sm tracking-[0.3em] uppercase transition-colors duration-500">
                         <span className="opacity-60">0{i + 1}</span>
-                        <div className="h-px w-6 md:w-10 bg-accent/30" />
+                        <div className="h-px w-6 md:w-10 bg-accent/30 group-hover:bg-white/30 transition-colors duration-500" />
                         <span>PROJECT</span>
                       </div>
                       <h3 className="text-3xl md:text-5xl lg:text-6xl font-bold leading-[1.1] md:leading-none tracking-tighter text-white group-hover:text-accent transition-colors duration-500">
