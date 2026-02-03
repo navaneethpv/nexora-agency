@@ -36,22 +36,22 @@ const techStack = [
 
 const portfolio = [
   {
-    title: "Website Platform for Business Management",
-    description: "A modern, responsive web interface focused on clarity, performance, and ease of use.",
-    category: "Web App · UI Design · Performance",
+    title: "Business Website & Admin Dashboard",
+    description: "A responsive website and admin interface built to manage content, users, and operations with clarity and performance in mind.",
+    category: "WEB APP",
     image: "/saas-dashboard.png"
   },
   {
-    title: "E-commerce Infrastructure for Retail Scale",
-    description: "High-performance checkout systems and inventory management dashboards.",
-    category: "E-Commerce · Scalable Architecture",
+    title: "E-commerce Website for Retail Businesses",
+    description: "Scalable e-commerce websites with optimized checkout flows, product management, and performance-focused architecture.",
+    category: "E-COMMERCE",
     image: "/device-mockup.png"
   },
   {
-    title: "Brand Identity & Design System for Startups",
-    description: "Cohesive visual languages that unify product and marketing across all platforms.",
-    category: "Branding · Design Systems",
-    image: "/branding-logo.png"
+    title: "Resort & Hospitality Website Experience",
+    description: "Conversion-focused resort websites with booking-friendly layouts, responsive design, and immersive visuals.",
+    category: "WEBSITE",
+    image: "/resort-hospitality.png"
   }
 ];
 
@@ -160,12 +160,12 @@ export default function Home() {
                 <div className="max-w-2xl relative z-10">
                   <span className="text-accent font-black text-[10px] md:text-xs tracking-[0.5em] uppercase block mb-4">SELECTED WORK</span>
                   <h2 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight md:leading-[0.95] tracking-tighter">Strategic Digital <br className="hidden md:block" />Showcase</h2>
-                  <p className="text-secondary text-base md:text-xl font-medium leading-relaxed max-w-xl">We transform visionary ideas into market-leading digital products through precision engineering and elite design.</p>
+                  <p className="text-secondary text-base md:text-xl font-medium leading-relaxed max-w-xl">We design and develop modern, high-performance websites and web applications tailored to real business needs across multiple industries.</p>
                 </div>
                 <div className="flex md:flex-col items-center md:items-end gap-5 md:gap-2 relative z-10 w-full md:w-auto mt-4 md:mt-0 pt-8 md:pt-0 border-t border-white/5 md:border-0">
                   <div className="flex flex-col md:items-end">
-                    <span className="text-4xl md:text-6xl font-bold text-white leading-none">12<span className="text-accent">+</span></span>
-                    <span className="text-[10px] md:text-xs font-bold text-secondary tracking-widest uppercase">Global Awards</span>
+                    <span className="text-4xl md:text-6xl font-bold text-white leading-none">25<span className="text-accent">+</span></span>
+                    <span className="text-[10px] md:text-xs font-bold text-secondary tracking-widest uppercase">Active Clients</span>
                   </div>
                   <div className="w-px h-10 md:w-20 md:h-px bg-white/10 hidden md:block" />
                   <div className="flex flex-col md:items-end">
@@ -214,7 +214,7 @@ export default function Home() {
                       <div className="flex items-center gap-3 text-accent font-bold text-xs md:text-sm tracking-[0.3em] uppercase">
                         <span className="opacity-60">0{i + 1}</span>
                         <div className="h-px w-6 md:w-10 bg-accent/30" />
-                        <span>CASE STUDY</span>
+                        <span>PROJECT</span>
                       </div>
                       <h3 className="text-3xl md:text-5xl lg:text-6xl font-bold leading-[1.1] md:leading-none tracking-tighter text-white group-hover:text-accent transition-colors duration-500">
                         {item.title}
