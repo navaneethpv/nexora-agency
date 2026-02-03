@@ -5,9 +5,20 @@ import { useGLTF, Environment, Float, useTexture } from "@react-three/drei";
 import { useScroll, useTransform, useMotionValue, motion, useSpring } from "framer-motion";
 import * as THREE from "three";
 
-function MacBookModel({ scrollProgress, appearanceY, appearanceScale, ...props }: { scrollProgress: any; appearanceY: any; appearanceScale: any } & any) {
+function MacBookModel({
+    scrollProgress,
+    appearanceY,
+    appearanceScale,
+    texture = "/mac-screen.jpg",
+    ...props
+}: {
+    scrollProgress: any;
+    appearanceY: any;
+    appearanceScale: any;
+    texture?: string;
+} & any) {
     const model = useGLTF("/mac.glb");
-    const tex = useTexture("/mac-screen.jpg");
+    const tex = useTexture(texture) as unknown as THREE.Texture;
     const groupRef = useRef<THREE.Group>(null);
 
     const meshes = useMemo(() => {
@@ -47,7 +58,7 @@ function MacBookModel({ scrollProgress, appearanceY, appearanceScale, ...props }
     );
 }
 
-export default function MacbookAnimation() {
+export default function MacbookAnimation({ texture = "/mac-screen.jpg" }: { texture?: string }) {
     const containerRef = useRef<HTMLDivElement>(null);
     const { scrollYProgress } = useScroll({
         target: containerRef,
@@ -80,6 +91,7 @@ export default function MacbookAnimation() {
                                 scrollProgress={openingProgress}
                                 appearanceY={appearanceY}
                                 appearanceScale={appearanceScale}
+                                texture={texture}
                                 position={[0, -14, 20]}
                             />
                         </Float>

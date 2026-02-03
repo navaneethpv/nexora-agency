@@ -1,8 +1,10 @@
 "use client";
 
 import { useRef, useState, useEffect } from "react";
+import { ArrowRight, Star, Quote, ChevronRight, ExternalLink } from "lucide-react";
+import { projects } from "@/data/work-data";
+import MacbookAnimation from "@/components/MacbookAnimation";
 import Link from "next/link";
-
 import { motion, useAnimationFrame, useMotionValue, useTransform, useInView } from "framer-motion";
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
@@ -16,7 +18,6 @@ import ScrollReveal from "@/components/ScrollReveal";
 import ShinyText from "@/components/ShinyText";
 import FloatingWhatsApp from "@/components/FloatingWhatsApp";
 import Image from "next/image";
-import { ExternalLink } from "lucide-react";
 import { FaReact, FaNodeJs, FaFigma } from "react-icons/fa";
 import { RiNextjsFill, RiTailwindCssFill } from "react-icons/ri";
 import { SiTypescript, SiAdobephotoshop, SiExpress, SiMongodb, SiAdobeillustrator } from "react-icons/si";
@@ -35,29 +36,13 @@ const techStack = [
   { name: "MongoDB", icon: SiMongodb },
 ];
 
-const portfolio = [
-  {
-    title: "Resort Website & Admin Portal",
-    description: "A modern, responsive resort website with an admin portal to manage rooms, bookings, content, and enquiries through a simple and intuitive interface.",
-    category: "WEBSITE",
-    image: "/resort-macbook-mockup.png",
-    href: "/work/resort-website"
-  },
-  {
-    title: "Commercial E-commerce Infrastructure",
-    description: "Built for scale with optimized checkout sequences and a fluid product discovery experience for modern retail brands.",
-    category: "E-COMMERCE",
-    image: "/device-mockup.png",
-    href: "#"
-  },
-  {
-    title: "Institutional & Academic Website",
-    description: "A structured digital presence for educational institutions, focusing on clear information architecture and accessible user journeys.",
-    category: "INSTITUTIONAL",
-    image: "/institutional-academic.png",
-    href: "#"
-  }
-];
+const portfolio = projects.map(p => ({
+  title: p.title,
+  description: p.shortDescription,
+  category: p.category.split(' · ')[0].toUpperCase(),
+  image: p.coverImage,
+  href: `/work/${p.slug}`
+}));
 
 export default function Home() {
   const baseX = useMotionValue(0);
