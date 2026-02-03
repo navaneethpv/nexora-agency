@@ -30,8 +30,9 @@ function MacBookModel({
             // Performance: Disable raycasting
             e.raycast = () => null;
 
-            // Remove any glass/shiny overlays that cause "white effect" glares
-            if (e instanceof THREE.Mesh && (e.name.includes("screen") || e.name.includes("glass")) && e.name !== "matte") {
+            // Only hide the highly reflective glass overlay, keep the "screen" bezel visible
+            // This fixes the "top side bug" where the bezel/notch area was being hidden
+            if (e instanceof THREE.Mesh && e.name.toLowerCase().includes("glass")) {
                 e.visible = false;
             }
         });
@@ -42,9 +43,13 @@ function MacBookModel({
     useMemo(() => {
         if (meshes.matte) {
             tex.colorSpace = THREE.SRGBColorSpace;
+            // Ensure texture doesn't repeat or bleed at the edges
+            tex.wrapS = THREE.ClampToEdgeWrapping;
+            tex.wrapT = THREE.ClampToEdgeWrapping;
+
             meshes.matte.material = new THREE.MeshBasicMaterial({
                 map: tex,
-                toneMapped: false, // Prevents the image from being washed out by scene lighting/renderer
+                toneMapped: false,
                 color: 0xffffff
             });
         }
@@ -65,6 +70,9 @@ function MacBookModel({
             const baseScale = isMobile ? 0.7 : 1;
             const s = appearanceScale.get() * baseScale;
             groupRef.current.scale.set(s, s, s);
+
+            // Slightly rotate to the right side (angled view)
+            groupRef.current.rotation.y = THREE.MathUtils.degToRad(15);
         }
     });
 
