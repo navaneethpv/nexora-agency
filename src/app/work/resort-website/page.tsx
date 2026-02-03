@@ -8,6 +8,7 @@ import ShinyText from "@/components/ShinyText";
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowLeft, CheckCircle2, Layout, Zap, Smartphone, ShieldCheck } from "lucide-react";
+import MacbookAnimation from "@/components/MacbookAnimation";
 
 export default function ProjectDetails() {
     return (
@@ -151,6 +152,8 @@ export default function ProjectDetails() {
                     </div>
                 </div>
             </section>
+
+            <MacbookAnimation />
 
             {/* Key Features Section */}
             <section className="py-24 md:py-32 bg-white/2 border-t border-white/5">
