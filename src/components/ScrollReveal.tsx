@@ -33,9 +33,9 @@ export default function ScrollReveal({
             }}
             viewport={{ once: true, margin: "-15%" }}
             transition={{
-                duration: 1.2,
+                duration: 0.8,
                 delay,
-                ease: [0.22, 1, 0.36, 1] // EaseOutQuint for a more professional arrival
+                ease: [0.16, 1, 0.3, 1] // Smoother, faster but fluid arrival
             }}
             style={{ willChange: "transform, opacity" }}
         >

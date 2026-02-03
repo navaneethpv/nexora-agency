@@ -1,5 +1,5 @@
 "use client";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, useScroll } from "framer-motion";
 import { FaWhatsapp, FaTimes, FaPaperPlane } from "react-icons/fa";
 import { useState, useEffect } from "react";
 import Image from "next/image";
@@ -8,20 +8,17 @@ export default function FloatingWhatsApp() {
     const [isVisible, setIsVisible] = useState(false);
     const [isOpen, setIsOpen] = useState(false);
 
+    const { scrollY } = useScroll();
     useEffect(() => {
-        const toggleVisibility = () => {
-            if (window.scrollY > 600) {
+        return scrollY.on("change", (latest: number) => {
+            if (latest > 600) {
                 setIsVisible(true);
             } else {
                 setIsVisible(false);
                 setIsOpen(false);
             }
-        };
-
-        window.addEventListener("scroll", toggleVisibility);
-        toggleVisibility();
-        return () => window.removeEventListener("scroll", toggleVisibility);
-    }, []);
+        });
+    }, [scrollY]);
 
     const whatsappNumber = "+916282592895"; // Replace with actual number
     const welcomeMessage = "Hi there! 👋 How can we help you today with your digital journey?";

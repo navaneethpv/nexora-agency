@@ -81,27 +81,14 @@ export default function Hero() {
                 style={{ opacity, scale, y, willChange: "transform, opacity" }}
                 className="absolute inset-0 -z-10 overflow-hidden pointer-events-none"
             >
-                <motion.div
-                    animate={{
-                        scale: [1, 1.2, 1],
-                        x: [0, 50, 0],
-                        y: [0, 30, 0],
-                    }}
-                    transition={{ duration: 25, repeat: Infinity, ease: "easeInOut" }}
-                    style={{ willChange: "transform" }}
-                    className="absolute top-[-20%] left-[-10%] w-screen md:w-[70vw] h-[100vw] md:h-[70vw] bg-accent/15 blur-[80px] md:blur-[140px] rounded-full opacity-60"
+                <div
+                    className="absolute top-[-20%] left-[-10%] w-screen md:w-[70vw] h-[100vw] md:h-[70vw] bg-accent/15 blur-[80px] md:blur-[140px] rounded-full opacity-60 animate-float-slow"
                 />
-                <motion.div
-                    animate={{
-                        scale: [1.2, 1, 1.2],
-                        x: [0, -40, 0],
-                        y: [0, -50, 0],
-                    }}
-                    transition={{ duration: 30, repeat: Infinity, ease: "easeInOut" }}
-                    style={{ willChange: "transform" }}
-                    className="absolute bottom-[-20%] right-[-10%] w-[90vw] md:w-[60vw] h-[90vw] md:h-[60vw] bg-blue-500/10 blur-[80px] md:blur-[140px] rounded-full opacity-40"
+                <div
+                    className="absolute bottom-[-20%] right-[-10%] w-[90vw] md:w-[60vw] h-[90vw] md:h-[60vw] bg-blue-500/10 blur-[80px] md:blur-[140px] rounded-full opacity-40 animate-float-slower"
                 />
             </motion.div>
+
 
             <motion.div
                 variants={containerVariants}
@@ -130,7 +117,7 @@ export default function Hero() {
                     className="max-w-5xl text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-bold tracking-tight mb-4 md:mb-8 leading-[1.1] md:leading-[1.02]"
                 >
                     Modern Web Solutions for <br />
-                    <span className="font-medium text-accent text-glow bg-clip-text text-transparent bg-linear-to-b from-accent to-accent/60 min-h-[1.1em] inline-block text-3xl sm:text-5xl md:text-6xl lg:text-7xl">
+                    <span className="font-medium text-glow bg-clip-text text-transparent bg-linear-to-b from-accent to-accent/60 min-h-[1.1em] inline-block text-3xl sm:text-5xl md:text-6xl lg:text-7xl">
                         {currentText}
                         <span className="inline-block w-[2px] h-[0.9em] bg-accent ml-1 animate-[pulse_1s_infinite] align-middle">|</span>
                     </span>

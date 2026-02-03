@@ -1,31 +1,37 @@
 "use client";
 
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import Lenis from "lenis";
 
 export default function SmoothScroll({ children }: { children: React.ReactNode }) {
+    const lenisRef = useRef<Lenis | null>(null);
+
     useEffect(() => {
         const lenis = new Lenis({
-            lerp: 0.045, // Slightly heavier for smoother, river-like momentum
-            wheelMultiplier: 1.2, // Makes pushing the "river" feel effortless
-            touchMultiplier: 1.5,
+            duration: 1.5,
+            easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+            orientation: "vertical",
+            gestureOrientation: "vertical",
             smoothWheel: true,
-            syncTouch: true,
+            wheelMultiplier: 1,
+            touchMultiplier: 2,
+            infinite: false,
         });
 
-        let rafId: number;
+        lenisRef.current = lenis;
+
         function raf(time: number) {
             lenis.raf(time);
-            rafId = requestAnimationFrame(raf);
+            requestAnimationFrame(raf);
         }
 
-        rafId = requestAnimationFrame(raf);
+        requestAnimationFrame(raf);
 
         return () => {
             lenis.destroy();
-            cancelAnimationFrame(rafId);
         };
     }, []);
 
     return <>{children}</>;
 }
+

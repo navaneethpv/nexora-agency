@@ -1,11 +1,24 @@
 "use client";
 import { motion, useScroll, useTransform } from "framer-motion";
-import { useRef } from "react";
+import { useRef, memo } from "react";
 
 interface TextScrollRevealProps {
     text: string;
     className?: string;
 }
+
+const Word = memo(({ children, progress, range }: WordProps) => {
+    const opacity = useTransform(progress, range, [0.15, 1]);
+    return (
+        <span className="relative inline-block">
+            <motion.span style={{ opacity, willChange: "opacity" }} className="text-white">
+                {children}
+            </motion.span>
+        </span>
+    );
+});
+
+Word.displayName = "Word";
 
 export default function TextScrollReveal({ text, className = "" }: TextScrollRevealProps) {
     const containerRef = useRef<HTMLDivElement>(null);
@@ -39,13 +52,3 @@ interface WordProps {
     range: [number, number];
 }
 
-function Word({ children, progress, range }: WordProps) {
-    const opacity = useTransform(progress, range, [0.2, 1]);
-    return (
-        <span className="relative inline-block">
-            <motion.span style={{ opacity }} className="text-white">
-                {children}
-            </motion.span>
-        </span>
-    );
-}

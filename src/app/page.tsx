@@ -60,7 +60,8 @@ export default function Home() {
   const x = useTransform(baseX, (v) => `${(v % 33.33) - 33.33}%`);
 
   useAnimationFrame((t, delta) => {
-    baseX.set(baseX.get() - 0.01);
+    // Smoother ticker movement
+    baseX.set(baseX.get() - 0.02);
   });
 
   return (
@@ -82,7 +83,7 @@ export default function Home() {
           >
             <ShinyText
               text="Built with cutting-edge Technologies"
-              className="text-[11px] md:text-lg font-bold uppercase tracking-[0.4em]"
+              className="text-[11px] md:text-lg font-bold uppercase tracking-[0.4em] text-center"
               color="rgba(255,255,255,0.4)"
               shineColor="#ffffff"
               speed={3}
@@ -92,7 +93,7 @@ export default function Home() {
           <div className="w-full relative z-10 px-4 md:px-0">
             <div className="flex overflow-hidden mask-[linear-gradient(to_right,transparent,black_10%,black_90%,transparent)] cursor-grab active:cursor-grabbing">
               <motion.div
-                style={{ x }}
+                style={{ x, willChange: "transform" }}
                 drag="x"
                 dragConstraints={{ left: 0, right: 0 }}
                 onDrag={(e, info) => {
@@ -117,10 +118,7 @@ export default function Home() {
                       <span className="text-lg md:text-xl font-bold tracking-tight text-white/40 group-hover:text-white transition-colors duration-300">
                         {tech.name}
                       </span>
-                      <motion.div
-                        className="h-0.5 w-0 group-hover:w-full bg-accent transition-all duration-500"
-                        layoutId={`underline-tech-${i}`}
-                      />
+                      <div className="h-0.5 w-0 group-hover:w-full bg-accent transition-all duration-500" />
                     </div>
                   </motion.div>
                 ))}
