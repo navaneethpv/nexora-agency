@@ -1,7 +1,7 @@
 "use client";
 import React, { useRef, useState, useEffect, useMemo } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
-import { useGLTF, Environment, useTexture, OrbitControls } from "@react-three/drei";
+import { useGLTF, Environment, useTexture } from "@react-three/drei";
 import { useScroll, useTransform, useSpring } from "framer-motion";
 import * as THREE from "three";
 
@@ -28,22 +28,6 @@ function IphoneModel({
     useMemo(() => {
         clonedScene.traverse((child) => {
             if (child instanceof THREE.Mesh) {
-                // Heuristic to find the screen: usually named 'screen' or generic name in these rips
-                // In the 'adrianhajdin' model, the screen is often a specific mesh.
-                // We'll try to apply to any mesh with 'screen' in name, or fallback to specific known names if it fails visually.
-                if (child.name.toLowerCase().includes("screen") || child.name.includes("Object_")) {
-                    // Ideally we'd log this to find exact name, but for now apply to likely candidates
-                    // Note: Detailed models often have separate glass and display meshes.
-                    // If we can't find exact, we might just apply to the main screen body.
-                }
-
-                // For the specific 'adrianhajdin' model (which is often Sketchfab rip), 
-                // the screen might be part of a multi-material or specific sub-mesh.
-                // Let's force applying to the mesh that looks like the display area if we can identify it.
-                // Often 'Object_16' or similar. 
-
-                // Let's try applying to *all* meshes that have a black base color initially to see? No.
-
                 // Optimization: Just traverse and find the one that has a material named 'Screen' or similar
                 if (child.material && (child.material.name.toLowerCase().includes("screen") || child.name.toLowerCase().includes("screen"))) {
                     child.material = new THREE.MeshStandardMaterial({
@@ -101,7 +85,7 @@ export default function IphoneAnimation({ texture = "/mac-screen.jpg" }: { textu
     // Mobile specific animations
     // Start from bottom, move up
     const rawY = useTransform(scrollYProgress, [0, 0.4], [2, 0]);
-    const rawScale = useTransform(scrollYProgress, [0, 0.4], [8, 12]);
+    const rawScale = useTransform(scrollYProgress, [0, 0.4], [5, 8]); // Reduced scale further
 
     // Rotate slightly from a tilted angle to directly front-facing
     const rawRotation = useTransform(scrollYProgress, [0, 0.5], [-15, 10]);
@@ -115,7 +99,7 @@ export default function IphoneAnimation({ texture = "/mac-screen.jpg" }: { textu
 
     return (
         <div ref={containerRef} className="block md:hidden w-full h-screen relative z-0 bg-transparent -mt-20 md:-mt-32">
-            <div className="sticky top-0 h-screen w-full overflow-hidden flex items-center justify-center pointer-events-auto">
+            <div className="sticky top-0 h-screen w-full overflow-hidden flex items-center justify-center pointer-events-none">
                 <Canvas
                     camera={{
                         fov: 30,
@@ -141,7 +125,6 @@ export default function IphoneAnimation({ texture = "/mac-screen.jpg" }: { textu
                             texture={texture}
                             position={[0, -1, 0]}
                         />
-                        <OrbitControls enableZoom={false} enablePan={false} rotateSpeed={0.5} />
                     </React.Suspense>
                 </Canvas>
             </div>

@@ -1,7 +1,7 @@
 "use client";
 import React, { useRef, useMemo, useState, useEffect } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
-import { useGLTF, Environment, useTexture, OrbitControls } from "@react-three/drei";
+import { useGLTF, Environment, useTexture } from "@react-three/drei";
 import { useScroll, useTransform, useMotionValue, motion, useSpring } from "framer-motion";
 import * as THREE from "three";
 
@@ -43,19 +43,47 @@ function MacBookModel({
 
     // Apply texture with proper color space and no tone mapping for "normal" appearance
     useMemo(() => {
-        if (meshes.matte) {
+        model.scene.traverse((e: any) => {
+            if (e.isMesh) {
+                e.castShadow = true;
+                e.receiveShadow = true;
+
+                // Enhance body materials
+                if (e.material) {
+                    e.material.envMapIntensity = 0.8;
+                }
+            }
+        });
+
+        if (meshes.screen) {
             tex.colorSpace = THREE.SRGBColorSpace;
-            // Ensure texture doesn't repeat or bleed at the edges
             tex.wrapS = THREE.ClampToEdgeWrapping;
             tex.wrapT = THREE.ClampToEdgeWrapping;
 
-            meshes.matte.material = new THREE.MeshBasicMaterial({
+            // Use Standard Material for realism (light interaction) instead of Basic
+            meshes.screen.material = new THREE.MeshStandardMaterial({
                 map: tex,
-                toneMapped: false,
+                roughness: 0.2,
+                metalness: 0.1,
+                envMapIntensity: 1.5, // Pop the colors
                 color: 0xffffff
             });
         }
-    }, [meshes.matte, tex]);
+
+        // Add realistic glass effect
+        if (meshes.glass) {
+            meshes.glass.visible = true;
+            meshes.glass.material = new THREE.MeshPhysicalMaterial({
+                roughness: 0.1,
+                metalness: 0,
+                transmission: 0.99, // Glass behavior
+                thickness: 0.1,
+                clearcoat: 1,
+                transparent: true,
+                opacity: 0.2
+            });
+        }
+    }, [meshes, tex, model]);
 
     useFrame(() => {
         if (meshes.screen) {
@@ -121,7 +149,7 @@ export default function MacbookAnimation({ texture = "/mac-screen.jpg" }: { text
 
     return (
         <div ref={containerRef} className="hidden md:block w-full h-[120vh] relative bg-black">
-            <div className="sticky top-0 h-screen w-full overflow-hidden flex items-center justify-center pointer-events-auto">
+            <div className="sticky top-0 h-screen w-full overflow-hidden flex items-center justify-center pointer-events-none">
                 <Canvas
                     camera={{
                         fov: isMobile ? 22 : 12,
@@ -144,13 +172,6 @@ export default function MacbookAnimation({ texture = "/mac-screen.jpg" }: { text
                             texture={texture}
                             isMobile={isMobile}
                             position={[0, -14, 20]}
-                        />
-                        <OrbitControls
-                            enableZoom={false}
-                            enablePan={false}
-                            rotateSpeed={0.5}
-                            minPolarAngle={Math.PI / 4} // Restrict vertical rotation to keep it looking nice
-                            maxPolarAngle={Math.PI / 1.8}
                         />
                     </React.Suspense>
                 </Canvas>
