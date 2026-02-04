@@ -6,6 +6,7 @@ import Footer from "@/components/Footer";
 import { Check, Shield, Zap, Target, Users, Sparkles } from "lucide-react";
 import ScrollReveal from "@/components/ScrollReveal";
 import Link from "next/link";
+import Image from "next/image";
 
 export default function AboutPage() {
     const fadeIn = {
@@ -257,6 +258,70 @@ export default function AboutPage() {
                             </h2>
                             <p className="text-accent font-bold tracking-[0.2em] uppercase mt-12">The Nexora Vision</p>
                         </ScrollReveal>
+                    </div>
+                </div>
+            </section>
+
+            {/* Team Section */}
+            <section className="py-20 md:py-32 relative text-center">
+                <div className="section-container">
+                    <ScrollReveal>
+                        <h2 className="text-3xl md:text-5xl font-bold mb-6">The People Behind Nexora</h2>
+                        <p className="max-w-2xl mx-auto text-secondary text-lg mb-16 font-medium">
+                            Nexora is built by a small, dedicated team focused on clarity, quality, and reliable delivery.
+                        </p>
+                    </ScrollReveal>
+
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                        {[
+                            {
+                                name: "Liam Carter",
+                                role: "Product & Development",
+                                desc: "Builds and structures reliable systems, ensuring everything works smoothly from start to finish.",
+                                img: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=400&h=400&fit=crop"
+                            },
+                            {
+                                name: "Sophia Hayes",
+                                role: "Design & User Experience",
+                                desc: "Designs clear, accessible, and user-friendly interfaces focused on simplicity and consistency.",
+                                img: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=400&h=400&fit=crop"
+                            },
+                            {
+                                name: "Noah Brooks",
+                                role: "Operations & Support",
+                                desc: "Manages coordination, content updates, and ongoing support to ensure reliable delivery.",
+                                img: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?q=80&w=400&h=400&fit=crop"
+                            }
+                        ].map((member, i) => (
+                            <ScrollReveal key={i} delay={i * 0.1}>
+                                <div className="group relative p-8 rounded-3xl bg-white/2 border border-white/5 hover:border-accent/20 transition-all duration-500 hover:bg-white/5 hover:-translate-y-2">
+                                    {/* Image */}
+                                    <div className="relative w-32 h-32 mx-auto mb-8 rounded-full overflow-hidden border-2 border-white/10 group-hover:border-accent/50 transition-all duration-500">
+                                        <Image
+                                            src={member.img}
+                                            alt={member.name}
+                                            fill
+                                            className="object-cover grayscale group-hover:grayscale-0 transition-all duration-500 scale-100 group-hover:scale-110"
+                                            sizes="(max-width: 768px) 128px, 128px"
+                                        />
+                                    </div>
+
+                                    {/* Content */}
+                                    <div className="space-y-4">
+                                        <div>
+                                            <h3 className="text-xl font-bold text-white mb-1 group-hover:text-accent transition-colors">{member.name}</h3>
+                                            <p className="text-sm font-bold tracking-wider text-white/40 uppercase">{member.role}</p>
+                                        </div>
+                                        <p className="text-secondary font-medium leading-relaxed text-sm">
+                                            &ldquo;{member.desc}&rdquo;
+                                        </p>
+                                    </div>
+
+                                    {/* Subtle Glow */}
+                                    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-accent/5 blur-3xl rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500 -z-10" />
+                                </div>
+                            </ScrollReveal>
+                        ))}
                     </div>
                 </div>
             </section>
