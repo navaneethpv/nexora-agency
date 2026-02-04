@@ -7,19 +7,19 @@ import { Plus } from "lucide-react";
 const faqs = [
     {
         question: "What is your typical project timeline?",
-        answer: "Timelines vary based on complexity, but most marketing sites are delivered in 4-6 weeks, while complex web applications can take 3-4 months."
+        answer: "Project timelines vary depending on scope and requirements. Most projects typically take a few weeks, with clear milestones defined at the start to ensure steady progress and predictable delivery."
     },
     {
         question: "Do you offer ongoing maintenance?",
-        answer: "Yes, we provide long-term maintenance and support to ensure your product remains secure, updated, and optimized for growth."
+        answer: "Yes. We offer ongoing support and maintenance to help keep your website reliable, secure, and up to date. The level of support is tailored to your needs."
     },
     {
         question: "Which technologies do you specialize in?",
-        answer: "We specialize in modern, high-performance tech stacks including React, Next.js, TypeScript, and scalable cloud infrastructure."
+        answer: "We use modern, reliable technologies chosen based on the needs of each project. Our focus is on stability, performance, and long-term maintainability rather than specific tools."
     },
     {
         question: "Can you help with existing projects?",
-        answer: "Absolutely. We can perform technical audits, performance optimizations, or help scale out features for existing web platforms."
+        answer: "Yes. We can review, improve, or extend existing websites and platforms, whether it’s a redesign, performance improvements, or structural updates."
     }
 ];
 
