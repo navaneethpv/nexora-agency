@@ -281,14 +281,14 @@ export default function AboutPage() {
                                 img: "https://media.licdn.com/dms/image/v2/D5603AQHqG0jhWRyxwA/profile-displayphoto-scale_200_200/B56Zwfax6wIsAc-/0/1770053643513?e=1772064000&v=beta&t=uNATL7BDHSiNvqftXkqgcbcP5-izHDHt4UoI2kCRkl0"
                             },
                             {
-                                name: "Sophia Hayes",
-                                role: "Design & User Experience",
+                                name: "Muhammed Yaseen",
+                                role: "PRODUCT & DEVELOPMENT",
                                 desc: "Designs clear, accessible, and user-friendly interfaces focused on simplicity and consistency.",
                                 img: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=400&h=400&fit=crop"
                             },
                             {
-                                name: "Noah Brooks",
-                                role: "Operations & Support",
+                                name: "Muhammed Suhail",
+                                role: "DESIGNING",
                                 desc: "Manages coordination, content updates, and ongoing support to ensure reliable delivery.",
                                 img: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?q=80&w=400&h=400&fit=crop"
                             }
@@ -301,7 +301,7 @@ export default function AboutPage() {
                                             src={member.img}
                                             alt={member.name}
                                             fill
-                                            className="object-cover grayscale group-hover:grayscale-0 transition-all duration-500 scale-100 group-hover:scale-110"
+                                            className="object-cover transition-all duration-500 scale-100 group-hover:scale-110 group-hover:brightness-110"
                                             sizes="(max-width: 768px) 128px, 128px"
                                         />
                                     </div>

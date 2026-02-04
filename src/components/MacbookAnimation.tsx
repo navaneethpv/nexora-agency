@@ -130,11 +130,8 @@ export default function MacbookAnimation({ texture = "/mac-screen.jpg" }: { text
                     dpr={[1, 1.5]}
                     performance={{ min: 0.6 }}
                     gl={{
-                        powerPreference: "high-performance",
-                        antialias: false,
-                        alpha: false,
-                        stencil: false,
-                        depth: true,
+                        antialias: true,
+                        preserveDrawingBuffer: true
                     }}
                 >
                     <React.Suspense fallback={null}>
