@@ -60,6 +60,11 @@ function MacBookModel({
             tex.wrapS = THREE.ClampToEdgeWrapping;
             tex.wrapT = THREE.ClampToEdgeWrapping;
             tex.flipY = true;
+            // Clarity improvements
+            tex.anisotropy = 16;
+            tex.minFilter = THREE.LinearFilter;
+            tex.magFilter = THREE.LinearFilter;
+            tex.generateMipmaps = false;
 
             // Use Standard Material for realism (light interaction) instead of Basic
             meshes.matte.material = new THREE.MeshStandardMaterial({
