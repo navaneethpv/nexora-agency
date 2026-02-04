@@ -1,7 +1,7 @@
 "use client";
 import React, { useRef, useMemo, useState, useEffect } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
-import { useGLTF, Environment, useTexture } from "@react-three/drei";
+import { useGLTF, Environment, useTexture, OrbitControls } from "@react-three/drei";
 import { useScroll, useTransform, useMotionValue, motion, useSpring } from "framer-motion";
 import * as THREE from "three";
 
@@ -120,8 +120,8 @@ export default function MacbookAnimation({ texture = "/mac-screen.jpg" }: { text
     if (isMobile) return null;
 
     return (
-        <div ref={containerRef} className="hidden md:block w-full h-[120vh] relative bg-black pointer-events-none">
-            <div className="sticky top-0 h-screen w-full overflow-hidden flex items-center justify-center">
+        <div ref={containerRef} className="hidden md:block w-full h-[120vh] relative bg-black">
+            <div className="sticky top-0 h-screen w-full overflow-hidden flex items-center justify-center pointer-events-auto">
                 <Canvas
                     camera={{
                         fov: isMobile ? 22 : 12,
@@ -144,6 +144,13 @@ export default function MacbookAnimation({ texture = "/mac-screen.jpg" }: { text
                             texture={texture}
                             isMobile={isMobile}
                             position={[0, -14, 20]}
+                        />
+                        <OrbitControls
+                            enableZoom={false}
+                            enablePan={false}
+                            rotateSpeed={0.5}
+                            minPolarAngle={Math.PI / 4} // Restrict vertical rotation to keep it looking nice
+                            maxPolarAngle={Math.PI / 1.8}
                         />
                     </React.Suspense>
                 </Canvas>

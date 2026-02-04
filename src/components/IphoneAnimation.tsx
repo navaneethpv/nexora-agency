@@ -20,7 +20,7 @@ function IphoneModel({
     const clonedScene = useMemo(() => scene.clone(), [scene]);
 
     // Load texture
-    const tex = useTexture("https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=2564&auto=format&fit=crop") as THREE.Texture;
+    const tex = useTexture(texture) as THREE.Texture;
     tex.colorSpace = THREE.SRGBColorSpace;
     tex.flipY = false; // GLTF models usually expect flipped Y for textures
 

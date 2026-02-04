@@ -142,7 +142,8 @@ export default async function ProjectDetails({ params }: { params: Promise<{ slu
             {project.macbookImage && (
                 <>
                     <MacbookAnimation texture={project.macbookImage} />
-                    <IphoneAnimation texture={project.macbookImage} />
+                    {/* Use mobile specific image if available, else fallback to macbook image */}
+                    <IphoneAnimation texture={project.mobileImage || project.macbookImage} />
                 </>
             )}
 
