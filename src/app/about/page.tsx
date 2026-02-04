@@ -226,13 +226,13 @@ export default function AboutPage() {
             <section className="py-24 relative overflow-hidden">
                 <div className="section-container text-center">
                     <ScrollReveal>
-                        <h2 className="text-3xl md:text-5xl font-bold mb-8">Built for Modern Institutions</h2>
+                        <h2 className="text-3xl md:text-5xl font-bold mb-8">Designed for Modern Organizations</h2>
                         <p className="max-w-3xl mx-auto text-secondary text-lg mb-16 font-medium">
-                            Whether you represent an educational institution, a growing startup, or a corporate entity, Nexora provides the premium digital infrastructure you deserve.
+                            Whether you represent an educational institution, a growing startup, or an established organization, Nexora builds reliable digital solutions tailored to your needs.
                         </p>
 
                         <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-                            {["Startups", "Educational Institutions", "Corporate Brands", "Digital Solopreneurs"].map((type, i) => (
+                            {["Startups", "Educational Institutions", "Organizations & Teams", "Independent Professionals"].map((type, i) => (
                                 <div key={i} className="py-8 px-6 rounded-3xl border border-white/5 bg-white/2 font-bold text-white/50 tracking-wider hover:text-white hover:border-accent/40 transition-all duration-300">
                                     {type}
                                 </div>
@@ -253,7 +253,7 @@ export default function AboutPage() {
                         </ScrollReveal>
                         <ScrollReveal>
                             <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold italic leading-tight">
-                                &ldquo;To empower organizations by transforming technical complexity into intuitive, high-performance digital experiences that people love to use.&rdquo;
+                                &ldquo;To help organizations simplify technology and build digital experiences that are clear, reliable, and easy to use.&rdquo;
                             </h2>
                             <p className="text-accent font-bold tracking-[0.2em] uppercase mt-12">The Nexora Vision</p>
                         </ScrollReveal>
