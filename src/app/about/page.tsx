@@ -29,11 +29,11 @@ export default function AboutPage() {
             <Navbar />
 
             {/* Hero Section */}
-            <section className="relative pt-44 pb-32 overflow-hidden">
+            <section className="relative pt-32 pb-20 md:pt-44 md:pb-32 overflow-hidden">
                 {/* Background Blobs */}
                 <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full -z-10">
-                    <div className="absolute top-[-10%] left-[-10%] w-[500px] h-[500px] bg-accent/10 blur-[120px] rounded-full animate-float-slow" />
-                    <div className="absolute bottom-[10%] right-[-5%] w-[400px] h-[400px] bg-accent-secondary/10 blur-[100px] rounded-full animate-float-slower" />
+                    <div className="absolute top-[-10%] left-[-10%] w-[300px] h-[300px] md:w-[500px] md:h-[500px] bg-accent/10 blur-[80px] md:blur-[120px] rounded-full animate-float-slow" />
+                    <div className="absolute bottom-[10%] right-[-5%] w-[250px] h-[250px] md:w-[400px] md:h-[400px] bg-accent-secondary/10 blur-[70px] md:blur-[100px] rounded-full animate-float-slower" />
                 </div>
 
                 <div className="section-container text-center">
@@ -43,7 +43,7 @@ export default function AboutPage() {
                         transition={{ duration: 0.8, ease: "easeOut" }}
                         className="space-y-6"
                     >
-                        <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight">
+                        <h1 className="text-4xl md:text-7xl lg:text-8xl font-bold tracking-tight">
                             About <span className="text-accent text-glow">Nexora</span>
                         </h1>
                         <p className="max-w-2xl mx-auto text-lg md:text-xl text-secondary font-medium leading-relaxed">
@@ -54,16 +54,16 @@ export default function AboutPage() {
             </section>
 
             {/* Who and What Section */}
-            <section className="py-24 relative">
+            <section className="py-16 md:py-24 relative">
                 <div className="section-container">
-                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
                         <ScrollReveal>
-                            <div className="space-y-6">
+                            <div className="space-y-6 text-center lg:text-left">
                                 <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-xs font-bold uppercase tracking-widest text-accent">
                                     <Shield size={14} />
                                     <span>Who We Are</span>
                                 </div>
-                                <h2 className="text-4xl md:text-5xl font-bold leading-tight">
+                                <h2 className="text-3xl md:text-5xl font-bold leading-tight">
                                     Merging <span className="text-accent underline decoration-accent/20 underline-offset-8">Creativity</span> with Reliable Technology.
                                 </h2>
                                 <p className="text-secondary text-lg leading-relaxed font-medium">
@@ -113,9 +113,9 @@ export default function AboutPage() {
             </section>
 
             {/* Our Approach */}
-            <section className="py-24 bg-white/2">
+            <section className="py-16 md:py-24 bg-white/2">
                 <div className="section-container">
-                    <div className="text-center max-w-3xl mx-auto mb-20 space-y-4">
+                    <div className="text-center max-w-3xl mx-auto mb-12 md:mb-20 space-y-4">
                         <h2 className="text-3xl md:text-5xl font-bold">The Nexora Approach</h2>
                         <p className="text-secondary text-base md:text-lg font-medium">We focus on clarity, quality, and reliability in everything we build.</p>
                     </div>
@@ -188,13 +188,13 @@ export default function AboutPage() {
             </section>
 
             {/* What Makes Us Different */}
-            <section className="py-24">
+            <section className="py-16 md:py-24">
                 <div className="section-container">
-                    <div className="p-12 md:p-20 rounded-[3rem] glass-pill border border-white/10 relative overflow-hidden">
+                    <div className="p-8 md:p-20 rounded-[2.5rem] md:rounded-[3rem] glass-pill border border-white/10 relative overflow-hidden">
                         {/* Glow */}
-                        <div className="absolute top-0 right-0 w-96 h-96 bg-accent/5 blur-[120px] rounded-full -z-10" />
+                        <div className="absolute top-0 right-0 w-64 h-64 md:w-96 md:h-96 bg-accent/5 blur-[80px] md:blur-[120px] rounded-full -z-10" />
 
-                        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
+                        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 md:gap-16">
                             <div className="space-y-8">
                                 <h2 className="text-4xl font-bold">What Makes Nexora Different?</h2>
                                 <p className="text-secondary text-lg font-medium leading-relaxed">
@@ -223,17 +223,17 @@ export default function AboutPage() {
             </section>
 
             {/* Who We Work With */}
-            <section className="py-24 relative overflow-hidden">
+            <section className="py-16 md:py-24 relative overflow-hidden">
                 <div className="section-container text-center">
                     <ScrollReveal>
                         <h2 className="text-3xl md:text-5xl font-bold mb-8">Designed for Modern Organizations</h2>
-                        <p className="max-w-3xl mx-auto text-secondary text-lg mb-16 font-medium">
+                        <p className="max-w-3xl mx-auto text-secondary text-lg mb-12 md:mb-16 font-medium">
                             Whether you represent an educational institution, a growing startup, or an established organization, Nexora builds reliable digital solutions tailored to your needs.
                         </p>
 
-                        <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+                        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 md:gap-8">
                             {["Startups", "Educational Institutions", "Organizations & Teams", "Independent Professionals"].map((type, i) => (
-                                <div key={i} className="py-8 px-6 rounded-3xl border border-white/5 bg-white/2 font-bold text-white/50 tracking-wider hover:text-white hover:border-accent/40 transition-all duration-300">
+                                <div key={i} className="py-6 md:py-8 px-6 rounded-2xl md:rounded-3xl border border-white/5 bg-white/2 font-bold text-white/50 tracking-wider hover:text-white hover:border-accent/40 transition-all duration-300">
                                     {type}
                                 </div>
                             ))}
@@ -243,16 +243,16 @@ export default function AboutPage() {
             </section>
 
             {/* Vision Section */}
-            <section className="py-32 relative">
+            <section className="py-20 md:py-32 relative">
                 <div className="section-container text-center">
                     <div className="max-w-4xl mx-auto space-y-12">
                         <ScrollReveal>
                             <div className="text-accent-glow opacity-30 mb-8 inline-block">
-                                <Sparkles size={60} strokeWidth={1} />
+                                <Sparkles className="w-10 h-10 md:w-[60px] md:h-[60px]" strokeWidth={1} />
                             </div>
                         </ScrollReveal>
                         <ScrollReveal>
-                            <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold italic leading-tight">
+                            <h2 className="text-2xl md:text-5xl lg:text-6xl font-bold italic leading-tight">
                                 &ldquo;To help organizations simplify technology and build digital experiences that are clear, reliable, and easy to use.&rdquo;
                             </h2>
                             <p className="text-accent font-bold tracking-[0.2em] uppercase mt-12">The Nexora Vision</p>
@@ -262,14 +262,14 @@ export default function AboutPage() {
             </section>
 
             {/* Final CTA */}
-            <section className="py-32 px-4 md:px-0">
+            <section className="py-20 md:py-32 px-4 md:px-0">
                 <div className="section-container">
-                    <div className="relative py-24 rounded-[3rem] overflow-hidden text-center bg-accent-secondary/10 border border-accent/20">
+                    <div className="relative py-16 md:py-24 rounded-[2.5rem] md:rounded-[3rem] overflow-hidden text-center bg-accent-secondary/10 border border-accent/20">
                         {/* Glow Effects */}
                         <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_center,rgba(11,185,243,0.1),transparent_70%)]" />
 
                         <div className="relative z-10 space-y-8 max-w-2xl mx-auto px-6">
-                            <h2 className="text-4xl md:text-6xl font-bold leading-tight text-white mb-4">
+                            <h2 className="text-3xl md:text-6xl font-bold leading-tight text-white mb-4">
                                 Ready to start your next digital project?
                             </h2>
                             <p className="text-white/70 text-lg font-medium">

@@ -90,7 +90,7 @@ export default function ProcessPage() {
             <section className="py-20 relative">
                 <div className="section-container">
                     <ScrollReveal>
-                        <div className="p-10 md:p-16 rounded-[2.5rem] glass-card border border-white/5 bg-gradient-to-br from-white/5 to-transparent text-center max-w-4xl mx-auto">
+                        <div className="p-10 md:p-16 rounded-[2.5rem] glass-card border border-white/5 bg-linear-to-br from-white/5 to-transparent text-center max-w-4xl mx-auto">
                             <h2 className="text-3xl md:text-4xl font-bold mb-6">How We Work</h2>
                             <p className="text-lg md:text-xl text-secondary font-medium leading-relaxed max-w-3xl mx-auto">
                                 We believe a good process should feel structured — not overwhelming. Our approach keeps communication clear, decisions intentional, and outcomes reliable.
