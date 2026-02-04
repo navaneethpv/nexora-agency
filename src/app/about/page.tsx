@@ -119,35 +119,70 @@ export default function AboutPage() {
                         <p className="text-secondary text-base md:text-lg font-medium">We focus on clarity, quality, and reliability in everything we build.</p>
                     </div>
 
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <motion.div
+                        initial="hidden"
+                        whileInView="visible"
+                        viewport={{ once: true, margin: "-100px" }}
+                        variants={{
+                            hidden: { opacity: 0 },
+                            visible: {
+                                opacity: 1,
+                                transition: {
+                                    staggerChildren: 0.2
+                                }
+                            }
+                        }}
+                        className="grid grid-cols-1 md:grid-cols-3 gap-8"
+                    >
                         {[
                             {
-                                icon: <Zap className="text-accent" />,
+                                icon: <Zap className="w-8 h-8" />,
                                 title: "Clarity",
-                                description: "We remove confusion from the process. You’ll always know what we’re building, why it matters, and how it helps you."
+                                description: "We remove confusion from the process. You’ll always know what we’re building and why it matters.",
+                                color: "text-accent",
+                                borderHover: "group-hover:border-accent/30",
+                                shadowHover: "group-hover:shadow-[0_0_40px_-10px_rgba(11,185,243,0.2)]",
+                                bgHover: "group-hover:bg-accent/5"
                             },
                             {
-                                icon: <Target className="text-accent-secondary" />,
+                                icon: <Target className="w-8 h-8" />,
                                 title: "Quality",
-                                description: "We focus on building solutions that are stable, well-designed, and built to last."
+                                description: "We focus on building solutions that are stable, well-designed, and built to last.",
+                                color: "text-accent-secondary",
+                                borderHover: "group-hover:border-accent-secondary/30",
+                                shadowHover: "group-hover:shadow-[0_0_40px_-10px_rgba(10,127,217,0.2)]",
+                                bgHover: "group-hover:bg-accent-secondary/5"
                             },
                             {
-                                icon: <Users className="text-accent-glow" />,
+                                icon: <Users className="w-8 h-8" />,
                                 title: "Reliability",
-                                description: "We work as a dependable partner, committed to your goals and long-term success."
+                                description: "We work as a dependable partner, committed to your goals and long-term success.",
+                                color: "text-accent-glow",
+                                borderHover: "group-hover:border-accent-glow/30",
+                                shadowHover: "group-hover:shadow-[0_0_40px_-10px_rgba(56,217,255,0.2)]",
+                                bgHover: "group-hover:bg-accent-glow/5"
                             }
                         ].map((item, i) => (
-                            <ScrollReveal key={i}>
-                                <div className="p-10 rounded-3xl glass-card h-full hover:bg-white/4 transition-colors border border-white/5 relative group">
-                                    <div className="mb-6 p-4 rounded-2xl bg-white/5 w-fit group-hover:scale-110 transition-transform duration-300">
-                                        {item.icon}
-                                    </div>
-                                    <h3 className="text-2xl font-bold mb-4">{item.title}</h3>
-                                    <p className="text-secondary leading-relaxed font-medium">{item.description}</p>
+                            <motion.div
+                                key={i}
+                                variants={{
+                                    hidden: { opacity: 0, y: 20 },
+                                    visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } }
+                                }}
+                                whileHover={{ y: -5 }}
+                                transition={{ duration: 0.3, ease: "easeOut" }}
+                                className={`p-10 rounded-3xl glass-card h-full border border-white/5 relative group transition-all duration-500 ${item.borderHover} ${item.shadowHover}`}
+                            >
+                                <div className={`absolute inset-0 opacity-0 ${item.bgHover} transition-opacity duration-500 rounded-3xl`} />
+
+                                <div className={`mb-8 p-4 rounded-2xl bg-white/5 w-fit ${item.color} group-hover:scale-110 group-hover:bg-white/10 transition-all duration-300`}>
+                                    {item.icon}
                                 </div>
-                            </ScrollReveal>
+                                <h3 className="text-2xl font-bold mb-4 text-white group-hover:text-white transition-colors relative z-10">{item.title}</h3>
+                                <p className="text-secondary leading-relaxed font-medium group-hover:text-white/80 transition-colors relative z-10">{item.description}</p>
+                            </motion.div>
                         ))}
-                    </div>
+                    </motion.div>
                 </div>
             </section>
 
