@@ -6,8 +6,10 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { AnimatedSocialIcon } from "./AnimatedSocialIcon";
 import { Menu, X } from "lucide-react";
+import useMagnetic from "@/hooks/useMagnetic";
 
 export default function Navbar() {
+    const magneticBtn = useMagnetic();
     const [scrolled, setScrolled] = useState(false);
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
@@ -103,9 +105,11 @@ export default function Navbar() {
                             <AnimatedSocialIcon type="instagram" href="https://www.instagram.com/nexoraweb.tech/" target="_blank" size={20} />
                         </div>
                         <Link href="/contact" className="hidden md:block">
-                            <button className="bg-accent text-white px-4 lg:px-8 py-2 lg:py-3 rounded-full text-[10px] lg:text-sm font-bold hover:brightness-110 transition-all shadow-xl shadow-accent/30 active:scale-95 whitespace-nowrap bg-linear-to-r from-accent to-accent-secondary">
-                                Get in Touch
-                            </button>
+                            <div ref={magneticBtn}>
+                                <button className="bg-accent text-white px-4 lg:px-8 py-2 lg:py-3 rounded-full text-[10px] lg:text-sm font-bold hover:brightness-110 transition-all shadow-xl shadow-accent/30 active:scale-95 whitespace-nowrap bg-linear-to-r from-accent to-accent-secondary">
+                                    Get in Touch
+                                </button>
+                            </div>
                         </Link>
 
                         {/* Mobile Menu Toggle */}

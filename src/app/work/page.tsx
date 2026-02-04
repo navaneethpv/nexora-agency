@@ -34,7 +34,7 @@ export default function WorkListing() {
 
                     <div className="flex flex-col gap-32 md:gap-64">
                         {projects.map((item, i) => (
-                            <ScrollReveal key={item.slug}>
+                            <ScrollReveal key={item.slug} direction={i % 2 === 0 ? "right" : "left"} delay={0.1}>
                                 <div className={`flex flex-col ${i % 2 === 0 ? 'lg:flex-row' : 'lg:flex-row-reverse'} gap-10 md:gap-20 items-center group`}>
                                     {/* Visual Frame */}
                                     <div className="w-full lg:w-[60%] relative">

@@ -58,7 +58,7 @@ export default function AboutPage() {
             <section className="py-16 md:py-24 relative">
                 <div className="section-container">
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
-                        <ScrollReveal>
+                        <ScrollReveal direction="left" distance={60}>
                             <div className="space-y-6 text-center lg:text-left">
                                 <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-xs font-bold uppercase tracking-widest text-accent">
                                     <Shield size={14} />
@@ -78,7 +78,7 @@ export default function AboutPage() {
                                 </p>
                             </div>
                         </ScrollReveal>
-                        <ScrollReveal>
+                        <ScrollReveal direction="right" distance={60} delay={0.2}>
                             <div className="grid grid-cols-2 gap-4">
                                 {[
                                     { title: "Clear Communication", desc: "Simple explanations and transparent workflows.", accent: "border-l-accent", hover: "group-hover:text-accent" },

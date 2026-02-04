@@ -62,18 +62,13 @@ export default function Home() {
       <Navbar />
       <Hero />
 
-      <ScrollReveal>
+      <ScrollReveal direction="none">
         <section ref={tickerRef} className="py-16 md:py-24 flex flex-col items-center border-t border-white/5 relative bg-white/2 overflow-hidden">
           {/* Ambient Glows */}
           <div className="absolute top-1/2 left-1/4 -translate-y-1/2 w-64 h-64 bg-accent/10 blur-[100px] rounded-full pointer-events-none" />
           <div className="absolute top-1/2 right-1/4 -translate-y-1/2 w-64 h-64 bg-accent-secondary/10 blur-[100px] rounded-full pointer-events-none" />
 
-          <motion.div
-            initial={{ opacity: 0, y: 10 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="mb-16 relative z-10"
-          >
+          <div className="mb-16 relative z-10">
             <ShinyText
               text="Built with cutting-edge Technologies"
               className="text-[11px] md:text-lg font-bold uppercase tracking-[0.4em] text-center"
@@ -81,7 +76,7 @@ export default function Home() {
               shineColor="#ffffff"
               speed={3}
             />
-          </motion.div>
+          </div>
 
           <div className="w-full relative z-10 px-4 md:px-0">
             <div className="flex overflow-hidden mask-[linear-gradient(to_right,transparent,black_10%,black_90%,transparent)] cursor-grab active:cursor-grabbing">
@@ -127,45 +122,38 @@ export default function Home() {
       <ScrollReveal>
         <Process />
       </ScrollReveal>
+
       <ScrollReveal>
         <Testimonial />
       </ScrollReveal>
 
+      <section id="work" className="py-24 md:py-32 bg-black/2 relative overflow-hidden">
+        {/* Abstract Background Elements */}
+        <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
+          <div className="absolute top-1/4 -right-20 w-96 h-96 bg-accent/5 blur-[120px] rounded-full" />
+          <div className="absolute -bottom-20 -left-20 w-[500px] h-[500px] bg-accent-secondary/5 blur-[150px] rounded-full" />
+          <div className="absolute inset-0 bg-[radial-gradient(#ffffff,transparent_1px)] bg-size-[40px_40px] opacity-[0.03]" />
+        </div>
 
-      <ScrollReveal>
-        <section id="work" className="py-24 md:py-32 bg-black/2 relative overflow-hidden">
-          {/* Abstract Background Elements */}
-          <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
-            <div className="absolute top-1/4 -right-20 w-96 h-96 bg-accent/5 blur-[120px] rounded-full" />
-            <div className="absolute -bottom-20 -left-20 w-[500px] h-[500px] bg-accent-secondary/5 blur-[150px] rounded-full" />
-            <div className="absolute inset-0 bg-[radial-gradient(#ffffff,transparent_1px)] bg-size-[40px_40px] opacity-[0.03]" />
-          </div>
+        <div className="section-container px-4 md:px-0 relative z-10">
+          <ScrollReveal>
+            <div className="mb-24 md:mb-32 max-w-3xl">
+              <h2 className="text-5xl md:text-7xl font-bold mb-8 tracking-tighter">Project Showcase</h2>
+              <p className="text-secondary text-lg md:text-2xl font-medium leading-relaxed">
+                A curated selection of projects showcasing our approach to design, development, and digital problem-solving.
+              </p>
+            </div>
+          </ScrollReveal>
 
-          <div className="section-container px-4 md:px-0 relative z-10">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="mb-24 md:mb-32"
-            >
-              <div className="max-w-3xl">
-                <h2 className="text-5xl md:text-7xl font-bold mb-8 tracking-tighter">Project Showcase</h2>
-                <p className="text-secondary text-lg md:text-2xl font-medium leading-relaxed">
-                  A curated selection of projects showcasing our approach to design, development, and digital problem-solving.
-                </p>
-              </div>
-            </motion.div>
-
-            <div className="flex flex-col gap-32 md:gap-64">
-              {portfolio.map((item, i) => (
-                <motion.div
-                  key={i}
-                  initial={{ opacity: 0, y: 40 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, margin: "-100px" }}
-                  transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
-                  className={`flex flex-col ${i % 2 === 0 ? 'lg:flex-row' : 'lg:flex-row-reverse'} gap-10 md:gap-20 items-center group`}
-                >
+          <div className="flex flex-col gap-32 md:gap-64">
+            {portfolio.map((item, i) => (
+              <ScrollReveal
+                key={i}
+                direction={i % 2 === 0 ? "right" : "left"}
+                distance={60}
+                delay={0.1}
+              >
+                <div className={`flex flex-col ${i % 2 === 0 ? 'lg:flex-row' : 'lg:flex-row-reverse'} gap-10 md:gap-20 items-center group`}>
                   {/* Visual Frame */}
                   <div className="w-full lg:w-[60%] relative">
                     <div className="relative aspect-16/10 md:aspect-video overflow-hidden rounded-[2.5rem] md:rounded-[3.5rem] border border-white/10 bg-white/2 shadow-2xl transition-all duration-700 group-hover:border-accent/30 group-hover:shadow-accent/5">
@@ -174,6 +162,7 @@ export default function Home() {
                         alt={item.title}
                         fill
                         className="object-cover transition-transform duration-1000 group-hover:scale-110 ease-out"
+                        priority={i === 0}
                         sizes="(max-width: 1024px) 100vw, 60vw"
                       />
                       {/* Gradient Mask */}
@@ -221,12 +210,12 @@ export default function Home() {
                       </Link>
                     </div>
                   </div>
-                </motion.div>
-              ))}
-            </div>
+                </div>
+              </ScrollReveal>
+            ))}
           </div>
-        </section>
-      </ScrollReveal>
+        </div>
+      </section>
 
       <ScrollReveal>
         <FeaturesSection />

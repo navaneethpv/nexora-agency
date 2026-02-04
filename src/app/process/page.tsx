@@ -105,7 +105,12 @@ export default function ProcessPage() {
                 <div className="section-container">
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                         {steps.map((item, i) => (
-                            <ScrollReveal key={i} delay={i * 0.1}>
+                            <ScrollReveal
+                                key={i}
+                                delay={i * 0.1}
+                                direction={i % 3 === 0 ? "left" : i % 3 === 1 ? "up" : "right"}
+                                distance={40}
+                            >
                                 <div className="h-full p-8 rounded-3xl glass-card border border-white/5 bg-white/2 hover:bg-white/5 transition-all duration-300 group relative overflow-hidden">
                                     {/* Step Number Background */}
                                     <div className="absolute -right-4 -top-4 text-8xl font-bold text-white/5 select-none pointer-events-none group-hover:text-accent/10 transition-colors">
