@@ -4,6 +4,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ScrollReveal from "@/components/ScrollReveal";
 import MacbookAnimation from "@/components/MacbookAnimation";
+import IphoneAnimation from "@/components/IphoneAnimation";
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowLeft, CheckCircle2 } from "lucide-react";
@@ -139,7 +140,10 @@ export default async function ProjectDetails({ params }: { params: Promise<{ slu
 
             {/* 3D Animation Section */}
             {project.macbookImage && (
-                <MacbookAnimation texture={project.macbookImage} />
+                <>
+                    <MacbookAnimation texture={project.macbookImage} />
+                    <IphoneAnimation texture={project.macbookImage} />
+                </>
             )}
 
             {/* Key Features Section */}
