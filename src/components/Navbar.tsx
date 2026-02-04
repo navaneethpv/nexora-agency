@@ -57,7 +57,7 @@ export default function Navbar() {
                     </Link>
 
                     <nav
-                        className="hidden md:flex items-center gap-2 relative px-2 py-1 ml-auto"
+                        className="hidden lg:flex items-center gap-2 relative px-2 py-1"
                         onMouseLeave={() => setHoveredPath(null)}
                     >
                         {navLinks.map((link, i) => (
@@ -94,27 +94,28 @@ export default function Navbar() {
                                 </Link>
                             </motion.div>
                         ))}
-
-                        <motion.div
-                            initial={{ opacity: 0, y: -10 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ delay: 0.5 }}
-                            className="ml-2"
-                        >
-                            <Link href="/contact">
-                                <button className="bg-accent text-white px-5 py-2 rounded-full text-xs lg:text-sm font-bold hover:brightness-110 transition-all shadow-lg shadow-accent/20 active:scale-95 whitespace-nowrap">
-                                    Get in Touch
-                                </button>
-                            </Link>
-                        </motion.div>
                     </nav>
-                    {/* Mobile Menu Toggle */}
-                    <button
-                        className="md:hidden text-white p-2"
-                        onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-                    >
-                        {isMobileMenuOpen ? <X /> : <Menu />}
-                    </button>
+
+                    <div className="flex items-center gap-4">
+                        <div className="hidden xl:flex items-center gap-3 border-r border-white/10 pr-6 mr-2">
+                            <AnimatedSocialIcon type="linkedin" href="https://www.linkedin.com/in/navaneethpv-dev/" target="_blank" size={20} />
+                            <AnimatedSocialIcon type="github" href="https://github.com/navaneethpv" target="_blank" size={20} />
+                            <AnimatedSocialIcon type="instagram" href="https://www.instagram.com/nexoraweb.tech/" target="_blank" size={20} />
+                        </div>
+                        <Link href="/contact" className="hidden md:block">
+                            <button className="bg-accent text-white px-4 lg:px-8 py-2 lg:py-3 rounded-full text-[10px] lg:text-sm font-bold hover:brightness-110 transition-all shadow-xl shadow-accent/30 active:scale-95 whitespace-nowrap bg-linear-to-r from-accent to-accent-secondary">
+                                Get in Touch
+                            </button>
+                        </Link>
+
+                        {/* Mobile Menu Toggle */}
+                        <button
+                            className="lg:hidden text-white p-2 ml-auto"
+                            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+                        >
+                            {isMobileMenuOpen ? <X /> : <Menu />}
+                        </button>
+                    </div>
                 </div>
             </motion.div>
 
@@ -125,7 +126,7 @@ export default function Navbar() {
                         initial={{ opacity: 0, height: 0 }}
                         animate={{ opacity: 1, height: "auto" }}
                         exit={{ opacity: 0, height: 0 }}
-                        className="md:hidden absolute top-full left-0 w-full mt-2 bg-black/90 backdrop-blur-xl border border-white/10 rounded-3xl overflow-hidden shadow-2xl"
+                        className="lg:hidden absolute top-full left-0 w-full mt-2 bg-black/90 backdrop-blur-xl border border-white/10 rounded-3xl overflow-hidden shadow-2xl"
                     >
                         <div className="flex flex-col p-6 gap-4">
                             {navLinks.map((link) => (
@@ -143,6 +144,12 @@ export default function Navbar() {
                                     Get in Touch
                                 </button>
                             </Link>
+
+                            <div className="flex items-center justify-center gap-6 mt-4 pt-4 border-t border-white/5">
+                                <AnimatedSocialIcon type="linkedin" href="https://www.linkedin.com/in/navaneethpv-dev/" target="_blank" size={24} />
+                                <AnimatedSocialIcon type="github" href="https://github.com/navaneethpv" target="_blank" size={24} />
+                                <AnimatedSocialIcon type="instagram" href="https://www.instagram.com/nexoraweb.tech/" target="_blank" size={24} />
+                            </div>
                         </div>
                     </motion.div>
                 )}

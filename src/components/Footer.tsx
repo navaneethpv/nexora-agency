@@ -36,13 +36,13 @@ export default function Footer() {
                             </p>
                             <div className="flex items-center gap-4">
                                 <div className="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center text-secondary hover:text-white transition-all duration-300 hover:bg-white/5">
-                                    <AnimatedSocialIcon type="linkedin" href="" size={20} />
+                                    <AnimatedSocialIcon type="linkedin" href="https://www.linkedin.com/in/navaneethpv-dev/" target="_blank" size={20} />
                                 </div>
                                 <div className="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center text-secondary hover:text-white transition-all duration-300 hover:bg-white/5">
-                                    <AnimatedSocialIcon type="github" href="#" size={20} />
+                                    <AnimatedSocialIcon type="github" href="https://github.com/navaneethpv" target="_blank" size={20} />
                                 </div>
                                 <div className="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center text-secondary hover:text-white transition-all duration-300 hover:bg-white/5">
-                                    <AnimatedSocialIcon type="instagram" href="#" size={20} />
+                                    <AnimatedSocialIcon type="instagram" href="https://www.instagram.com/nexoraweb.tech/" target="_blank" size={20} />
                                 </div>
                             </div>
                         </motion.div>
