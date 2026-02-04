@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import { Check, Shield, Zap, Target, Users, Sparkles } from "lucide-react";
+import { Check, Shield, Zap, Target, Users, Sparkles, User } from "lucide-react";
 import ScrollReveal from "@/components/ScrollReveal";
 import Link from "next/link";
 import Image from "next/image";
@@ -277,33 +277,28 @@ export default function AboutPage() {
                             {
                                 name: "Navaneeth PV",
                                 role: "PRODUCT & DEVELOPMENT",
-                                desc: "Works across product planning and development, focusing on building reliable digital solutions that are clear, well-structured, and built to last.",
-                                img: "https://media.licdn.com/dms/image/v2/D5603AQHqG0jhWRyxwA/profile-displayphoto-scale_200_200/B56Zwfax6wIsAc-/0/1770053643513?e=1772064000&v=beta&t=uNATL7BDHSiNvqftXkqgcbcP5-izHDHt4UoI2kCRkl0"
+                                desc: "He leads the technical vision at Nexora, specializing in architectural planning and building systems that remain fast and dependable as they scale.",
+                                img: "https://images.unsplash.com/photo-1557683311-eac922347aa1?q=80&w=400&h=400&fit=crop"
                             },
                             {
                                 name: "Muhammed Yaseen",
                                 role: "PRODUCT & DEVELOPMENT",
-                                desc: "Designs clear, accessible, and user-friendly interfaces focused on simplicity and consistency.",
-                                img: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=400&h=400&fit=crop"
+                                desc: "Dedicated to solving complex engineering challenges, Yaseen focuses on turning intricate requirements into seamless, high-performance digital experiences.",
+                                img: "https://images.unsplash.com/photo-1557683316-973673baf926?q=80&w=400&h=400&fit=crop"
                             },
                             {
                                 name: "Muhammed Suhail",
                                 role: "DESIGNING",
-                                desc: "Manages coordination, content updates, and ongoing support to ensure reliable delivery.",
-                                img: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?q=80&w=400&h=400&fit=crop"
+                                desc: "With a deep passion for aesthetics and usability, Suhail crafts the visual languages that define our projects, ensuring every pixel serves the user's journey.",
+                                img: "https://images.unsplash.com/photo-1563089145-599997674d42?q=80&w=400&h=400&fit=crop"
                             }
                         ].map((member, i) => (
                             <ScrollReveal key={i} delay={i * 0.1}>
                                 <div className="group relative p-8 rounded-3xl bg-white/2 border border-white/5 hover:border-accent/20 transition-all duration-500 hover:bg-white/5 hover:-translate-y-2">
-                                    {/* Image */}
-                                    <div className="relative w-32 h-32 mx-auto mb-8 rounded-full overflow-hidden border-2 border-white/10 group-hover:border-accent/50 transition-all duration-500">
-                                        <Image
-                                            src={member.img}
-                                            alt={member.name}
-                                            fill
-                                            className="object-cover transition-all duration-500 scale-100 group-hover:scale-110 group-hover:brightness-110"
-                                            sizes="(max-width: 768px) 128px, 128px"
-                                        />
+                                    {/* Placeholder Profile (Instagram Style) */}
+                                    <div className="relative w-32 h-32 mx-auto mb-8 rounded-full bg-white/5 flex items-center justify-center border-2 border-white/10 group-hover:border-accent/50 transition-all duration-500 overflow-hidden">
+                                        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.05),transparent)] opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                                        <User className="w-16 h-16 text-white/10 group-hover:text-accent/40 transition-all duration-500" strokeWidth={1} />
                                     </div>
 
                                     {/* Content */}
@@ -312,7 +307,7 @@ export default function AboutPage() {
                                             <h3 className="text-xl font-bold text-white mb-1 group-hover:text-accent transition-colors">{member.name}</h3>
                                             <p className="text-sm font-bold tracking-wider text-white/40 uppercase">{member.role}</p>
                                         </div>
-                                        <p className="text-secondary font-medium leading-relaxed text-sm">
+                                        <p className="text-secondary font-medium leading-relaxed text-sm italic">
                                             &ldquo;{member.desc}&rdquo;
                                         </p>
                                     </div>
