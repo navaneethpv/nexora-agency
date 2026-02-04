@@ -341,9 +341,11 @@ export default function AboutPage() {
                                 Let&apos;s talk about building a clear, reliable, and user-friendly digital solution together.
                             </p>
                             <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">
-                                <button className="w-full sm:w-auto bg-accent text-white px-10 py-4 rounded-full font-bold text-lg hover:brightness-110 transition-all shadow-2xl shadow-accent/20">
-                                    Start a Conversation
-                                </button>
+                                <Link href="/contact">
+                                    <button className="w-full sm:w-auto bg-accent text-white px-10 py-4 rounded-full font-bold text-lg hover:brightness-110 transition-all shadow-2xl shadow-accent/20">
+                                        Start a Conversation
+                                    </button>
+                                </Link>
                                 <button className="w-full sm:w-auto bg-white/5 backdrop-blur-md text-white border border-white/10 px-10 py-4 rounded-full font-bold text-lg hover:bg-white/10 transition-all">
                                     View Our Work
                                 </button>
