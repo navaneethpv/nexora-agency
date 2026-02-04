@@ -4,6 +4,8 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import dynamic from "next/dynamic";
 import { useRef, useState, useEffect } from "react";
 import { ArrowRight, Sparkles } from "lucide-react";
+import { useInView } from "react-intersection-observer";
+
 const HeroBackground3D = dynamic(() => import("./HeroBackground3D"), { ssr: false });
 
 export default function Hero() {
@@ -11,6 +13,14 @@ export default function Hero() {
     const { scrollYProgress } = useScroll({
         target: containerRef,
         offset: ["start start", "end start"],
+    });
+
+    // Intersection Observer to trigger animations when in view
+    // This helps performance by not running animations if they aren't visible (or delaying them slightly on load)
+    const { ref: inViewRef, inView } = useInView({
+        triggerOnce: true, // Only trigger once
+        threshold: 0.1,    // Trigger when 10% is visible
+        initialInView: true // Assume in view initially to avoid flicker, but observer still helps manage timing 
     });
 
     const opacity = useTransform(scrollYProgress, [0, 0.8], [1, 0]);
@@ -91,9 +101,10 @@ export default function Hero() {
 
 
             <motion.div
+                ref={inViewRef}
                 variants={containerVariants}
                 initial="hidden"
-                animate="visible"
+                animate={inView ? "visible" : "hidden"}
                 style={{ opacity, scale, y }}
                 className="relative z-10 flex flex-col items-center"
             >
