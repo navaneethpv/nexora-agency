@@ -275,10 +275,10 @@ export default function AboutPage() {
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                         {[
                             {
-                                name: "Liam Carter",
-                                role: "Product & Development",
-                                desc: "Builds and structures reliable systems, ensuring everything works smoothly from start to finish.",
-                                img: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=400&h=400&fit=crop"
+                                name: "Navaneeth PV",
+                                role: "PRODUCT & DEVELOPMENT",
+                                desc: "Works across product planning and development, focusing on building reliable digital solutions that are clear, well-structured, and built to last.",
+                                img: "https://media.licdn.com/dms/image/v2/D5603AQHqG0jhWRyxwA/profile-displayphoto-scale_200_200/B56Zwfax6wIsAc-/0/1770053643513?e=1772064000&v=beta&t=uNATL7BDHSiNvqftXkqgcbcP5-izHDHt4UoI2kCRkl0"
                             },
                             {
                                 name: "Sophia Hayes",
