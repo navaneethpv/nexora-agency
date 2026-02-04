@@ -43,55 +43,67 @@ export default function ContactPage() {
 
                     {/* Left Column: Text & Info */}
                     <div>
-                        <ScrollReveal>
-                            <div className="flex items-center gap-2 mb-6">
-                                <div className="p-2 rounded-lg bg-accent/10">
-                                    <Sparkles className="w-5 h-5 text-accent" strokeWidth={1.5} />
-                                </div>
-                                <span className="text-accent font-bold tracking-widest uppercase text-sm">Contact Us</span>
-                            </div>
-
-                            <h1 className="text-5xl md:text-7xl font-bold tracking-tighter text-white mb-8 leading-[1.1]">
-                                Let&apos;s build specific <br />
-                                <span className="text-transparent bg-clip-text bg-linear-to-r from-accent to-accent-secondary">
-                                    digital solutions.
-                                </span>
-                            </h1>
-
-                            <p className="text-lg md:text-xl text-secondary font-medium leading-relaxed mb-12 max-w-xl">
-                                Usually, we respond within 24 hours. Whether you have a specific project in mind or just want to explore possibilities, we are here to help.
-                            </p>
-
-                            <div className="space-y-8 mb-12">
-                                <div className="flex items-start gap-4 p-6 rounded-3xl border border-white/5 bg-white/2 backdrop-blur-sm hover:border-accent/20 transition-all duration-300 group">
-                                    <div className="w-12 h-12 rounded-full bg-white/5 flex items-center justify-center shrink-0 group-hover:bg-accent/20 group-hover:text-accent transition-all">
-                                        <Mail className="w-5 h-5" />
+                        <div className="space-y-12">
+                            <ScrollReveal direction="down" distance={20} delay={0.1}>
+                                <div className="flex items-center gap-2 mb-6">
+                                    <div className="p-2 rounded-lg bg-accent/10">
+                                        <Sparkles className="w-5 h-5 text-accent" strokeWidth={1.5} />
                                     </div>
-                                    <div>
-                                        <h3 className="text-white font-bold text-lg mb-1">Email Us</h3>
-                                        <a href="mailto:contact@nexoraweb.tech" className="text-secondary hover:text-white transition-colors">
-                                            contact@nexoraweb.tech
-                                        </a>
+                                    <span className="text-accent font-bold tracking-widest uppercase text-sm">Contact Us</span>
+                                </div>
+                            </ScrollReveal>
+
+                            <ScrollReveal delay={0.2}>
+                                <h1 className="text-5xl md:text-7xl font-bold tracking-tighter text-white mb-8 leading-[1.1]">
+                                    Let&apos;s build specific <br />
+                                    <span className="text-transparent bg-clip-text bg-linear-to-r from-accent to-accent-secondary">
+                                        digital solutions.
+                                    </span>
+                                </h1>
+                            </ScrollReveal>
+
+                            <ScrollReveal delay={0.3}>
+                                <p className="text-lg md:text-xl text-secondary font-medium leading-relaxed mb-12 max-w-xl">
+                                    Usually, we respond within 24 hours. Whether you have a specific project in mind or just want to explore possibilities, we are here to help.
+                                </p>
+                            </ScrollReveal>
+
+                            <ScrollReveal delay={0.4} direction="right">
+                                <div className="space-y-8 mb-12">
+                                    <div className="flex items-start gap-4 p-6 rounded-3xl border border-white/5 bg-white/2 backdrop-blur-sm hover:border-accent/20 transition-all duration-300 group">
+                                        <div className="w-12 h-12 rounded-full bg-white/5 flex items-center justify-center shrink-0 group-hover:bg-accent/20 group-hover:text-accent transition-all">
+                                            <Mail className="w-5 h-5" />
+                                        </div>
+                                        <div>
+                                            <h3 className="text-white font-bold text-lg mb-1">Email Us</h3>
+                                            <a href="mailto:contact@nexoraweb.tech" className="text-secondary hover:text-white transition-colors">
+                                                contact@nexoraweb.tech
+                                            </a>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
+                            </ScrollReveal>
 
                             <div className="space-y-4">
-                                <h3 className="text-white/40 font-bold uppercase tracking-widest text-xs mb-6">What happens next?</h3>
+                                <ScrollReveal delay={0.5} direction="up" distance={10}>
+                                    <h3 className="text-white/40 font-bold uppercase tracking-widest text-xs mb-6">What happens next?</h3>
+                                </ScrollReveal>
                                 {[
                                     "We analyze your requirements and goals.",
                                     "We schedule a quick discovery call.",
                                     "We provide a tailored proposal and timeline."
                                 ].map((step, i) => (
-                                    <div key={i} className="flex items-center gap-3 text-secondary">
-                                        <div className="w-6 h-6 rounded-full border border-white/10 flex items-center justify-center text-[10px] font-bold text-accent">
-                                            {i + 1}
+                                    <ScrollReveal key={i} delay={0.6 + (i * 0.1)} direction="left" distance={20}>
+                                        <div className="flex items-center gap-3 text-secondary">
+                                            <div className="w-6 h-6 rounded-full border border-white/10 flex items-center justify-center text-[10px] font-bold text-accent">
+                                                {i + 1}
+                                            </div>
+                                            <span>{step}</span>
                                         </div>
-                                        <span>{step}</span>
-                                    </div>
+                                    </ScrollReveal>
                                 ))}
                             </div>
-                        </ScrollReveal>
+                        </div>
                     </div>
 
                     {/* Right Column: Form */}

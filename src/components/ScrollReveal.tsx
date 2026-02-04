@@ -1,6 +1,6 @@
 "use client";
 
-import { motion, useReducedMotion } from "framer-motion";
+import { motion, useReducedMotion, Variants } from "framer-motion";
 import { ReactNode } from "react";
 
 interface ScrollRevealProps {
@@ -28,22 +28,26 @@ export default function ScrollReveal({
         return <div className={className}>{children}</div>;
     }
 
-    const variants = {
+    const variants: Variants = {
         hidden: {
             opacity: 0,
             x: direction === "left" ? distance : direction === "right" ? -distance : 0,
             y: direction === "up" ? distance : direction === "down" ? -distance : 0,
-            scale: 0.98,
+            scale: 0.95,
+            skewY: direction === "none" ? 0 : 2,
+            filter: "blur(10px)",
         },
         visible: {
             opacity: 1,
             x: 0,
             y: 0,
             scale: 1,
+            skewY: 0,
+            filter: "blur(0px)",
             transition: {
                 duration: duration,
                 delay: delay,
-                ease: [0.16, 1, 0.3, 1], // Custom cubic-bezier for a premium "fluid" feel
+                ease: [0.16, 1, 0.3, 1] as any,
             },
         },
     };
