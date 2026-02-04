@@ -36,10 +36,7 @@ export default function Footer() {
                             </p>
                             <div className="flex items-center gap-4">
                                 <div className="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center text-secondary hover:text-white transition-all duration-300 hover:bg-white/5">
-                                    <AnimatedSocialIcon type="whatsapp" href="#" size={20} />
-                                </div>
-                                <div className="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center text-secondary hover:text-white transition-all duration-300 hover:bg-white/5">
-                                    <AnimatedSocialIcon type="linkedin" href="#" size={20} />
+                                    <AnimatedSocialIcon type="linkedin" href="" size={20} />
                                 </div>
                                 <div className="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center text-secondary hover:text-white transition-all duration-300 hover:bg-white/5">
                                     <AnimatedSocialIcon type="github" href="#" size={20} />
@@ -66,9 +63,9 @@ export default function Footer() {
                         <div className="space-y-6">
                             <h4 className="text-white font-bold text-sm uppercase tracking-widest">Company</h4>
                             <div className="flex flex-col gap-4 text-secondary text-sm font-medium">
-                                <Link href="#" className="hover:text-white transition-colors">About Us</Link>
+                                <Link href="/about" className="hover:text-white transition-colors">About Us</Link>
                                 <Link href="#" className="hover:text-white transition-colors">Work</Link>
-                                <Link href="#" className="hover:text-white transition-colors">Process</Link>
+                                <Link href="/process" className="hover:text-white transition-colors">Process</Link>
                                 <Link href="#" className="hover:text-white transition-colors">Join Us</Link>
                             </div>
                         </div>
