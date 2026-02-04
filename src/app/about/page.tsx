@@ -16,11 +16,11 @@ export default function AboutPage() {
 
     const differentiators = [
         "Transparent communication without technical jargon",
-        "Rigorous quality assurance and performance testing",
-        "Direct access to specialized engineering talent",
+        "Careful testing to ensure quality and reliability",
+        "Working directly with the team building your project",
         "Scalable solutions designed for long-term growth",
         "Predictable timelines and reliable delivery",
-        "User-centric design focused on measurable outcomes"
+        "User-focused design built around real needs"
     ];
 
     return (
@@ -197,7 +197,7 @@ export default function AboutPage() {
                             <div className="space-y-8">
                                 <h2 className="text-4xl font-bold">What Makes Nexora Different?</h2>
                                 <p className="text-secondary text-lg font-medium leading-relaxed">
-                                    We move beyond generic solutions. Our team focuses on engineering products that provide competitive advantages through technical superiority.
+                                    We focus on building thoughtful digital solutions that prioritize clarity, quality, and long-term reliability. Our approach is simple, transparent, and designed to create lasting value.
                                 </p>
                                 <button className="bg-accent text-white px-8 py-4 rounded-full font-bold hover:brightness-110 transition-all flex items-center gap-2 group">
                                     Learn Our Process
