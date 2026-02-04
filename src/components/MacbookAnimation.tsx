@@ -55,17 +55,22 @@ function MacBookModel({
             }
         });
 
-        if (meshes.screen) {
+        if (meshes.matte) {
             tex.colorSpace = THREE.SRGBColorSpace;
             tex.wrapS = THREE.ClampToEdgeWrapping;
             tex.wrapT = THREE.ClampToEdgeWrapping;
+            tex.flipY = true;
 
             // Use Standard Material for realism (light interaction) instead of Basic
-            meshes.screen.material = new THREE.MeshStandardMaterial({
+            meshes.matte.material = new THREE.MeshStandardMaterial({
                 map: tex,
                 roughness: 0.2,
                 metalness: 0.1,
                 envMapIntensity: 1.5, // Pop the colors
+                // Self-illumination so screen glows like a real display
+                emissive: new THREE.Color(0xffffff),
+                emissiveMap: tex,
+                emissiveIntensity: 1,
                 color: 0xffffff
             });
         }
