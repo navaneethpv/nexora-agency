@@ -5,6 +5,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { Check, Shield, Zap, Target, Users, Sparkles } from "lucide-react";
 import ScrollReveal from "@/components/ScrollReveal";
+import Link from "next/link";
 
 export default function AboutPage() {
     const fadeIn = {
@@ -199,10 +200,12 @@ export default function AboutPage() {
                                 <p className="text-secondary text-lg font-medium leading-relaxed">
                                     We focus on building thoughtful digital solutions that prioritize clarity, quality, and long-term reliability. Our approach is simple, transparent, and designed to create lasting value.
                                 </p>
-                                <button className="bg-accent text-white px-8 py-4 rounded-full font-bold hover:brightness-110 transition-all flex items-center gap-2 group">
-                                    Learn Our Process
-                                    <Sparkles size={18} className="group-hover:rotate-12 transition-transform" />
-                                </button>
+                                <Link href="/process">
+                                    <button className="bg-accent text-white px-8 py-4 rounded-full font-bold hover:brightness-110 transition-all flex items-center gap-2 group hover:cursor-pointer">
+                                        Learn Our Process
+                                        <Sparkles size={18} className="group-hover:rotate-12 transition-transform" />
+                                    </button>
+                                </Link>
                             </div>
                             <div className="grid grid-cols-1 gap-4">
                                 {differentiators.map((text, i) => (
