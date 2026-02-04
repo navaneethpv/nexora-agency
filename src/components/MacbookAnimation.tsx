@@ -45,8 +45,9 @@ function MacBookModel({
     useMemo(() => {
         model.scene.traverse((e: any) => {
             if (e.isMesh) {
-                e.castShadow = true;
-                e.receiveShadow = true;
+                // Optimize: Disable shadows for better performance
+                e.castShadow = false;
+                e.receiveShadow = false;
 
                 // Enhance body materials
                 if (e.material) {
@@ -61,7 +62,7 @@ function MacBookModel({
             tex.wrapT = THREE.ClampToEdgeWrapping;
             tex.flipY = true;
             // Clarity improvements
-            tex.anisotropy = 16;
+            tex.anisotropy = 8; // Optimize: Reduced from 16
             tex.minFilter = THREE.LinearFilter;
             tex.magFilter = THREE.LinearFilter;
             tex.generateMipmaps = false;
@@ -80,17 +81,16 @@ function MacBookModel({
             });
         }
 
-        // Add realistic glass effect
+        // Add realistic glass effect - Optimized
         if (meshes.glass) {
             meshes.glass.visible = true;
-            meshes.glass.material = new THREE.MeshPhysicalMaterial({
+            // Optimize: Use Standard Material instead of Physical to avoid expensive refraction
+            meshes.glass.material = new THREE.MeshStandardMaterial({
                 roughness: 0.1,
                 metalness: 0,
-                transmission: 0.99, // Glass behavior
-                thickness: 0.1,
-                clearcoat: 1,
                 transparent: true,
-                opacity: 0.2
+                opacity: 0.1, // Subtle glass tint
+                envMapIntensity: 1
             });
         }
     }, [meshes, tex, model]);
