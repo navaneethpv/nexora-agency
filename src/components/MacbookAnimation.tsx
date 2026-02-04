@@ -9,6 +9,7 @@ function MacBookModel({
     scrollProgress,
     appearanceY,
     appearanceScale,
+    appearanceRotation,
     texture = "/mac-screen.jpg",
     isMobile = false,
     ...props
@@ -16,6 +17,7 @@ function MacBookModel({
     scrollProgress: any;
     appearanceY: any;
     appearanceScale: any;
+    appearanceRotation: any;
     texture?: string;
     isMobile?: boolean;
 } & any) {
@@ -71,8 +73,8 @@ function MacBookModel({
             const s = appearanceScale.get() * baseScale;
             groupRef.current.scale.set(s, s, s);
 
-            // Slightly rotate to the right side (angled view)
-            groupRef.current.rotation.y = THREE.MathUtils.degToRad(15);
+            // Dynamically rotate to the right side (angled view) as we scroll
+            groupRef.current.rotation.y = THREE.MathUtils.degToRad(appearanceRotation.get());
         }
     });
 
@@ -106,10 +108,13 @@ export default function MacbookAnimation({ texture = "/mac-screen.jpg" }: { text
 
     const rawY = useTransform(scrollYProgress, [0, 0.3], [10, 0]);
     const rawScale = useTransform(scrollYProgress, [0, 0.3], [0.9, 1.2]);
+    const rawRotation = useTransform(scrollYProgress, [0.1, 0.4], [0, 15]); // Finishes rotation earlier
+
     const appearanceY = useSpring(rawY, springConfig);
     const appearanceScale = useSpring(rawScale, springConfig);
+    const appearanceRotation = useSpring(rawRotation, springConfig);
 
-    const rawOpening = useTransform(scrollYProgress, [0.3, 0.45], [0, 1]);
+    const rawOpening = useTransform(scrollYProgress, [0.2, 0.4], [0, 1]); // Opens fully by 40% scroll
     const openingProgress = useSpring(rawOpening, springConfig);
 
     if (isMobile) return null;
@@ -122,11 +127,11 @@ export default function MacbookAnimation({ texture = "/mac-screen.jpg" }: { text
                         fov: isMobile ? 22 : 12,
                         position: [0, -10, isMobile ? 280 : 220]
                     }}
-                    dpr={[1, 1.5]} // Performance: Cap at 1.5x resolution for a massive performance gain
+                    dpr={[1, 1.5]}
                     performance={{ min: 0.6 }}
                     gl={{
                         powerPreference: "high-performance",
-                        antialias: false, // Performance: Faster rendering without edge-smoothing overhead
+                        antialias: false,
                         alpha: false,
                         stencil: false,
                         depth: true,
@@ -138,6 +143,7 @@ export default function MacbookAnimation({ texture = "/mac-screen.jpg" }: { text
                             scrollProgress={openingProgress}
                             appearanceY={appearanceY}
                             appearanceScale={appearanceScale}
+                            appearanceRotation={appearanceRotation}
                             texture={texture}
                             isMobile={isMobile}
                             position={[0, -14, 20]}
