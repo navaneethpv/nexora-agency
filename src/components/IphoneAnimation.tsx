@@ -98,8 +98,8 @@ export default function IphoneAnimation({ texture = "/mac-screen.jpg" }: { textu
     const openingProgress = useSpring(rawOpening, springConfig);
 
     return (
-        <div ref={containerRef} className="block md:hidden w-full h-screen relative z-0 bg-transparent -mt-20 md:-mt-32">
-            <div className="sticky top-0 h-screen w-full overflow-hidden flex items-center justify-center pointer-events-none">
+        <div ref={containerRef} className="block md:hidden w-full h-[60vh] relative z-0 bg-transparent -mt-20 md:-mt-32">
+            <div className="sticky top-0 h-[60vh] w-full overflow-hidden flex items-center justify-center pointer-events-none">
                 <Canvas
                     camera={{
                         fov: 30,
