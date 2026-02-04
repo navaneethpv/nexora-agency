@@ -270,17 +270,17 @@ export default function AboutPage() {
 
                         <div className="relative z-10 space-y-8 max-w-2xl mx-auto px-6">
                             <h2 className="text-4xl md:text-6xl font-bold leading-tight text-white mb-4">
-                                Ready to Elevate Your Digital Presence?
+                                Ready to start your next digital project?
                             </h2>
                             <p className="text-white/70 text-lg font-medium">
-                                Let&apos;s discuss how Nexora can bring clarity and high-performance engineering to your next project.
+                                Let&apos;s talk about building a clear, reliable, and user-friendly digital solution together.
                             </p>
                             <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">
                                 <button className="w-full sm:w-auto bg-accent text-white px-10 py-4 rounded-full font-bold text-lg hover:brightness-110 transition-all shadow-2xl shadow-accent/20">
                                     Start a Conversation
                                 </button>
                                 <button className="w-full sm:w-auto bg-white/5 backdrop-blur-md text-white border border-white/10 px-10 py-4 rounded-full font-bold text-lg hover:bg-white/10 transition-all">
-                                    Our Work
+                                    View Our Work
                                 </button>
                             </div>
                         </div>
