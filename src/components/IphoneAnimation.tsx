@@ -1,7 +1,7 @@
 "use client";
 import React, { useRef, useState, useEffect, useMemo } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
-import { useGLTF, Environment, useTexture } from "@react-three/drei";
+import { useGLTF, Environment, useTexture, OrbitControls } from "@react-three/drei";
 import { useScroll, useTransform, useSpring } from "framer-motion";
 import * as THREE from "three";
 
@@ -114,8 +114,8 @@ export default function IphoneAnimation({ texture = "/mac-screen.jpg" }: { textu
     const openingProgress = useSpring(rawOpening, springConfig);
 
     return (
-        <div ref={containerRef} className="w-full h-screen relative z-0 bg-transparent pointer-events-none -mt-20 md:-mt-32">
-            <div className="sticky top-0 h-screen w-full overflow-hidden flex items-center justify-center">
+        <div ref={containerRef} className="w-full h-screen relative z-0 bg-transparent -mt-20 md:-mt-32">
+            <div className="sticky top-0 h-screen w-full overflow-hidden flex items-center justify-center pointer-events-auto">
                 <Canvas
                     camera={{
                         fov: 30,
@@ -141,6 +141,7 @@ export default function IphoneAnimation({ texture = "/mac-screen.jpg" }: { textu
                             texture={texture}
                             position={[0, -1, 0]}
                         />
+                        <OrbitControls enableZoom={false} enablePan={false} rotateSpeed={0.5} />
                     </React.Suspense>
                 </Canvas>
             </div>
