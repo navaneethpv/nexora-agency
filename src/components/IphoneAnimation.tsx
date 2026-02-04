@@ -148,3 +148,5 @@ export default function IphoneAnimation({ texture = "/mac-screen.jpg" }: { textu
         </div>
     );
 }
+
+useGLTF.preload("/iphone.glb");

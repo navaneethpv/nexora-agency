@@ -20,7 +20,7 @@ export const projects: Project[] = [
         shortDescription: "A modern resort website with an admin portal to manage rooms, bookings, content, and enquiries.",
         coverImage: "/resort-macbook-mockup.png",
         macbookImage: "/resort-mac.png",
-        mobileImage: "https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?q=80&w=2564&auto=format&fit=crop",
+        mobileImage: "https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?q=80&w=800&auto=format&fit=crop",
         overview: "This project focuses on creating a clean and user-friendly website for a resort, along with an internal admin portal to manage daily operations efficiently. The goal was to improve the guest booking experience while giving administrators a simple interface to manage rooms, availability, and enquiries.",
         challenge: [
             "Manual booking management",
@@ -48,7 +48,7 @@ export const projects: Project[] = [
         shortDescription: "A modern, accessible website designed for educational institutions.",
         coverImage: "/institutional-academic.png",
         macbookImage: "/college-mac.png",
-        mobileImage: "https://images.unsplash.com/photo-1523240795612-9a054b0db644?q=80&w=2564&auto=format&fit=crop",
+        mobileImage: "https://images.unsplash.com/photo-1523240795612-9a054b0db644?q=80&w=800&auto=format&fit=crop",
         overview: "We developed a structured digital presence for educational institutions, focusing on clear information architecture and accessible user journeys. The platform allows students and faculty to access vital information easily while maintaining a professional and modern aesthetic.",
         challenge: [
             "Overwhelming and cluttered information layout",
@@ -76,7 +76,7 @@ export const projects: Project[] = [
         shortDescription: "A clean and professional portfolio website for a growing business.",
         coverImage: "/device-mockup.png",
         macbookImage: "/device-mockup.png",
-        mobileImage: "https://images.unsplash.com/photo-1661956602116-aa6865609028?q=80&w=2564&auto=format&fit=crop",
+        mobileImage: "https://images.unsplash.com/photo-1661956602116-aa6865609028?q=80&w=800&auto=format&fit=crop",
         overview: "Built for modern retail brands, this project focuses on a fluid product discovery experience and professional brand storytelling. The goal was to create a digital presence that builds trust and clearly communicates the business's value proposition.",
         challenge: [
             "Generic and outdated online presence",
