@@ -65,9 +65,9 @@ function IphoneModel({
             groupRef.current.position.y = y;
             groupRef.current.scale.set(s, s, s);
 
-            // Initial rotation to show side profile (approx -Math.PI / 2) + animation
-            groupRef.current.rotation.y = -Math.PI / 2 + THREE.MathUtils.degToRad(r);
-            groupRef.current.rotation.x = THREE.MathUtils.degToRad(10);
+            // Front facing rotation (Added Math.PI to flip 180deg from back to front)
+            groupRef.current.rotation.y = Math.PI + THREE.MathUtils.degToRad(r - 10);
+            groupRef.current.rotation.x = THREE.MathUtils.degToRad(0); // Upright
         }
     });
 
@@ -101,10 +101,10 @@ export default function IphoneAnimation({ texture = "/mac-screen.jpg" }: { textu
     // Mobile specific animations
     // Start from bottom, move up
     const rawY = useTransform(scrollYProgress, [0, 0.4], [2, 0]);
-    const rawScale = useTransform(scrollYProgress, [0, 0.4], [6, 9]); // Reduced scale
+    const rawScale = useTransform(scrollYProgress, [0, 0.4], [8, 12]);
 
-    // Rotate from side profile (-90deg relative) to nearly front facing
-    const rawRotation = useTransform(scrollYProgress, [0, 0.5], [0, 85]);
+    // Rotate slightly from a tilted angle to directly front-facing
+    const rawRotation = useTransform(scrollYProgress, [0, 0.5], [-15, 10]);
 
     const appearanceY = useSpring(rawY, springConfig);
     const appearanceScale = useSpring(rawScale, springConfig);
