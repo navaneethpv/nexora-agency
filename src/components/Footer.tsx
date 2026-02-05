@@ -73,13 +73,18 @@ export default function Footer() {
                         <div className="space-y-6 col-span-2 md:col-span-1">
                             <h4 className="text-white font-bold text-sm uppercase tracking-widest">Contact</h4>
                             <div className="flex flex-col gap-4 text-secondary text-sm font-medium">
-                                <a href="mailto:contact@nexoraweb.tech" className="flex items-center gap-2 hover:text-white transition-colors">
+                                <a href="mailto:agency@nexoraweb.tech" className="flex items-center gap-2 hover:text-white transition-colors">
                                     <Mail className="w-3.5 h-3.5" />
-                                    <span>contact@nexoraweb.tech</span>
+                                    <span>agency@nexoraweb.tech</span>
                                 </a>
-                                <div className="flex items-start gap-2">
-                                    <MapPin className="w-3.5 h-3.5 mt-0.5 shrink-0" />
-                                    <span>Global·Remote Engineering</span>
+                                <div className="flex flex-col gap-2">
+                                    <a href="tel:+916282592895" className="flex items-center gap-2 hover:text-white transition-colors">
+                                        <Phone className="w-3.5 h-3.5" />
+                                        <span>+91 62825 92895</span>
+                                    </a>
+                                    <a href="tel:+918921592748" className="flex items-center gap-2 hover:text-white transition-colors pl-5">
+                                        <span>+91 89215 92748</span>
+                                    </a>
                                 </div>
                                 <div className="pt-2">
                                     <Link href="/contact" className="text-accent font-bold hover:underline inline-flex items-center gap-1 group">

@@ -61,6 +61,9 @@ export default function Home() {
     <main className="min-h-screen selection:bg-accent/30 selection:text-white">
       <Navbar />
       <Hero />
+      <div className="relative z-10 bg-black">
+        <MacbookAnimation />
+      </div>
 
       <ScrollReveal direction="none">
         <section ref={tickerRef} className="py-16 md:py-24 flex flex-col items-center border-t border-white/5 relative bg-white/2 overflow-hidden">

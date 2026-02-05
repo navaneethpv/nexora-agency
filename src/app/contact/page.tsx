@@ -6,7 +6,7 @@ import Footer from "@/components/Footer";
 import FloatingWhatsApp from "@/components/FloatingWhatsApp";
 import { motion } from "framer-motion";
 import ScrollReveal from "@/components/ScrollReveal";
-import { Mail, ArrowRight, CheckCircle2, Sparkles, Send } from "lucide-react";
+import { Mail, ArrowRight, CheckCircle2, Sparkles, Send, Phone } from "lucide-react";
 
 export default function ContactPage() {
     const [formState, setFormState] = useState({
@@ -69,16 +69,33 @@ export default function ContactPage() {
                             </ScrollReveal>
 
                             <ScrollReveal delay={0.4} direction="right">
-                                <div className="space-y-8 mb-12">
+                                <div className="space-y-6 mb-12">
                                     <div className="flex items-start gap-4 p-6 rounded-3xl border border-white/5 bg-white/2 backdrop-blur-sm hover:border-accent/20 transition-all duration-300 group">
                                         <div className="w-12 h-12 rounded-full bg-white/5 flex items-center justify-center shrink-0 group-hover:bg-accent/20 group-hover:text-accent transition-all">
                                             <Mail className="w-5 h-5" />
                                         </div>
                                         <div>
                                             <h3 className="text-white font-bold text-lg mb-1">Email Us</h3>
-                                            <a href="mailto:contact@nexoraweb.tech" className="text-secondary hover:text-white transition-colors">
-                                                contact@nexoraweb.tech
+                                            <a href="mailto:agency@nexoraweb.tech" className="text-secondary hover:text-white transition-colors">
+                                                agency@nexoraweb.tech
                                             </a>
+                                        </div>
+                                    </div>
+
+                                    <div className="flex items-start gap-4 p-6 rounded-3xl border border-white/5 bg-white/2 backdrop-blur-sm hover:border-accent/20 transition-all duration-300 group">
+                                        <div className="w-12 h-12 rounded-full bg-white/5 flex items-center justify-center shrink-0 group-hover:bg-accent/20 group-hover:text-accent transition-all">
+                                            <Phone className="w-5 h-5" />
+                                        </div>
+                                        <div>
+                                            <h3 className="text-white font-bold text-lg mb-1">Call Us</h3>
+                                            <div className="flex flex-col gap-1">
+                                                <a href="tel:+916282592895" className="text-secondary hover:text-white transition-colors">
+                                                    +91 62825 92895
+                                                </a>
+                                                <a href="tel:+918921592748" className="text-secondary hover:text-white transition-colors">
+                                                    +91 89215 92748
+                                                </a>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
