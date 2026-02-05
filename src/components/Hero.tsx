@@ -7,10 +7,7 @@ import { motion, Variants } from "framer-motion";
 import useMagnetic from "@/hooks/useMagnetic";
 import Link from "next/link";
 
-const HeroBackground3D = dynamic(() => import("./HeroBackground3D"), {
-    ssr: false,
-    loading: () => <div className="absolute inset-0 bg-black" />
-});
+const HeroBackground3D = dynamic(() => import("./HeroBackground3D"), { ssr: false });
 
 export default function Hero() {
     const magneticBtn1 = useMagnetic();
@@ -21,8 +18,8 @@ export default function Hero() {
     useEffect(() => {
         const handleMouseMove = (e: MouseEvent) => {
             setMousePos({
-                x: (e.clientX / window.innerWidth - 0.5) * 40, // Increased intensity
-                y: (e.clientY / window.innerHeight - 0.5) * 40,
+                x: (e.clientX / window.innerWidth - 0.5) * 20,
+                y: (e.clientY / window.innerHeight - 0.5) * 20,
             });
         };
         window.addEventListener("mousemove", handleMouseMove);
@@ -57,7 +54,7 @@ export default function Hero() {
 
         const timer = setTimeout(handleTyping, typingSpeed);
         return () => clearTimeout(timer);
-    }, [currentText, isDeleting, currentWordIndex]);
+    }, [currentText, isDeleting, currentWordIndex, words, typingSpeed]);
 
     const containerVariants: Variants = {
         hidden: { opacity: 0 },
@@ -83,21 +80,20 @@ export default function Hero() {
     };
 
     return (
-        <section className="relative h-screen min-h-[850px] flex flex-col items-center justify-center text-center px-6 overflow-hidden bg-black">
-            {/* Background Layer */}
-            <HeroBackground3D />
-
-            {/* Ambient Noise Texture */}
-            <div className="absolute inset-0 z-0 pointer-events-none opacity-[0.1] mix-blend-overlay"
+        <section className="relative h-screen min-h-[800px] flex flex-col items-center justify-center text-center px-6 overflow-hidden bg-background">
+            {/* Noise Texture Overlay */}
+            <div className="absolute inset-0 z-50 pointer-events-none opacity-[0.15] mix-blend-overlay"
                 style={{ backgroundImage: 'url("https://grainy-gradients.vercel.app/noise.svg")' }} />
 
-            {/* Mouse Tracking Glows */}
+            <HeroBackground3D />
+
+            {/* Background Glows */}
             <motion.div
                 style={{ x: mousePos.x, y: mousePos.y }}
-                className="absolute inset-0 -z-10 pointer-events-none"
+                className="absolute inset-0 -z-10 overflow-hidden pointer-events-none"
             >
-                <div className="absolute top-[10%] left-[10%] w-[40vw] h-[40vw] bg-accent/10 blur-[150px] rounded-full" />
-                <div className="absolute bottom-[10%] right-[10%] w-[30vw] h-[30vw] bg-accent-secondary/5 blur-[120px] rounded-full" />
+                <div className="absolute top-[-10%] left-[-5%] w-full h-full bg-accent/5 blur-[120px] rounded-full opacity-60" />
+                <div className="absolute bottom-[-10%] right-[-5%] w-1/2 h-1/2 bg-accent-secondary/5 blur-[100px] rounded-full opacity-40" />
             </motion.div>
 
             <motion.div
@@ -119,10 +115,20 @@ export default function Hero() {
                             }
                         }
                     }}
-                    className="hero-label inline-flex items-center gap-2.5 rounded-full border border-white/10 bg-white/5 px-5 py-2.5 text-[10px] md:text-[11px] font-black text-white/90 mb-8 md:mb-12 backdrop-blur-2xl ring-1 ring-white/10 shadow-[0_0_30px_rgba(11,185,243,0.15)] hover:border-accent/40 hover:scale-105 transition-all duration-500"
+                    className="hero-label inline-flex items-center gap-2.5 rounded-full border border-white/10 bg-white/3 px-4 py-2 text-[10px] md:text-[11px] font-bold text-white/80 mb-6 md:mb-10 backdrop-blur-xl ring-1 ring-white/10 shadow-[0_0_20px_rgba(11,185,243,0.1)] hover:border-accent/30 transition-colors duration-500"
                 >
-                    <Sparkles className="w-4 h-4 text-accent animate-pulse" />
-                    <span className="uppercase tracking-[0.3em]">NEXORA · DIGITAL EXCELLENCE UNIT</span>
+                    <Sparkles className="w-3.5 h-3.5 text-accent" />
+                    <span className="uppercase tracking-[0.2em]">WEB DEVELOPMENT & DIGITAL SOLUTIONS</span>
+                </motion.div>
+
+                <motion.div
+                    variants={{
+                        hidden: { opacity: 0, y: 10 },
+                        visible: { opacity: 1, y: 0, transition: { duration: 0.8 } }
+                    }}
+                    className="mb-2 md:mb-4"
+                >
+                    <span className="text-[13px] md:text-[14px] font-black tracking-[0.4em] text-white/50 uppercase">A COMPLETE</span>
                 </motion.div>
 
                 <motion.h1
@@ -138,12 +144,12 @@ export default function Hero() {
                             }
                         }
                     }}
-                    className="text-5xl sm:text-7xl md:text-8xl lg:text-9xl font-bold tracking-tight mb-6 md:mb-10 leading-[0.95]"
+                    className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-bold tracking-tight mb-4 md:mb-8 leading-[1.1] md:leading-[1.02]"
                 >
-                    Better Web <br />
-                    <span className="font-medium text-glow bg-clip-text text-transparent bg-linear-to-b from-accent to-accent-secondary inline-block">
+                    Modern Web Solutions for <br />
+                    <span className="font-medium text-glow bg-clip-text text-transparent bg-linear-to-b from-accent to-accent-secondary min-h-[1.1em] inline-block text-3xl sm:text-5xl md:text-6xl lg:text-7xl">
                         {currentText}
-                        <span className="inline-block w-[3px] h-[0.8em] bg-accent ml-2 animate-[blink_1s_step-end_infinite] align-middle shadow-[0_0_15px_rgba(11,185,243,1)]"></span>
+                        <span className="inline-block w-[2.5px] h-[0.85em] bg-accent ml-2 animate-[blink_1s_step-end_infinite] align-middle shadow-[0_0_8px_rgba(11,185,243,0.8)]"></span>
                     </span>
                 </motion.h1>
 
@@ -152,45 +158,52 @@ export default function Hero() {
                         hidden: { opacity: 0, y: 20 },
                         visible: { opacity: 1, y: 0, transition: { duration: 1, ease: [0.16, 1, 0.3, 1] } }
                     }}
-                    className="max-w-2xl text-lg md:text-2xl text-secondary mb-10 md:mb-16 leading-relaxed font-medium opacity-80"
+                    className="max-w-2xl text-base md:text-xl text-secondary mb-8 md:mb-12 leading-relaxed font-medium opacity-90"
                 >
-                    We deliver high-performance, visually stunning digital experiences for startups and forward-thinking brands.
+                    Nexora builds clean, scalable, and performance-focused websites and web applications for businesses and institutions.
                 </motion.p>
 
                 <motion.div
                     variants={itemVariants}
-                    className="flex flex-col sm:flex-row gap-5 md:gap-6 justify-center items-center w-full sm:w-auto"
+                    className="flex flex-col sm:flex-row gap-4 md:gap-5 justify-center items-center w-full sm:w-auto px-4 sm:px-0"
                 >
                     <Link href="/#work" className="w-full sm:w-auto">
                         <div ref={magneticBtn1} className="w-full sm:w-auto">
-                            <button className="w-full sm:w-auto group relative text-white px-10 md:px-12 py-5 md:py-6 rounded-full text-base md:text-lg font-black hover:brightness-110 transition-all shadow-2xl shadow-accent/40 active:scale-95 flex items-center justify-center gap-4 overflow-hidden bg-linear-to-r from-accent to-accent-secondary">
-                                <div className="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-300" />
-                                <span className="relative">CHECK OUR IMPACT</span>
-                                <ArrowRight className="w-5 h-5 relative group-hover:translate-x-1.5 transition-transform duration-300" />
+                            <button className="w-full sm:w-auto group relative text-white px-8 md:px-10 py-4 md:py-5 rounded-full text-sm md:text-base font-bold hover:brightness-110 transition-all shadow-2xl shadow-accent/40 active:scale-95 flex items-center justify-center gap-3 overflow-hidden bg-linear-to-r from-accent to-accent-secondary">
+                                <div className="absolute inset-0 bg-white/10 translate-y-full group-hover:translate-y-0 transition-transform duration-300" />
+                                <span className="relative">View Our Work →</span>
+                                <ArrowRight className="w-4 h-4 md:w-5 md:h-5 relative group-hover:translate-x-1 transition-transform duration-300" />
                             </button>
                         </div>
                     </Link>
                     <div ref={magneticBtn2} className="w-full sm:w-auto">
                         <Link href="/contact" className="w-full sm:w-auto">
-                            <button className="w-full sm:w-auto group relative bg-white/5 border border-white/20 text-white px-10 md:px-12 py-5 md:py-6 rounded-full text-base md:text-lg font-black hover:bg-white/10 transition-all backdrop-blur-2xl active:scale-95">
-                                <div className="absolute inset-0 bg-white/5 opacity-0 group-hover:opacity-100 transition-opacity rounded-full shadow-[0_0_30px_rgba(255,255,255,0.05)]" />
-                                <span className="relative">GET IN TOUCH</span>
+                            <button className="w-full sm:w-auto group relative bg-white/5 border border-white/10 text-white px-8 md:px-10 py-4 md:py-5 rounded-full text-sm md:text-base font-bold hover:bg-white/10 transition-all backdrop-blur-xl active:scale-95">
+                                <div className="absolute inset-0 bg-white/5 opacity-0 group-hover:opacity-100 transition-opacity rounded-full shadow-[0_0_20px_rgba(255,255,255,0.05)]" />
+                                <span className="relative">Get in Touch</span>
                             </button>
                         </Link>
                     </div>
                 </motion.div>
             </motion.div>
 
-            {/* Scroll Indicator */}
+            {/* Subtle floating decorative elements */}
             <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 2, duration: 1 }}
-                className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
-            >
-                <div className="w-px h-12 bg-linear-to-b from-accent to-transparent" />
-                <span className="text-[10px] font-bold tracking-[0.4em] uppercase text-accent/50">SCROLL</span>
-            </motion.div>
+                animate={{
+                    y: [0, -20, 0],
+                    rotate: [0, 5, 0]
+                }}
+                transition={{ duration: 7, repeat: Infinity, ease: "easeInOut" }}
+                className="absolute top-1/4 left-10 w-4 h-4 rounded bg-accent/20 blur-sm md:block hidden"
+            />
+            <motion.div
+                animate={{
+                    y: [0, 20, 0],
+                    rotate: [0, -5, 0]
+                }}
+                transition={{ duration: 9, repeat: Infinity, ease: "easeInOut" }}
+                className="absolute bottom-1/4 right-10 w-6 h-6 rounded-full bg-accent-secondary/20 blur-sm md:block hidden"
+            />
         </section>
     );
 }
