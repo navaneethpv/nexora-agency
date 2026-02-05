@@ -4,7 +4,6 @@ import Link from "next/link";
 import Image from "next/image";
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { AnimatedSocialIcon } from "./AnimatedSocialIcon";
 import { Menu, X } from "lucide-react";
 import useMagnetic from "@/hooks/useMagnetic";
 
@@ -99,11 +98,6 @@ export default function Navbar() {
                     </nav>
 
                     <div className="flex items-center gap-4">
-                        <div className="hidden xl:flex items-center gap-3 border-r border-white/10 pr-6 mr-2">
-                            <AnimatedSocialIcon type="linkedin" href="https://www.linkedin.com/in/navaneethpv-dev/" target="_blank" size={20} />
-                            <AnimatedSocialIcon type="github" href="https://github.com/navaneethpv" target="_blank" size={20} />
-                            <AnimatedSocialIcon type="instagram" href="https://www.instagram.com/nexoraweb.tech/" target="_blank" size={20} />
-                        </div>
                         <Link href="/contact" className="hidden md:block">
                             <div ref={magneticBtn}>
                                 <button className="bg-accent text-white px-4 lg:px-8 py-2 lg:py-3 rounded-full text-[10px] lg:text-sm font-bold hover:brightness-110 transition-all shadow-xl shadow-accent/30 active:scale-95 whitespace-nowrap bg-linear-to-r from-accent to-accent-secondary">
@@ -148,12 +142,6 @@ export default function Navbar() {
                                     Get in Touch
                                 </button>
                             </Link>
-
-                            <div className="flex items-center justify-center gap-6 mt-4 pt-4 border-t border-white/5">
-                                <AnimatedSocialIcon type="linkedin" href="https://www.linkedin.com/in/navaneethpv-dev/" target="_blank" size={24} />
-                                <AnimatedSocialIcon type="github" href="https://github.com/navaneethpv" target="_blank" size={24} />
-                                <AnimatedSocialIcon type="instagram" href="https://www.instagram.com/nexoraweb.tech/" target="_blank" size={24} />
-                            </div>
                         </div>
                     </motion.div>
                 )}
