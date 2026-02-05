@@ -59,17 +59,6 @@ export default function Hero() {
         return () => clearTimeout(timer);
     }, [currentText, isDeleting, currentWordIndex, words, typingSpeed]);
 
-    const containerVariants: Variants = {
-        hidden: { opacity: 0 },
-        visible: {
-            opacity: 1,
-            transition: {
-                staggerChildren: 0.1,
-                delayChildren: 0.3,
-            },
-        },
-    };
-
     const itemVariants: Variants = {
         hidden: { y: 20, opacity: 0 },
         visible: {
@@ -99,75 +88,32 @@ export default function Hero() {
                 <div className="absolute bottom-[-10%] right-[-5%] w-1/2 h-1/2 bg-accent-secondary/5 blur-[100px] rounded-full opacity-40" />
             </motion.div>
 
-            <motion.div
-                variants={containerVariants}
-                initial="hidden"
-                animate="visible"
-                className="relative z-10 flex flex-col items-center max-w-5xl mx-auto"
-            >
-                <motion.div
-                    variants={{
-                        hidden: { y: 20, opacity: 0, filter: "blur(10px)" },
-                        visible: {
-                            y: 0,
-                            opacity: 1,
-                            filter: "blur(0px)",
-                            transition: {
-                                duration: 1,
-                                ease: [0.16, 1, 0.3, 1]
-                            }
-                        }
-                    }}
-                    className="hero-label inline-flex items-center gap-2.5 rounded-full border border-white/10 bg-white/3 px-4 py-2 text-[10px] md:text-[11px] font-bold text-white/80 mb-6 md:mb-10 backdrop-blur-xl ring-1 ring-white/10 shadow-[0_0_20px_rgba(11,185,243,0.1)] hover:border-accent/30 transition-colors duration-500"
-                >
+            <div className="relative z-10 flex flex-col items-center max-w-5xl mx-auto">
+                <div className="hero-label inline-flex items-center gap-2.5 rounded-full border border-white/10 bg-white/3 px-4 py-2 text-[10px] md:text-[11px] font-bold text-white/80 mb-6 md:mb-10 backdrop-blur-xl ring-1 ring-white/10 shadow-[0_0_20px_rgba(11,185,243,0.1)] hover:border-accent/30 transition-colors duration-500">
                     <Sparkles className="w-3.5 h-3.5 text-accent" />
                     <span className="uppercase tracking-[0.2em]">WEB DEVELOPMENT & DIGITAL SOLUTIONS</span>
-                </motion.div>
+                </div>
 
-                <motion.div
-                    variants={{
-                        hidden: { opacity: 0, y: 10 },
-                        visible: { opacity: 1, y: 0, transition: { duration: 0.8 } }
-                    }}
-                    className="mb-2 md:mb-4"
-                >
+                <div className="mb-2 md:mb-4">
                     <span className="text-[13px] md:text-[14px] font-black tracking-[0.4em] text-white/50 uppercase">A COMPLETE</span>
-                </motion.div>
+                </div>
 
-                <motion.h1
-                    variants={{
-                        hidden: { y: 60, opacity: 0, filter: "blur(20px)" },
-                        visible: {
-                            y: 0,
-                            opacity: 1,
-                            filter: "blur(0px)",
-                            transition: {
-                                duration: 1.2,
-                                ease: [0.22, 1, 0.36, 1] as any
-                            }
-                        }
-                    }}
-                    className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-black tracking-tight mb-4 md:mb-8 leading-[1.1] md:leading-[1.02]"
-                >
+                <h1 className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-black tracking-tight mb-4 md:mb-8 leading-[1.1] md:leading-[1.02]">
                     Modern Web Solutions for <br />
                     <span className="font-medium text-glow bg-clip-text text-transparent bg-linear-to-b from-accent to-accent-secondary min-h-[1.1em] inline-block text-3xl sm:text-5xl md:text-6xl lg:text-7xl uppercase tracking-wider">
                         {currentText}
                         <span className="inline-block w-[2.5px] h-[0.85em] bg-accent ml-2 animate-[blink_1s_step-end_infinite] align-middle shadow-[0_0_8px_rgba(11,185,243,0.8)]"></span>
                     </span>
-                </motion.h1>
+                </h1>
 
-                <motion.p
-                    variants={{
-                        hidden: { opacity: 0, y: 20 },
-                        visible: { opacity: 1, y: 0, transition: { duration: 1, ease: [0.16, 1, 0.3, 1] } }
-                    }}
-                    className="max-w-2xl text-base md:text-xl text-secondary mb-8 md:mb-12 leading-relaxed font-medium opacity-90"
-                >
+                <p className="max-w-2xl text-base md:text-xl text-secondary mb-8 md:mb-12 leading-relaxed font-medium opacity-90">
                     Nexora builds clean, scalable, and performance-focused websites and web applications for businesses and institutions.
-                </motion.p>
+                </p>
 
                 <motion.div
                     variants={itemVariants}
+                    initial="hidden"
+                    animate="visible"
                     className="flex flex-col sm:flex-row gap-4 md:gap-5 justify-center items-center w-full sm:w-auto px-4 sm:px-0"
                 >
                     <Link href="/#work" className="w-full sm:w-auto">
@@ -188,7 +134,7 @@ export default function Hero() {
                         </Link>
                     </div>
                 </motion.div>
-            </motion.div>
+            </div>
 
             {/* Subtle floating decorative elements */}
             <motion.div

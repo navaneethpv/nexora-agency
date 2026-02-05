@@ -1,8 +1,8 @@
 "use client";
 
 import { useRef } from "react";
+import dynamic from "next/dynamic";
 import { Star, Quote, ChevronRight } from "lucide-react";
-import MacbookAnimation from "@/components/MacbookAnimation";
 import Link from "next/link";
 import { motion, useAnimationFrame, useMotionValue, useTransform, useInView } from "framer-motion";
 import Navbar from "@/components/Navbar";
@@ -21,6 +21,8 @@ import { RiNextjsFill, RiTailwindCssFill } from "react-icons/ri";
 import { SiTypescript, SiAdobephotoshop, SiExpress, SiMongodb, SiAdobeillustrator } from "react-icons/si";
 import SelectedWork from "@/components/home/SelectedWork";
 
+// Optimization: Dynamic import for heavy 3D component
+const MacbookAnimation = dynamic(() => import("@/components/MacbookAnimation"), { ssr: false });
 
 const techStack = [
   { name: "Next.js", icon: RiNextjsFill },
