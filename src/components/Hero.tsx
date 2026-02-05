@@ -81,9 +81,9 @@ export default function Hero() {
 
     return (
         <section className="relative h-screen min-h-[800px] flex flex-col items-center justify-center text-center px-6 overflow-hidden bg-background">
-            {/* Noise Texture Overlay */}
-            <div className="absolute inset-0 z-50 pointer-events-none opacity-[0.15] mix-blend-overlay"
-                style={{ backgroundImage: 'url("https://grainy-gradients.vercel.app/noise.svg")' }} />
+            {/* Noise Texture Overlay - Fixed 402 by using inline SVG */}
+            <div className="absolute inset-0 z-50 pointer-events-none opacity-[0.12] mix-blend-overlay"
+                style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E")` }} />
 
             <HeroBackground3D />
 
@@ -144,10 +144,10 @@ export default function Hero() {
                             }
                         }
                     }}
-                    className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-bold tracking-tight mb-4 md:mb-8 leading-[1.1] md:leading-[1.02]"
+                    className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-black tracking-tight mb-4 md:mb-8 leading-[1.1] md:leading-[1.02]"
                 >
                     Modern Web Solutions for <br />
-                    <span className="font-medium text-glow bg-clip-text text-transparent bg-linear-to-b from-accent to-accent-secondary min-h-[1.1em] inline-block text-3xl sm:text-5xl md:text-6xl lg:text-7xl">
+                    <span className="font-medium text-glow bg-clip-text text-transparent bg-linear-to-b from-accent to-accent-secondary min-h-[1.1em] inline-block text-3xl sm:text-5xl md:text-6xl lg:text-7xl uppercase tracking-wider">
                         {currentText}
                         <span className="inline-block w-[2.5px] h-[0.85em] bg-accent ml-2 animate-[blink_1s_step-end_infinite] align-middle shadow-[0_0_8px_rgba(11,185,243,0.8)]"></span>
                     </span>

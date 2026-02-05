@@ -155,37 +155,40 @@ export default function MacbookAnimation({ texture = "/mac-screen.jpg" }: { text
     const rawOpening = useTransform(scrollYProgress, [0.2, 0.4], [0, 1]); // Opens fully by 40% scroll
     const openingProgress = useSpring(rawOpening, springConfig);
 
-    if (isMobile) return null;
-
     return (
-        <div ref={containerRef} className="hidden md:block w-full h-[120vh] relative bg-black">
-            <div className="sticky top-0 h-screen w-full overflow-hidden flex items-center justify-center pointer-events-none">
-                <Canvas
-                    camera={{
-                        fov: isMobile ? 22 : 12,
-                        position: [0, -10, isMobile ? 280 : 220]
-                    }}
-                    dpr={[1, 1.5]}
-                    performance={{ min: 0.6 }}
-                    gl={{
-                        antialias: true,
-                        preserveDrawingBuffer: true
-                    }}
-                >
-                    <React.Suspense fallback={null}>
-                        <Environment preset="city" />
-                        <MacBookModel
-                            scrollProgress={openingProgress}
-                            appearanceY={appearanceY}
-                            appearanceScale={appearanceScale}
-                            appearanceRotation={appearanceRotation}
-                            texture={texture}
-                            isMobile={isMobile}
-                            position={[0, -14, 20]}
-                        />
-                    </React.Suspense>
-                </Canvas>
-            </div>
+        <div
+            ref={containerRef}
+            className="w-full h-[120vh] relative bg-black overflow-hidden"
+            style={{ position: 'relative' }} // Explicitly ensure non-static
+        >
+            {!isMobile && (
+                <div className="sticky top-0 h-screen w-full flex items-center justify-center pointer-events-none">
+                    <Canvas
+                        camera={{
+                            fov: 12,
+                            position: [0, -10, 220]
+                        }}
+                        dpr={[1, 1.5]}
+                        performance={{ min: 0.6 }}
+                        gl={{
+                            antialias: true,
+                            preserveDrawingBuffer: true
+                        }}
+                    >
+                        <React.Suspense fallback={null}>
+                            <Environment preset="city" />
+                            <MacBookModel
+                                scrollProgress={openingProgress}
+                                appearanceY={appearanceY}
+                                appearanceScale={appearanceScale}
+                                appearanceRotation={appearanceRotation}
+                                texture={texture}
+                                position={[0, -14, 20]}
+                            />
+                        </React.Suspense>
+                    </Canvas>
+                </div>
+            )}
         </div>
     );
 }
