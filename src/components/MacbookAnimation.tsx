@@ -158,7 +158,7 @@ export default function MacbookAnimation({ texture = "/mac-screen.jpg" }: { text
     return (
         <div
             ref={containerRef}
-            className="w-full h-[120vh] relative bg-black overflow-hidden"
+            className="hidden md:block w-full h-[120vh] relative bg-black overflow-hidden"
             style={{ position: 'relative' }} // Explicitly ensure non-static
         >
             {!isMobile && (
