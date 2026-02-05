@@ -82,10 +82,10 @@ export default function Footer() {
                                     <span>Global·Remote Engineering</span>
                                 </div>
                                 <div className="pt-2">
-                                    <button className="text-accent font-bold hover:underline inline-flex items-center gap-1 group">
+                                    <Link href="/contact" className="text-accent font-bold hover:underline inline-flex items-center gap-1 group">
                                         Book a call
                                         <ArrowRight className="w-3 h-3 group-hover:translate-x-1 transition-transform" />
-                                    </button>
+                                    </Link>
                                 </div>
                             </div>
                         </div>

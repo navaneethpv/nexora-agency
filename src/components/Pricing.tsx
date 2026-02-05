@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { motion } from "framer-motion";
 import { Check } from "lucide-react";
 
@@ -89,14 +90,18 @@ export default function WhyNexora() {
                                     </p>
 
                                     <div className="space-y-4 sm:space-y-5 relative z-10">
-                                        <button className="w-full bg-accent text-white py-4 sm:py-5 md:py-6 rounded-xl sm:rounded-2xl md:rounded-3xl font-black text-sm sm:text-base md:text-lg tracking-wide hover:brightness-110 transition-all shadow-xl shadow-accent-glow/20 active:scale-[0.98] group/btn flex items-center justify-center gap-2">
-                                            Get started
-                                            <motion.span animate={{ x: [0, 5, 0] }} transition={{ repeat: Infinity, duration: 1.5 }}>→</motion.span>
-                                        </button>
+                                        <Link href="/contact" className="block w-full">
+                                            <button className="w-full bg-accent text-white py-4 sm:py-5 md:py-6 rounded-xl sm:rounded-2xl md:rounded-3xl font-black text-sm sm:text-base md:text-lg tracking-wide hover:brightness-110 transition-all shadow-xl shadow-accent-glow/20 active:scale-[0.98] group/btn flex items-center justify-center gap-2">
+                                                Get started
+                                                <motion.span animate={{ x: [0, 5, 0] }} transition={{ repeat: Infinity, duration: 1.5 }}>→</motion.span>
+                                            </button>
+                                        </Link>
 
-                                        <button className="block w-full text-secondary hover:text-white text-[10px] sm:text-xs md:text-sm font-black tracking-[0.2em] uppercase transition-colors py-2">
-                                            Book a call
-                                        </button>
+                                        <Link href="/contact" className="block w-full">
+                                            <button className="block w-full text-secondary hover:text-white text-[10px] sm:text-xs md:text-sm font-black tracking-[0.2em] uppercase transition-colors py-2">
+                                                Book a call
+                                            </button>
+                                        </Link>
                                     </div>
                                 </motion.div>
                             </div>
