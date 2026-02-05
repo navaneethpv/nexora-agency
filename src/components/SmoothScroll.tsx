@@ -10,8 +10,8 @@ export default function SmoothScroll({ children }: { children: React.ReactNode }
 
     useEffect(() => {
         const lenis = new Lenis({
-            lerp: 0.1, // Adjusted for responsiveness
-            wheelMultiplier: 1, // Standard speed for natural feel
+            lerp: 0.07, // Smoother, more premium feel
+            wheelMultiplier: 1,
             touchMultiplier: 2,
             infinite: false,
         });
@@ -40,4 +40,3 @@ export default function SmoothScroll({ children }: { children: React.ReactNode }
 
     return <>{children}</>;
 }
-
