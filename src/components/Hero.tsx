@@ -3,7 +3,7 @@
 import dynamic from "next/dynamic";
 import { useRef, useState, useEffect } from "react";
 import { ArrowRight, Sparkles } from "lucide-react";
-import { motion, Variants } from "framer-motion";
+import { motion, Variants, useMotionValue, useSpring } from "framer-motion";
 import useMagnetic from "@/hooks/useMagnetic";
 import Link from "next/link";
 
@@ -13,18 +13,21 @@ export default function Hero() {
     const magneticBtn1 = useMagnetic();
     const magneticBtn2 = useMagnetic();
 
-    const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
+    const mouseX = useMotionValue(0);
+    const mouseY = useMotionValue(0);
+
+    const springConfig = { damping: 25, stiffness: 150 };
+    const mouseXSpring = useSpring(mouseX, springConfig);
+    const mouseYSpring = useSpring(mouseY, springConfig);
 
     useEffect(() => {
         const handleMouseMove = (e: MouseEvent) => {
-            setMousePos({
-                x: (e.clientX / window.innerWidth - 0.5) * 20,
-                y: (e.clientY / window.innerHeight - 0.5) * 20,
-            });
+            mouseX.set((e.clientX / window.innerWidth - 0.5) * 20);
+            mouseY.set((e.clientY / window.innerHeight - 0.5) * 20);
         };
         window.addEventListener("mousemove", handleMouseMove);
         return () => window.removeEventListener("mousemove", handleMouseMove);
-    }, []);
+    }, [mouseX, mouseY]);
 
     // Typing Animation Logic
     const words = ["Web Development", "UI Design", "Visual Design"];
@@ -89,7 +92,7 @@ export default function Hero() {
 
             {/* Background Glows */}
             <motion.div
-                style={{ x: mousePos.x, y: mousePos.y }}
+                style={{ x: mouseXSpring, y: mouseYSpring }}
                 className="absolute inset-0 -z-10 overflow-hidden pointer-events-none"
             >
                 <div className="absolute top-[-10%] left-[-5%] w-full h-full bg-accent/5 blur-[120px] rounded-full opacity-60" />

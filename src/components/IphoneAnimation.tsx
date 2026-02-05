@@ -105,7 +105,7 @@ export default function IphoneAnimation({ texture = "/mac-screen.jpg" }: { textu
                         fov: 30,
                         position: [0, 0, 5]
                     }}
-                    dpr={[1, 1.5]}
+                    dpr={[1, 1.2]}
                     gl={{
                         antialias: true,
                         preserveDrawingBuffer: true,

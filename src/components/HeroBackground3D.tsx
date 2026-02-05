@@ -56,6 +56,20 @@ function RotatingParticles() {
 function NebulaGlow() {
     const meshRef = useRef<THREE.Mesh>(null!);
 
+    const nebulaTexture = useMemo(() => {
+        const canvas = document.createElement('canvas');
+        canvas.width = 512;
+        canvas.height = 512;
+        const ctx = canvas.getContext('2d')!;
+        const gradient = ctx.createRadialGradient(256, 256, 0, 256, 256, 256);
+        gradient.addColorStop(0, 'rgba(11, 185, 243, 0.4)');
+        gradient.addColorStop(0.5, 'rgba(10, 127, 217, 0.1)');
+        gradient.addColorStop(1, 'rgba(0, 0, 0, 0)');
+        ctx.fillStyle = gradient;
+        ctx.fillRect(0, 0, 512, 512);
+        return canvas;
+    }, []);
+
     useFrame((state) => {
         if (meshRef.current) {
             meshRef.current.rotation.z += 0.001;
@@ -76,19 +90,7 @@ function NebulaGlow() {
                 >
                     <canvasTexture
                         attach="map"
-                        image={(() => {
-                            const canvas = document.createElement('canvas');
-                            canvas.width = 512;
-                            canvas.height = 512;
-                            const ctx = canvas.getContext('2d')!;
-                            const gradient = ctx.createRadialGradient(256, 256, 0, 256, 256, 256);
-                            gradient.addColorStop(0, 'rgba(11, 185, 243, 0.4)');
-                            gradient.addColorStop(0.5, 'rgba(10, 127, 217, 0.1)');
-                            gradient.addColorStop(1, 'rgba(0, 0, 0, 0)');
-                            ctx.fillStyle = gradient;
-                            ctx.fillRect(0, 0, 512, 512);
-                            return canvas;
-                        })()}
+                        image={nebulaTexture}
                     />
                 </meshBasicMaterial>
             </mesh>
@@ -109,7 +111,7 @@ export default function HeroBackground3D() {
         <div className="absolute inset-0 -z-20 pointer-events-none bg-black">
             <Canvas
                 camera={{ position: [0, 0, 2], fov: 75 }}
-                dpr={[1, 2]}
+                dpr={[1, 1.5]}
                 gl={{
                     antialias: true,
                     alpha: true,
