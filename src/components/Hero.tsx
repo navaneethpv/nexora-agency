@@ -30,7 +30,7 @@ export default function Hero() {
     }, [mouseX, mouseY]);
 
     // Typing Animation Logic
-    const words = ["Web Development", "UI Design", "Visual Design"];
+    const words = ["Startups", "Business", "Institutions", "Scale"];
     const [currentWordIndex, setCurrentWordIndex] = useState(0);
     const [currentText, setCurrentText] = useState("");
     const [isDeleting, setIsDeleting] = useState(false);
@@ -84,7 +84,7 @@ export default function Hero() {
 
     return (
         <section className="relative h-screen min-h-[800px] flex flex-col items-center justify-center text-center px-6 overflow-hidden bg-background">
-            {/* Noise Texture Overlay - Fixed 402 by using inline SVG */}
+            {/* Noise Texture Overlay */}
             <div className="absolute inset-0 z-50 pointer-events-none opacity-[0.12] mix-blend-overlay"
                 style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E")` }} />
 
