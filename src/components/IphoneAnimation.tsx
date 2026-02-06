@@ -2,7 +2,7 @@
 import React, { useRef, useState, useEffect, useMemo } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
 import { useGLTF, Environment, useTexture } from "@react-three/drei";
-import { useScroll, useTransform, useSpring } from "framer-motion";
+import { useScroll, useTransform, useSpring, useInView } from "framer-motion";
 import * as THREE from "three";
 
 function IphoneModel({
@@ -80,6 +80,8 @@ export default function IphoneAnimation({ texture = "/mac-screen.jpg" }: { textu
         offset: ["start end", "end start"],
     });
 
+    const isInView = useInView(containerRef, { margin: "0px 0px 0px 0px" });
+
     const springConfig = { stiffness: 100, damping: 30, mass: 1 };
 
     // Mobile specific animations
@@ -101,14 +103,15 @@ export default function IphoneAnimation({ texture = "/mac-screen.jpg" }: { textu
         <div ref={containerRef} className="block md:hidden w-full h-[55vh] relative z-0 bg-transparent -mt-24 md:-mt-32">
             <div className="sticky top-0 h-[55vh] w-full overflow-hidden flex items-center justify-center pointer-events-none">
                 <Canvas
+                    frameloop={isInView ? "always" : "never"}
                     camera={{
                         fov: 30,
                         position: [0, 0, 5]
                     }}
-                    dpr={[1, 1.2]}
+                    dpr={[1, 1]}
                     gl={{
-                        antialias: true,
-                        preserveDrawingBuffer: true,
+                        antialias: false,
+                        powerPreference: "high-performance",
                         alpha: true
                     }}
                 >

@@ -143,7 +143,7 @@ export default function Hero() {
                     rotate: [0, 5, 0]
                 }}
                 transition={{ duration: 7, repeat: Infinity, ease: "easeInOut" }}
-                className="absolute top-1/4 left-10 w-4 h-4 rounded bg-accent/20 blur-sm md:block hidden"
+                className="absolute top-1/4 left-10 w-4 h-4 rounded bg-accent/20 blur-sm md:block hidden will-change-transform"
             />
             <motion.div
                 animate={{
@@ -151,7 +151,7 @@ export default function Hero() {
                     rotate: [0, -5, 0]
                 }}
                 transition={{ duration: 9, repeat: Infinity, ease: "easeInOut" }}
-                className="absolute bottom-1/4 right-10 w-6 h-6 rounded-full bg-accent-secondary/20 blur-sm md:block hidden"
+                className="absolute bottom-1/4 right-10 w-6 h-6 rounded-full bg-accent-secondary/20 blur-sm md:block hidden will-change-transform"
             />
         </section>
     );

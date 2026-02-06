@@ -3,13 +3,14 @@
 import { useMemo, useRef, useState, useEffect } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
 import { Float, Stars, Points, PointMaterial } from "@react-three/drei";
+import { useInView } from "framer-motion";
 import * as THREE from "three";
 
 function RotatingParticles() {
     const pointsRef = useRef<THREE.Points>(null!);
 
     // Create a sphere of particles
-    const particlesCount = 2000;
+    const particlesCount = 800;
     const positions = useMemo(() => {
         const pos = new Float32Array(particlesCount * 3);
         for (let i = 0; i < particlesCount; i++) {
@@ -100,6 +101,8 @@ function NebulaGlow() {
 
 export default function HeroBackground3D() {
     const [mounted, setMounted] = useState(false);
+    const containerRef = useRef(null);
+    const isInView = useInView(containerRef, { margin: "0px 0px 0px 0px" });
 
     useEffect(() => {
         setMounted(true);
@@ -108,12 +111,13 @@ export default function HeroBackground3D() {
     if (!mounted) return null;
 
     return (
-        <div className="absolute inset-0 -z-20 pointer-events-none bg-black">
+        <div ref={containerRef} className="absolute inset-0 -z-20 pointer-events-none bg-black">
             <Canvas
+                frameloop={isInView ? "always" : "never"}
                 camera={{ position: [0, 0, 2], fov: 75 }}
-                dpr={[1, 1.5]}
+                dpr={[1, 1]}
                 gl={{
-                    antialias: true,
+                    antialias: false,
                     alpha: true,
                     powerPreference: "high-performance"
                 }}
@@ -121,7 +125,7 @@ export default function HeroBackground3D() {
                 <Stars
                     radius={100}
                     depth={50}
-                    count={5000}
+                    count={1500}
                     factor={4}
                     saturation={0}
                     fade

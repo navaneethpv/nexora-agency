@@ -16,8 +16,8 @@ export default function SmoothScroll({ children }: { children: React.ReactNode }
         if (isTouch) return;
 
         const lenis = new Lenis({
-            lerp: 0.07,
-            wheelMultiplier: 1,
+            lerp: 0.1, // Higher = more responsive/snappier (less "drag")
+            wheelMultiplier: 1.2,
             touchMultiplier: 2,
             infinite: false,
         });

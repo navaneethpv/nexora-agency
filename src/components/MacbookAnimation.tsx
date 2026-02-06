@@ -2,7 +2,7 @@
 import React, { useRef, useMemo, useState, useEffect } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
 import { useGLTF, Environment, useTexture } from "@react-three/drei";
-import { useScroll, useTransform, useMotionValue, motion, useSpring } from "framer-motion";
+import { useScroll, useTransform, useMotionValue, motion, useSpring, useInView } from "framer-motion";
 import * as THREE from "three";
 
 function MacBookModel({
@@ -141,6 +141,8 @@ export default function MacbookAnimation({ texture = "/mac-screen.jpg" }: { text
         offset: ["start end", "end start"],
     });
 
+    const isInView = useInView(containerRef, { margin: "0px 0px 0px 0px" });
+
     // High-responsiveness spring config: Eliminates the "stuck" feeling
     const springConfig = { stiffness: 100, damping: 30, mass: 1 };
 
@@ -164,15 +166,16 @@ export default function MacbookAnimation({ texture = "/mac-screen.jpg" }: { text
             {!isMobile && (
                 <div className="sticky top-0 h-screen w-full flex items-center justify-center pointer-events-none">
                     <Canvas
+                        frameloop={isInView ? "always" : "never"}
                         camera={{
                             fov: 12,
                             position: [0, -10, 220]
                         }}
-                        dpr={[1, 1.5]}
-                        performance={{ min: 0.6 }}
+                        dpr={[1, 1]}
+                        performance={{ min: 0.5 }}
                         gl={{
-                            antialias: true,
-                            preserveDrawingBuffer: true
+                            antialias: false,
+                            powerPreference: "high-performance",
                         }}
                     >
                         <React.Suspense fallback={null}>
