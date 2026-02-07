@@ -21,12 +21,12 @@ export default function SelectedWork() {
             gsap.from(".work-title", {
                 scrollTrigger: {
                     trigger: ".work-title",
-                    start: "top 80%",
+                    start: "top 95%", // Trigger earlier
                 },
-                y: 50,
+                y: 30,
                 opacity: 0,
-                duration: 1,
-                ease: "power3.out"
+                duration: 0.6,
+                ease: "power2.out"
             });
 
             // Animate Projects
@@ -35,13 +35,13 @@ export default function SelectedWork() {
                 gsap.from(card, {
                     scrollTrigger: {
                         trigger: card,
-                        start: "top 85%",
+                        start: "top 95%", // Trigger earlier
                     },
-                    y: 80,
+                    y: 40,
                     opacity: 0,
-                    duration: 1.2,
-                    ease: "power3.out",
-                    delay: i * 0.1 // Stagger
+                    duration: 0.8,
+                    ease: "power2.out",
+                    delay: i * 0.05 // Faster stagger
                 });
             });
 
@@ -49,13 +49,12 @@ export default function SelectedWork() {
             gsap.from(".view-all-btn", {
                 scrollTrigger: {
                     trigger: ".view-all-btn",
-                    start: "top 90%",
+                    start: "top 98%",
                 },
                 y: 20,
                 opacity: 0,
-                duration: 0.8,
+                duration: 0.5,
                 ease: "power2.out",
-                delay: 0.4
             });
 
         }, containerRef);
@@ -117,7 +116,7 @@ export default function SelectedWork() {
                                 </div>
 
                                 {/* Image with subtle parallax */}
-                                <ParallaxScroll speed={0.1} className="order-1 lg:order-2 relative aspect-[4/3] md:aspect-[16/10] overflow-hidden rounded-2xl bg-white/5">
+                                <ParallaxScroll speed={0.1} className="order-1 lg:order-2 relative aspect-4/3 md:aspect-16/10 overflow-hidden rounded-2xl bg-white/5">
                                     <Image
                                         src={project.coverImage}
                                         alt={project.title}

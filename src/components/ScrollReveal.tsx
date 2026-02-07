@@ -17,7 +17,7 @@ export default function ScrollReveal({
     children,
     direction = "up",
     delay = 0,
-    duration = 0.8,
+    duration = 0.5,
     distance = 40,
     className = "",
     once = true,
@@ -60,7 +60,7 @@ export default function ScrollReveal({
         <motion.div
             initial="hidden"
             whileInView="visible"
-            viewport={{ once, margin: "-10% 0px" }}
+            viewport={{ once, margin: "-2% 0px" }}
             variants={variants}
             className={`${className} will-change-[transform,opacity]`}
         >
