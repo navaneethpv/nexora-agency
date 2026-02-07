@@ -39,15 +39,15 @@ const techStack = [
 
 export default function Home() {
   const baseX = useMotionValue(0);
-  const x = useTransform(baseX, (v: number) => `${(v % 33.33) - 33.33}%`);
+  const x = useTransform(baseX, (v: number) => `${(v % 25) - 25}%`);
 
   const tickerRef = useRef<HTMLDivElement>(null);
-  const isInView = useInView(tickerRef, { margin: "0px 0px 200px 0px" });
+  const isInView = useInView(tickerRef, { margin: "0px 0px 400px 0px" });
 
   useAnimationFrame((t: number, delta: number) => {
     if (!isInView) return;
-    // Smoother ticker movement
-    baseX.set(baseX.get() - 0.02);
+    // Faster, smoother infinite ticker
+    baseX.set(baseX.get() - 0.05);
   });
 
   return (
@@ -59,82 +59,77 @@ export default function Home() {
         <MockupShowcase />
       </div>
 
+      <section ref={tickerRef} className="py-16 md:py-24 border-t border-white/5 relative bg-black overflow-hidden">
+        <div className="max-w-7xl mx-auto px-6 relative">
+          <div className="absolute top-1/2 left-1/4 -translate-y-1/2 w-64 h-64 bg-accent/5 blur-3xl rounded-full pointer-events-none" />
+          <div className="absolute top-1/2 right-1/4 -translate-y-1/2 w-64 h-64 bg-accent-secondary/5 blur-3xl rounded-full pointer-events-none" />
+
+          <div className="mb-16 relative z-10 flex justify-center">
+            <ShinyText
+              text="Built with cutting-edge Technologies"
+              className="text-[11px] md:text-lg font-bold uppercase tracking-[0.4em] text-center"
+              color="rgba(255,255,255,0.4)"
+              shineColor="#ffffff"
+              speed={3}
+            />
+          </div>
+
+          <div className="w-full relative z-10">
+            <div className="flex overflow-hidden mask-[linear-gradient(to_right,transparent,black_15%,black_85%,transparent)] pointer-events-none">
+              <motion.div
+                style={{ x }}
+                className="flex flex-nowrap gap-12 md:gap-24 items-center shrink-0 py-8"
+              >
+                {[...techStack, ...techStack, ...techStack, ...techStack].map((tech, i) => (
+                  <div
+                    key={i}
+                    className="flex items-center gap-3 md:gap-6 group shrink-0 transition-transform duration-300"
+                  >
+                    <div className="relative">
+                      <div className="absolute inset-0 bg-accent/20 blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-full" />
+                      <div className="relative z-10 p-2 md:p-4 bg-white/5 rounded-xl md:rounded-2xl border border-white/5 group-hover:border-accent/30 transition-colors">
+                        <tech.icon className="w-8 h-8 md:w-12 md:h-12 text-white/30 group-hover:text-white transition-all duration-500" />
+                      </div>
+                    </div>
+                    <div className="flex flex-col">
+                      <span className="text-base md:text-2xl font-bold tracking-tight text-white/50 group-hover:text-white transition-colors duration-300">
+                        {tech.name}
+                      </span>
+                      <div className="h-0.5 w-0 group-hover:w-full bg-accent transition-all duration-500" />
+                    </div>
+                  </div>
+                ))}
+              </motion.div>
+            </div>
+          </div>
+        </div>
+
+        {/* Subtle Decorative Line */}
+        <div className="absolute bottom-0 left-0 w-full h-px bg-linear-to-r from-transparent via-white/5 to-transparent" />
+      </section>
+
       <TracingBeam className="px-6">
-        <ScrollReveal direction="none">
-          <section ref={tickerRef} className="py-16 md:py-24 flex flex-col items-center border-t border-white/5 relative bg-white/2 overflow-hidden">
-            <div className="absolute top-1/2 left-1/4 -translate-y-1/2 w-64 h-64 bg-accent/5 blur-3xl rounded-full pointer-events-none" />
-            <div className="absolute top-1/2 right-1/4 -translate-y-1/2 w-64 h-64 bg-accent-secondary/5 blur-3xl rounded-full pointer-events-none" />
+        <div className="flex flex-col gap-24 md:gap-32 pb-24">
+          <ScrollReveal>
+            <Process />
+          </ScrollReveal>
 
-            <div className="mb-16 relative z-10">
-              <ShinyText
-                text="Built with cutting-edge Technologies"
-                className="text-[11px] md:text-lg font-bold uppercase tracking-[0.4em] text-center"
-                color="rgba(255,255,255,0.4)"
-                shineColor="#ffffff"
-                speed={3}
-              />
-            </div>
+          <ScrollReveal>
+            <Testimonial />
+          </ScrollReveal>
 
-            <div className="w-full relative z-10 px-4 md:px-0">
-              <div className="flex overflow-hidden mask-[linear-gradient(to_right,transparent,black_10%,black_90%,transparent)] cursor-grab active:cursor-grabbing">
-                <motion.div
-                  style={{ x }}
-                  drag="x"
-                  dragConstraints={{ left: 0, right: 0 }}
-                  onDrag={(e: any, info: any) => {
-                    // Allow manual override of the position
-                    baseX.set(baseX.get() + info.delta.x * 0.05);
-                  }}
-                  className="flex flex-nowrap gap-5 md:gap-16 items-center shrink-0 py-4"
-                >
-                  {[...techStack, ...techStack, ...techStack].map((tech, i) => (
-                    <motion.div
-                      key={i}
-                      whileHover={{ scale: 1.1 }}
-                      className="flex items-center gap-1.5 md:gap-4 group shrink-0 transition-transform duration-300"
-                    >
-                      <div className="relative">
-                        <div className="absolute inset-0 bg-accent/30 blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-full" />
-                        <div className="relative z-10 p-1.5 md:p-3 bg-white/5 rounded-xl md:rounded-2xl border border-white/5 group-hover:border-accent/30 transition-colors">
-                          <tech.icon className="w-6 h-6 md:w-10 md:h-10 text-white/20 group-hover:text-white transition-all duration-500" />
-                        </div>
-                      </div>
-                      <div className="flex flex-col">
-                        <span className="text-sm md:text-xl font-bold tracking-tight text-white/40 group-hover:text-white transition-colors duration-300">
-                          {tech.name}
-                        </span>
-                        <div className="h-0.5 w-0 group-hover:w-full bg-accent transition-all duration-500" />
-                      </div>
-                    </motion.div>
-                  ))}
-                </motion.div>
-              </div>
-            </div>
+          <SelectedWork />
 
-            {/* Subtle Decorative Line */}
-            <div className="absolute bottom-0 left-0 w-full h-px bg-linear-to-r from-transparent via-white/5 to-transparent" />
-          </section>
-        </ScrollReveal>
-
-        <ScrollReveal>
-          <Process />
-        </ScrollReveal>
-
-        <ScrollReveal>
-          <Testimonial />
-        </ScrollReveal>
-
-        <SelectedWork />
-
-        <ScrollReveal>
-          <FeaturesSection />
-        </ScrollReveal>
-        <ScrollReveal>
-          <WhyNexora />
-        </ScrollReveal>
-        <ScrollReveal>
-          <FAQ />
-        </ScrollReveal>
+          <ScrollReveal>
+            <FeaturesSection />
+          </ScrollReveal>
+          <ScrollReveal>
+            <WhyNexora />
+          </ScrollReveal>
+          <ScrollReveal>
+            <FAQ />
+          </ScrollReveal>
+        </div>
       </TracingBeam>
       <Footer />
       <FloatingWhatsApp />
