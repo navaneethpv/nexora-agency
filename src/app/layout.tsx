@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Plus_Jakarta_Sans, Inter } from "next/font/google";
 import "./globals.css";
 import SmoothScroll from "@/components/SmoothScroll";
+import CustomCursor from "@/components/CustomCursor";
 
 const plusJakarta = Plus_Jakarta_Sans({
   variable: "--font-plus-jakarta",
@@ -44,6 +45,7 @@ export default function RootLayout({
       <body
         className={`${plusJakarta.variable} ${inter.variable} font-sans antialiased bg-black text-white`}
       >
+        <CustomCursor />
         <SmoothScroll>
           {children}
         </SmoothScroll>

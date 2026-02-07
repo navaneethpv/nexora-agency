@@ -19,7 +19,6 @@ import { RiNextjsFill, RiTailwindCssFill } from "react-icons/ri";
 import { SiTypescript, SiAdobephotoshop, SiExpress, SiMongodb, SiAdobeillustrator } from "react-icons/si";
 import SelectedWork from "@/components/home/SelectedWork";
 import MockupShowcase from "@/components/MockupShowcase";
-import CustomCursor from "@/components/CustomCursor";
 
 const techStack = [
   { name: "Next.js", icon: RiNextjsFill },
@@ -46,7 +45,6 @@ export default function Home() {
 
   return (
     <main className="min-h-screen selection:bg-accent/30 selection:text-white bg-background">
-      <CustomCursor />
       <Navbar />
       <Hero />
 
