@@ -6,7 +6,7 @@ import Footer from "@/components/Footer";
 import FloatingWhatsApp from "@/components/FloatingWhatsApp";
 import { motion } from "framer-motion";
 import ScrollReveal from "@/components/ScrollReveal";
-import { Mail, ArrowRight, CheckCircle2, Sparkles, Send, Phone } from "lucide-react";
+import { RiMailLine, RiArrowRightLine, RiCheckboxCircleLine, RiSparkling2Line, RiSendPlaneLine, RiPhoneLine } from "react-icons/ri";
 
 export default function ContactPage() {
     const [formState, setFormState] = useState({
@@ -47,7 +47,7 @@ export default function ContactPage() {
                             <ScrollReveal direction="down" distance={20} delay={0.1}>
                                 <div className="flex items-center gap-2 mb-6">
                                     <div className="p-2 rounded-lg bg-accent/10">
-                                        <Sparkles className="w-5 h-5 text-accent" strokeWidth={1.5} />
+                                        <RiSparkling2Line className="w-5 h-5 text-accent" />
                                     </div>
                                     <span className="text-accent font-bold tracking-widest uppercase text-sm">Contact Us</span>
                                 </div>
@@ -72,7 +72,7 @@ export default function ContactPage() {
                                 <div className="space-y-6 mb-12">
                                     <div className="flex items-start gap-4 p-6 rounded-3xl border border-white/5 bg-white/2 backdrop-blur-sm hover:border-accent/20 transition-all duration-300 group">
                                         <div className="w-12 h-12 rounded-full bg-white/5 flex items-center justify-center shrink-0 group-hover:bg-accent/20 group-hover:text-accent transition-all">
-                                            <Mail className="w-5 h-5" />
+                                            <RiMailLine className="w-5 h-5" />
                                         </div>
                                         <div>
                                             <h3 className="text-white font-bold text-lg mb-1">Email Us</h3>
@@ -84,7 +84,7 @@ export default function ContactPage() {
 
                                     <div className="flex items-start gap-4 p-6 rounded-3xl border border-white/5 bg-white/2 backdrop-blur-sm hover:border-accent/20 transition-all duration-300 group">
                                         <div className="w-12 h-12 rounded-full bg-white/5 flex items-center justify-center shrink-0 group-hover:bg-accent/20 group-hover:text-accent transition-all">
-                                            <Phone className="w-5 h-5" />
+                                            <RiPhoneLine className="w-5 h-5" />
                                         </div>
                                         <div>
                                             <h3 className="text-white font-bold text-lg mb-1">Call Us</h3>
@@ -134,7 +134,7 @@ export default function ContactPage() {
                                         className="min-h-[400px] flex flex-col items-center justify-center text-center space-y-6"
                                     >
                                         <div className="w-20 h-20 rounded-full bg-accent/20 flex items-center justify-center text-accent mb-4">
-                                            <CheckCircle2 className="w-10 h-10" />
+                                            <RiCheckboxCircleLine className="w-10 h-10" />
                                         </div>
                                         <h3 className="text-3xl font-bold text-white">Message Sent!</h3>
                                         <p className="text-secondary max-w-xs">
@@ -213,7 +213,7 @@ export default function ContactPage() {
                                             ) : (
                                                 <>
                                                     Send Message
-                                                    <Send className="w-4 h-4 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
+                                                    <RiSendPlaneLine className="w-4 h-4 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
                                                 </>
                                             )}
                                         </button>

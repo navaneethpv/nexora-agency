@@ -3,44 +3,44 @@
 import { motion } from "framer-motion";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import { Check, ClipboardList, Lightbulb, Layout, Code2, Search, Rocket } from "lucide-react";
+import { RiCheckLine, RiClipboardLine, RiLightbulbLine, RiLayout6Line, RiCodeSSlashLine, RiSearchEyeLine, RiRocketLine } from "react-icons/ri";
 import ScrollReveal from "@/components/ScrollReveal";
 import Link from "next/link";
 
 export default function ProcessPage() {
     const steps = [
         {
-            icon: <ClipboardList className="w-6 h-6" />,
+            icon: <RiClipboardLine className="w-6 h-6" />,
             title: "Understanding Your Needs",
             description: "We start by listening. Before any work begins, we take time to understand your goals, your audience, and the problem you’re trying to solve.",
             step: "01"
         },
         {
-            icon: <Lightbulb className="w-6 h-6" />,
+            icon: <RiLightbulbLine className="w-6 h-6" />,
             title: "Planning & Direction",
             description: "We define the project scope, priorities, content structure, and timeline to ensure clarity before execution.",
             step: "02"
         },
         {
-            icon: <Layout className="w-6 h-6" />,
+            icon: <RiLayout6Line className="w-6 h-6" />,
             title: "Design & Structure",
             description: "We create clean, user-focused designs that are easy to navigate, work across all devices, and reflect your brand.",
             step: "03"
         },
         {
-            icon: <Code2 className="w-6 h-6" />,
+            icon: <RiCodeSSlashLine className="w-6 h-6" />,
             title: "Development & Implementation",
             description: "We carefully build the platform with attention to structure, performance, and long-term maintainability.",
             step: "04"
         },
         {
-            icon: <Search className="w-6 h-6" />,
+            icon: <RiSearchEyeLine className="w-6 h-6" />,
             title: "Review & Refinement",
             description: "We review everything thoroughly and address feedback to ensure a smooth, consistent experience.",
             step: "05"
         },
         {
-            icon: <Rocket className="w-6 h-6" />,
+            icon: <RiRocketLine className="w-6 h-6" />,
             title: "Launch & Ongoing Support",
             description: "After launch, we assist with a smooth handover and remain available for future support or improvements.",
             step: "06"
@@ -158,7 +158,7 @@ export default function ProcessPage() {
                                 <ScrollReveal key={i} delay={i * 0.1}>
                                     <div className="flex items-center gap-4 p-6 rounded-2xl glass-card border border-white/5 bg-white/2 hover:border-accent/30 transition-all duration-300 group">
                                         <div className="p-2 rounded-full bg-accent/10 text-accent group-hover:bg-accent group-hover:text-black transition-all">
-                                            <Check size={18} strokeWidth={3} />
+                                            <RiCheckLine size={18} strokeWidth={3} />
                                         </div>
                                         <span className="text-lg font-bold text-white/90">{text}</span>
                                     </div>

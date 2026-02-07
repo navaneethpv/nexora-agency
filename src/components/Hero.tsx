@@ -2,7 +2,7 @@
 
 import dynamic from "next/dynamic";
 import { useRef, useState, useEffect } from "react";
-import { ArrowRight, Sparkles } from "lucide-react";
+import { RiArrowRightLine, RiSparkling2Line } from "react-icons/ri";
 import { motion, Variants, useMotionValue, useSpring } from "framer-motion";
 import useMagnetic from "@/hooks/useMagnetic";
 import Link from "next/link";
@@ -93,7 +93,7 @@ export default function Hero() {
             <div className="relative z-10 flex flex-col items-center w-full section-container">
                 <ScrollReveal direction="down" duration={1} distance={20}>
                     <div className="hero-label inline-flex items-center gap-2.5 rounded-full border border-white/10 bg-white/3 px-4 py-2 text-[10px] md:text-[11px] font-medium text-white/70 mb-8 md:mb-12 backdrop-blur-xl transition-colors duration-500 hover:border-accent/40">
-                        <Sparkles className="w-3.5 h-3.5 text-accent" />
+                        <RiSparkling2Line className="w-3.5 h-3.5 text-accent" />
                         <span className="tracking-[0.2em] uppercase">Crafting exceptional digital experiences</span>
                     </div>
                 </ScrollReveal>

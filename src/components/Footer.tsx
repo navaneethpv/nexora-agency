@@ -3,7 +3,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { ArrowRight, Mail, MapPin, Phone } from "lucide-react";
+import { RiArrowRightLine, RiMailLine, RiMapPinLine, RiPhoneLine } from "react-icons/ri";
 import { AnimatedSocialIcon } from "./AnimatedSocialIcon";
 
 export default function Footer() {
@@ -74,12 +74,12 @@ export default function Footer() {
                             <h4 className="text-white font-bold text-sm uppercase tracking-widest">Contact</h4>
                             <div className="flex flex-col gap-4 text-secondary text-sm font-medium">
                                 <a href="mailto:agency@nexoraweb.tech" className="flex items-center gap-2 hover:text-white transition-colors">
-                                    <Mail className="w-3.5 h-3.5" />
+                                    <RiMailLine className="w-3.5 h-3.5" />
                                     <span>agency@nexoraweb.tech</span>
                                 </a>
                                 <div className="flex flex-col gap-2">
                                     <a href="tel:+916282592895" className="flex items-center gap-2 hover:text-white transition-colors">
-                                        <Phone className="w-3.5 h-3.5" />
+                                        <RiPhoneLine className="w-3.5 h-3.5" />
                                         <span>+91 62825 92895</span>
                                     </a>
                                     <a href="tel:+918921592748" className="flex items-center gap-2 hover:text-white transition-colors pl-5">
@@ -89,7 +89,7 @@ export default function Footer() {
                                 <div className="pt-2">
                                     <Link href="/contact" className="text-accent font-bold hover:underline inline-flex items-center gap-1 group">
                                         Book a call
-                                        <ArrowRight className="w-3 h-3 group-hover:translate-x-1 transition-transform" />
+                                        <RiArrowRightLine className="w-3 h-3 group-hover:translate-x-1 transition-transform" />
                                     </Link>
                                 </div>
                             </div>

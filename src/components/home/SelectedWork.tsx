@@ -6,7 +6,7 @@ import Image from "next/image";
 import { projects } from "@/data/work-data";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { ArrowUpRight } from "lucide-react";
+import { RiArrowLeftUpLine, RiArrowRightUpLine } from "react-icons/ri";
 import ParallaxScroll from "../ParallaxScroll";
 
 gsap.registerPlugin(ScrollTrigger);
@@ -103,7 +103,7 @@ export default function SelectedWork() {
                                             </p>
                                             <div className="flex items-center gap-4 text-white text-sm md:text-lg font-medium group/btn">
                                                 <span className="border-b border-accent pb-1">Distill Experience</span>
-                                                <ArrowUpRight className="w-5 h-5 text-accent group-hover/btn:translate-x-1 group-hover/btn:-translate-y-1 transition-transform" />
+                                                <RiArrowRightUpLine className="w-5 h-5 text-accent group-hover/btn:translate-x-1 group-hover/btn:-translate-y-1 transition-transform" />
                                             </div>
                                         </div>
                                     </div>
@@ -135,7 +135,7 @@ export default function SelectedWork() {
                         className="group relative bg-white/3 border border-white/10 text-white px-10 md:px-16 py-6 md:py-8 rounded-full text-base md:text-xl font-medium hover:bg-white/5 transition-all backdrop-blur-3xl active:scale-95 flex items-center gap-4"
                     >
                         <span>Distill Full Portfolio</span>
-                        <ArrowUpRight className="w-6 h-6 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform text-accent" />
+                        <RiArrowRightUpLine className="w-6 h-6 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform text-accent" />
                     </Link>
                 </div>
             </div>

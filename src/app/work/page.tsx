@@ -7,7 +7,7 @@ import { projects } from "@/data/work-data";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import FloatingWhatsApp from "@/components/FloatingWhatsApp";
-import { ArrowUpRight } from "lucide-react";
+import { RiArrowRightUpLine } from "react-icons/ri";
 
 export default function WorkPage() {
     const gridRef = useRef<HTMLDivElement>(null);
@@ -73,7 +73,7 @@ export default function WorkPage() {
                         >
                             <article className="flex flex-col gap-6">
                                 {/* Image Container */}
-                                <div className="relative aspect-[4/3] md:aspect-[16/10] overflow-hidden rounded-2xl bg-white/5 border border-white/10 group-hover:border-accent/30 transition-colors duration-500">
+                                <div className="relative aspect-4/3 md:aspect-16/10 overflow-hidden rounded-2xl bg-white/5 border border-white/10 group-hover:border-accent/30 transition-colors duration-500">
                                     <Image
                                         src={project.coverImage}
                                         alt={project.title}
@@ -89,7 +89,7 @@ export default function WorkPage() {
                                     {/* Hover CTA - Hidden by default to save paint costs */}
                                     <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
                                         <span className="bg-white/10 backdrop-blur-md border border-white/20 text-white px-6 py-3 rounded-full font-bold flex items-center gap-2 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
-                                            View Case Study <ArrowUpRight size={18} />
+                                            View Case Study <RiArrowRightUpLine size={18} />
                                         </span>
                                     </div>
                                 </div>

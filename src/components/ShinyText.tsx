@@ -42,7 +42,7 @@ const ShinyText = ({
     const ref = useRef<HTMLSpanElement>(null);
     const isInView = useInView(ref, { margin: "0px 0px 100px 0px" });
 
-    useAnimationFrame((time) => {
+    useAnimationFrame((time: number) => {
         if (disabled || isPaused || !isInView) {
             lastTimeRef.current = null;
             return;
@@ -101,7 +101,7 @@ const ShinyText = ({
     }, [direction, progress]);
 
     // Transform: p=0 -> 150% (shine off right), p=100 -> -50% (shine off left)
-    const backgroundPosition = useTransform(progress, (p) => `${150 - p * 2}% center`);
+    const backgroundPosition = useTransform(progress, (p: number) => `${150 - p * 2}% center`);
 
     const handleMouseEnter = useCallback(() => {
         if (pauseOnHover) setIsPaused(true);

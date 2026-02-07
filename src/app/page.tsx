@@ -1,7 +1,6 @@
 "use client";
 
 import { useRef } from "react";
-import { Star, Quote, ChevronRight } from "lucide-react";
 import Link from "next/link";
 import { motion, useAnimationFrame, useMotionValue, useTransform, useInView, useScroll } from "framer-motion";
 import Navbar from "@/components/Navbar";

@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Plus } from "lucide-react";
+import { RiAddLine } from "react-icons/ri";
 import ScrollReveal from "./ScrollReveal";
 
 const faqs = [
@@ -71,7 +71,7 @@ export default function FAQ() {
                                         </span>
                                         <div className={`w-10 h-10 rounded-full border border-white/10 flex items-center justify-center shrink-0 transition-all duration-500 ${openIndex === index ? 'rotate-45 bg-accent border-accent text-white' : 'group-hover:border-accent text-white/50'
                                             }`}>
-                                            <Plus className="w-5 h-5" />
+                                            <RiAddLine className="w-5 h-5" />
                                         </div>
                                     </button>
                                     <AnimatePresence>

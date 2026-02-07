@@ -8,7 +8,7 @@ import { projects } from "@/data/work-data";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import FloatingWhatsApp from "@/components/FloatingWhatsApp";
-import { ArrowLeft, CheckCircle2, Layers, Cpu, Trophy, ArrowRight } from "lucide-react";
+import { RiArrowLeftLine, RiCheckboxCircleLine, RiStackLine, RiCpuLine, RiTrophyLine, RiArrowRightLine } from "react-icons/ri";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useParams } from "next/navigation";
@@ -80,7 +80,7 @@ export default function ProjectPage() {
             <section className="relative pt-32 pb-20 md:pt-48 md:pb-32 px-6 md:px-10 overflow-hidden">
                 <div className="max-w-[1400px] mx-auto">
                     <Link href="/work" className="inline-flex items-center gap-2 text-gray-400 hover:text-white transition-colors mb-8 hero-text">
-                        <ArrowLeft size={20} /> Back to Work
+                        <RiArrowLeftLine size={20} /> Back to Work
                     </Link>
 
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-end mb-16">
@@ -116,7 +116,7 @@ export default function ProjectPage() {
             <section className="py-10 md:py-20 px-6 md:px-10 max-w-[1400px] mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 content-section">
                 <div className="lg:col-span-4">
                     <h2 className="text-2xl md:text-3xl font-bold mb-6 flex items-center gap-3">
-                        <Layers className="text-accent" /> Overview
+                        <RiStackLine className="text-accent" /> Overview
                     </h2>
                 </div>
                 <div className="lg:col-span-8">
@@ -142,14 +142,14 @@ export default function ProjectPage() {
             <section className="py-10 md:py-20 px-6 md:px-10 max-w-[1400px] mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 bg-white/2 rounded-3xl content-section">
                 <div className="lg:col-span-4">
                     <h2 className="text-2xl md:text-3xl font-bold mb-6 flex items-center gap-3">
-                        <Cpu className="text-accent" /> The Solution
+                        <RiCpuLine className="text-accent" /> The Solution
                     </h2>
                 </div>
                 <div className="lg:col-span-8 space-y-12">
                     <ul className="grid grid-cols-1 gap-4">
                         {project.solution.map((item, i) => (
                             <li key={i} className="flex items-start gap-4 text-lg text-gray-300">
-                                <CheckCircle2 className="text-accent shrink-0 mt-1" size={20} />
+                                <RiCheckboxCircleLine className="text-accent shrink-0 mt-1" size={20} />
                                 {item}
                             </li>
                         ))}
@@ -171,14 +171,14 @@ export default function ProjectPage() {
             {/* CTA Section */}
             <section className="py-24 md:py-32 px-6 md:px-10 text-center content-section">
                 <div className="max-w-3xl mx-auto bg-linear-to-b from-white/5 to-transparent border border-white/10 rounded-[3rem] p-10 md:p-16">
-                    <Trophy className="w-12 h-12 md:w-16 md:h-16 text-accent mx-auto mb-8" />
+                    <RiTrophyLine className="w-12 h-12 md:w-16 md:h-16 text-accent mx-auto mb-8" />
                     <h2 className="text-3xl md:text-5xl font-bold mb-6">Ready to create something extraordinary?</h2>
                     <p className="text-lg text-gray-400 mb-10 max-w-xl mx-auto">
                         Let{"'"}s apply the same level of precision and strategy to your next project.
                     </p>
                     <Link href="/contact">
                         <button className="bg-accent text-white px-8 md:px-10 py-3 md:py-4 rounded-full font-bold text-lg hover:brightness-110 transition-all shadow-xl shadow-accent/20 active:scale-95 inline-flex items-center gap-2">
-                            Start Your Project <ArrowRight />
+                            Start Your Project <RiArrowRightLine />
                         </button>
                     </Link>
                 </div>

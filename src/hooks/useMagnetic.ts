@@ -47,10 +47,10 @@ export default function useMagnetic() {
         };
 
         // Apply transformations via style
-        const unsubscribeX = springX.on("change", (latest) => {
+        const unsubscribeX = springX.on("change", (latest: number) => {
             if (element) element.style.transform = `translate3d(${latest}px, ${springY.get()}px, 0)`;
         });
-        const unsubscribeY = springY.on("change", (latest) => {
+        const unsubscribeY = springY.on("change", (latest: number) => {
             if (element) element.style.transform = `translate3d(${springX.get()}px, ${latest}px, 0)`;
         });
 
