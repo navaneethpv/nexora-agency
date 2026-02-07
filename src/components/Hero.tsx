@@ -32,7 +32,7 @@ export default function Hero() {
     }, [mouseX, mouseY]);
 
     // Typing Animation Logic
-    const words = ["startups", "business", "institutions", "scale"];
+    const words = ["Startups", "Business", "Institutions", "Scale"];
     const [currentWordIndex, setCurrentWordIndex] = useState(0);
     const [currentText, setCurrentText] = useState("");
     const [isDeleting, setIsDeleting] = useState(false);
@@ -94,19 +94,19 @@ export default function Hero() {
                 <ScrollReveal direction="down" duration={1} distance={20}>
                     <div className="hero-label inline-flex items-center gap-2.5 rounded-full border border-white/10 bg-white/3 px-4 py-2 text-[10px] md:text-[11px] font-medium text-white/70 mb-8 md:mb-12 backdrop-blur-xl transition-colors duration-500 hover:border-accent/40">
                         <Sparkles className="w-3.5 h-3.5 text-accent" />
-                        <span className="tracking-[0.2em]">Crafting exceptional digital experiences</span>
+                        <span className="tracking-[0.2em] uppercase">Crafting exceptional digital experiences</span>
                     </div>
                 </ScrollReveal>
 
                 <ScrollReveal delay={0.2} direction="down" duration={1} distance={20}>
                     <div className="mb-6 md:mb-8 font-heading">
-                        <span className="text-[12px] md:text-[13px] font-semibold tracking-[0.3em] text-accent/80">Engineering next-gen digital equity</span>
+                        <span className="text-[12px] md:text-[13px] font-semibold tracking-[0.3em] text-accent/80 uppercase">Engineering next-gen digital equity</span>
                     </div>
 
                     <h1 className="text-[2.5rem] sm:text-6xl md:text-8xl font-medium tracking-tight mb-8 md:mb-12 leading-[1.1] text-white">
                         <span className="uppercase">Scalable Systems</span> <br />
                         <span className="bg-clip-text text-transparent bg-linear-to-b from-accent to-accent-secondary inline-block tracking-tight font-semibold">
-                            <span className="uppercase">Built for</span> <br className="md:hidden" /> {currentText}
+                            <span className="uppercase">Built for</span> <br /> {currentText}
                             <span className="inline-block w-[2px] md:w-[3px] h-[0.8em] bg-accent ml-2 animate-[blink_1s_step-end_infinite] align-middle"></span>
                         </span>
                     </h1>
