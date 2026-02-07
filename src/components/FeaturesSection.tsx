@@ -39,44 +39,87 @@ const features = [
 
 export default function FeaturesSection() {
     return (
-        <section id="services" className="py-24 md:py-32 relative overflow-hidden">
+        <section id="services" className="py-24 md:py-32 relative overflow-hidden bg-background">
             <div className="section-container">
                 <ScrollReveal direction="down" distance={20}>
-                    <div className="text-center max-w-2xl mx-auto mb-16 md:mb-24">
-                        <h2 className="text-4xl md:text-7xl font-medium mb-6 md:mb-8 tracking-tight leading-none text-white">
-                            Core <span className="text-accent font-semibold">Expertise</span>
-                        </h2>
-                        <p className="text-secondary text-lg md:text-xl font-normal leading-relaxed opacity-80">
-                            Distilled digital solutions for industries demanding technical precision and aesthetic excellence.
+                    <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-16 md:mb-24">
+                        <div className="max-w-2xl">
+                            <h2 className="text-4xl md:text-8xl font-medium mb-6 md:mb-0 tracking-tight leading-none text-white">
+                                Specialized <br />
+                                <span className="text-accent font-bold">Solutions</span>
+                            </h2>
+                        </div>
+                        <p className="max-w-md text-secondary text-lg md:text-xl font-normal leading-relaxed opacity-80">
+                            Distilled digital engineering for industries demanding technical precision and aesthetic absolute.
                         </p>
                     </div>
                 </ScrollReveal>
 
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
-                    {features.map((feature, index) => (
-                        <ScrollReveal
-                            key={index}
-                            delay={index * 0.1}
-                            direction="up"
-                            distance={20}
-                        >
-                            <motion.div
-                                className="glass-card p-8 md:p-10 rounded-4xl transition-all duration-500 group h-full relative"
-                            >
-                                <div className="w-12 h-12 md:w-14 md:h-14 rounded-2xl bg-white/3 border border-white/5 flex items-center justify-center text-accent mb-8 group-hover:bg-accent group-hover:text-white transition-all duration-700 shadow-sm">
-                                    <feature.icon className="w-6 h-6 md:w-7 md:h-7" />
-                                </div>
-                                <h3 className="text-xl md:text-2xl font-medium mb-4 text-white group-hover:text-accent transition-colors duration-300">
-                                    {feature.title}
-                                </h3>
-                                <p className="text-secondary text-sm md:text-base leading-relaxed font-normal opacity-80">
-                                    {feature.description}
-                                </p>
-                            </motion.div>
-                        </ScrollReveal>
-                    ))}
+                {/* Bento Grid Layout */}
+                <div className="grid grid-cols-1 md:grid-cols-12 md:grid-rows-2 gap-6 md:gap-8">
+                    {/* Big Card 1 - Web Dev */}
+                    <div className="md:col-span-8 md:row-span-1">
+                        <FeatureCard
+                            feature={features[0]}
+                            index={0}
+                            className="bg-white/2 border-white/5 h-full"
+                            iconSize="w-8 h-8 md:w-10 md:h-10"
+                        />
+                    </div>
+
+                    {/* Smaller Card 2 - Design */}
+                    <div className="md:col-span-4 md:row-span-1">
+                        <FeatureCard
+                            feature={features[1]}
+                            index={1}
+                            className="bg-accent/5 border-accent/10 h-full"
+                        />
+                    </div>
+
+                    {/* Smaller Card 3 - Fast */}
+                    <div className="md:col-span-4 md:row-span-1">
+                        <FeatureCard
+                            feature={features[2]}
+                            index={2}
+                            className="bg-white/2 border-white/5 h-full"
+                        />
+                    </div>
+
+                    {/* Big Card 4 - Secure */}
+                    <div className="md:col-span-8 md:row-span-1">
+                        <FeatureCard
+                            feature={features[5]}
+                            index={5}
+                            className="bg-white/2 border-white/5 h-full"
+                            iconSize="w-8 h-8 md:w-10 md:h-10"
+                        />
+                    </div>
                 </div>
             </div>
         </section>
+    );
+}
+
+function FeatureCard({ feature, index, className = "", iconSize = "w-6 h-6 md:w-7 md:h-7" }: { feature: any, index: number, className?: string, iconSize?: string }) {
+    return (
+        <ScrollReveal key={index} delay={index * 0.1} direction="up" distance={20} className="h-full">
+            <motion.div
+                className={`glass-card p-10 md:p-12 rounded-[2.5rem] transition-all duration-700 group h-full relative overflow-hidden border ${className}`}
+            >
+                <div className="relative z-10 flex flex-col h-full">
+                    <div className="w-14 h-14 md:w-16 md:h-16 rounded-2xl bg-white/3 border border-white/5 flex items-center justify-center text-accent mb-8 group-hover:bg-accent group-hover:text-white transition-all duration-700">
+                        <feature.icon className={iconSize} />
+                    </div>
+                    <h3 className="text-2xl md:text-3xl font-medium mb-4 text-white group-hover:text-accent transition-colors duration-300">
+                        {feature.title}
+                    </h3>
+                    <p className="text-secondary text-base md:text-lg leading-relaxed font-normal opacity-70 group-hover:opacity-100 transition-opacity">
+                        {feature.description}
+                    </p>
+                </div>
+                {/* Subtle radial glow on hover */}
+                <div className="absolute inset-0 bg-accent/5 opacity-0 group-hover:opacity-100 blur-3xl transition-opacity duration-1000 z-0 pointer-events-none" />
+            </motion.div>
+        </ScrollReveal>
     );
 }

@@ -86,15 +86,15 @@ export default function Hero() {
                 </ScrollReveal>
 
                 <ScrollReveal delay={0.2} direction="down" duration={1} distance={20}>
-                    <div className="mb-4 md:mb-6">
-                        <span className="text-[12px] md:text-[13px] font-medium tracking-[0.5em] text-secondary opacity-80 uppercase">A COMPLETE PARTNER FOR</span>
+                    <div className="mb-6 md:mb-8">
+                        <span className="text-[12px] md:text-[13px] font-semibold tracking-[0.6em] text-accent/80 uppercase">ENGINEERING NEXT-GEN DIGITAL EQUITY</span>
                     </div>
 
-                    <h1 className="text-[2.5rem] sm:text-6xl md:text-8xl font-medium tracking-tight mb-8 md:mb-12 leading-[1.05] text-white">
-                        Modern Web Solutions for <br />
-                        <span className="bg-clip-text text-transparent bg-linear-to-b from-accent to-accent-secondary inline-block uppercase tracking-wider font-semibold">
-                            {currentText}
-                            <span className="inline-block w-[2px] md:w-[2.5px] h-[0.85em] bg-accent ml-2 animate-[blink_1s_step-end_infinite] align-middle"></span>
+                    <h1 className="text-[2.5rem] sm:text-7xl md:text-9xl font-medium tracking-tight mb-8 md:mb-12 leading-none text-white">
+                        Scalable Systems <br />
+                        <span className="bg-clip-text text-transparent bg-linear-to-b from-accent to-accent-secondary inline-block uppercase tracking-tight font-bold">
+                            built for {currentText}
+                            <span className="inline-block w-[3px] md:w-[4px] h-[0.85em] bg-accent ml-2 animate-[blink_1s_step-end_infinite] align-middle"></span>
                         </span>
                     </h1>
                 </ScrollReveal>

@@ -3,7 +3,7 @@
 import { useRef } from "react";
 import { Star, Quote, ChevronRight } from "lucide-react";
 import Link from "next/link";
-import { motion, useAnimationFrame, useMotionValue, useTransform, useInView } from "framer-motion";
+import { motion, useAnimationFrame, useMotionValue, useTransform, useInView, useScroll } from "framer-motion";
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import Process from "@/components/Process";
@@ -19,10 +19,9 @@ import { FaReact, FaNodeJs, FaFigma } from "react-icons/fa";
 import { RiNextjsFill, RiTailwindCssFill } from "react-icons/ri";
 import { SiTypescript, SiAdobephotoshop, SiExpress, SiMongodb, SiAdobeillustrator } from "react-icons/si";
 import SelectedWork from "@/components/home/SelectedWork";
-
 import MockupShowcase from "@/components/MockupShowcase";
 import CustomCursor from "@/components/CustomCursor";
-import ParallaxScroll from "@/components/ParallaxScroll";
+import Metrics from "@/components/Metrics";
 
 const techStack = [
   { name: "Next.js", icon: RiNextjsFill },
@@ -38,17 +37,14 @@ const techStack = [
 ];
 
 export default function Home() {
-  const baseX = useMotionValue(0);
-  const x = useTransform(baseX, (v: number) => `${(v % 25) - 25}%`);
-
   const tickerRef = useRef<HTMLDivElement>(null);
-  const isInView = useInView(tickerRef, { margin: "0px 0px 400px 0px" });
 
-  useAnimationFrame((t: number, delta: number) => {
-    if (!isInView) return;
-    // Normalized speed for readable ticker
-    baseX.set(baseX.get() - 0.01);
+  const { scrollYProgress } = useScroll({
+    target: tickerRef,
+    offset: ["start end", "end start"],
   });
+
+  const tickerX = useTransform(scrollYProgress, [0, 1], ["0%", "-40%"]);
 
   return (
     <main className="min-h-screen selection:bg-accent/30 selection:text-white bg-background minimal-grain">
@@ -56,16 +52,13 @@ export default function Home() {
       <Navbar />
       <Hero />
 
-      <div className="relative z-10 bg-background">
-        <MockupShowcase />
-      </div>
-
-      <section ref={tickerRef} className="py-24 md:py-40 border-t border-white/5 relative bg-background overflow-hidden">
+      {/* Trust Section - Ticker moved higher */}
+      <section ref={tickerRef} className="py-20 md:py-32 border-b border-white/5 relative bg-background overflow-hidden">
         <div className="section-container relative">
-          <div className="mb-16 md:mb-24 relative z-10 flex justify-center">
+          <div className="mb-12 md:mb-16 relative z-10 flex justify-center">
             <ShinyText
-              text="Powered by Industry Standard Technologies"
-              className="text-[10px] md:text-xs font-medium uppercase tracking-[0.5em] text-center opacity-60"
+              text="ENGINEERING SCALE FOR INDUSTRY LEADERS"
+              className="text-[10px] md:text-xs font-semibold uppercase tracking-[0.5em] text-center opacity-40"
               color="rgba(255,255,255,0.4)"
               shineColor="#ffffff"
               speed={4}
@@ -75,8 +68,8 @@ export default function Home() {
           <div className="w-full relative z-10">
             <div className="flex overflow-hidden mask-[linear-gradient(to_right,transparent,black_15%,black_85%,transparent)] pointer-events-none">
               <motion.div
-                style={{ x }}
-                className="flex flex-nowrap gap-16 md:gap-32 items-center shrink-0 py-8"
+                style={{ x: tickerX }}
+                className="flex flex-nowrap gap-16 md:gap-32 items-center shrink-0 py-4 md:py-8"
               >
                 {[...techStack, ...techStack, ...techStack, ...techStack].map((tech, i) => (
                   <div
@@ -97,22 +90,33 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Services Section - Moved directly under trust */}
+      <FeaturesSection />
+
+      {/* Performance Metrics - New Section */}
+      <Metrics />
+
       <div className="section-container">
         <div className="flex flex-col gap-32 md:gap-48 pb-32 md:pb-48">
+          {/* Proof - Selected Work */}
+          <SelectedWork />
+
+          {/* Strategy & Thinking - Process */}
           <ScrollReveal>
-            <section className="river-flow rounded-[3rem] border border-white/5 px-4 py-8 md:py-16">
+            <section className="river-flow rounded-[3rem] border border-white/5 px-4 py-8 md:py-24">
               <Process />
             </section>
           </ScrollReveal>
 
+          {/* Expanded Visual Proof - Showcase moved lower */}
           <ScrollReveal>
-            <Testimonial />
+            <div className="relative z-10 rounded-[3rem] overflow-hidden border border-white/5">
+              <MockupShowcase />
+            </div>
           </ScrollReveal>
 
-          <SelectedWork />
-
           <ScrollReveal>
-            <FeaturesSection />
+            <Testimonial />
           </ScrollReveal>
 
           <ScrollReveal>
