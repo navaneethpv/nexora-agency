@@ -10,20 +10,20 @@ export default function SmoothScroll({ children }: { children: React.ReactNode }
     const pathname = usePathname();
 
     useEffect(() => {
-        // Optimization for Low End & Accessibility
         const isLowEnd = (navigator as any).deviceMemory !== undefined && (navigator as any).deviceMemory <= 4;
         const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-        if (prefersReducedMotion || isLowEnd) return;
+        if (prefersReducedMotion) return;
 
         const lenis = new Lenis({
-            duration: 1.1,
+            duration: isLowEnd ? 0.8 : 1.4,
             easing: (t: number) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-            lerp: 0.12,
-            wheelMultiplier: 1,
-            touchMultiplier: 1.5,
+            lerp: isLowEnd ? 0.1 : 0.08,
+            wheelMultiplier: 1.1,
+            touchMultiplier: 1.8,
             infinite: false,
             syncTouch: true,
+            touchInertiaMultiplier: 30,
         });
 
         lenisRef.current = lenis;

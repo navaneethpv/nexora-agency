@@ -23,6 +23,7 @@ declare module 'lucide-react' {
     export const ChevronRight: any;
     export const ArrowRight: any;
     export const Sparkles: any;
+    export const Plus: any;
 }
 
 declare module '@react-three/fiber' {

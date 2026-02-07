@@ -94,18 +94,47 @@ body {
 
   /* Tailwind 4 @apply syntax */
   .section-container {
-    @apply mx-auto w-[90%] max-w-7xl px-6 md:px-10;
+    @apply mx-auto w-full max-w-7xl px-4 md:px-10;
   }
 
   .text-glow {
-    text-shadow: 0 0 20px rgba(11, 185, 243, 0.3);
+    text-shadow: 0 0 20px rgba(11, 185, 243, 0.4);
   }
 
   /* GPU Acceleration to fix shaking text during scroll */
   .gpu-stable {
-    transform: translateZ(0);
+    transform: translate3d(0, 0, 0);
     backface-visibility: hidden;
     perspective: 1000px;
+    -webkit-font-smoothing: antialiased;
+    will-change: transform, opacity;
+  }
+
+  /* River-like flowing background */
+  .river-flow {
+    background: linear-gradient(-45deg, #050505, #0a0a0b, #0c0c0e, #050505);
+    background-size: 400% 400%;
+    animation: gradientFlow 15s ease infinite;
+  }
+
+  @keyframes gradientFlow {
+    0% {
+      background-position: 0% 50%;
+    }
+
+    50% {
+      background-position: 100% 50%;
+    }
+
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+
+  /* Ultra Smooth Interactive Elements */
+  a,
+  button {
+    @apply transition-all duration-500 ease-[cubic-bezier(0.23, 1, 0.32, 1)];
   }
 }
 

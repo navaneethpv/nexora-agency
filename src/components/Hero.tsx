@@ -98,15 +98,15 @@ export default function Hero() {
                     <span className="text-[13px] md:text-[14px] font-black tracking-[0.4em] text-white/50 uppercase">A COMPLETE</span>
                 </div>
 
-                <h1 className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-black tracking-tight mb-4 md:mb-8 leading-[1.1] md:leading-[1.02] gpu-stable">
+                <h1 className="text-[2.5rem] sm:text-6xl md:text-7xl lg:text-8xl font-black tracking-tight mb-4 md:mb-8 leading-[1.05] md:leading-[1.02] gpu-stable">
                     Modern Web Solutions for <br />
-                    <span className="font-medium text-glow bg-clip-text text-transparent bg-linear-to-b from-accent to-accent-secondary min-h-[1.1em] inline-block text-3xl sm:text-5xl md:text-6xl lg:text-7xl uppercase tracking-wider">
+                    <span className="font-medium text-glow bg-clip-text text-transparent bg-linear-to-b from-accent to-accent-secondary min-h-[1.1em] inline-block text-[1.75rem] sm:text-5xl md:text-6xl lg:text-7xl uppercase tracking-wider">
                         {currentText}
-                        <span className="inline-block w-[2.5px] h-[0.85em] bg-accent ml-2 animate-[blink_1s_step-end_infinite] align-middle shadow-[0_0_8px_rgba(11,185,243,0.8)]"></span>
+                        <span className="inline-block w-[2px] md:w-[2.5px] h-[0.85em] bg-accent ml-1 md:ml-2 animate-[blink_1s_step-end_infinite] align-middle shadow-[0_0_8px_rgba(11,185,243,0.8)]"></span>
                     </span>
                 </h1>
 
-                <p className="max-w-2xl text-base md:text-xl text-secondary mb-8 md:mb-12 leading-relaxed font-medium opacity-90">
+                <p className="max-w-[90%] md:max-w-2xl text-sm md:text-xl text-secondary mb-8 md:mb-12 leading-relaxed font-medium opacity-90 mx-auto gpu-stable">
                     Nexora builds clean, scalable, and performance-focused websites and web applications for businesses and institutions.
                 </p>
 

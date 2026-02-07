@@ -28,24 +28,25 @@ export default function FAQ() {
     const [openIndex, setOpenIndex] = useState<number | null>(null);
 
     return (
-        <section className="py-10 md:py-20 border-t border-white/5 px-4 md:px-0">
-            <div className="section-container max-w-2xl">
+        <section className="river-flow py-16 md:py-32 rounded-4xl md:rounded-[4rem] border border-white/5 px-4 md:px-0 gpu-stable">
+            <div className="section-container max-w-2xl px-6">
                 <ScrollReveal direction="down" distance={20}>
-                    <h2 className="text-2xl sm:text-3xl md:text-5xl font-bold text-center mb-6 md:mb-16 text-white">
-                        Commonly Asked <span className="italic font-medium text-accent">Questions</span>
+                    <h2 className="text-3xl md:text-5xl font-black text-center mb-10 md:mb-16 text-white leading-tight">
+                        Commonly Asked <br className="md:hidden" />
+                        <span className="italic font-medium text-accent">Questions</span>
                     </h2>
                 </ScrollReveal>
 
-                <div className="space-y-4">
+                <div className="space-y-6">
                     {faqs.map((faq, index) => (
                         <ScrollReveal key={index} delay={index * 0.1} direction="up" distance={10}>
-                            <div className="border-b border-white/5 pb-4">
+                            <div className="border-b border-white/10 pb-4">
                                 <button
                                     onClick={() => setOpenIndex(openIndex === index ? null : index)}
-                                    className="w-full flex justify-between items-center text-left py-3 md:py-4 hover:text-accent transition-colors group"
+                                    className="w-full flex justify-between items-center text-left py-4 md:py-6 hover:text-accent transition-all group"
                                 >
-                                    <span className="text-base md:text-lg font-bold pr-4 text-white group-hover:text-accent transition-colors">{faq.question}</span>
-                                    <Plus className={`w-4 h-4 md:w-5 md:h-5 shrink-0 transition-transform duration-300 ${openIndex === index ? 'rotate-45 text-accent' : 'text-secondary group-hover:text-accent'}`} />
+                                    <span className="text-[1.1rem] md:text-xl font-bold pr-4 text-white/90 group-hover:text-accent transition-colors leading-snug">{faq.question}</span>
+                                    <Plus className={`w-5 h-5 md:w-6 md:h-6 shrink-0 transition-transform duration-500 ${openIndex === index ? 'rotate-45 text-accent' : 'text-secondary group-hover:text-accent'}`} />
                                 </button>
                                 <AnimatePresence>
                                     {openIndex === index && (
@@ -53,10 +54,10 @@ export default function FAQ() {
                                             initial={{ height: 0, opacity: 0 }}
                                             animate={{ height: "auto", opacity: 1 }}
                                             exit={{ height: 0, opacity: 0 }}
-                                            transition={{ duration: 0.3, ease: "easeInOut" }}
+                                            transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
                                             className="overflow-hidden"
                                         >
-                                            <div className="pb-4 text-sm md:text-base text-secondary leading-relaxed font-medium">
+                                            <div className="pb-6 text-base md:text-lg text-secondary leading-relaxed font-medium">
                                                 {faq.answer}
                                             </div>
                                         </motion.div>

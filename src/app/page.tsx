@@ -59,15 +59,15 @@ export default function Home() {
         <MockupShowcase />
       </div>
 
-      <section ref={tickerRef} className="py-16 md:py-24 border-t border-white/5 relative bg-black overflow-hidden">
-        <div className="max-w-7xl mx-auto px-6 relative">
+      <section ref={tickerRef} className="py-20 md:py-32 border-t border-white/5 relative bg-black overflow-hidden gpu-stable">
+        <div className="max-w-7xl mx-auto px-4 md:px-6 relative">
           <div className="absolute top-1/2 left-1/4 -translate-y-1/2 w-64 h-64 bg-accent/5 blur-3xl rounded-full pointer-events-none" />
           <div className="absolute top-1/2 right-1/4 -translate-y-1/2 w-64 h-64 bg-accent-secondary/5 blur-3xl rounded-full pointer-events-none" />
 
-          <div className="mb-16 relative z-10 flex justify-center">
+          <div className="mb-12 md:mb-20 relative z-10 flex justify-center">
             <ShinyText
               text="Built with cutting-edge Technologies"
-              className="text-[11px] md:text-lg font-bold uppercase tracking-[0.4em] text-center"
+              className="text-[10px] md:text-sm font-bold uppercase tracking-[0.4em] text-center"
               color="rgba(255,255,255,0.4)"
               shineColor="#ffffff"
               speed={3}
@@ -108,10 +108,12 @@ export default function Home() {
         <div className="absolute bottom-0 left-0 w-full h-px bg-linear-to-r from-transparent via-white/5 to-transparent" />
       </section>
 
-      <TracingBeam className="px-6">
-        <div className="flex flex-col gap-24 md:gap-32 pb-24">
+      <TracingBeam className="px-4 md:px-6">
+        <div className="flex flex-col gap-24 md:gap-40 pb-24 md:pb-40">
           <ScrollReveal>
-            <Process />
+            <section className="river-flow rounded-4xl md:rounded-[4rem] border border-white/5 py-4">
+              <Process />
+            </section>
           </ScrollReveal>
 
           <ScrollReveal>
@@ -123,9 +125,11 @@ export default function Home() {
           <ScrollReveal>
             <FeaturesSection />
           </ScrollReveal>
+
           <ScrollReveal>
             <WhyNexora />
           </ScrollReveal>
+
           <ScrollReveal>
             <FAQ />
           </ScrollReveal>
