@@ -28,44 +28,70 @@ export default function FAQ() {
     const [openIndex, setOpenIndex] = useState<number | null>(null);
 
     return (
-        <section className="river-flow py-16 md:py-32 rounded-4xl md:rounded-[4rem] border border-white/5 px-4 md:px-0 gpu-stable">
-            <div className="section-container max-w-2xl px-6">
-                <ScrollReveal direction="down" distance={20}>
-                    <h2 className="text-3xl md:text-5xl font-black text-center mb-10 md:mb-16 text-white leading-tight">
-                        Commonly Asked <br className="md:hidden" />
-                        <span className="italic font-medium text-accent">Questions</span>
-                    </h2>
-                </ScrollReveal>
+        <section className="relative py-24 md:py-40 bg-background overflow-hidden">
+            {/* Ambient background glows */}
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full max-w-[1600px] pointer-events-none opacity-20">
+                <div className="absolute top-0 right-1/4 w-[500px] h-[500px] bg-accent/10 blur-[130px] rounded-full" />
+            </div>
 
-                <div className="space-y-6">
-                    {faqs.map((faq, index) => (
-                        <ScrollReveal key={index} delay={index * 0.1} direction="up" distance={10}>
-                            <div className="border-b border-white/10 pb-4">
-                                <button
-                                    onClick={() => setOpenIndex(openIndex === index ? null : index)}
-                                    className="w-full flex justify-between items-center text-left py-4 md:py-6 hover:text-accent transition-all group"
-                                >
-                                    <span className="text-[1.1rem] md:text-xl font-bold pr-4 text-white/90 group-hover:text-accent transition-colors leading-snug">{faq.question}</span>
-                                    <Plus className={`w-5 h-5 md:w-6 md:h-6 shrink-0 transition-transform duration-500 ${openIndex === index ? 'rotate-45 text-accent' : 'text-secondary group-hover:text-accent'}`} />
-                                </button>
-                                <AnimatePresence>
-                                    {openIndex === index && (
-                                        <motion.div
-                                            initial={{ height: 0, opacity: 0 }}
-                                            animate={{ height: "auto", opacity: 1 }}
-                                            exit={{ height: 0, opacity: 0 }}
-                                            transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
-                                            className="overflow-hidden"
-                                        >
-                                            <div className="pb-6 text-base md:text-lg text-secondary leading-relaxed font-medium">
-                                                {faq.answer}
-                                            </div>
-                                        </motion.div>
-                                    )}
-                                </AnimatePresence>
+            <div className="section-container relative z-10">
+                <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 md:gap-24">
+                    {/* Left Column: Title */}
+                    <div className="lg:col-span-5">
+                        <ScrollReveal direction="right" distance={30}>
+                            <div className="sticky top-32">
+                                <h2 className="text-5xl md:text-8xl font-medium tracking-tighter text-white leading-[0.9] mb-8">
+                                    Commonly <br />
+                                    <span className="text-accent italic font-light">Quest</span>ions
+                                </h2>
+                                <p className="text-secondary text-lg md:text-2xl font-normal leading-relaxed opacity-70 max-w-md">
+                                    Everything you need to know about our distilled engineering process and technical ethics.
+                                </p>
                             </div>
                         </ScrollReveal>
-                    ))}
+                    </div>
+
+                    {/* Right Column: Accordion */}
+                    <div className="lg:col-span-7 space-y-4">
+                        {faqs.map((faq, index) => (
+                            <ScrollReveal key={index} delay={index * 0.1} direction="up" distance={20}>
+                                <div
+                                    className={`glass-card rounded-3xl border transition-all duration-500 overflow-hidden ${openIndex === index
+                                            ? 'bg-white/5 border-accent/30'
+                                            : 'bg-white/2 border-white/5 hover:border-white/20'
+                                        }`}
+                                >
+                                    <button
+                                        onClick={() => setOpenIndex(openIndex === index ? null : index)}
+                                        className="w-full flex justify-between items-center text-left p-6 md:p-10 group"
+                                    >
+                                        <span className={`text-xl md:text-2xl font-medium pr-8 transition-colors duration-300 ${openIndex === index ? 'text-accent' : 'text-white/90'
+                                            }`}>
+                                            {faq.question}
+                                        </span>
+                                        <div className={`w-10 h-10 rounded-full border border-white/10 flex items-center justify-center shrink-0 transition-all duration-500 ${openIndex === index ? 'rotate-45 bg-accent border-accent text-white' : 'group-hover:border-accent text-white/50'
+                                            }`}>
+                                            <Plus className="w-5 h-5" />
+                                        </div>
+                                    </button>
+                                    <AnimatePresence>
+                                        {openIndex === index && (
+                                            <motion.div
+                                                initial={{ height: 0, opacity: 0 }}
+                                                animate={{ height: "auto", opacity: 1 }}
+                                                exit={{ height: 0, opacity: 0 }}
+                                                transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+                                            >
+                                                <div className="px-6 md:px-10 pb-8 md:pb-12 text-base md:text-xl text-secondary leading-relaxed font-normal opacity-80 border-t border-white/5 pt-6">
+                                                    {faq.answer}
+                                                </div>
+                                            </motion.div>
+                                        )}
+                                    </AnimatePresence>
+                                </div>
+                            </ScrollReveal>
+                        ))}
+                    </div>
                 </div>
             </div>
         </section>

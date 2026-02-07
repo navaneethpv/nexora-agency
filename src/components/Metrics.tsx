@@ -4,10 +4,10 @@ import { motion } from "framer-motion";
 import ScrollReveal from "./ScrollReveal";
 
 const metrics = [
-    { label: "Products Launched", value: "40+", description: "Production-ready solutions deployed globally." },
-    { label: "Technical Precision", value: "99.9%", description: "Code quality and performance standards." },
-    { label: "Partner Retention", value: "92%", description: "Long-term collaboration with our clients." },
-    { label: "Avg. Speed Increase", value: "2.5x", description: "Optimization across legacy system migrations." },
+    { label: "Projects Delivered", value: "80+" },
+    { label: "Client Satisfaction", value: "99%" },
+    { label: "Support Cases", value: "100%" },
+    { label: "Core Platforms", value: "50+" }
 ];
 
 export default function Metrics() {
@@ -17,16 +17,15 @@ export default function Metrics() {
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-12">
                     {metrics.map((metric, index) => (
                         <ScrollReveal key={index} delay={index * 0.1} direction="up" distance={20}>
-                            <div className="flex flex-col items-start p-8 md:p-10 rounded-4xl bg-white/2 border border-white/5 hover:border-accent/20 transition-all duration-500 group h-full">
-                                <span className="text-4xl md:text-5xl font-bold bg-clip-text text-transparent bg-linear-to-b from-white to-white/40 mb-4 tracking-tight group-hover:from-accent group-hover:to-accent-secondary transition-all duration-500">
+                            <div className="relative group p-8 rounded-4xl bg-white/3 border border-white/5 hover:border-accent/40 transition-all duration-700">
+                                <div className="text-5xl md:text-7xl font-semibold text-white mb-2 tracking-tighter group-hover:text-accent transition-colors">
                                     {metric.value}
-                                </span>
-                                <h3 className="text-base md:text-lg font-medium text-white mb-2 uppercase tracking-widest opacity-90">
+                                </div>
+                                <div className="text-secondary text-sm md:text-base font-medium uppercase tracking-[0.2em] opacity-60 group-hover:opacity-100 transition-opacity">
                                     {metric.label}
-                                </h3>
-                                <p className="text-secondary text-sm md:text-base font-normal opacity-60 leading-relaxed">
-                                    {metric.description}
-                                </p>
+                                </div>
+                                {/* Technical Accent */}
+                                <div className="absolute top-6 right-6 w-2 h-2 rounded-full bg-accent/20 group-hover:bg-accent animate-pulse" />
                             </div>
                         </ScrollReveal>
                     ))}

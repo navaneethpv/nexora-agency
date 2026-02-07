@@ -72,69 +72,70 @@ export default function SelectedWork() {
 
             <div className="relative z-10 section-container">
                 <div className="mb-24 md:mb-40 work-title">
-                    <h2 className="text-5xl md:text-9xl font-medium mb-10 tracking-tight text-white leading-[0.9]">
-                        Selected <span className="text-accent font-semibold">Equity</span>
+                    <h2 className="text-5xl md:text-[10rem] font-medium mb-10 tracking-tighter text-white leading-[0.85] uppercase">
+                        Selected <br />
+                        <span className="text-accent italic font-light">Equity</span>
                     </h2>
-                    <p className="text-secondary text-lg md:text-3xl font-normal leading-relaxed max-w-3xl opacity-80">
-                        A cinematic showcase of high-performance digital systems and distilled brand architectures.
+                    <p className="text-secondary text-lg md:text-3xl font-light leading-relaxed max-w-3xl opacity-60">
+                        A cinematic distillation of high-performance digital systems and architectural brand equity.
                     </p>
                 </div>
 
-                <div className="flex flex-col gap-24 md:gap-40">
+                <div className="flex flex-col gap-40 md:gap-72">
                     {featuredProjects.map((project, i) => (
-                        <Link href={`/work/${project.slug}`} key={project.slug} className="group project-card block">
-                            <article className="border-t border-white/10 pt-12 md:pt-20 grid grid-cols-1 lg:grid-cols-2 gap-12 md:gap-24 items-start">
-                                {/* Text Content */}
-                                <div className="space-y-8 md:space-y-12 order-2 lg:order-1">
-                                    <div className="space-y-6">
-                                        <div className="flex items-center gap-4">
-                                            <span className="text-accent font-medium text-xs md:text-sm tracking-[0.2em] uppercase">0{i + 1}</span>
+                        <Link href={`/work/${project.slug}`} key={project.slug} className="group project-card block relative">
+                            <article className="grid grid-cols-1 lg:grid-cols-12 gap-12 md:gap-0 items-center">
+                                {/* Text Content - Floating Layer */}
+                                <div className="lg:col-span-12 lg:row-start-1 lg:col-start-1 z-20 pointer-events-none">
+                                    <div className="space-y-8 md:space-y-12">
+                                        <div className="flex items-center gap-6 overflow-hidden">
+                                            <span className="text-accent font-black text-sm md:text-base tracking-[0.4em] uppercase opacity-40">0{i + 1}</span>
                                             <span className="w-12 h-px bg-white/10"></span>
-                                            <span className="text-secondary font-medium text-xs md:text-sm tracking-[0.2em] uppercase">{project.category}</span>
+                                            <span className="text-secondary font-medium text-xs md:text-sm tracking-[0.3em] uppercase">{project.category}</span>
                                         </div>
-                                        <h3 className="text-3xl md:text-5xl font-medium text-white group-hover:text-accent transition-colors duration-500">
+                                        <h3 className="text-4xl md:text-[7rem] font-medium text-white group-hover:text-accent transition-all duration-700 leading-none tracking-tighter uppercase">
                                             {project.title}
                                         </h3>
-                                    </div>
-                                    <p className="text-secondary text-base md:text-xl leading-relaxed max-w-2xl opacity-70 group-hover:opacity-100 transition-opacity">
-                                        {project.shortDescription}
-                                    </p>
-                                    <ul className="flex flex-wrap gap-2 md:gap-3">
-                                        {project.features.slice(0, 3).map((feature, idx) => (
-                                            <li key={idx} className="px-4 py-1.5 bg-white/3 border border-white/5 rounded-full text-[11px] md:text-xs text-secondary font-medium uppercase tracking-wider">
-                                                {feature}
-                                            </li>
-                                        ))}
-                                    </ul>
-                                    <div className="flex items-center gap-2 text-white text-sm md:text-base font-medium group-hover:gap-4 transition-all duration-300">
-                                        <span>View Case Study</span>
-                                        <ArrowUpRight className="w-4 h-4 md:w-5 md:h-5 text-accent" />
+
+                                        <div className="lg:ml-24 max-w-xl space-y-8 opacity-0 group-hover:opacity-100 transition-all duration-700 transform translate-y-8 group-hover:translate-y-0">
+                                            <p className="text-secondary text-base md:text-2xl leading-relaxed font-light">
+                                                {project.shortDescription}
+                                            </p>
+                                            <div className="flex items-center gap-4 text-white text-sm md:text-lg font-medium group/btn">
+                                                <span className="border-b border-accent pb-1">Distill Experience</span>
+                                                <ArrowUpRight className="w-5 h-5 text-accent group-hover/btn:translate-x-1 group-hover/btn:-translate-y-1 transition-transform" />
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
 
-                                {/* Image Section */}
-                                <div className="order-1 lg:order-2 relative aspect-16/10 overflow-hidden rounded-3xl bg-white/5 border border-white/5">
-                                    <Image
-                                        src={project.coverImage}
-                                        alt={project.title}
-                                        fill
-                                        className="object-cover grayscale-30 group-hover:grayscale-0 transition-all duration-700 group-hover:scale-[1.02]"
-                                        sizes="(max-width: 768px) 100vw, 50vw"
-                                    />
-                                    <div className="absolute inset-0 bg-background/20 group-hover:bg-transparent transition-colors duration-500" />
+                                {/* Image Section - Background Layer */}
+                                <div className="lg:col-span-8 lg:col-start-5 lg:row-start-1 relative aspect-16/10 z-10">
+                                    <ParallaxScroll speed={0.05} direction="down" className="w-full h-full rounded-4xl overflow-hidden bg-white/5 border border-white/5">
+                                        <Image
+                                            src={project.coverImage}
+                                            alt={project.title}
+                                            fill
+                                            className="object-cover transition-all duration-1000 group-hover:scale-110 filter brightness-[0.4] group-hover:brightness-100"
+                                            sizes="(max-width: 768px) 100vw, 80vw"
+                                        />
+                                        {/* Color Overlay */}
+                                        <div className="absolute inset-0 bg-accent/10 opacity-40 group-hover:opacity-0 transition-opacity duration-700 mix-blend-color" />
+                                        <div className="absolute inset-0 bg-background/60 group-hover:opacity-0 transition-opacity duration-700" />
+                                    </ParallaxScroll>
                                 </div>
                             </article>
                         </Link>
                     ))}
                 </div>
 
-                <div className="mt-24 md:mt-40 flex justify-center view-all-btn">
+                <div className="mt-32 md:mt-48 flex justify-center view-all-btn">
                     <Link
                         href="/work"
-                        className="group inline-flex items-center gap-3 text-lg font-medium text-white pb-1 border-b border-white/10 hover:border-accent transition-all duration-300"
+                        className="group relative bg-white/3 border border-white/10 text-white px-10 md:px-16 py-6 md:py-8 rounded-full text-base md:text-xl font-medium hover:bg-white/5 transition-all backdrop-blur-3xl active:scale-95 flex items-center gap-4"
                     >
-                        <span>Explore Our Full Portfolio</span>
-                        <ArrowUpRight className="w-5 h-5 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
+                        <span>Distill Full Portfolio</span>
+                        <ArrowUpRight className="w-6 h-6 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform text-accent" />
                     </Link>
                 </div>
             </div>
