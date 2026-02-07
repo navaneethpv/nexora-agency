@@ -47,7 +47,7 @@ export default function Home() {
   const tickerX = useTransform(scrollYProgress, [0, 1], ["0%", "-40%"]);
 
   return (
-    <main className="min-h-screen selection:bg-accent/30 selection:text-white bg-background minimal-grain">
+    <main className="min-h-screen selection:bg-accent/30 selection:text-white bg-background">
       <CustomCursor />
       <Navbar />
       <Hero />

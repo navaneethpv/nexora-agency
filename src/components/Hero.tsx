@@ -77,6 +77,19 @@ export default function Hero() {
         <section className="relative h-screen min-h-[800px] flex flex-col items-center justify-center text-center px-6 overflow-hidden bg-background">
             <HeroBackground3D />
 
+            {/* Floating Background Elements */}
+            <motion.div
+                style={{ x: mouseXSpring, y: mouseYSpring }}
+                className="absolute inset-0 -z-10 overflow-hidden pointer-events-none"
+            >
+                <ParallaxScroll speed={0.4} direction="down" className="absolute top-[-10%] left-[-5%] w-full h-full">
+                    <div className="absolute inset-0 bg-accent/3 blur-[120px] rounded-full opacity-60" />
+                </ParallaxScroll>
+                <ParallaxScroll speed={0.6} direction="up" className="absolute bottom-[-10%] right-[-5%] w-1/2 h-1/2">
+                    <div className="absolute inset-0 bg-accent-secondary/3 blur-[100px] rounded-full opacity-40" />
+                </ParallaxScroll>
+            </motion.div>
+
             <div className="relative z-10 flex flex-col items-center w-full section-container">
                 <ScrollReveal direction="down" duration={1} distance={20}>
                     <div className="hero-label inline-flex items-center gap-2.5 rounded-full border border-white/10 bg-white/3 px-4 py-2 text-[10px] md:text-[11px] font-medium text-white/70 mb-8 md:mb-12 backdrop-blur-xl transition-colors duration-500 hover:border-accent/40">
