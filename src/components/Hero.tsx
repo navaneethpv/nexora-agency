@@ -79,13 +79,13 @@ export default function Hero() {
 
             <HeroBackground3D />
 
-            {/* Background Glows */}
+            {/* Background Glows - Lower blur for premium performance */}
             <motion.div
                 style={{ x: mouseXSpring, y: mouseYSpring }}
-                className="absolute inset-0 -z-10 overflow-hidden pointer-events-none will-change-transform"
+                className="absolute inset-0 -z-10 overflow-hidden pointer-events-none"
             >
-                <div className="absolute top-[-10%] left-[-5%] w-full h-full bg-accent/5 blur-[80px] rounded-full opacity-60" />
-                <div className="absolute bottom-[-10%] right-[-5%] w-1/2 h-1/2 bg-accent-secondary/5 blur-[60px] rounded-full opacity-40" />
+                <div className="absolute top-[-10%] left-[-5%] w-full h-full bg-accent/3 blur-2xl rounded-full opacity-60" />
+                <div className="absolute bottom-[-10%] right-[-5%] w-1/2 h-1/2 bg-accent-secondary/3 blur-xl rounded-full opacity-40" />
             </motion.div>
 
             <div className="relative z-10 flex flex-col items-center max-w-5xl mx-auto">

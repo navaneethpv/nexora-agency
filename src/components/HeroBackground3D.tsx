@@ -104,8 +104,20 @@ export default function HeroBackground3D() {
     const containerRef = useRef(null);
     const isInView = useInView(containerRef, { margin: "0px 0px 0px 0px" });
 
+    // Performance tiered settings
+    const [performance, setPerformance] = useState({ count: 400, dpr: 1 });
+
     useEffect(() => {
         setMounted(true);
+        // Basic performance detection
+        const isLowEnd = (navigator as any).deviceMemory !== undefined && (navigator as any).deviceMemory <= 4;
+        const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+
+        if (isLowEnd || isMobile) {
+            setPerformance({ count: 200, dpr: 1 });
+        } else {
+            setPerformance({ count: 600, dpr: Math.min(window.devicePixelRatio, 1.5) });
+        }
     }, []);
 
     if (!mounted) return null;
@@ -115,37 +127,38 @@ export default function HeroBackground3D() {
             <Canvas
                 frameloop={isInView ? "always" : "never"}
                 camera={{ position: [0, 0, 2], fov: 75 }}
-                dpr={[1, 1]}
+                dpr={performance.dpr as any}
                 gl={{
                     antialias: false,
                     alpha: true,
-                    powerPreference: "high-performance"
+                    powerPreference: "high-performance",
+                    stencil: false,
+                    depth: false
                 }}
             >
                 <Stars
                     radius={100}
                     depth={50}
-                    count={800} // Reduced from 1500
+                    count={performance.count}
                     factor={4}
                     saturation={0}
                     fade
-                    speed={1}
+                    speed={0.5}
                 />
                 <RotatingParticles />
-                <NebulaGlow />
                 <ambientLight intensity={0.5} />
             </Canvas>
 
-            {/* Overlay Gradient for more punch */}
-            <div className="absolute inset-0 bg-radial-at-t from-accent/10 via-transparent to-transparent opacity-60" />
-            <div className="absolute inset-0 bg-radial-at-b from-accent-secondary/5 via-transparent to-transparent opacity-40" />
+            {/* Premium Static Glows - 0% CPU Load compared to 3D Nebula */}
+            <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(11,185,243,0.05),transparent_70%)]" />
+            <div className="absolute inset-0 bg-radial-at-t from-accent/5 via-transparent to-transparent" />
 
-            {/* Animated Grid */}
+            {/* Minimal Grid */}
             <div
-                className="absolute inset-0 opacity-[0.08]"
+                className="absolute inset-0 opacity-[0.05]"
                 style={{
                     backgroundImage: 'linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px)',
-                    backgroundSize: '100px 100px',
+                    backgroundSize: '120px 120px',
                     maskImage: 'radial-gradient(ellipse at center, black, transparent 80%)'
                 }}
             />
