@@ -102,7 +102,7 @@ export default function MockupShowcase() {
     return (
         <div
             ref={ref}
-            className="h-[300vh] py-40 overflow-hidden antialiased relative flex flex-col self-auto perspective-[1000px] transform-3d bg-black"
+            className="h-[300vh] py-40 overflow-hidden antialiased relative flex flex-col self-auto perspective-[1000px] transform-3d bg-background"
         >
             <Header />
             <motion.div
@@ -148,13 +148,14 @@ export default function MockupShowcase() {
 
 const Header = () => {
     return (
-        <div className="max-w-7xl relative mx-auto py-20 md:py-40 px-4 w-full left-0 top-0">
-            <h1 className="text-3xl md:text-8xl font-black text-white tracking-tighter leading-none mb-8 gpu-stable">
-                Crafting <span className="text-accent">Legendary</span> <br /> Digital Experiences
+        <div className="section-container relative mx-auto py-24 md:py-48 px-4 w-full left-0 top-0">
+            <h1 className="text-[2.5rem] md:text-8xl font-medium text-white tracking-tight leading-[1.1] mb-10 gpu-stable">
+                Engineering <br />
+                <span className="bg-clip-text text-transparent bg-linear-to-r from-accent to-accent-secondary font-semibold">Bespoke</span> Digital Platforms
             </h1>
-            <p className="max-w-2xl text-base md:text-2xl font-medium text-secondary/80 leading-relaxed">
-                At <span className="text-white font-bold">Nexora</span>, we blend cutting-edge technology with
-                avant-garde design to build high-performance products that redefine industries.
+            <p className="max-w-2xl text-base md:text-2xl font-normal text-secondary leading-relaxed opacity-90">
+                At <span className="text-white font-medium">Nexora</span>, we converge technical excellence with
+                distilled design to build high-performance products that command attention.
             </p>
         </div>
     );

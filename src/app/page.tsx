@@ -51,99 +51,76 @@ export default function Home() {
   });
 
   return (
-    <main className="min-h-screen selection:bg-accent/30 selection:text-white">
+    <main className="min-h-screen selection:bg-accent/30 selection:text-white bg-background minimal-grain">
       <CustomCursor />
       <Navbar />
       <Hero />
-      <ParallaxScroll speed={0.1} direction="up" className="relative z-10 bg-black">
+
+      <div className="relative z-10 bg-background">
         <MockupShowcase />
-      </ParallaxScroll>
+      </div>
 
-      <ParallaxScroll speed={0.15} direction="down">
-        <section ref={tickerRef} className="py-20 md:py-32 border-t border-white/5 relative bg-black overflow-hidden gpu-stable">
-          <div className="max-w-7xl mx-auto px-4 md:px-6 relative">
-            <div className="absolute top-1/2 left-1/4 -translate-y-1/2 w-64 h-64 bg-accent/5 blur-3xl rounded-full pointer-events-none" />
-            <div className="absolute top-1/2 right-1/4 -translate-y-1/2 w-64 h-64 bg-accent-secondary/5 blur-3xl rounded-full pointer-events-none" />
-
-            <div className="mb-12 md:mb-20 relative z-10 flex justify-center">
-              <ShinyText
-                text="Built with cutting-edge Technologies"
-                className="text-[10px] md:text-sm font-bold uppercase tracking-[0.4em] text-center"
-                color="rgba(255,255,255,0.4)"
-                shineColor="#ffffff"
-                speed={3}
-              />
-            </div>
-
-            <div className="w-full relative z-10">
-              <div className="flex overflow-hidden mask-[linear-gradient(to_right,transparent,black_15%,black_85%,transparent)] pointer-events-none">
-                <motion.div
-                  style={{ x }}
-                  className="flex flex-nowrap gap-12 md:gap-24 items-center shrink-0 py-8"
-                >
-                  {[...techStack, ...techStack, ...techStack, ...techStack].map((tech, i) => (
-                    <div
-                      key={i}
-                      className="flex items-center gap-3 md:gap-6 group shrink-0 transition-transform duration-300"
-                    >
-                      <div className="relative">
-                        <div className="absolute inset-0 bg-accent/20 blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-full" />
-                        <div className="relative z-10 p-2 md:p-4 bg-white/5 rounded-xl md:rounded-2xl border border-white/5 group-hover:border-accent/30 transition-colors">
-                          <tech.icon className="w-8 h-8 md:w-12 md:h-12 text-white/30 group-hover:text-white transition-all duration-500" />
-                        </div>
-                      </div>
-                      <div className="flex flex-col">
-                        <span className="text-base md:text-2xl font-bold tracking-tight text-white/50 group-hover:text-white transition-colors duration-300">
-                          {tech.name}
-                        </span>
-                        <div className="h-0.5 w-0 group-hover:w-full bg-accent transition-all duration-500" />
-                      </div>
-                    </div>
-                  ))}
-                </motion.div>
-              </div>
-            </div>
+      <section ref={tickerRef} className="py-24 md:py-40 border-t border-white/5 relative bg-background overflow-hidden">
+        <div className="section-container relative">
+          <div className="mb-16 md:mb-24 relative z-10 flex justify-center">
+            <ShinyText
+              text="Powered by Industry Standard Technologies"
+              className="text-[10px] md:text-xs font-medium uppercase tracking-[0.5em] text-center opacity-60"
+              color="rgba(255,255,255,0.4)"
+              shineColor="#ffffff"
+              speed={4}
+            />
           </div>
 
-          {/* Subtle Decorative Line */}
-          <div className="absolute bottom-0 left-0 w-full h-px bg-linear-to-r from-transparent via-white/5 to-transparent" />
-        </section>
-      </ParallaxScroll>
+          <div className="w-full relative z-10">
+            <div className="flex overflow-hidden mask-[linear-gradient(to_right,transparent,black_15%,black_85%,transparent)] pointer-events-none">
+              <motion.div
+                style={{ x }}
+                className="flex flex-nowrap gap-16 md:gap-32 items-center shrink-0 py-8"
+              >
+                {[...techStack, ...techStack, ...techStack, ...techStack].map((tech, i) => (
+                  <div
+                    key={i}
+                    className="flex items-center gap-4 md:gap-8 group shrink-0"
+                  >
+                    <div className="relative z-10 p-3 md:p-5 bg-white/3 rounded-2xl border border-white/5 transition-colors group-hover:border-accent/40 group-hover:bg-white/5">
+                      <tech.icon className="w-8 h-8 md:w-12 md:h-12 text-white/20 group-hover:text-white transition-all duration-700" />
+                    </div>
+                    <span className="text-lg md:text-3xl font-medium tracking-tight text-white/30 group-hover:text-white transition-colors duration-400">
+                      {tech.name}
+                    </span>
+                  </div>
+                ))}
+              </motion.div>
+            </div>
+          </div>
+        </div>
+      </section>
 
-      <div className="max-w-7xl mx-auto px-4 md:px-6">
-        <div className="flex flex-col gap-24 md:gap-40 pb-24 md:pb-40">
+      <div className="section-container">
+        <div className="flex flex-col gap-32 md:gap-48 pb-32 md:pb-48">
           <ScrollReveal>
-            <ParallaxScroll speed={0.05} direction="up">
-              <section className="river-flow rounded-4xl md:rounded-[4rem] border border-white/5 py-4">
-                <Process />
-              </section>
-            </ParallaxScroll>
+            <section className="river-flow rounded-[3rem] border border-white/5 px-4 py-8 md:py-16">
+              <Process />
+            </section>
           </ScrollReveal>
 
           <ScrollReveal>
-            <ParallaxScroll speed={0.1} direction="down">
-              <Testimonial />
-            </ParallaxScroll>
+            <Testimonial />
           </ScrollReveal>
 
           <SelectedWork />
 
           <ScrollReveal>
-            <ParallaxScroll speed={0.08} direction="up">
-              <FeaturesSection />
-            </ParallaxScroll>
+            <FeaturesSection />
           </ScrollReveal>
 
           <ScrollReveal>
-            <ParallaxScroll speed={0.12} direction="down">
-              <WhyNexora />
-            </ParallaxScroll>
+            <WhyNexora />
           </ScrollReveal>
 
           <ScrollReveal>
-            <ParallaxScroll speed={0.05} direction="up">
-              <FAQ />
-            </ParallaxScroll>
+            <FAQ />
           </ScrollReveal>
         </div>
       </div>
