@@ -10,11 +10,17 @@ export default function SmoothScroll({ children }: { children: React.ReactNode }
     const pathname = usePathname();
 
     useEffect(() => {
+        // Optimization for Low End & Accessibility
+        const isLowEnd = (navigator as any).deviceMemory !== undefined && (navigator as any).deviceMemory <= 4;
+        const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+        if (prefersReducedMotion || isLowEnd) return;
+
         const lenis = new Lenis({
-            duration: 2.2, // Increased for a longer, more graceful scroll
+            duration: 1.1,
             easing: (t: number) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-            lerp: 0.035, // Significantly lowered for that "ultra-syrupy" river flow
-            wheelMultiplier: 0.9, // Slightly dampened for more perceived weight
+            lerp: 0.12,
+            wheelMultiplier: 1,
             touchMultiplier: 1.5,
             infinite: false,
             syncTouch: true,
@@ -22,30 +28,16 @@ export default function SmoothScroll({ children }: { children: React.ReactNode }
 
         lenisRef.current = lenis;
 
-        let update: (time: number) => void;
-
-        import("gsap").then((gsapModule) => {
-            const gsap = gsapModule.gsap;
-            update = (time: number) => {
-                lenis.raf(time * 1000);
-            };
-            gsap.ticker.add(update);
-            gsap.ticker.lagSmoothing(0);
-        }).catch(() => {
-            const raf = (time: number) => {
-                lenis.raf(time);
-                requestAnimationFrame(raf);
-            };
-            requestAnimationFrame(raf);
-        });
+        let frameId: number;
+        const raf = (time: number) => {
+            lenis.raf(time);
+            frameId = requestAnimationFrame(raf);
+        };
+        frameId = requestAnimationFrame(raf);
 
         return () => {
             lenis.destroy();
-            if (update) {
-                import("gsap").then((gsapModule) => {
-                    gsapModule.gsap.ticker.remove(update);
-                });
-            }
+            cancelAnimationFrame(frameId);
         };
     }, []);
 

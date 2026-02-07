@@ -100,6 +100,13 @@ body {
   .text-glow {
     text-shadow: 0 0 20px rgba(11, 185, 243, 0.3);
   }
+
+  /* GPU Acceleration to fix shaking text during scroll */
+  .gpu-stable {
+    transform: translateZ(0);
+    backface-visibility: hidden;
+    perspective: 1000px;
+  }
 }
 
 @keyframes float {

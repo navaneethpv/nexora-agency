@@ -92,32 +92,12 @@ export default function MockupShowcase() {
         offset: ["start start", "end start"],
     });
 
-    const springConfig = { stiffness: 35, damping: 25, mass: 1.5, restDelta: 0.0001 };
-
-    const translateX = useSpring(
-        useTransform(scrollYProgress, [0, 1], [0, 800]),
-        springConfig
-    );
-    const translateXReverse = useSpring(
-        useTransform(scrollYProgress, [0, 1], [0, -800]),
-        springConfig
-    );
-    const rotateX = useSpring(
-        useTransform(scrollYProgress, [0, 0.2], [15, 0]),
-        springConfig
-    );
-    const opacity = useSpring(
-        useTransform(scrollYProgress, [0, 0.15], [0, 1]),
-        springConfig
-    );
-    const rotateZ = useSpring(
-        useTransform(scrollYProgress, [0, 0.2], [10, 0]),
-        springConfig
-    );
-    const translateY = useSpring(
-        useTransform(scrollYProgress, [0, 0.2], [-500, 300]),
-        springConfig
-    );
+    const translateX = useTransform(scrollYProgress, [0, 1], [0, 800]);
+    const translateXReverse = useTransform(scrollYProgress, [0, 1], [0, -800]);
+    const rotateX = useTransform(scrollYProgress, [0, 0.2], [15, 0]);
+    const opacity = useTransform(scrollYProgress, [0, 0.1], [0, 1]);
+    const rotateZ = useTransform(scrollYProgress, [0, 0.2], [10, 0]);
+    const translateY = useTransform(scrollYProgress, [0, 0.2], [-500, 300]);
 
     return (
         <div
@@ -169,7 +149,7 @@ export default function MockupShowcase() {
 const Header = () => {
     return (
         <div className="max-w-7xl relative mx-auto py-20 md:py-40 px-4 w-full left-0 top-0">
-            <h1 className="text-3xl md:text-8xl font-black text-white tracking-tighter leading-none mb-8">
+            <h1 className="text-3xl md:text-8xl font-black text-white tracking-tighter leading-none mb-8 gpu-stable">
                 Crafting <span className="text-accent">Legendary</span> <br /> Digital Experiences
             </h1>
             <p className="max-w-2xl text-base md:text-2xl font-medium text-secondary/80 leading-relaxed">

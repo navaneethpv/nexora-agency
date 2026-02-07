@@ -41,17 +41,13 @@ export default function ScrollReveal({
             opacity: 0,
             x: direction === "left" ? distance : direction === "right" ? -distance : 0,
             y: direction === "up" ? distance : direction === "down" ? -distance : 0,
-            scale: 0.95,
-            skewY: direction === "none" ? 0 : 2,
-            filter: "blur(10px)",
+            scale: 0.98,
         },
         visible: {
             opacity: 1,
             x: 0,
             y: 0,
             scale: 1,
-            skewY: 0,
-            filter: "blur(0px)",
             transition: {
                 duration: duration,
                 delay: delay,
@@ -66,7 +62,7 @@ export default function ScrollReveal({
             whileInView="visible"
             viewport={{ once, margin: "-10% 0px" }}
             variants={variants}
-            className={`${className} will-change-[transform,opacity,filter]`}
+            className={`${className} will-change-[transform,opacity]`}
         >
             {children}
         </motion.div>

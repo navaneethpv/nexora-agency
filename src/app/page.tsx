@@ -61,8 +61,8 @@ export default function Home() {
       <ScrollReveal direction="none">
         <section ref={tickerRef} className="py-16 md:py-24 flex flex-col items-center border-t border-white/5 relative bg-white/2 overflow-hidden">
           {/* Ambient Glows */}
-          <div className="absolute top-1/2 left-1/4 -translate-y-1/2 w-64 h-64 bg-accent/10 blur-[100px] rounded-full pointer-events-none" />
-          <div className="absolute top-1/2 right-1/4 -translate-y-1/2 w-64 h-64 bg-accent-secondary/10 blur-[100px] rounded-full pointer-events-none" />
+          <div className="absolute top-1/2 left-1/4 -translate-y-1/2 w-64 h-64 bg-accent/10 blur-[60px] rounded-full pointer-events-none will-change-[transform,opacity]" />
+          <div className="absolute top-1/2 right-1/4 -translate-y-1/2 w-64 h-64 bg-accent-secondary/10 blur-[60px] rounded-full pointer-events-none will-change-[transform,opacity]" />
 
           <div className="mb-16 relative z-10">
             <ShinyText
