@@ -22,7 +22,6 @@ import SelectedWork from "@/components/home/SelectedWork";
 
 import MockupShowcase from "@/components/MockupShowcase";
 import CustomCursor from "@/components/CustomCursor";
-import TracingBeam from "@/components/ui/TracingBeam";
 import ParallaxScroll from "@/components/ParallaxScroll";
 
 const techStack = [
@@ -111,7 +110,7 @@ export default function Home() {
         </section>
       </ParallaxScroll>
 
-      <TracingBeam className="px-4 md:px-6">
+      <div className="max-w-7xl mx-auto px-4 md:px-6">
         <div className="flex flex-col gap-24 md:gap-40 pb-24 md:pb-40">
           <ScrollReveal>
             <ParallaxScroll speed={0.05} direction="up">
@@ -147,7 +146,7 @@ export default function Home() {
             </ParallaxScroll>
           </ScrollReveal>
         </div>
-      </TracingBeam>
+      </div>
       <Footer />
       <FloatingWhatsApp />
     </main>
