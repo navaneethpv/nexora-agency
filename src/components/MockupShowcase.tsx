@@ -92,7 +92,7 @@ export default function MockupShowcase() {
         offset: ["start start", "end start"],
     });
 
-    const springConfig = { stiffness: 60, damping: 20, mass: 1, restDelta: 0.001 };
+    const springConfig = { stiffness: 35, damping: 25, mass: 1.5, restDelta: 0.0001 };
 
     const translateX = useSpring(
         useTransform(scrollYProgress, [0, 1], [0, 800]),

@@ -11,13 +11,13 @@ export default function SmoothScroll({ children }: { children: React.ReactNode }
 
     useEffect(() => {
         const lenis = new Lenis({
-            duration: 1.5,
+            duration: 2.2, // Increased for a longer, more graceful scroll
             easing: (t: number) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-            lerp: 0.07,
-            wheelMultiplier: 1,
-            touchMultiplier: 1.2,
+            lerp: 0.035, // Significantly lowered for that "ultra-syrupy" river flow
+            wheelMultiplier: 0.9, // Slightly dampened for more perceived weight
+            touchMultiplier: 1.5,
             infinite: false,
-            syncTouch: true, // Crucial for mobile smoothness
+            syncTouch: true,
         });
 
         lenisRef.current = lenis;
