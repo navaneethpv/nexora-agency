@@ -1,7 +1,7 @@
 "use client";
 
-import { motion, useReducedMotion, Variants } from "framer-motion";
-import { ReactNode } from "react";
+import { motion, Variants } from "framer-motion";
+import { ReactNode, useEffect, useState } from "react";
 
 interface ScrollRevealProps {
     children: ReactNode;
@@ -22,9 +22,17 @@ export default function ScrollReveal({
     className = "",
     once = true,
 }: ScrollRevealProps) {
-    const shouldReduceMotion = useReducedMotion();
+    const [reducedMotion, setReducedMotion] = useState(false);
 
-    if (shouldReduceMotion) {
+    useEffect(() => {
+        const mediaQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
+        setReducedMotion(mediaQuery.matches);
+        const handler = (e: MediaQueryListEvent) => setReducedMotion(e.matches);
+        mediaQuery.addEventListener("change", handler);
+        return () => mediaQuery.removeEventListener("change", handler);
+    }, []);
+
+    if (reducedMotion) {
         return <div className={className}>{children}</div>;
     }
 
@@ -58,7 +66,7 @@ export default function ScrollReveal({
             whileInView="visible"
             viewport={{ once, margin: "-10% 0px" }}
             variants={variants}
-            className={className}
+            className={`${className} will-change-[transform,opacity,filter]`}
         >
             {children}
         </motion.div>

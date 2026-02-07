@@ -92,14 +92,14 @@ export default function MockupShowcase() {
         offset: ["start start", "end start"],
     });
 
-    const springConfig = { stiffness: 300, damping: 30, bounce: 100 };
+    const springConfig = { stiffness: 60, damping: 20, mass: 1, restDelta: 0.001 };
 
     const translateX = useSpring(
-        useTransform(scrollYProgress, [0, 1], [0, 1000]),
+        useTransform(scrollYProgress, [0, 1], [0, 800]),
         springConfig
     );
     const translateXReverse = useSpring(
-        useTransform(scrollYProgress, [0, 1], [0, -1000]),
+        useTransform(scrollYProgress, [0, 1], [0, -800]),
         springConfig
     );
     const rotateX = useSpring(
@@ -107,22 +107,22 @@ export default function MockupShowcase() {
         springConfig
     );
     const opacity = useSpring(
-        useTransform(scrollYProgress, [0, 0.2], [0.2, 1]),
+        useTransform(scrollYProgress, [0, 0.15], [0, 1]),
         springConfig
     );
     const rotateZ = useSpring(
-        useTransform(scrollYProgress, [0, 0.2], [20, 0]),
+        useTransform(scrollYProgress, [0, 0.2], [10, 0]),
         springConfig
     );
     const translateY = useSpring(
-        useTransform(scrollYProgress, [0, 0.2], [-700, 500]),
+        useTransform(scrollYProgress, [0, 0.2], [-500, 300]),
         springConfig
     );
 
     return (
         <div
             ref={ref}
-            className="h-[300vh] py-40 overflow-hidden antialiased relative flex flex-col self-auto [perspective:1000px] [transform-style:preserve-3d] bg-black"
+            className="h-[300vh] py-40 overflow-hidden antialiased relative flex flex-col self-auto perspective-[1000px] transform-3d bg-black will-change-transform"
         >
             <Header />
             <motion.div
@@ -200,7 +200,7 @@ const ProductCard = ({
                 y: -20,
             }}
             key={product.title}
-            className="group/product h-96 w-[30rem] relative flex-shrink-0"
+            className="group/product h-96 w-120 relative shrink-0"
         >
             <a
                 href={product.link}
@@ -210,7 +210,7 @@ const ProductCard = ({
                     src={product.thumbnail}
                     height="600"
                     width="600"
-                    className="object-cover object-left-top absolute h-full w-full inset-0 rounded-2xl"
+                    className="object-cover object-top-left absolute h-full w-full inset-0 rounded-2xl"
                     alt={product.title}
                 />
             </a>

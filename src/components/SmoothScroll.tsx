@@ -11,25 +11,41 @@ export default function SmoothScroll({ children }: { children: React.ReactNode }
 
     useEffect(() => {
         const lenis = new Lenis({
-            duration: 1.5, // Total duration of the scroll animation
-            easing: (t: number) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), // Custom easing for "liquid" feel
-            lerp: 0.05, // Lower value = smoother, more "syrupy" feel
-            wheelMultiplier: 1, // Normalized speed
-            touchMultiplier: 2,
+            duration: 1.5,
+            easing: (t: number) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+            lerp: 0.07,
+            wheelMultiplier: 1,
+            touchMultiplier: 1.2,
             infinite: false,
+            syncTouch: true, // Crucial for mobile smoothness
         });
 
         lenisRef.current = lenis;
 
-        function raf(time: number) {
-            lenis.raf(time);
-            requestAnimationFrame(raf);
-        }
+        let update: (time: number) => void;
 
-        requestAnimationFrame(raf);
+        import("gsap").then((gsapModule) => {
+            const gsap = gsapModule.gsap;
+            update = (time: number) => {
+                lenis.raf(time * 1000);
+            };
+            gsap.ticker.add(update);
+            gsap.ticker.lagSmoothing(0);
+        }).catch(() => {
+            const raf = (time: number) => {
+                lenis.raf(time);
+                requestAnimationFrame(raf);
+            };
+            requestAnimationFrame(raf);
+        });
 
         return () => {
             lenis.destroy();
+            if (update) {
+                import("gsap").then((gsapModule) => {
+                    gsapModule.gsap.ticker.remove(update);
+                });
+            }
         };
     }, []);
 
