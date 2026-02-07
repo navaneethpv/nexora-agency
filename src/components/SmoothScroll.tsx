@@ -10,12 +10,6 @@ export default function SmoothScroll({ children }: { children: React.ReactNode }
     const pathname = usePathname();
 
     useEffect(() => {
-        // Optimization: Disable JS smooth scroll on touch devices (Mobile/Tablet)
-        // Native scroll is much more performant on low-end devices.
-        const isTouch = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
-
-        if (isTouch) return;
-
         const lenis = new Lenis({
             duration: 1.5, // Total duration of the scroll animation
             easing: (t: number) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), // Custom easing for "liquid" feel
@@ -41,12 +35,8 @@ export default function SmoothScroll({ children }: { children: React.ReactNode }
 
     // Scroll to top on route change
     useEffect(() => {
-        // Only if lenis is active (Desktop)
         if (lenisRef.current) {
             lenisRef.current.scrollTo(0, { immediate: true });
-        } else {
-            // Fallback for native scroll
-            window.scrollTo(0, 0);
         }
     }, [pathname]);
 
