@@ -9,7 +9,7 @@ export default function Testimonial() {
                     {/* Background Glow */}
                     <div className="absolute top-0 right-0 w-96 h-96 bg-accent/5 blur-[100px] rounded-full -translate-y-1/2 translate-x-1/2 pointer-events-none" />
 
-                    <div className="absolute top-0 right-0 p-4 md:p-6 opacity-5 text-[60px] md:text-[100px] italic select-none pointer-events-none group-hover:opacity-10 transition-opacity duration-700">"</div>
+                    <div className="absolute top-0 right-0 p-4 md:p-6 opacity-5 text-[60px] md:text-[100px] font-black select-none pointer-events-none group-hover:opacity-10 transition-opacity duration-700">"</div>
 
                     <div className="inline-flex items-center px-4 py-1.5 rounded-full bg-accent/10 border border-accent/20 mb-8 md:mb-10">
                         <span className="text-[10px] md:text-xs font-black tracking-[0.3em] text-accent uppercase">PHILOSOPHY</span>
@@ -17,7 +17,7 @@ export default function Testimonial() {
 
                     <blockquote className="text-3xl sm:text-4xl md:text-7xl font-medium leading-[1.1] mb-12 md:mb-16">
                         Designed for <span className="text-white">Clarity</span>. <br />
-                        <span className="italic font-light text-secondary">Built for global scale.</span>
+                        <span className="font-normal text-secondary">Built for global scale.</span>
                     </blockquote>
 
                     <div>

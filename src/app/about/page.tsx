@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import { Check, Shield, Zap, Target, Users, Sparkles, User } from "lucide-react";
+import { RiCheckLine, RiShieldLine, RiFlashlightLine, RiFocus3Line, RiGroupLine, RiSparkling2Line, RiUserLine } from "react-icons/ri";
 import ScrollReveal from "@/components/ScrollReveal";
 import Link from "next/link";
 import Image from "next/image";
@@ -61,7 +61,7 @@ export default function AboutPage() {
                         <ScrollReveal direction="left" distance={60}>
                             <div className="space-y-6 text-center lg:text-left">
                                 <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-xs font-bold uppercase tracking-widest text-accent">
-                                    <Shield size={14} />
+                                    <RiShieldLine size={14} />
                                     <span>Who We Are</span>
                                 </div>
                                 <h2 className="text-3xl md:text-5xl font-bold leading-tight">
@@ -138,7 +138,7 @@ export default function AboutPage() {
                     >
                         {[
                             {
-                                icon: <Zap className="w-8 h-8" />,
+                                icon: <RiFlashlightLine className="w-8 h-8" />,
                                 title: "Clarity",
                                 description: "We remove confusion from the process. You’ll always know what we’re building and why it matters.",
                                 color: "text-accent",
@@ -147,7 +147,7 @@ export default function AboutPage() {
                                 bgHover: "group-hover:bg-accent/5"
                             },
                             {
-                                icon: <Target className="w-8 h-8" />,
+                                icon: <RiFocus3Line className="w-8 h-8" />,
                                 title: "Quality",
                                 description: "We focus on building solutions that are stable, well-designed, and built to last.",
                                 color: "text-accent-secondary",
@@ -156,7 +156,7 @@ export default function AboutPage() {
                                 bgHover: "group-hover:bg-accent-secondary/5"
                             },
                             {
-                                icon: <Users className="w-8 h-8" />,
+                                icon: <RiGroupLine className="w-8 h-8" />,
                                 title: "Reliability",
                                 description: "We work as a dependable partner, committed to your goals and long-term success.",
                                 color: "text-accent-glow",
@@ -204,7 +204,7 @@ export default function AboutPage() {
                                 <Link href="/process">
                                     <button className="bg-accent text-white px-8 py-4 rounded-full font-bold hover:brightness-110 transition-all flex items-center gap-2 group hover:cursor-pointer">
                                         Learn Our Process
-                                        <Sparkles size={18} className="group-hover:rotate-12 transition-transform" />
+                                        <RiSparkling2Line size={18} className="group-hover:rotate-12 transition-transform" />
                                     </button>
                                 </Link>
                             </div>
@@ -212,7 +212,7 @@ export default function AboutPage() {
                                 {differentiators.map((text, i) => (
                                     <div key={i} className="flex items-start gap-4 p-4 rounded-2xl bg-white/5 border border-white/5 hover:border-accent/20 transition-colors">
                                         <div className="mt-1 p-1 rounded-full bg-accent/20 text-accent">
-                                            <Check size={14} strokeWidth={3} />
+                                            <RiCheckLine size={14} strokeWidth={3} />
                                         </div>
                                         <p className="text-white/80 font-medium">{text}</p>
                                     </div>
@@ -249,11 +249,11 @@ export default function AboutPage() {
                     <div className="max-w-4xl mx-auto space-y-12">
                         <ScrollReveal>
                             <div className="text-accent-glow opacity-30 mb-8 inline-block">
-                                <Sparkles className="w-10 h-10 md:w-[60px] md:h-[60px]" strokeWidth={1} />
+                                <RiSparkling2Line className="w-10 h-10 md:w-[60px] md:h-[60px]" strokeWidth={1} />
                             </div>
                         </ScrollReveal>
                         <ScrollReveal>
-                            <h2 className="text-2xl md:text-5xl lg:text-6xl font-bold italic leading-tight">
+                            <h2 className="text-2xl md:text-5xl lg:text-6xl font-bold leading-tight">
                                 &ldquo;To help organizations simplify technology and build digital experiences that are clear, reliable, and easy to use.&rdquo;
                             </h2>
                             <p className="text-accent font-bold tracking-[0.2em] uppercase mt-12">The Nexora Vision</p>
@@ -277,43 +277,35 @@ export default function AboutPage() {
                             {
                                 name: "Navaneeth PV",
                                 role: "PRODUCT & DEVELOPMENT",
-                                desc: "He leads the technical vision at Nexora, specializing in architectural planning and building systems that remain fast and dependable as they scale.",
-                                img: "https://images.unsplash.com/photo-1557683311-eac922347aa1?q=80&w=400&h=400&fit=crop"
+                                desc: "He leads the technical vision at Nexora, specializing in architectural planning and building systems that remain fast and dependable as they scale."
                             },
                             {
                                 name: "Muhammed Yaseen",
                                 role: "PRODUCT & DEVELOPMENT",
-                                desc: "Dedicated to solving complex engineering challenges, Yaseen focuses on turning intricate requirements into seamless, high-performance digital experiences.",
-                                img: "https://images.unsplash.com/photo-1557683316-973673baf926?q=80&w=400&h=400&fit=crop"
+                                desc: "Dedicated to solving complex engineering challenges, Yaseen focuses on turning intricate requirements into seamless, high-performance digital experiences."
                             },
                             {
                                 name: "Muhammed Suhail",
                                 role: "DESIGNING",
-                                desc: "With a deep passion for aesthetics and usability, Suhail crafts the visual languages that define our projects, ensuring every pixel serves the user's journey.",
-                                img: "https://images.unsplash.com/photo-1563089145-599997674d42?q=80&w=400&h=400&fit=crop"
+                                desc: "With a deep passion for aesthetics and usability, Suhail crafts the visual languages that define our projects, ensuring every pixel serves the user's journey."
                             }
                         ].map((member, i) => (
                             <ScrollReveal key={i} delay={i * 0.1}>
                                 <div className="group relative p-8 rounded-3xl bg-white/2 border border-white/5 hover:border-accent/20 transition-all duration-500 hover:bg-white/5 hover:-translate-y-2">
-                                    {/* Placeholder Profile (Instagram Style) */}
+                                    {/* Placeholder Profile */}
                                     <div className="relative w-32 h-32 mx-auto mb-8 rounded-full bg-white/5 flex items-center justify-center border-2 border-white/10 group-hover:border-accent/50 transition-all duration-500 overflow-hidden">
-                                        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.05),transparent)] opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                                        <User className="w-16 h-16 text-white/10 group-hover:text-accent/40 transition-all duration-500" strokeWidth={1} />
+                                        <RiUserLine className="w-16 h-16 text-white/10 group-hover:text-accent/40 transition-all duration-500" />
                                     </div>
 
-                                    {/* Content */}
                                     <div className="space-y-4">
                                         <div>
                                             <h3 className="text-xl font-bold text-white mb-1 group-hover:text-accent transition-colors">{member.name}</h3>
                                             <p className="text-sm font-bold tracking-wider text-white/40 uppercase">{member.role}</p>
                                         </div>
-                                        <p className="text-secondary font-medium leading-relaxed text-sm italic">
+                                        <p className="text-secondary font-medium leading-relaxed text-sm">
                                             &ldquo;{member.desc}&rdquo;
                                         </p>
                                     </div>
-
-                                    {/* Subtle Glow */}
-                                    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-accent/5 blur-3xl rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500 -z-10" />
                                 </div>
                             </ScrollReveal>
                         ))}

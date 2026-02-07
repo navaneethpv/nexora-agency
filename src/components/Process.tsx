@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Search, PenTool, Braces, Rocket } from "lucide-react";
+import { RiSearchLine, RiPencilRulerLine, RiCodeLine, RiRocketLine } from "react-icons/ri";
 import ScrollReveal from "./ScrollReveal";
 
 const steps = [
@@ -9,25 +9,25 @@ const steps = [
         number: "01",
         title: "Discover",
         description: "We understand your vision, target audience, and core technical requirements to build a solid foundation.",
-        icon: Search
+        icon: RiSearchLine
     },
     {
         number: "02",
         title: "Design",
         description: "Crafting intuitive, high-fidelity user interfaces that balance aesthetics with functional clarity.",
-        icon: PenTool
+        icon: RiPencilRulerLine
     },
     {
         number: "03",
         title: "Build",
         description: "Developing robust, scalable production systems using cutting-edge technologies and best practices.",
-        icon: Braces
+        icon: RiCodeLine
     },
     {
         number: "04",
         title: "Refine",
         description: "Rigorous testing and optimization to ensure your product is polished, fast, and ready for global scale.",
-        icon: Rocket
+        icon: RiRocketLine
     }
 ];
 
@@ -44,7 +44,7 @@ export default function Process() {
                             <span className="text-accent font-bold text-xs md:text-sm tracking-[0.4em] uppercase block mb-4">OUR METHODOLOGY</span>
                             <h2 className="text-4xl md:text-6xl font-bold leading-[1.1] tracking-tighter text-white">
                                 A Strategic Path <br />
-                                <span className="italic font-medium text-secondary">to Digital Excellence</span>
+                                <span className="font-bold text-secondary">to Digital Excellence</span>
                             </h2>
                         </div>
                     </ScrollReveal>

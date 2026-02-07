@@ -42,7 +42,7 @@ export default function FAQ() {
                             <div className="sticky top-32">
                                 <h2 className="text-5xl md:text-8xl font-medium tracking-tighter text-white leading-[0.9] mb-8">
                                     Commonly <br />
-                                    <span className="text-accent italic font-light">Quest</span>ions
+                                    <span className="text-accent font-bold">Quest</span>ions
                                 </h2>
                                 <p className="text-secondary text-lg md:text-2xl font-normal leading-relaxed opacity-70 max-w-md">
                                     Everything you need to know about our distilled engineering process and technical ethics.
@@ -57,8 +57,8 @@ export default function FAQ() {
                             <ScrollReveal key={index} delay={index * 0.1} direction="up" distance={20}>
                                 <div
                                     className={`glass-card rounded-3xl border transition-all duration-500 overflow-hidden ${openIndex === index
-                                            ? 'bg-white/5 border-accent/30'
-                                            : 'bg-white/2 border-white/5 hover:border-white/20'
+                                        ? 'bg-white/5 border-accent/30'
+                                        : 'bg-white/2 border-white/5 hover:border-white/20'
                                         }`}
                                 >
                                     <button

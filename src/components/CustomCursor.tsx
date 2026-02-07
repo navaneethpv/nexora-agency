@@ -59,7 +59,7 @@ export default function CustomCursor() {
                     y: useSpring(mouseY, { damping: 40, stiffness: 300 }),
                     opacity: isVisible ? 0.3 : 0,
                 }}
-                className="fixed top-0 left-0 w-8 h-8 rounded-full border border-accent/20 pointer-events-none z-[9998] hidden md:block"
+                className="fixed top-0 left-0 w-8 h-8 rounded-full border border-accent/20 pointer-events-none z-9998 hidden md:block"
             />
 
             <motion.div
@@ -69,7 +69,7 @@ export default function CustomCursor() {
                     opacity: isVisible ? 1 : 0,
                     scale: isHovering ? 2 : 1,
                 }}
-                className="fixed top-0 left-0 w-8 h-8 pointer-events-none z-[9999] hidden md:block"
+                className="fixed top-0 left-0 w-8 h-8 pointer-events-none z-9999 hidden md:block"
             >
                 {/* Main Chassis */}
                 <div className={`absolute inset-0 rounded-full border transition-all duration-500 ${isHovering ? 'bg-accent/10 border-accent scale-125' : 'border-white/20'
