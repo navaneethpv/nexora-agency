@@ -5,6 +5,7 @@ import {
     useTransform,
     useScroll,
     useSpring,
+    useMotionValueEvent,
 } from "framer-motion";
 
 export default function TracingBeam({
@@ -19,11 +20,23 @@ export default function TracingBeam({
         target: ref,
         offset: ["start start", "end end"],
     });
+
     const contentRef = useRef<HTMLDivElement>(null);
     const [svgHeight, setSvgHeight] = useState(0);
+    const [isScrolled, setIsScrolled] = useState(false);
+
+    useMotionValueEvent(scrollYProgress, "change", (latest: number) => {
+        setIsScrolled(latest > 0.01);
+    });
 
     useEffect(() => {
         if (!contentRef.current) return;
+
+        const updateHeight = () => {
+            if (contentRef.current) {
+                setSvgHeight(contentRef.current.offsetHeight);
+            }
+        };
 
         const resizeObserver = new ResizeObserver((entries) => {
             for (let entry of entries) {
@@ -31,20 +44,22 @@ export default function TracingBeam({
             }
         });
 
+        updateHeight();
         resizeObserver.observe(contentRef.current);
 
         return () => resizeObserver.disconnect();
     }, []);
 
+    // Ensure the beam is at least 100px long and starts above the viewport to enter smoothly
     const y1 = useSpring(
-        useTransform(scrollYProgress, [0, 1], [0, svgHeight]),
+        useTransform(scrollYProgress, [0, 1], [50, svgHeight]),
         {
             stiffness: 500,
             damping: 90,
         }
     );
     const y2 = useSpring(
-        useTransform(scrollYProgress, [0, 1], [0, svgHeight - 200]),
+        useTransform(scrollYProgress, [0, 1], [-150, svgHeight - 200]),
         {
             stiffness: 500,
             damping: 90,
@@ -64,7 +79,7 @@ export default function TracingBeam({
                     }}
                     animate={{
                         boxShadow:
-                            scrollYProgress.get() > 0
+                            isScrolled
                                 ? "none"
                                 : "rgba(0, 0, 0, 0.24) 0px 3px 8px",
                     }}
@@ -77,9 +92,9 @@ export default function TracingBeam({
                         }}
                         animate={{
                             backgroundColor:
-                                scrollYProgress.get() > 0 ? "white" : "var(--color-accent)",
+                                isScrolled ? "white" : "var(--color-accent, #0BB9F3)",
                             borderColor:
-                                scrollYProgress.get() > 0 ? "white" : "var(--color-accent)",
+                                isScrolled ? "white" : "var(--color-accent, #0BB9F3)",
                         }}
                         className="h-2 w-2 rounded-full border border-neutral-300 bg-white"
                     />
@@ -87,7 +102,7 @@ export default function TracingBeam({
                 <svg
                     viewBox={`0 0 20 ${svgHeight}`}
                     width="20"
-                    height={svgHeight}
+                    height={svgHeight} // Set svg height to content height
                     className="ml-4 block"
                     aria-hidden="true"
                 >
