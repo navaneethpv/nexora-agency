@@ -83,12 +83,12 @@ export default function SelectedWork() {
                     </p>
                 </ParallaxScroll>
 
-                <div className="grid grid-cols-1 gap-16 md:gap-24">
+                <div className="grid grid-cols-1 gap-16 md:gap-32">
                     {featuredProjects.map((project, i) => (
                         <Link href={`/work/${project.slug}`} key={project.slug} className="group project-card block">
                             <article className="border-t border-white/10 pt-10 md:pt-14 grid grid-cols-1 lg:grid-cols-2 gap-10 md:gap-20 items-start">
-                                {/* Text Content */}
-                                <div className="space-y-6 md:space-y-8 order-2 lg:order-1">
+                                {/* Text Content with faster Parallax */}
+                                <ParallaxScroll speed={i % 2 === 0 ? 0.05 : 0.08} direction="up" className="space-y-6 md:space-y-8 order-2 lg:order-1">
                                     <div className="space-y-4">
                                         <div className="flex items-center gap-4">
                                             <span className="text-accent font-mono text-xs md:text-sm tracking-widest uppercase">0{i + 1}</span>
@@ -113,18 +113,18 @@ export default function SelectedWork() {
                                         View Case Study
                                         <ArrowUpRight className="w-5 h-5 text-accent" />
                                     </div>
-                                </div>
+                                </ParallaxScroll>
 
-                                {/* Image with subtle parallax */}
-                                <ParallaxScroll speed={0.1} className="order-1 lg:order-2 relative aspect-4/3 md:aspect-16/10 overflow-hidden rounded-2xl bg-white/5">
+                                {/* Image with slower/opposite Parallax */}
+                                <ParallaxScroll speed={i % 2 === 0 ? 0.12 : 0.1} direction="down" className="order-1 lg:order-2 relative aspect-4/3 md:aspect-16/10 overflow-hidden rounded-2xl bg-white/5 shadow-2xl">
                                     <Image
                                         src={project.coverImage}
                                         alt={project.title}
                                         fill
-                                        className="object-cover transition-transform duration-700 group-hover:scale-105"
+                                        className="object-cover transition-transform duration-700 group-hover:scale-110"
                                         sizes="(max-width: 768px) 100vw, 50vw"
                                     />
-                                    <div className="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors duration-500" />
+                                    <div className="absolute inset-0 bg-black/40 group-hover:bg-transparent transition-colors duration-500" />
                                 </ParallaxScroll>
                             </article>
                         </Link>
