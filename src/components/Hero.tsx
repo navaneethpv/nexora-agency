@@ -119,23 +119,42 @@ export default function Hero() {
                 </ScrollReveal>
 
                 <ScrollReveal delay={0.6} direction="up" duration={1} distance={20}>
-                    <div className="flex flex-col sm:flex-row gap-5 md:gap-6 justify-center items-center w-full sm:w-auto px-4 sm:px-0">
-                        <Link href="/#work" className="w-full sm:w-auto">
-                            <div ref={magneticBtn1} className="w-full sm:w-auto">
-                                <button className="w-full sm:w-auto group relative bg-accent text-white px-10 md:px-12 py-5 md:py-6 rounded-full text-base font-medium transition-all active:scale-95 flex items-center justify-center gap-3 overflow-hidden shadow-lg shadow-accent/10 hover:shadow-accent/20">
-                                    <span className="relative">View Our Portfolio</span>
-                                    <ArrowRight className="w-5 h-5 relative group-hover:translate-x-1 transition-transform duration-400" />
-                                </button>
+                    <motion.button
+                        onClick={() => {
+                            const nextSection = document.getElementById('trust-section');
+                            if (nextSection) {
+                                nextSection.scrollIntoView({ behavior: 'smooth' });
+                            }
+                        }}
+                        whileHover={{ y: 5 }}
+                        className="mt-12 md:mt-16 flex flex-col items-center gap-4 group cursor-pointer"
+                    >
+                        <motion.div
+                            initial={{ opacity: 0, y: -20 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{
+                                duration: 1,
+                                delay: 1,
+                                ease: "easeOut"
+                            }}
+                            className="flex flex-col items-center gap-3"
+                        >
+                            <span className="text-[10px] uppercase tracking-[0.4em] text-white/40 font-bold group-hover:text-accent transition-colors duration-500">Scroll to explore</span>
+                            <div className="w-px h-12 bg-linear-to-b from-accent to-transparent relative overflow-hidden group-hover:h-16 transition-all duration-500">
+                                <motion.div
+                                    animate={{
+                                        y: ["-100%", "100%"]
+                                    }}
+                                    transition={{
+                                        duration: 2,
+                                        repeat: Infinity,
+                                        ease: "easeInOut"
+                                    }}
+                                    className="absolute top-0 left-0 w-full h-1/2 bg-accent shadow-[0_0_15px_rgba(11,185,243,0.8)]"
+                                />
                             </div>
-                        </Link>
-                        <div ref={magneticBtn2} className="w-full sm:w-auto">
-                            <Link href="/contact" className="w-full sm:w-auto">
-                                <button className="w-full sm:w-auto group relative bg-white/5 border border-white/10 text-white px-10 md:px-12 py-5 md:py-6 rounded-full text-base font-medium hover:bg-white/10 transition-all backdrop-blur-xl active:scale-95">
-                                    <span>Get in Touch</span>
-                                </button>
-                            </Link>
-                        </div>
-                    </div>
+                        </motion.div>
+                    </motion.button>
                 </ScrollReveal>
             </div>
         </section>

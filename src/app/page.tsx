@@ -52,7 +52,7 @@ export default function Home() {
       <Hero />
 
       {/* Trust Section - Ticker moved higher */}
-      <section ref={tickerRef} className="py-20 md:py-32 border-b border-white/5 relative bg-background overflow-hidden">
+      <section id="trust-section" ref={tickerRef} className="py-20 md:py-32 border-b border-white/5 relative bg-background overflow-hidden">
         <div className="section-container relative">
           <div className="mb-12 md:mb-16 relative z-10 flex justify-center">
             <ShinyText
