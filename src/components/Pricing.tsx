@@ -24,7 +24,7 @@ export default function WhyNexora() {
                     transition={{ duration: 0.6 }}
                     className="text-left mb-16 md:mb-24"
                 >
-                    <h2 className="text-4xl sm:text-7xl md:text-[10rem] font-medium tracking-tighter mb-6 leading-none text-white">
+                    <h2 className="text-4xl sm:text-6xl md:text-8xl font-medium tracking-tighter mb-6 leading-none text-white">
                         The <span className="text-accent font-semibold">Nexora</span> Edge
                     </h2>
                 </motion.div>
@@ -41,10 +41,10 @@ export default function WhyNexora() {
                             {/* Left Content */}
                             <div className="flex-1 space-y-10 md:space-y-16 w-full text-center lg:text-left">
                                 <div className="space-y-6 md:space-y-8">
-                                    <h3 className="text-3xl sm:text-4xl md:text-6xl font-medium leading-[1.1] tracking-tight text-white">
+                                    <h3 className="text-3xl sm:text-4xl md:text-5xl font-medium leading-[1.1] tracking-tight text-white">
                                         Built for reliability <br className="hidden sm:block" /> and visionary growth
                                     </h3>
-                                    <p className="text-secondary text-lg md:text-2xl font-normal leading-relaxed max-w-xl mx-auto lg:mx-0 opacity-90">
+                                    <p className="text-secondary text-base md:text-xl font-normal leading-relaxed max-w-xl mx-auto lg:mx-0 opacity-90">
                                         We architect digital platforms that are stable, intuitive, and engineered to endure.
                                     </p>
                                 </div>
@@ -62,7 +62,7 @@ export default function WhyNexora() {
                                             <div className="w-6 h-6 rounded-full bg-accent/10 border border-accent/20 flex items-center justify-center text-accent group-hover:bg-accent group-hover:text-white transition-all duration-500 shrink-0">
                                                 <RiCheckLine className="w-4 h-4" />
                                             </div>
-                                            <span className="text-secondary text-base md:text-xl font-normal group-hover:text-white transition-colors duration-300">
+                                            <span className="text-secondary text-base md:text-lg font-normal group-hover:text-white transition-colors duration-300">
                                                 {item}
                                             </span>
                                         </motion.div>

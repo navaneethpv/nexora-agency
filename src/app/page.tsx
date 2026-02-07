@@ -21,7 +21,6 @@ import { SiTypescript, SiAdobephotoshop, SiExpress, SiMongodb, SiAdobeillustrato
 import SelectedWork from "@/components/home/SelectedWork";
 import MockupShowcase from "@/components/MockupShowcase";
 import CustomCursor from "@/components/CustomCursor";
-import Metrics from "@/components/Metrics";
 
 const techStack = [
   { name: "Next.js", icon: RiNextjsFill },
@@ -92,9 +91,6 @@ export default function Home() {
 
       {/* Services Section - Moved directly under trust */}
       <FeaturesSection />
-
-      {/* Performance Metrics - New Section */}
-      <Metrics />
 
       <div className="flex flex-col gap-32 md:gap-48 pb-32 md:pb-48">
         {/* Proof - Selected Work */}

@@ -44,10 +44,10 @@ export default function AboutPage() {
                         transition={{ duration: 0.8, ease: "easeOut" }}
                         className="space-y-6"
                     >
-                        <h1 className="text-4xl md:text-7xl lg:text-8xl font-bold tracking-tight">
+                        <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight">
                             About <span className="text-accent text-glow">Nexora</span>
                         </h1>
-                        <p className="max-w-2xl mx-auto text-lg md:text-xl text-secondary font-medium leading-relaxed">
+                        <p className="max-w-2xl mx-auto text-base md:text-lg text-secondary font-medium leading-relaxed">
                             A specialized digital agency dedicated to building high-performance websites and web applications for forward-thinking brands and institutions.
                         </p>
                     </motion.div>
@@ -64,10 +64,10 @@ export default function AboutPage() {
                                     <RiShieldLine size={14} />
                                     <span>Who We Are</span>
                                 </div>
-                                <h2 className="text-3xl md:text-5xl font-bold leading-tight">
+                                <h2 className="text-3xl md:text-4xl font-bold leading-tight">
                                     Merging <span className="text-accent underline decoration-accent/20 underline-offset-8">Creativity</span> with Reliable Technology.
                                 </h2>
-                                <p className="text-secondary text-lg leading-relaxed font-medium">
+                                <p className="text-secondary text-base md:text-lg leading-relaxed font-medium">
                                     Nexora is a digital solutions studio focused on building clean, reliable, and easy-to-use digital platforms.
                                 </p>
                                 <p className="text-secondary text-lg leading-relaxed font-medium">
@@ -197,8 +197,8 @@ export default function AboutPage() {
 
                         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 md:gap-16">
                             <div className="space-y-8">
-                                <h2 className="text-4xl font-bold">What Makes Nexora Different?</h2>
-                                <p className="text-secondary text-lg font-medium leading-relaxed">
+                                <h2 className="text-3xl font-bold">What Makes Nexora Different?</h2>
+                                <p className="text-secondary text-base md:text-lg font-medium leading-relaxed">
                                     We focus on building thoughtful digital solutions that prioritize clarity, quality, and long-term reliability. Our approach is simple, transparent, and designed to create lasting value.
                                 </p>
                                 <Link href="/process">
@@ -227,8 +227,8 @@ export default function AboutPage() {
             <section className="py-16 md:py-24 relative overflow-hidden">
                 <div className="section-container text-center">
                     <ScrollReveal>
-                        <h2 className="text-3xl md:text-5xl font-bold mb-8">Designed for Modern Organizations</h2>
-                        <p className="max-w-3xl mx-auto text-secondary text-lg mb-12 md:mb-16 font-medium">
+                        <h2 className="text-3xl md:text-4xl font-bold mb-8">Designed for Modern Organizations</h2>
+                        <p className="max-w-3xl mx-auto text-secondary text-base md:text-lg mb-12 md:mb-16 font-medium">
                             Whether you represent an educational institution, a growing startup, or an established organization, Nexora builds reliable digital solutions tailored to your needs.
                         </p>
 
@@ -253,7 +253,7 @@ export default function AboutPage() {
                             </div>
                         </ScrollReveal>
                         <ScrollReveal>
-                            <h2 className="text-2xl md:text-5xl lg:text-6xl font-bold leading-tight">
+                            <h2 className="text-xl md:text-3xl lg:text-4xl font-bold leading-tight">
                                 &ldquo;To help organizations simplify technology and build digital experiences that are clear, reliable, and easy to use.&rdquo;
                             </h2>
                             <p className="text-accent font-bold tracking-[0.2em] uppercase mt-12">The Nexora Vision</p>

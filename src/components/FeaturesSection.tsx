@@ -44,12 +44,12 @@ export default function FeaturesSection() {
                 <ScrollReveal direction="down" distance={20}>
                     <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-16 md:mb-24">
                         <div className="w-full lg:w-2/3">
-                            <h2 className="text-4xl md:text-9xl font-medium mb-6 md:mb-0 tracking-tight leading-none text-white">
+                            <h2 className="text-4xl md:text-7xl font-medium mb-6 md:mb-0 tracking-tight leading-none text-white">
                                 Specialized <br />
                                 <span className="text-accent font-bold">Solutions</span>
                             </h2>
                         </div>
-                        <p className="w-full lg:w-1/3 text-secondary text-lg md:text-2xl font-normal leading-relaxed opacity-80 lg:text-right">
+                        <p className="w-full lg:w-1/3 text-secondary text-base md:text-xl font-normal leading-relaxed opacity-80 lg:text-right">
                             Distilled digital engineering for industries demanding technical precision and aesthetic absolute.
                         </p>
                     </div>

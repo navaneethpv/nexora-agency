@@ -164,11 +164,11 @@ export default function MockupShowcase() {
 const Header = () => {
     return (
         <div className="section-container relative mx-auto py-12 md:py-20 px-4 w-full left-0 top-0">
-            <h1 className="text-[2.5rem] md:text-8xl font-medium text-white tracking-tight leading-[1.1] mb-10 gpu-stable">
+            <h1 className="text-[2.5rem] md:text-6xl font-medium text-white tracking-tight leading-[1.1] mb-10 gpu-stable">
                 Engineering <br />
                 <span className="bg-clip-text text-transparent bg-linear-to-r from-accent to-accent-secondary font-semibold">Bespoke</span> Digital Platforms
             </h1>
-            <p className="max-w-2xl text-base md:text-2xl font-normal text-secondary leading-relaxed opacity-90">
+            <p className="max-w-2xl text-base md:text-xl font-normal text-secondary leading-relaxed opacity-90">
                 At <span className="text-white font-medium">Nexora</span>, we converge technical excellence with
                 distilled design to build high-performance products that command attention.
             </p>

@@ -72,11 +72,11 @@ export default function SelectedWork() {
 
             <div className="relative z-10 section-container">
                 <div className="mb-24 md:mb-40 work-title">
-                    <h2 className="text-5xl md:text-[10rem] font-medium mb-10 tracking-tighter text-white leading-[0.85] uppercase">
+                    <h2 className="text-5xl md:text-8xl font-medium mb-10 tracking-tighter text-white leading-[0.85] uppercase">
                         Selected <br />
                         <span className="text-accent font-bold">Equity</span>
                     </h2>
-                    <p className="text-secondary text-lg md:text-3xl font-light leading-relaxed max-w-3xl opacity-60">
+                    <p className="text-secondary text-lg md:text-xl font-light leading-relaxed max-w-3xl opacity-60">
                         A cinematic distillation of high-performance digital systems and architectural brand equity.
                     </p>
                 </div>

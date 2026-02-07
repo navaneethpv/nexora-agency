@@ -40,11 +40,11 @@ export default function FAQ() {
                     <div className="lg:col-span-5">
                         <ScrollReveal direction="right" distance={30}>
                             <div className="sticky top-32">
-                                <h2 className="text-5xl md:text-8xl font-medium tracking-tighter text-white leading-[0.9] mb-8">
+                                <h2 className="text-4xl md:text-6xl font-medium tracking-tighter text-white leading-[0.9] mb-8">
                                     Commonly <br />
                                     <span className="text-accent font-bold">Quest</span>ions
                                 </h2>
-                                <p className="text-secondary text-lg md:text-2xl font-normal leading-relaxed opacity-70 max-w-md">
+                                <p className="text-secondary text-base md:text-xl font-normal leading-relaxed opacity-70 max-w-md">
                                     Everything you need to know about our distilled engineering process and technical ethics.
                                 </p>
                             </div>
