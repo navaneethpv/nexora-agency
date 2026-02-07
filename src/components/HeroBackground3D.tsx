@@ -24,7 +24,7 @@ function RotatingParticles() {
         return pos;
     }, []);
 
-    useFrame((state, delta) => {
+    useFrame((state: any, delta: number) => {
         if (pointsRef.current) {
             pointsRef.current.rotation.y += delta * 0.05;
             pointsRef.current.rotation.x += delta * 0.02;
@@ -71,7 +71,7 @@ function NebulaGlow() {
         return canvas;
     }, []);
 
-    useFrame((state) => {
+    useFrame((state: any) => {
         if (meshRef.current) {
             meshRef.current.rotation.z += 0.001;
             // Float effect
@@ -125,7 +125,7 @@ export default function HeroBackground3D() {
                 <Stars
                     radius={100}
                     depth={50}
-                    count={1500}
+                    count={800} // Reduced from 1500
                     factor={4}
                     saturation={0}
                     fade

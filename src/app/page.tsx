@@ -1,7 +1,6 @@
 "use client";
 
 import { useRef } from "react";
-import dynamic from "next/dynamic";
 import { Star, Quote, ChevronRight } from "lucide-react";
 import Link from "next/link";
 import { motion, useAnimationFrame, useMotionValue, useTransform, useInView } from "framer-motion";
@@ -21,8 +20,7 @@ import { RiNextjsFill, RiTailwindCssFill } from "react-icons/ri";
 import { SiTypescript, SiAdobephotoshop, SiExpress, SiMongodb, SiAdobeillustrator } from "react-icons/si";
 import SelectedWork from "@/components/home/SelectedWork";
 
-// Optimization: Dynamic import for heavy 3D component
-const MacbookAnimation = dynamic(() => import("@/components/MacbookAnimation"), { ssr: false });
+import MockupShowcase from "@/components/MockupShowcase";
 
 const techStack = [
   { name: "Next.js", icon: RiNextjsFill },
@@ -39,12 +37,12 @@ const techStack = [
 
 export default function Home() {
   const baseX = useMotionValue(0);
-  const x = useTransform(baseX, (v) => `${(v % 33.33) - 33.33}%`);
+  const x = useTransform(baseX, (v: number) => `${(v % 33.33) - 33.33}%`);
 
   const tickerRef = useRef<HTMLDivElement>(null);
   const isInView = useInView(tickerRef, { margin: "0px 0px 200px 0px" });
 
-  useAnimationFrame((t, delta) => {
+  useAnimationFrame((t: number, delta: number) => {
     if (!isInView) return;
     // Smoother ticker movement
     baseX.set(baseX.get() - 0.02);
@@ -55,7 +53,7 @@ export default function Home() {
       <Navbar />
       <Hero />
       <div className="relative z-10 bg-black">
-        <MacbookAnimation />
+        <MockupShowcase />
       </div>
 
       <ScrollReveal direction="none">
@@ -80,7 +78,7 @@ export default function Home() {
                 style={{ x }}
                 drag="x"
                 dragConstraints={{ left: 0, right: 0 }}
-                onDrag={(e, info) => {
+                onDrag={(e: any, info: any) => {
                   // Allow manual override of the position
                   baseX.set(baseX.get() + info.delta.x * 0.05);
                 }}

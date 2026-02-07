@@ -1,7 +1,8 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import React, { useEffect, useRef } from "react";
 import Lenis from "lenis";
+
 import { usePathname } from "next/navigation";
 
 export default function SmoothScroll({ children }: { children: React.ReactNode }) {
@@ -16,8 +17,10 @@ export default function SmoothScroll({ children }: { children: React.ReactNode }
         if (isTouch) return;
 
         const lenis = new Lenis({
-            lerp: 0.1, // Higher = more responsive/snappier (less "drag")
-            wheelMultiplier: 1.2,
+            duration: 1.5, // Total duration of the scroll animation
+            easing: (t: number) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), // Custom easing for "liquid" feel
+            lerp: 0.05, // Lower value = smoother, more "syrupy" feel
+            wheelMultiplier: 1, // Normalized speed
             touchMultiplier: 2,
             infinite: false,
         });
