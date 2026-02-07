@@ -4,7 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X } from "lucide-react";
+import { RiMenu4Line, RiCloseLine } from "react-icons/ri";
 import useMagnetic from "@/hooks/useMagnetic";
 
 export default function Navbar() {
@@ -30,7 +30,7 @@ export default function Navbar() {
     ];
 
     return (
-        <nav className="fixed top-4 md:top-8 left-1/2 -translate-x-1/2 z-50 w-full max-w-[95%] md:max-w-[80%] px-2 md:px-6">
+        <nav className="fixed top-4 md:top-8 left-1/2 -translate-x-1/2 z-50 w-full max-w-[96%] md:max-w-[1500px] px-2 md:px-6">
             <motion.div
                 initial={{ y: -20, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
@@ -111,7 +111,7 @@ export default function Navbar() {
                             className="lg:hidden text-white p-2 ml-auto"
                             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
                         >
-                            {isMobileMenuOpen ? <X /> : <Menu />}
+                            {isMobileMenuOpen ? <RiCloseLine className="w-6 h-6" /> : <RiMenu4Line className="w-6 h-6" />}
                         </button>
                     </div>
                 </div>

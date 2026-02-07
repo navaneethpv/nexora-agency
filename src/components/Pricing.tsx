@@ -22,10 +22,10 @@ export default function WhyNexora() {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.6 }}
-                    className="text-center max-w-2xl mx-auto mb-16 md:mb-24"
+                    className="text-left mb-16 md:mb-24"
                 >
-                    <h2 className="text-4xl sm:text-5xl md:text-8xl font-medium tracking-tight mb-6 leading-none text-white">
-                        Why <span className="text-accent font-semibold">Nexora</span>
+                    <h2 className="text-4xl sm:text-7xl md:text-[10rem] font-medium tracking-tighter mb-6 leading-none text-white">
+                        The <span className="text-accent font-semibold">Nexora</span> Edge
                     </h2>
                 </motion.div>
 
@@ -34,7 +34,7 @@ export default function WhyNexora() {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.8 }}
-                    className="max-w-6xl mx-auto"
+                    className="w-full"
                 >
                     <div className="glass-card rounded-[2.5rem] md:rounded-[4rem] p-10 md:p-16 lg:p-24 relative overflow-hidden">
                         <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-12 lg:gap-24">

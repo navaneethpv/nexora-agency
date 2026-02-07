@@ -70,13 +70,13 @@ export default function SelectedWork() {
                 <div className="absolute -bottom-1/4 -left-1/4 w-[600px] h-[600px] bg-accent-secondary/5 blur-[150px] rounded-full opacity-30" />
             </div>
 
-            <div className="relative z-10">
-                <div className="mb-24 md:mb-32 max-w-4xl work-title">
-                    <h2 className="text-5xl md:text-8xl font-medium mb-10 tracking-tight text-white leading-[0.95]">
-                        Selected Work
+            <div className="relative z-10 section-container">
+                <div className="mb-24 md:mb-40 work-title">
+                    <h2 className="text-5xl md:text-9xl font-medium mb-10 tracking-tight text-white leading-[0.9]">
+                        Selected <span className="text-accent font-semibold">Equity</span>
                     </h2>
-                    <p className="text-secondary text-lg md:text-2xl font-normal leading-relaxed max-w-2xl">
-                        A curated selection of digital products and brand identities crafted with precision and purpose.
+                    <p className="text-secondary text-lg md:text-3xl font-normal leading-relaxed max-w-3xl opacity-80">
+                        A cinematic showcase of high-performance digital systems and distilled brand architectures.
                     </p>
                 </div>
 
@@ -96,7 +96,7 @@ export default function SelectedWork() {
                                             {project.title}
                                         </h3>
                                     </div>
-                                    <p className="text-secondary text-base md:text-lg leading-relaxed max-w-xl">
+                                    <p className="text-secondary text-base md:text-xl leading-relaxed max-w-2xl opacity-70 group-hover:opacity-100 transition-opacity">
                                         {project.shortDescription}
                                     </p>
                                     <ul className="flex flex-wrap gap-2 md:gap-3">

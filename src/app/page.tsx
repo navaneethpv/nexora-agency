@@ -66,7 +66,7 @@ export default function Home() {
           </div>
 
           <div className="w-full relative z-10">
-            <div className="flex overflow-hidden mask-[linear-gradient(to_right,transparent,black_15%,black_85%,transparent)] pointer-events-none">
+            <div className="flex overflow-hidden mask-[linear-gradient(to_right,transparent,black_10%,black_90%,transparent)] pointer-events-none">
               <motion.div
                 style={{ x: tickerX }}
                 className="flex flex-nowrap gap-16 md:gap-32 items-center shrink-0 py-4 md:py-8"

@@ -15,15 +15,15 @@ export default function Testimonial() {
                         <span className="text-[10px] md:text-xs font-black tracking-[0.3em] text-accent uppercase">PHILOSOPHY</span>
                     </div>
 
-                    <blockquote className="text-xl sm:text-2xl md:text-4xl font-bold leading-tight mb-6 md:mb-8 max-w-4xl">
-                        Designed for Clarity. <br />
-                        <span className="italic font-medium text-secondary">Built for Scale.</span>
+                    <blockquote className="text-3xl sm:text-4xl md:text-7xl font-medium leading-[1.1] mb-12 md:mb-16">
+                        Designed for <span className="text-white">Clarity</span>. <br />
+                        <span className="italic font-light text-secondary">Built for global scale.</span>
                     </blockquote>
 
-                    <div className="max-w-3xl">
+                    <div>
                         <TextScrollReveal
-                            text="At Nexora, we focus on building digital products that are simple, reliable, and future-ready. Our work prioritizes usability, performance, and maintainability—so businesses can grow without technical friction."
-                            className="text-sm md:text-lg font-medium leading-relaxed"
+                            text="At Nexora, we focus on architecting digital ecosystems that prioritizes technical stability and radical usability. Our work enables visionaries to scale without friction."
+                            className="text-lg md:text-3xl font-normal leading-relaxed text-secondary opacity-80"
                         />
                     </div>
                 </div>

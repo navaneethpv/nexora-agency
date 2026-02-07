@@ -43,13 +43,13 @@ export default function FeaturesSection() {
             <div className="section-container">
                 <ScrollReveal direction="down" distance={20}>
                     <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-16 md:mb-24">
-                        <div className="max-w-2xl">
-                            <h2 className="text-4xl md:text-8xl font-medium mb-6 md:mb-0 tracking-tight leading-none text-white">
+                        <div className="w-full lg:w-2/3">
+                            <h2 className="text-4xl md:text-9xl font-medium mb-6 md:mb-0 tracking-tight leading-none text-white">
                                 Specialized <br />
                                 <span className="text-accent font-bold">Solutions</span>
                             </h2>
                         </div>
-                        <p className="max-w-md text-secondary text-lg md:text-xl font-normal leading-relaxed opacity-80">
+                        <p className="w-full lg:w-1/3 text-secondary text-lg md:text-2xl font-normal leading-relaxed opacity-80 lg:text-right">
                             Distilled digital engineering for industries demanding technical precision and aesthetic absolute.
                         </p>
                     </div>

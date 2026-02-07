@@ -14,7 +14,7 @@ export default function Metrics() {
     return (
         <section className="py-24 md:py-32 bg-background relative overflow-hidden">
             <div className="section-container">
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12 md:gap-8">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-12">
                     {metrics.map((metric, index) => (
                         <ScrollReveal key={index} delay={index * 0.1} direction="up" distance={20}>
                             <div className="flex flex-col items-start p-8 md:p-10 rounded-4xl bg-white/2 border border-white/5 hover:border-accent/20 transition-all duration-500 group h-full">

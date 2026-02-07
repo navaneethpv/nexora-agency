@@ -77,7 +77,7 @@ export default function Hero() {
         <section className="relative h-screen min-h-[800px] flex flex-col items-center justify-center text-center px-6 overflow-hidden bg-background">
             <HeroBackground3D />
 
-            <div className="relative z-10 flex flex-col items-center max-w-5xl mx-auto">
+            <div className="relative z-10 flex flex-col items-center w-full section-container">
                 <ScrollReveal direction="down" duration={1} distance={20}>
                     <div className="hero-label inline-flex items-center gap-2.5 rounded-full border border-white/10 bg-white/3 px-4 py-2 text-[10px] md:text-[11px] font-medium text-white/70 mb-8 md:mb-12 backdrop-blur-xl transition-colors duration-500 hover:border-accent/40">
                         <Sparkles className="w-3.5 h-3.5 text-accent" />
