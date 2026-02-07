@@ -9,76 +9,91 @@ const products = [
         title: "Azure Resorts",
         link: "https://azure-resorts.com",
         thumbnail: "/resort-macbook-mockup.png",
+        category: "Hospitality"
     },
     {
         title: "Summit Academy",
         link: "https://summit-academy.edu",
         thumbnail: "/college-mac.png",
+        category: "Education"
     },
     {
         title: "Institutional Portal",
         link: "https://institutional.io",
         thumbnail: "/institutional-academic.png",
+        category: "Corporate"
     },
     {
         title: "Nexora Studio",
         link: "https://nexora.studio",
         thumbnail: "/device-mockup.png",
+        category: "Branding"
     },
     {
         title: "Creative Agency",
         link: "https://creative.agency",
         thumbnail: "/mac-screen.jpg",
+        category: "Agency"
     },
     {
         title: "Corporate Identity",
         link: "https://corporate.identity",
         thumbnail: "/resort-mac.png",
+        category: "Business"
     },
     {
         title: "Modern E-commerce",
         link: "https://modern-shop.com",
         thumbnail: "/college-mac.png",
+        category: "E-commerce"
     },
     {
         title: "Learning Management",
         link: "https://lms-portal.com",
         thumbnail: "/institutional-academic.png",
+        category: "LMS"
     },
     {
         title: "Saas Platform",
         link: "https://saas-platform.io",
         thumbnail: "/device-mockup.png",
+        category: "SaaS"
     },
     {
         title: "Digital Portfolio",
         link: "https://portfolio.digital",
         thumbnail: "/mac-screen.jpg",
+        category: "Portfolio"
     },
     {
         title: "Web Application",
         link: "https://web-app.com",
         thumbnail: "/resort-macbook-mockup.png",
+        category: "Apps"
     },
     {
         title: "Cloud Services",
         link: "https://cloud-services.net",
         thumbnail: "/resort-mac.png",
+        category: "Infrastructure"
     },
     {
         title: "AI Integration",
         link: "https://ai-integration.tech",
         thumbnail: "/college-mac.png",
+        category: "AI/ML"
     },
     {
         title: "Mobile App Design",
         link: "https://mobile-app.design",
         thumbnail: "/device-mockup.png",
+        category: "Mobile"
     },
     {
         title: "UX Research",
         link: "https://ux-research.org",
         thumbnail: "/mac-screen.jpg",
+        category: "UX/UI"
     },
 ];
 
@@ -92,17 +107,17 @@ export default function MockupShowcase() {
         offset: ["start start", "end start"],
     });
 
-    const translateX = useTransform(scrollYProgress, [0, 1], [0, 800]);
-    const translateXReverse = useTransform(scrollYProgress, [0, 1], [0, -800]);
-    const rotateX = useTransform(scrollYProgress, [0, 0.2], [15, 0]);
-    const opacity = useTransform(scrollYProgress, [0, 0.1], [0, 1]);
-    const rotateZ = useTransform(scrollYProgress, [0, 0.2], [10, 0]);
-    const translateY = useTransform(scrollYProgress, [0, 0.2], [-500, 300]);
+    const translateX = useTransform(scrollYProgress, [0, 1], [0, 1200]);
+    const translateXReverse = useTransform(scrollYProgress, [0, 1], [0, -1200]);
+    const rotateX = useTransform(scrollYProgress, [0, 0.6], [12, 0]);
+    const opacity = useTransform(scrollYProgress, [0, 0.3], [0, 1]);
+    const rotateZ = useTransform(scrollYProgress, [0, 0.6], [8, 0]);
+    const translateY = useTransform(scrollYProgress, [0, 1], [-300, 50]);
 
     return (
         <div
             ref={ref}
-            className="h-[300vh] py-40 overflow-hidden antialiased relative flex flex-col self-auto perspective-[1000px] transform-3d bg-background"
+            className="h-[140vh] py-12 overflow-hidden antialiased relative flex flex-col self-auto perspective-[1000px] transform-3d bg-background"
         >
             <Header />
             <motion.div
@@ -148,7 +163,7 @@ export default function MockupShowcase() {
 
 const Header = () => {
     return (
-        <div className="section-container relative mx-auto py-24 md:py-48 px-4 w-full left-0 top-0">
+        <div className="section-container relative mx-auto py-12 md:py-20 px-4 w-full left-0 top-0">
             <h1 className="text-[2.5rem] md:text-8xl font-medium text-white tracking-tight leading-[1.1] mb-10 gpu-stable">
                 Engineering <br />
                 <span className="bg-clip-text text-transparent bg-linear-to-r from-accent to-accent-secondary font-semibold">Bespoke</span> Digital Platforms
@@ -169,6 +184,7 @@ const ProductCard = ({
         title: string;
         link: string;
         thumbnail: string;
+        category?: string;
     };
     translate: MotionValue<number>;
 }) => {
@@ -178,27 +194,43 @@ const ProductCard = ({
                 x: translate,
             }}
             whileHover={{
-                y: -20,
+                y: -10,
+                scale: 1.02,
             }}
             key={product.title}
-            className="group/product h-96 w-120 relative shrink-0"
+            className="group/product h-88 w-140 relative shrink-0"
         >
+            <div className="absolute inset-0 rounded-4xl border border-white/10 bg-white/5 backdrop-blur-sm -z-10 group-hover/product:border-accent/30 transition-colors duration-500" />
+
             <a
                 href={product.link}
-                className="block group-hover/product:shadow-2xl "
+                className="block h-full w-full relative overflow-hidden rounded-3xl m-2"
             >
                 <Image
                     src={product.thumbnail}
                     height="600"
                     width="600"
-                    className="object-cover object-top-left absolute h-full w-full inset-0 rounded-2xl"
+                    className="object-cover object-top absolute h-[95%] w-[98%] left-[1%] top-[1%] rounded-3xl transition-transform duration-700 group-hover/product:scale-105"
                     alt={product.title}
                 />
+
+                {/* Hover Overlay */}
+                <div className="absolute inset-0 bg-black/40 opacity-0 group-hover/product:opacity-100 transition-opacity duration-500 flex items-center justify-center backdrop-blur-[2px]">
+                    <div className="px-6 py-3 bg-white text-black rounded-full font-semibold text-sm transform translate-y-4 group-hover/product:translate-y-0 transition-transform duration-500 shadow-xl">
+                        View Case Study
+                    </div>
+                </div>
             </a>
-            <div className="absolute inset-0 h-full w-full opacity-0 group-hover/product:opacity-80 bg-black pointer-events-none transition duration-200 rounded-2xl"></div>
-            <h2 className="absolute bottom-4 left-4 opacity-0 group-hover/product:opacity-100 text-white transition duration-200">
-                {product.title}
-            </h2>
+
+            {/* Content info below image or floating */}
+            <div className="absolute -bottom-12 left-6 opacity-0 group-hover/product:opacity-100 transition-all duration-500 transform translate-y-2 group-hover/product:translate-y-0 pointer-events-none">
+                <span className="text-[10px] text-accent font-bold tracking-widest uppercase mb-1 block">
+                    {product.category || "Digital Product"}
+                </span>
+                <h2 className="text-xl font-medium text-white">
+                    {product.title}
+                </h2>
+            </div>
         </motion.div>
     );
 };

@@ -96,36 +96,40 @@ export default function Home() {
       {/* Performance Metrics - New Section */}
       <Metrics />
 
-      <div className="section-container">
-        <div className="flex flex-col gap-32 md:gap-48 pb-32 md:pb-48">
-          {/* Proof - Selected Work */}
-          <SelectedWork />
+      <div className="flex flex-col gap-32 md:gap-48 pb-32 md:pb-48">
+        {/* Proof - Selected Work */}
+        <SelectedWork />
 
-          {/* Strategy & Thinking - Process */}
+        {/* Strategy & Thinking - Process */}
+        <div className="section-container">
           <ScrollReveal>
             <section className="river-flow rounded-[3rem] border border-white/5 px-4 py-8 md:py-24">
               <Process />
             </section>
           </ScrollReveal>
+        </div>
 
-          {/* Expanded Visual Proof - Showcase moved lower */}
-          <ScrollReveal>
-            <div className="relative z-10 rounded-[3rem] overflow-hidden border border-white/5">
-              <MockupShowcase />
-            </div>
-          </ScrollReveal>
+        {/* Expanded Visual Proof - Showcase now full width */}
+        <ScrollReveal>
+          <div className="relative z-10 overflow-hidden">
+            <MockupShowcase />
+          </div>
+        </ScrollReveal>
 
-          <ScrollReveal>
-            <Testimonial />
-          </ScrollReveal>
+        <div className="section-container">
+          <div className="flex flex-col gap-32 md:gap-48">
+            <ScrollReveal>
+              <Testimonial />
+            </ScrollReveal>
 
-          <ScrollReveal>
-            <WhyNexora />
-          </ScrollReveal>
+            <ScrollReveal>
+              <WhyNexora />
+            </ScrollReveal>
 
-          <ScrollReveal>
-            <FAQ />
-          </ScrollReveal>
+            <ScrollReveal>
+              <FAQ />
+            </ScrollReveal>
+          </div>
         </div>
       </div>
       <Footer />
