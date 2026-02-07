@@ -46,8 +46,8 @@ export default function Home() {
 
   useAnimationFrame((t: number, delta: number) => {
     if (!isInView) return;
-    // Faster, smoother infinite ticker
-    baseX.set(baseX.get() - 0.05);
+    // Normalized speed for readable ticker
+    baseX.set(baseX.get() - 0.01);
   });
 
   return (

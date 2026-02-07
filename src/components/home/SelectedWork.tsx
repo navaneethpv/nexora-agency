@@ -7,6 +7,7 @@ import { projects } from "@/data/work-data";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { ArrowUpRight } from "lucide-react";
+import ParallaxScroll from "../ParallaxScroll";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -66,18 +67,22 @@ export default function SelectedWork() {
         <section ref={containerRef} id="work" className="py-24 md:py-32 bg-black relative overflow-hidden">
             {/* Abstract Background Elements */}
             <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
-                <div className="absolute top-1/4 -right-20 w-96 h-96 bg-accent/5 blur-[120px] rounded-full" />
-                <div className="absolute -bottom-20 -left-20 w-[500px] h-[500px] bg-accent-secondary/5 blur-[150px] rounded-full" />
+                <ParallaxScroll speed={0.4} direction="up" className="absolute top-1/4 -right-20">
+                    <div className="w-96 h-96 bg-accent/5 blur-[120px] rounded-full" />
+                </ParallaxScroll>
+                <ParallaxScroll speed={0.6} direction="down" className="absolute -bottom-20 -left-20">
+                    <div className="w-[500px] h-[500px] bg-accent-secondary/5 blur-[150px] rounded-full" />
+                </ParallaxScroll>
                 <div className="absolute inset-0 bg-[radial-gradient(#ffffff,transparent_1px)] bg-size-[40px_40px] opacity-[0.03]" />
             </div>
 
             <div className="max-w-[1400px] mx-auto px-6 md:px-10 relative z-10">
-                <div className="mb-20 md:mb-24 max-w-3xl work-title">
+                <ParallaxScroll speed={0.15} direction="down" className="mb-20 md:mb-24 max-w-3xl work-title">
                     <h2 className="text-5xl md:text-7xl font-bold mb-8 tracking-tighter text-white">Selected Work</h2>
                     <p className="text-gray-400 text-lg md:text-2xl font-medium leading-relaxed">
                         A curated selection of projects showcasing our approach to design, development, and digital problem-solving.
                     </p>
-                </div>
+                </ParallaxScroll>
 
                 <div className="grid grid-cols-1 gap-16 md:gap-24">
                     {featuredProjects.map((project, i) => (
@@ -111,8 +116,8 @@ export default function SelectedWork() {
                                     </div>
                                 </div>
 
-                                {/* Image */}
-                                <div className="order-1 lg:order-2 relative aspect-[4/3] md:aspect-[16/10] overflow-hidden rounded-2xl bg-white/5">
+                                {/* Image with subtle parallax */}
+                                <ParallaxScroll speed={0.1} className="order-1 lg:order-2 relative aspect-[4/3] md:aspect-[16/10] overflow-hidden rounded-2xl bg-white/5">
                                     <Image
                                         src={project.coverImage}
                                         alt={project.title}
@@ -121,7 +126,7 @@ export default function SelectedWork() {
                                         sizes="(max-width: 768px) 100vw, 50vw"
                                     />
                                     <div className="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors duration-500" />
-                                </div>
+                                </ParallaxScroll>
                             </article>
                         </Link>
                     ))}
