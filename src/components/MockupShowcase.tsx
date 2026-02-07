@@ -102,7 +102,7 @@ export default function MockupShowcase() {
     return (
         <div
             ref={ref}
-            className="h-[300vh] py-40 overflow-hidden antialiased relative flex flex-col self-auto perspective-[1000px] transform-3d bg-black will-change-transform"
+            className="h-[300vh] py-40 overflow-hidden antialiased relative flex flex-col self-auto perspective-[1000px] transform-3d bg-black"
         >
             <Header />
             <motion.div

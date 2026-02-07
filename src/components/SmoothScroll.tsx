@@ -16,14 +16,13 @@ export default function SmoothScroll({ children }: { children: React.ReactNode }
         if (prefersReducedMotion) return;
 
         const lenis = new Lenis({
-            duration: isLowEnd ? 0.8 : 1.4,
+            duration: isLowEnd ? 0.5 : 0.6,
             easing: (t: number) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-            lerp: isLowEnd ? 0.1 : 0.08,
-            wheelMultiplier: 1.1,
-            touchMultiplier: 1.8,
+            lerp: isLowEnd ? 0.2 : 0.2,
+            wheelMultiplier: 1,
+            touchMultiplier: 1,
             infinite: false,
             syncTouch: true,
-            touchInertiaMultiplier: 30,
         });
 
         lenisRef.current = lenis;
