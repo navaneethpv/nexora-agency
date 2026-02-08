@@ -8,8 +8,7 @@ import useMagnetic from "@/hooks/useMagnetic";
 import Link from "next/link";
 import ScrollReveal from "./ScrollReveal";
 import ParallaxScroll from "./ParallaxScroll";
-
-const HeroBackground3D = dynamic(() => import("./HeroBackground3D"), { ssr: false });
+import { GravityStarsBackground } from "@/components/animate-ui/components/backgrounds/gravity-stars";
 
 export default function Hero() {
     const magneticBtn1 = useMagnetic();
@@ -84,8 +83,20 @@ export default function Hero() {
     };
 
     return (
-        <section className="relative h-screen min-h-[800px] flex flex-col items-center justify-center text-center px-6 overflow-hidden bg-background contain-paint">
-            <HeroBackground3D />
+        <section className="relative h-screen min-h-[800px] flex flex-col items-center justify-center text-center px-6 overflow-hidden bg-black">
+            <div className="absolute inset-0 z-0 pointer-events-none">
+                <GravityStarsBackground
+                    starsCount={100}
+                    starsSize={2}
+                    starsOpacity={0.8}
+                    glowIntensity={20}
+                    movementSpeed={0.5}
+                    className="w-full h-full text-white"
+                    mouseInfluence={200}
+                    mouseGravity="attract"
+                    gravityStrength={150}
+                />
+            </div>
 
             {/* Floating Background Elements */}
             {!isLowEnd && (
