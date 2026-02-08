@@ -3,6 +3,7 @@
 import React, { useRef } from "react";
 import { motion, useScroll, useTransform, useSpring, MotionValue } from "framer-motion";
 import Image from "next/image";
+import ParallaxScroll from "./ParallaxScroll";
 
 const products = [
     {
@@ -107,8 +108,9 @@ export default function MockupShowcase() {
         offset: ["start start", "end start"],
     });
 
-    const translateX = useTransform(scrollYProgress, [0, 1], [0, 1200]);
-    const translateXReverse = useTransform(scrollYProgress, [0, 1], [0, -1200]);
+    // Reduced movement range for better containment on smaller screens
+    const translateX = useTransform(scrollYProgress, [0, 1], [0, 600]);
+    const translateXReverse = useTransform(scrollYProgress, [0, 1], [0, -600]);
     const rotateX = useTransform(scrollYProgress, [0, 0.6], [12, 0]);
     const opacity = useTransform(scrollYProgress, [0, 0.3], [0, 1]);
     const rotateZ = useTransform(scrollYProgress, [0, 0.6], [8, 0]);
@@ -117,7 +119,7 @@ export default function MockupShowcase() {
     return (
         <div
             ref={ref}
-            className="h-[140vh] py-12 overflow-hidden antialiased relative flex flex-col self-auto perspective-[1000px] transform-3d bg-background"
+            className="min-h-[140vh] md:min-h-[200vh] py-12 md:py-32 overflow-hidden antialiased relative flex flex-col self-auto perspective-[1000px] transform-3d bg-black w-full"
         >
             <Header />
             <motion.div
@@ -127,9 +129,9 @@ export default function MockupShowcase() {
                     translateY,
                     opacity,
                 }}
-                className=""
+                className="w-full"
             >
-                <motion.div className="flex flex-row-reverse space-x-reverse space-x-20 mb-20">
+                <motion.div className="flex flex-row-reverse space-x-reverse space-x-4 md:space-x-20 mb-6 md:mb-20 translate-x-[10%] md:translate-x-0">
                     {firstRow.map((product) => (
                         <ProductCard
                             product={product}
@@ -138,7 +140,7 @@ export default function MockupShowcase() {
                         />
                     ))}
                 </motion.div>
-                <motion.div className="flex flex-row mb-20 space-x-20">
+                <motion.div className="flex flex-row mb-6 md:mb-20 space-x-4 md:space-x-20 -translate-x-[10%] md:translate-x-0">
                     {secondRow.map((product) => (
                         <ProductCard
                             product={product}
@@ -147,7 +149,7 @@ export default function MockupShowcase() {
                         />
                     ))}
                 </motion.div>
-                <motion.div className="flex flex-row-reverse space-x-reverse space-x-20">
+                <motion.div className="flex flex-row-reverse space-x-reverse space-x-4 md:space-x-20 translate-x-[10%] md:translate-x-0">
                     {thirdRow.map((product) => (
                         <ProductCard
                             product={product}
@@ -164,14 +166,18 @@ export default function MockupShowcase() {
 const Header = () => {
     return (
         <div className="section-container relative mx-auto py-12 md:py-20 px-4 w-full left-0 top-0">
-            <h1 className="text-[2.5rem] md:text-6xl font-medium text-white tracking-tight leading-[1.1] mb-10 gpu-stable">
-                Engineering <br />
-                <span className="bg-clip-text text-transparent bg-linear-to-r from-accent to-accent-secondary font-semibold">Bespoke</span> Digital Platforms
-            </h1>
-            <p className="max-w-2xl text-base md:text-xl font-normal text-secondary leading-relaxed opacity-90">
-                At <span className="text-white font-medium">Nexora</span>, we converge technical excellence with
-                distilled design to build high-performance products that command attention.
-            </p>
+            <ParallaxScroll speed={0.1} direction="up">
+                <h2 className="text-3xl md:text-6xl font-medium text-white tracking-tight leading-[1.1] mb-6 md:mb-10 gpu-stable">
+                    Engineering <br />
+                    <span className="bg-clip-text text-transparent bg-linear-to-r from-accent to-accent-secondary font-semibold">Bespoke</span> Digital Platforms
+                </h2>
+            </ParallaxScroll>
+            <ParallaxScroll speed={0.15} direction="up">
+                <p className="max-w-2xl text-base md:text-xl font-normal text-secondary leading-relaxed opacity-90">
+                    At <span className="text-white font-medium">Nexora</span>, we converge technical excellence with
+                    distilled design to build high-performance products that command attention.
+                </p>
+            </ParallaxScroll>
         </div>
     );
 };
@@ -198,21 +204,21 @@ const ProductCard = ({
                 scale: 1.02,
             }}
             key={product.title}
-            className="group/product h-88 w-140 relative shrink-0"
+            className="group/product h-48 w-72 md:h-96 md:w-[32rem] relative shrink-0"
         >
-            <div className="absolute inset-0 rounded-4xl border border-white/10 bg-white/5 backdrop-blur-sm -z-10 group-hover/product:border-accent/30 transition-colors duration-500" />
+            <div className="absolute inset-0 rounded-2xl md:rounded-4xl border border-white/10 bg-white/5 backdrop-blur-sm -z-10 group-hover/product:border-accent/30 transition-colors duration-500" />
 
             <a
                 href={product.link}
-                className="block h-full w-full relative overflow-hidden rounded-3xl m-2"
+                className="block h-full w-full relative overflow-hidden rounded-xl md:rounded-3xl m-1 md:m-2"
             >
                 <Image
                     src={product.thumbnail}
                     height="600"
                     width="600"
-                    className="object-cover object-top absolute h-[95%] w-[98%] left-[1%] top-[1%] rounded-3xl transition-transform duration-700 group-hover/product:scale-105"
+                    className="object-cover object-top absolute h-[95%] w-[98%] left-[1%] top-[1%] rounded-xl md:rounded-3xl transition-transform duration-700 group-hover/product:scale-105"
                     alt={product.title}
-                    sizes="(max-width: 768px) 100vw, 33vw"
+                    sizes="(max-width: 768px) 300px, 600px"
                     decoding="async"
                 />
 

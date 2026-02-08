@@ -35,7 +35,7 @@ export default function ParallaxScroll({
         <motion.div
             ref={ref}
             style={{ y: yTransform }}
-            className={`${className} will-change-transform`}
+            className={`relative ${className} will-change-transform`}
         >
             {children}
         </motion.div>

@@ -23,14 +23,14 @@ export default function HomeClient() {
 
             <FeaturesSection />
 
-            <div className="flex flex-col gap-32 md:gap-48 pb-32 md:pb-48">
+            <div className="flex flex-col gap-16 md:gap-48 pb-20 md:pb-48">
                 {/* Proof - Selected Work */}
                 <SelectedWork />
 
                 {/* Strategy & Thinking - Process */}
                 <div className="section-container">
                     <ScrollReveal>
-                        <section className="river-flow rounded-[3rem] border border-white/5 px-4 py-8 md:py-24">
+                        <section className="river-flow rounded-[2rem] md:rounded-[3rem] border border-white/5 px-4 py-12 md:py-24">
                             <Process />
                         </section>
                     </ScrollReveal>
@@ -44,7 +44,7 @@ export default function HomeClient() {
                 </ScrollReveal>
 
                 <div className="section-container">
-                    <div className="flex flex-col gap-32 md:gap-48">
+                    <div className="flex flex-col gap-16 md:gap-48">
                         <ScrollReveal>
                             <Testimonial />
                         </ScrollReveal>
