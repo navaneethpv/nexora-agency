@@ -30,7 +30,7 @@ export default function HomeClient() {
                 {/* Strategy & Thinking - Process */}
                 <div className="section-container">
                     <ScrollReveal>
-                        <section className="river-flow rounded-[2rem] md:rounded-[3rem] border border-white/5 px-4 py-12 md:py-24">
+                        <section className="river-flow rounded-4xl md:rounded-[3rem] border border-white/5 px-4 py-12 md:py-24">
                             <Process />
                         </section>
                     </ScrollReveal>

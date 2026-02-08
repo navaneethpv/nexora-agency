@@ -74,25 +74,25 @@ export default function WhyNexora() {
                             <div className="w-full lg:w-[450px] shrink-0">
                                 <motion.div
                                     whileHover={{ y: -5 }}
-                                    className="bg-white/3 backdrop-blur-2xl border border-white/10 p-10 md:p-14 rounded-4xl md:rounded-[3rem] text-center shadow-2xl relative group overflow-hidden"
+                                    className="bg-white/3 backdrop-blur-2xl border border-white/10 p-6 sm:p-10 md:p-14 rounded-3xl md:rounded-[3rem] text-center shadow-2xl relative group overflow-hidden"
                                 >
                                     <div className="absolute inset-0 bg-accent/5 opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
 
                                     <h4 className="text-2xl md:text-4xl font-medium mb-4 relative z-10 text-white">Ready to begin?</h4>
-                                    <p className="text-secondary text-sm md:text-lg font-normal mb-10 relative z-10 opacity-80">
+                                    <p className="text-secondary text-sm md:text-lg font-normal mb-8 md:mb-10 relative z-10 opacity-80">
                                         Let's discuss your next digital milestone.
                                     </p>
 
                                     <div className="space-y-6 relative z-10">
                                         <Link href="/contact" className="block w-full">
-                                            <button className="w-full bg-accent text-white py-5 md:py-6 rounded-full font-medium text-base md:text-xl group/btn flex items-center justify-center gap-3 active:scale-[0.98] transition-all shadow-lg shadow-accent/10">
+                                            <button className="w-full bg-accent text-white py-4 md:py-6 rounded-full font-medium text-base md:text-xl group/btn flex items-center justify-center gap-3 active:scale-[0.98] transition-all shadow-lg shadow-accent/10">
                                                 <span>Get started</span>
                                                 <motion.span animate={{ x: [0, 5, 0] }} transition={{ repeat: Infinity, duration: 1.5 }}>→</motion.span>
                                             </button>
                                         </Link>
 
                                         <Link href="/contact" className="block w-full">
-                                            <button className="block w-full text-secondary hover:text-white text-xs md:text-sm font-medium tracking-[0.3em] uppercase transition-colors py-2">
+                                            <button className="block w-full text-secondary hover:text-white text-[10px] md:text-sm font-medium tracking-widest md:tracking-[0.3em] uppercase transition-colors py-2">
                                                 Or book a strategy call
                                             </button>
                                         </Link>
