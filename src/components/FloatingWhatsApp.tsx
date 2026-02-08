@@ -109,6 +109,7 @@ export default function FloatingWhatsApp() {
                             whileHover={{ scale: 1.05 }}
                             whileTap={{ scale: 0.95 }}
                             className="relative group p-0"
+                            aria-label={isOpen ? "Close WhatsApp chat" : "Open WhatsApp chat"}
                         >
                             <div className="relative">
                                 {/* Glow */}

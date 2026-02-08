@@ -117,7 +117,8 @@ export default function SelectedWork() {
                                             alt={project.title}
                                             fill
                                             className="object-cover transition-all duration-1000 group-hover:scale-110 filter brightness-[0.4] group-hover:brightness-100"
-                                            sizes="(max-width: 768px) 100vw, 80vw"
+                                            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 70vw, 50vw"
+                                            decoding="async"
                                         />
                                         {/* Color Overlay */}
                                         <div className="absolute inset-0 bg-accent/10 opacity-40 group-hover:opacity-0 transition-opacity duration-700 mix-blend-color" />

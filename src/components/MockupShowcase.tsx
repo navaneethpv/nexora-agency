@@ -212,6 +212,8 @@ const ProductCard = ({
                     width="600"
                     className="object-cover object-top absolute h-[95%] w-[98%] left-[1%] top-[1%] rounded-3xl transition-transform duration-700 group-hover/product:scale-105"
                     alt={product.title}
+                    sizes="(max-width: 768px) 100vw, 33vw"
+                    decoding="async"
                 />
 
                 {/* Hover Overlay */}

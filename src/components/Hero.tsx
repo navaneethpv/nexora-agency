@@ -103,17 +103,20 @@ export default function Hero() {
             )}
 
             <div className="relative z-10 flex flex-col items-center w-full section-container will-change-[transform,opacity]">
-                <ScrollReveal direction="down" duration={1} distance={20}>
-                    <div className="hero-label inline-flex items-center gap-2.5 rounded-full border border-white/10 bg-white/3 px-4 py-2 text-[10px] md:text-[11px] font-medium text-white/70 mb-8 md:mb-12 backdrop-blur-xl transition-colors duration-500 hover:border-accent/40">
-                        <RiSparkling2Line className="w-3.5 h-3.5 text-accent" />
-                        <span className="tracking-[0.2em] uppercase">Crafting exceptional digital experiences</span>
-                    </div>
-                </ScrollReveal>
+                <motion.div
+                    initial={{ y: 20, opacity: 0 }}
+                    animate={{ y: 0, opacity: 1 }}
+                    transition={{ duration: 0.6, delay: 0, ease: [0.16, 1, 0.3, 1] }}
+                    className="hero-label inline-flex items-center gap-2.5 rounded-full border border-white/10 bg-white/3 px-4 py-2 text-[10px] md:text-[11px] font-medium text-white/70 mb-8 md:mb-12 backdrop-blur-xl transition-colors duration-500 hover:border-accent/40"
+                >
+                    <RiSparkling2Line className="w-3.5 h-3.5 text-accent" />
+                    <span className="tracking-[0.2em] uppercase">Crafting exceptional digital experiences</span>
+                </motion.div>
 
                 <motion.div
                     initial={{ y: 20, opacity: 0 }}
                     animate={{ y: 0, opacity: 1 }}
-                    transition={{ duration: 0.8, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
+                    transition={{ duration: 0.6, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
                     className="mb-6 md:mb-8 font-heading"
                 >
                     <span className="text-[12px] md:text-[13px] font-semibold tracking-[0.3em] text-accent/80 uppercase">Engineering next-gen digital equity</span>
@@ -122,7 +125,7 @@ export default function Hero() {
                 <motion.h1
                     initial={{ y: 20, opacity: 0 }}
                     animate={{ y: 0, opacity: 1 }}
-                    transition={{ duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
+                    transition={{ duration: 0.6, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
                     className="text-[2.5rem] sm:text-6xl md:text-8xl font-medium tracking-tight mb-8 md:mb-12 leading-[1.1] text-white"
                 >
                     <span className="uppercase">Scalable Systems</span> <br />
@@ -132,11 +135,14 @@ export default function Hero() {
                     </span>
                 </motion.h1>
 
-                <ScrollReveal delay={0.4} direction="up" duration={1} distance={20}>
-                    <p className="max-w-[90%] md:max-w-2xl text-base md:text-xl text-secondary mb-12 md:mb-16 leading-relaxed font-normal opacity-90 mx-auto">
-                        Nexora builds clean, scalable, and performance-focused websites and web applications for visionary businesses.
-                    </p>
-                </ScrollReveal>
+                <motion.p
+                    initial={{ y: 20, opacity: 0 }}
+                    animate={{ y: 0, opacity: 1 }}
+                    transition={{ duration: 0.6, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
+                    className="max-w-[90%] md:max-w-2xl text-base md:text-xl text-secondary mb-12 md:mb-16 leading-relaxed font-normal opacity-90 mx-auto"
+                >
+                    Nexora builds clean, scalable, and performance-focused websites and web applications for visionary businesses.
+                </motion.p>
 
                 <ScrollReveal delay={0.6} direction="up" duration={1} distance={20}>
                     <motion.button
