@@ -26,6 +26,7 @@ export const AnimatedSocialIcon = ({ type, href, size = 20, target, rel }: Anima
             href={href}
             target={target}
             rel={target === "_blank" ? (rel || "noopener noreferrer") : rel}
+            aria-label={`Follow us on ${type}`}
             initial={{ opacity: 0.6, scale: 1 }}
             whileHover={{
                 opacity: 1,

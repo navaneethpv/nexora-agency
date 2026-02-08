@@ -110,6 +110,7 @@ export default function Navbar() {
                         <button
                             className="lg:hidden text-white p-2 ml-auto"
                             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+                            aria-label={isMobileMenuOpen ? "Close menu" : "Open menu"}
                         >
                             {isMobileMenuOpen ? <RiCloseLine className="w-6 h-6" /> : <RiMenu4Line className="w-6 h-6" />}
                         </button>

@@ -83,7 +83,7 @@ export default function SelectedWork() {
 
                 <div className="flex flex-col gap-40 md:gap-72">
                     {featuredProjects.map((project, i) => (
-                        <Link href={`/work/${project.slug}`} key={project.slug} className="group project-card block relative">
+                        <Link href={`/work/${project.slug}`} key={project.slug} className="group project-card block relative will-change-transform" aria-label={`View case study for ${project.title}`}>
                             <article className="grid grid-cols-1 lg:grid-cols-12 gap-12 md:gap-0 items-center">
                                 {/* Text Content - Floating Layer */}
                                 <div className="lg:col-span-12 lg:row-start-1 lg:col-start-1 z-20 pointer-events-none">
@@ -133,6 +133,7 @@ export default function SelectedWork() {
                     <Link
                         href="/work"
                         className="group relative bg-white/3 border border-white/10 text-white px-10 md:px-16 py-6 md:py-8 rounded-full text-base md:text-xl font-medium hover:bg-white/5 transition-all backdrop-blur-3xl active:scale-95 flex items-center gap-4"
+                        aria-label="View our full portfolio of work"
                     >
                         <span>Distill Full Portfolio</span>
                         <RiArrowRightUpLine className="w-6 h-6 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform text-accent" />

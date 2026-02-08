@@ -103,8 +103,8 @@ export default function Footer() {
                         © 2026 NEXORA AGENCY. ALL RIGHTS RESERVED.
                     </p>
                     <div className="flex items-center gap-8 text-[12px] font-medium text-secondary/60 tracking-wide">
-                        <Link href="#" className="hover:text-white transition-colors">PRIVACY POLICY</Link>
-                        <Link href="#" className="hover:text-white transition-colors">TERMS OF SERVICE</Link>
+                        <Link href="/privacy" className="hover:text-white transition-colors" aria-label="Privacy Policy">PRIVACY POLICY</Link>
+                        <Link href="/terms" className="hover:text-white transition-colors" aria-label="Terms of Service">TERMS OF SERVICE</Link>
                     </div>
                 </div>
             </div>

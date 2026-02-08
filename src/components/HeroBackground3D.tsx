@@ -102,21 +102,22 @@ function NebulaGlow() {
 export default function HeroBackground3D() {
     const [mounted, setMounted] = useState(false);
     const containerRef = useRef(null);
-    const isInView = useInView(containerRef, { margin: "0px 0px 0px 0px" });
+    const isInView = useInView(containerRef, { margin: "200px 0px 0px 0px" });
 
     // Performance tiered settings
-    const [performance, setPerformance] = useState({ count: 400, dpr: 1 });
+    const [performance, setPerformance] = useState({ count: 400, dpr: 1, isLowEnd: false });
 
     useEffect(() => {
         setMounted(true);
         // Basic performance detection
         const isLowEnd = (navigator as any).deviceMemory !== undefined && (navigator as any).deviceMemory <= 4;
         const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+        const isSlowCPU = (navigator as any).hardwareConcurrency !== undefined && (navigator as any).hardwareConcurrency <= 4;
 
-        if (isLowEnd || isMobile) {
-            setPerformance({ count: 200, dpr: 1 });
+        if (isLowEnd || isMobile || isSlowCPU) {
+            setPerformance({ count: 150, dpr: 1, isLowEnd: true });
         } else {
-            setPerformance({ count: 600, dpr: Math.min(window.devicePixelRatio, 1.5) });
+            setPerformance({ count: 500, dpr: Math.min(window.devicePixelRatio, 1.5), isLowEnd: false });
         }
     }, []);
 
@@ -124,38 +125,44 @@ export default function HeroBackground3D() {
 
     return (
         <div ref={containerRef} className="absolute inset-0 -z-20 pointer-events-none bg-black">
-            <Canvas
-                frameloop={isInView ? "always" : "never"}
-                camera={{ position: [0, 0, 2], fov: 75 }}
-                dpr={performance.dpr as any}
-                gl={{
-                    antialias: false,
-                    alpha: true,
-                    powerPreference: "high-performance",
-                    stencil: false,
-                    depth: false
-                }}
-            >
-                <Stars
-                    radius={100}
-                    depth={50}
-                    count={performance.count}
-                    factor={4}
-                    saturation={0}
-                    fade
-                    speed={0.5}
-                />
-                <RotatingParticles />
-                <ambientLight intensity={0.5} />
-            </Canvas>
+            {!performance.isLowEnd ? (
+                <Canvas
+                    frameloop={isInView ? "always" : "never"}
+                    camera={{ position: [0, 0, 2], fov: 75 }}
+                    dpr={performance.dpr as any}
+                    gl={{
+                        antialias: false,
+                        alpha: true,
+                        powerPreference: "high-performance",
+                        stencil: false,
+                        depth: false,
+                        precision: "lowp"
+                    }}
+                >
+                    <Stars
+                        radius={100}
+                        depth={50}
+                        count={performance.count}
+                        factor={4}
+                        saturation={0}
+                        fade
+                        speed={0.5}
+                    />
+                    <RotatingParticles />
+                </Canvas>
+            ) : (
+                // Fallback for low-end: Static high-performance CSS glows only
+                <div className="absolute inset-0 bg-black overflow-hidden">
+                    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-accent/2 blur-[100px] rounded-full" />
+                </div>
+            )}
 
-            {/* Premium Static Glows - 0% CPU Load compared to 3D Nebula */}
-            <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(11,185,243,0.05),transparent_70%)]" />
-            <div className="absolute inset-0 bg-radial-at-t from-accent/5 via-transparent to-transparent" />
+            {/* Premium Static Glows - 0% CPU Load */}
+            <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(11,185,243,0.03),transparent_70%)]" />
 
-            {/* Minimal Grid */}
+            {/* Minimal Grid - Use CSS for 0 GPU cost */}
             <div
-                className="absolute inset-0 opacity-[0.05]"
+                className="absolute inset-0 opacity-[0.03]"
                 style={{
                     backgroundImage: 'linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px)',
                     backgroundSize: '120px 120px',
