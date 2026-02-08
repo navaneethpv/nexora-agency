@@ -63,81 +63,94 @@ export default function SelectedWork() {
     }, []);
 
     return (
-        <section ref={containerRef} id="work" className="py-24 md:py-40 bg-background relative overflow-hidden">
-            {/* Minimal Decorative Elements */}
+        <section ref={containerRef} id="work" className="py-24 md:py-32 bg-background relative overflow-hidden">
+            {/* Background Gradients */}
             <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
-                <div className="absolute top-1/4 -right-1/4 w-[500px] h-[500px] bg-accent/5 blur-[120px] rounded-full opacity-50" />
-                <div className="absolute -bottom-1/4 -left-1/4 w-[600px] h-[600px] bg-accent-secondary/5 blur-[150px] rounded-full opacity-30" />
+                <div className="absolute top-[20%] right-[-10%] w-[600px] h-[600px] bg-accent/5 blur-[120px] rounded-full opacity-40" />
+                <div className="absolute bottom-[10%] left-[-10%] w-[500px] h-[500px] bg-accent-secondary/5 blur-[120px] rounded-full opacity-30" />
             </div>
 
-            <div className="relative z-10 section-container">
-                <div className="mb-24 md:mb-40 work-title">
-                    <h2 className="text-5xl md:text-8xl font-medium mb-10 tracking-tighter text-white leading-[0.85] uppercase">
-                        Selected <br />
-                        <span className="text-accent font-bold">Equity</span>
-                    </h2>
-                    <p className="text-secondary text-lg md:text-xl font-light leading-relaxed max-w-3xl opacity-60">
+            <div className="section-container relative z-10">
+                <div className="mb-20 md:mb-32 work-title flex flex-col md:flex-row md:items-end justify-between gap-8">
+                    <div>
+                        <h2 className="text-4xl md:text-7xl font-medium tracking-tighter text-white uppercase leading-[0.9]">
+                            Selected <span className="text-secondary opacity-60">Equity</span>
+                        </h2>
+                    </div>
+                    <p className="text-secondary text-base md:text-lg font-light max-w-md leading-relaxed border-l border-white/10 pl-6 hidden md:block">
                         A cinematic distillation of high-performance digital systems and architectural brand equity.
                     </p>
                 </div>
 
-                <div className="flex flex-col gap-40 md:gap-72">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-x-10 gap-y-20 md:gap-y-32">
                     {featuredProjects.map((project, i) => (
-                        <Link href={`/work/${project.slug}`} key={project.slug} className="group project-card block relative will-change-transform" aria-label={`View case study for ${project.title}`}>
-                            <article className="grid grid-cols-1 lg:grid-cols-12 gap-12 md:gap-0 items-center">
-                                {/* Text Content - Floating Layer */}
-                                <div className="lg:col-span-12 lg:row-start-1 lg:col-start-1 z-20 pointer-events-none">
-                                    <div className="space-y-8 md:space-y-12">
-                                        <div className="flex items-center gap-6 overflow-hidden">
-                                            <span className="text-accent font-black text-sm md:text-base tracking-[0.4em] uppercase opacity-40">0{i + 1}</span>
-                                            <span className="w-12 h-px bg-white/10"></span>
-                                            <span className="text-secondary font-medium text-xs md:text-sm tracking-[0.3em] uppercase">{project.category}</span>
-                                        </div>
-                                        <h3 className="text-4xl md:text-[7rem] font-medium text-white group-hover:text-accent transition-all duration-700 leading-none tracking-tighter uppercase">
-                                            {project.title}
-                                        </h3>
-
-                                        <div className="lg:ml-24 max-w-xl space-y-8 opacity-0 group-hover:opacity-100 transition-all duration-700 transform translate-y-8 group-hover:translate-y-0">
-                                            <p className="text-secondary text-base md:text-2xl leading-relaxed font-light">
-                                                {project.shortDescription}
-                                            </p>
-                                            <div className="flex items-center gap-4 text-white text-sm md:text-lg font-medium group/btn">
-                                                <span className="border-b border-accent pb-1">Distill Experience</span>
-                                                <RiArrowRightUpLine className="w-5 h-5 text-accent group-hover/btn:translate-x-1 group-hover/btn:-translate-y-1 transition-transform" />
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                {/* Image Section - Background Layer */}
-                                <div className="lg:col-span-8 lg:col-start-5 lg:row-start-1 relative aspect-16/10 z-10">
-                                    <ParallaxScroll speed={0.05} direction="down" className="w-full h-full rounded-4xl overflow-hidden bg-white/5 border border-white/5">
+                        <Link
+                            href={`/work/${project.slug}`}
+                            key={project.slug}
+                            className={`group project-card block relative will-change-transform ${i === 2 ? 'md:col-span-2 md:w-2/3 md:mx-auto' : ''}`}
+                            aria-label={`View case study for ${project.title}`}
+                        >
+                            <article className="flex flex-col gap-6 md:gap-8">
+                                {/* Image Container */}
+                                <div className="relative aspect-video w-full overflow-hidden rounded-2xl md:rounded-3xl bg-white/5 border border-white/10 group-hover:border-accent/30 transition-all duration-500">
+                                    <div className="absolute inset-0 z-10 bg-black/20 group-hover:bg-transparent transition-colors duration-500" />
+                                    <ParallaxScroll speed={0.05} className="w-full h-full">
                                         <Image
                                             src={project.coverImage}
                                             alt={project.title}
                                             fill
-                                            className="object-cover transition-all duration-1000 group-hover:scale-110 filter brightness-[0.4] group-hover:brightness-100"
-                                            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 70vw, 50vw"
-                                            decoding="async"
+                                            className="object-cover transition-transform duration-700 group-hover:scale-105"
+                                            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                                         />
-                                        {/* Color Overlay */}
-                                        <div className="absolute inset-0 bg-accent/10 opacity-40 group-hover:opacity-0 transition-opacity duration-700 mix-blend-color" />
-                                        <div className="absolute inset-0 bg-background/60 group-hover:opacity-0 transition-opacity duration-700" />
                                     </ParallaxScroll>
+
+                                    {/* Floating Badge */}
+                                    <div className="absolute top-4 right-4 z-20 bg-black/40 backdrop-blur-md border border-white/10 px-4 py-1.5 rounded-full">
+                                        <span className="text-[10px] md:text-xs font-medium tracking-widest uppercase text-white/80">
+                                            {project.category}
+                                        </span>
+                                    </div>
+                                </div>
+
+                                {/* Content */}
+                                <div className="space-y-4 px-2">
+                                    <div className="flex justify-between items-start gap-4">
+                                        <div className="space-y-2">
+                                            <h3 className="text-2xl md:text-4xl font-medium text-white group-hover:text-accent transition-colors duration-300 leading-tight">
+                                                {project.title}
+                                            </h3>
+                                            <p className="text-secondary text-sm md:text-base leading-relaxed line-clamp-2 max-w-md">
+                                                {project.shortDescription}
+                                            </p>
+                                        </div>
+
+                                        <div className="w-12 h-12 rounded-full border border-white/10 flex items-center justify-center group-hover:bg-accent group-hover:border-accent transition-all duration-300 shrink-0">
+                                            <RiArrowRightUpLine className="w-5 h-5 text-white transition-transform duration-300 group-hover:rotate-45" />
+                                        </div>
+                                    </div>
+
+                                    {/* Tags */}
+                                    <div className="flex flex-wrap gap-2 pt-2">
+                                        {project.features.slice(0, 3).map((feature, idx) => (
+                                            <span key={idx} className="text-[10px] md:text-xs text-white/40 uppercase tracking-wider border border-white/5 px-2 py-1 rounded-md">
+                                                {feature}
+                                            </span>
+                                        ))}
+                                    </div>
                                 </div>
                             </article>
                         </Link>
                     ))}
                 </div>
 
-                <div className="mt-32 md:mt-48 flex justify-center view-all-btn">
+                <div className="mt-20 md:mt-32 flex justify-center view-all-btn">
                     <Link
                         href="/work"
-                        className="group relative bg-white/3 border border-white/10 text-white px-10 md:px-16 py-6 md:py-8 rounded-full text-base md:text-xl font-medium hover:bg-white/5 transition-all backdrop-blur-3xl active:scale-95 flex items-center gap-4"
-                        aria-label="View our full portfolio of work"
+                        className="group relative bg-transparent text-white border-b border-white/20 pb-1 text-sm md:text-base font-medium hover:text-accent hover:border-accent transition-all flex items-center gap-2"
+                        aria-label="View all projects"
                     >
-                        <span>Distill Full Portfolio</span>
-                        <RiArrowRightUpLine className="w-6 h-6 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform text-accent" />
+                        <span>View Entire Portfolio</span>
+                        <RiArrowRightUpLine className="w-4 h-4 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" />
                     </Link>
                 </div>
             </div>
