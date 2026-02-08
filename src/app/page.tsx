@@ -2,7 +2,6 @@ import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import HomeClient from "@/components/home/HomeClient";
 import Footer from "@/components/Footer";
-import FloatingWhatsApp from "@/components/FloatingWhatsApp";
 
 export default function Home() {
   return (
@@ -14,7 +13,6 @@ export default function Home() {
       <HomeClient />
 
       <Footer />
-      <FloatingWhatsApp />
     </main>
   );
 }

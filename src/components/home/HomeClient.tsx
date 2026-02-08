@@ -13,6 +13,8 @@ const FAQ = dynamic(() => import("@/components/FAQ"), { ssr: false });
 const ScrollReveal = dynamic(() => import("@/components/ScrollReveal"), { ssr: false });
 const TrustTicker = dynamic(() => import("@/components/TrustTicker"), { ssr: false });
 
+const FloatingWhatsApp = dynamic(() => import("@/components/FloatingWhatsApp"), { ssr: false });
+
 export default function HomeClient() {
     return (
         <>
@@ -57,6 +59,7 @@ export default function HomeClient() {
                     </div>
                 </div>
             </div>
+            <FloatingWhatsApp />
         </>
     );
 }

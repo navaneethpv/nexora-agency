@@ -16,7 +16,7 @@ export default function Navbar() {
         const handleScroll = () => {
             setScrolled(window.scrollY > 20);
         };
-        window.addEventListener("scroll", handleScroll);
+        window.addEventListener("scroll", handleScroll, { passive: true });
         return () => window.removeEventListener("scroll", handleScroll);
     }, []);
 
@@ -53,6 +53,7 @@ export default function Navbar() {
                             height={60}
                             className="h-7 md:h-9 lg:h-10 xl:h-12 w-auto brightness-200 transition-all duration-300"
                             priority
+                            loading="eager"
                             sizes="(max-width: 768px) 150px, 240px"
                         />
                     </Link>

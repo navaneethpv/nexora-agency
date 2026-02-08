@@ -35,7 +35,7 @@ export default function FloatingWhatsApp() {
                                     initial={{ opacity: 0, scale: 0.9, y: 20, transformOrigin: "bottom right" }}
                                     animate={{ opacity: 1, scale: 1, y: 0 }}
                                     exit={{ opacity: 0, scale: 0.9, y: 20 }}
-                                    className="w-[300px] xs:w-[320px] md:w-[380px] bg-[#111111] rounded-[2rem] md:rounded-[2.5rem] overflow-hidden shadow-[0_25px_60px_-15px_rgba(0,0,0,0.6)] border border-white/5 mb-2"
+                                    className="w-[300px] xs:w-[320px] md:w-[380px] bg-[#111111] rounded-4xl md:rounded-[2.5rem] overflow-hidden shadow-[0_25px_60px_-15px_rgba(0,0,0,0.6)] border border-white/5 mb-2"
                                 >
                                     {/* Header Section */}
                                     <div className="bg-accent p-6 md:p-8 flex items-center justify-between">
@@ -68,7 +68,7 @@ export default function FloatingWhatsApp() {
                                             initial={{ opacity: 0, y: 10 }}
                                             animate={{ opacity: 1, y: 0 }}
                                             transition={{ delay: 0.2 }}
-                                            className="bg-[#1a1a1a] border border-white/5 p-5 md:p-6 rounded-[1.25rem] md:rounded-[1.5rem] relative"
+                                            className="bg-[#1a1a1a] border border-white/5 p-5 md:p-6 rounded-[1.25rem] md:rounded-3xl relative"
                                         >
                                             <p className="text-[#999999] text-sm md:text-[15px] leading-relaxed font-medium">
                                                 {welcomeMessage}
@@ -87,7 +87,7 @@ export default function FloatingWhatsApp() {
                                             href={`https://wa.me/${whatsappNumber.replace(/[^0-9]/g, '')}`}
                                             target="_blank"
                                             rel="noopener noreferrer"
-                                            className="flex items-center justify-center gap-3 md:gap-4 w-full bg-accent text-white py-4 md:py-5 rounded-[1.25rem] md:rounded-[1.5rem] font-bold text-sm md:text-[15px] hover:brightness-105 transition-all shadow-xl shadow-accent/20 active:scale-[0.98] group"
+                                            className="flex items-center justify-center gap-3 md:gap-4 w-full bg-accent text-white py-4 md:py-5 rounded-[1.25rem] md:rounded-3xl font-bold text-sm md:text-[15px] hover:brightness-105 transition-all shadow-xl shadow-accent/20 active:scale-[0.98] group"
                                         >
                                             <FaWhatsapp className="w-5 h-5 md:w-6 md:h-6 group-hover:scale-110 transition-transform" />
                                             <span>Start WhatsApp Chat</span>
@@ -127,7 +127,7 @@ export default function FloatingWhatsApp() {
 
                                 {/* Pulse Status */}
                                 {!isOpen && (
-                                    <div className="absolute top-0.5 right-0.5 md:top-1 md:right-1 w-3.5 h-3.5 md:w-4 md:h-4 bg-white rounded-full flex items-center justify-center shadow-md border-[2px] md:border-[3px] border-[#0a0a0a]">
+                                    <div className="absolute top-0.5 right-0.5 md:top-1 md:right-1 w-3.5 h-3.5 md:w-4 md:h-4 bg-white rounded-full flex items-center justify-center shadow-md border-2 md:border-[3px] border-[#0a0a0a]">
                                         <div className="w-1.5 h-1.5 md:w-2 md:h-2 bg-accent rounded-full animate-pulse" />
                                     </div>
                                 )}

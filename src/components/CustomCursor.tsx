@@ -13,6 +13,8 @@ export default function CustomCursor() {
     const springConfig = { damping: 20, stiffness: 200, mass: 0.5 };
     const cursorX = useSpring(mouseX, springConfig);
     const cursorY = useSpring(mouseY, springConfig);
+    const trailX = useSpring(mouseX, { damping: 40, stiffness: 300 });
+    const trailY = useSpring(mouseY, { damping: 40, stiffness: 300 });
 
     useEffect(() => {
         const handleMouseMove = (e: MouseEvent) => {
@@ -36,8 +38,8 @@ export default function CustomCursor() {
             }
         };
 
-        window.addEventListener("mousemove", handleMouseMove);
-        window.addEventListener("mouseover", handleMouseOver);
+        window.addEventListener("mousemove", handleMouseMove, { passive: true });
+        window.addEventListener("mouseover", handleMouseOver, { passive: true });
 
         return () => {
             window.removeEventListener("mousemove", handleMouseMove);
@@ -45,7 +47,7 @@ export default function CustomCursor() {
         };
     }, [isVisible, mouseX, mouseY]);
 
-    // Hide on mobile
+    // Hide on mobile or touch-capable devices
     if (typeof window !== "undefined" && ('ontouchstart' in window || navigator.maxTouchPoints > 0)) {
         return null;
     }
@@ -55,9 +57,9 @@ export default function CustomCursor() {
             {/* Trail effect */}
             <motion.div
                 style={{
-                    x: useSpring(mouseX, { damping: 40, stiffness: 300 }),
-                    y: useSpring(mouseY, { damping: 40, stiffness: 300 }),
-                    opacity: isVisible ? 0.3 : 0,
+                    x: trailX,
+                    y: trailY,
+                    opacity: isVisible ? 0.2 : 0,
                 }}
                 className="fixed top-0 left-0 w-8 h-8 rounded-full border border-accent/20 pointer-events-none z-9998 hidden md:block"
             />
@@ -72,7 +74,7 @@ export default function CustomCursor() {
                 className="fixed top-0 left-0 w-8 h-8 pointer-events-none z-9999 hidden md:block"
             >
                 {/* Main Chassis */}
-                <div className={`absolute inset-0 rounded-full border transition-all duration-500 ${isHovering ? 'bg-accent/10 border-accent scale-125' : 'border-white/20'
+                <div className={`absolute inset-0 rounded-full border transition-all duration-300 ${isHovering ? 'bg-accent/10 border-accent scale-125' : 'border-white/20'
                     }`} />
 
                 {/* Technical Crosshair/Center */}
@@ -82,7 +84,7 @@ export default function CustomCursor() {
                 </div>
 
                 {/* Core Dot */}
-                <div className={`absolute inset-[40%] rounded-full bg-accent shadow-[0_0_15px_rgba(11,185,243,0.8)] transition-transform duration-500 ${isHovering ? 'scale-0' : 'scale-100'}`} />
+                <div className={`absolute inset-[40%] rounded-full bg-accent shadow-[0_0_15px_rgba(11,185,243,0.8)] transition-transform duration-300 ${isHovering ? 'scale-0' : 'scale-100'}`} />
             </motion.div>
         </>
     );

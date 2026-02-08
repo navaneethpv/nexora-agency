@@ -40,7 +40,7 @@ const ShinyText = ({
     const delayDuration = delay * 1000;
 
     const ref = useRef<HTMLSpanElement>(null);
-    const isInView = useInView(ref, { margin: "0px 0px 100px 0px" });
+    const isInView = useInView(ref, { margin: "0px" });
 
     useAnimationFrame((time: number) => {
         if (disabled || isPaused || !isInView) {

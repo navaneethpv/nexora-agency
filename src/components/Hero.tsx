@@ -129,9 +129,12 @@ export default function Hero() {
                     className="text-[2.5rem] sm:text-6xl md:text-8xl font-medium tracking-tight mb-8 md:mb-12 leading-[1.1] text-white"
                 >
                     <span className="uppercase">Scalable Systems</span> <br />
-                    <span className="bg-clip-text text-transparent bg-linear-to-b from-accent to-accent-secondary inline-block tracking-tight font-semibold">
-                        <span className="uppercase">Built for</span> <br /> {currentText}
-                        <span className="inline-block w-[2px] md:w-[3px] h-[0.8em] bg-accent ml-2 animate-[blink_1s_step-end_infinite] align-middle"></span>
+                    <span className="bg-clip-text text-transparent bg-linear-to-b from-accent to-accent-secondary inline-block tracking-tight font-semibold min-h-[1.2em]">
+                        <span className="uppercase">Built for</span> <br />
+                        <span className="inline-block min-w-[300px] text-left">
+                            {currentText}
+                            <span className="inline-block w-[2px] md:w-[3px] h-[0.8em] bg-accent ml-2 animate-[blink_1s_step-end_infinite] align-middle"></span>
+                        </span>
                     </span>
                 </motion.h1>
 
