@@ -143,14 +143,16 @@ export default function SelectedWork() {
                     ))}
                 </div>
 
-                <div className="mt-20 md:mt-32 flex justify-center view-all-btn">
+                <div className="mt-16 md:mt-24 flex justify-start view-all-btn">
                     <Link
                         href="/work"
-                        className="group relative bg-transparent text-white border-b border-white/20 pb-1 text-sm md:text-base font-medium hover:text-accent hover:border-accent transition-all flex items-center gap-2"
+                        className="group relative flex items-center gap-3 text-white/50 hover:text-white transition-colors duration-300"
                         aria-label="View all projects"
                     >
-                        <span>View Entire Portfolio</span>
-                        <RiArrowRightUpLine className="w-4 h-4 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" />
+                        <span className="text-sm md:text-base font-medium uppercase tracking-widest">View Entire Portfolio</span>
+                        <div className="w-12 h-12 rounded-full border border-white/10 flex items-center justify-center group-hover:bg-accent group-hover:border-accent transition-all duration-300">
+                            <RiArrowRightUpLine className="w-5 h-5 transition-transform group-hover:rotate-45" />
+                        </div>
                     </Link>
                 </div>
             </div>

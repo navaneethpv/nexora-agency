@@ -49,51 +49,22 @@ export default function FeaturesSection() {
                                 <span className="text-accent font-bold">Solutions</span>
                             </h2>
                         </div>
-                        <p className="w-full lg:w-1/3 text-secondary text-base md:text-xl font-normal leading-relaxed opacity-80 lg:text-right">
+                        <p className="w-full lg:w-1/3 text-secondary text-base md:text-xl font-normal leading-relaxed opacity-80 lg:text-left">
                             Distilled digital engineering for industries demanding technical precision and aesthetic absolute.
                         </p>
                     </div>
                 </ScrollReveal>
 
-                {/* Bento Grid Layout */}
-                <div className="grid grid-cols-1 md:grid-cols-12 md:grid-rows-2 gap-6 md:gap-8">
-                    {/* Big Card 1 - Web Dev */}
-                    <div className="md:col-span-8 md:row-span-1">
+                {/* 3-Column Grid Layout */}
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+                    {features.map((feature, index) => (
                         <FeatureCard
-                            feature={features[0]}
-                            index={0}
-                            className="bg-white/2 border-white/5 h-full"
-                            iconSize="w-8 h-8 md:w-10 md:h-10"
+                            key={index}
+                            feature={feature}
+                            index={index}
+                            className={index === 1 || index === 4 ? "bg-accent/5 border-accent/10" : "bg-white/2 border-white/5"}
                         />
-                    </div>
-
-                    {/* Smaller Card 2 - Design */}
-                    <div className="md:col-span-4 md:row-span-1">
-                        <FeatureCard
-                            feature={features[1]}
-                            index={1}
-                            className="bg-accent/5 border-accent/10 h-full"
-                        />
-                    </div>
-
-                    {/* Smaller Card 3 - Fast */}
-                    <div className="md:col-span-4 md:row-span-1">
-                        <FeatureCard
-                            feature={features[2]}
-                            index={2}
-                            className="bg-white/2 border-white/5 h-full"
-                        />
-                    </div>
-
-                    {/* Big Card 4 - Secure */}
-                    <div className="md:col-span-8 md:row-span-1">
-                        <FeatureCard
-                            feature={features[5]}
-                            index={5}
-                            className="bg-white/2 border-white/5 h-full"
-                            iconSize="w-8 h-8 md:w-10 md:h-10"
-                        />
-                    </div>
+                    ))}
                 </div>
             </div>
         </section>

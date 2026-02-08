@@ -165,7 +165,7 @@ export default function MockupShowcase() {
 
 const Header = () => {
     return (
-        <div className="section-container relative mx-auto py-12 md:py-20 px-4 w-full left-0 top-0">
+        <div className="section-container relative mx-auto py-12 md:py-20 w-full left-0 top-0">
             <ParallaxScroll speed={0.1} direction="up">
                 <h2 className="text-3xl md:text-6xl font-medium text-white tracking-tight leading-[1.1] mb-6 md:mb-10 gpu-stable">
                     Engineering <br />

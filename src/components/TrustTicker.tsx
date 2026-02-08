@@ -33,10 +33,10 @@ export default function TrustTicker() {
     return (
         <section id="trust-section" ref={tickerRef} className="py-20 md:py-32 border-b border-white/5 relative bg-background overflow-hidden">
             <div className="section-container relative">
-                <div className="mb-12 md:mb-16 relative z-10 flex justify-center">
+                <div className="mb-12 md:mb-16 relative z-10 flex">
                     <ShinyText
                         text="ENGINEERING SCALE FOR INDUSTRY LEADERS"
-                        className="text-[10px] md:text-xs font-semibold uppercase tracking-[0.5em] text-center opacity-40"
+                        className="text-[10px] md:text-xs font-semibold uppercase tracking-[0.5em] opacity-40"
                         color="rgba(255,255,255,0.4)"
                         shineColor="#ffffff"
                         speed={4}
