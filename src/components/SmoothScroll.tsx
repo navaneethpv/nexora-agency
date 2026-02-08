@@ -12,15 +12,19 @@ export default function SmoothScroll({ children }: { children: React.ReactNode }
     useEffect(() => {
         const isLowEnd = (navigator as any).deviceMemory !== undefined && (navigator as any).deviceMemory <= 4;
         const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+        const isMobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent) || window.innerWidth < 1024;
 
-        if (prefersReducedMotion) return;
+        if (prefersReducedMotion || isMobile) {
+            document.documentElement.classList.remove('lenis', 'lenis-smooth');
+            return;
+        }
 
         const lenis = new Lenis({
             duration: isLowEnd ? 0.8 : 1.2,
             easing: (t: number) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
             lerp: isLowEnd ? 0.15 : 0.1,
             wheelMultiplier: 1.1,
-            touchMultiplier: 1.5,
+            touchMultiplier: 2,
             infinite: false,
             syncTouch: true,
         });

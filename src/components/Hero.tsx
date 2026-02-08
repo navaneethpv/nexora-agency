@@ -83,18 +83,21 @@ export default function Hero() {
     };
 
     return (
-        <section className="relative h-screen min-h-[800px] flex flex-col items-center justify-center text-center px-6 overflow-hidden bg-black">
+        <section
+            className="relative min-h-[100dvh] flex flex-col items-center justify-center text-center px-6 overflow-hidden bg-black"
+            style={{ backgroundColor: "#000000" }}
+        >
             <div className="absolute inset-0 z-0 pointer-events-none">
                 <GravityStarsBackground
-                    starsCount={100}
+                    starsCount={130}
                     starsSize={2}
-                    starsOpacity={0.8}
-                    glowIntensity={20}
-                    movementSpeed={0.5}
+                    starsOpacity={0.7}
+                    glowIntensity={15}
+                    movementSpeed={1.5}
                     className="w-full h-full text-white"
-                    mouseInfluence={200}
+                    mouseInfluence={150}
                     mouseGravity="attract"
-                    gravityStrength={150}
+                    gravityStrength={10}
                 />
             </div>
 

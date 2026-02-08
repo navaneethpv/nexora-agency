@@ -71,18 +71,18 @@ export default function SelectedWork() {
             </div>
 
             <div className="section-container relative z-10">
-                <div className="mb-20 md:mb-32 work-title flex flex-col md:flex-row md:items-end justify-between gap-8">
+                <div className="mb-12 md:mb-32 work-title flex flex-col md:flex-row md:items-end justify-between gap-8">
                     <div>
                         <h2 className="text-4xl md:text-7xl font-medium tracking-tighter text-white uppercase leading-[0.9]">
                             Selected <span className="text-secondary opacity-60">Equity</span>
                         </h2>
                     </div>
-                    <p className="text-secondary text-base md:text-lg font-light max-w-md leading-relaxed border-l border-white/10 pl-6 hidden md:block">
+                    <p className="text-secondary text-base md:text-lg font-light max-w-md leading-relaxed border-l border-white/10 pl-6 mt-4 md:mt-0 block">
                         A cinematic distillation of high-performance digital systems and architectural brand equity.
                     </p>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-x-10 gap-y-20 md:gap-y-32">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-x-10 gap-y-12 md:gap-y-32">
                     {featuredProjects.map((project, i) => (
                         <Link
                             href={`/work/${project.slug}`}
