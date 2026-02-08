@@ -113,10 +113,10 @@ export default function SelectedWork() {
                                 </div>
 
                                 {/* Content */}
-                                <div className="space-y-4 px-2">
-                                    <div className="flex justify-between items-start gap-4">
-                                        <div className="space-y-2">
-                                            <h3 className="text-2xl md:text-4xl font-medium text-white group-hover:text-accent transition-colors duration-300 leading-tight">
+                                <div className="space-y-3 md:space-y-4 px-1 md:px-2">
+                                    <div className="flex justify-between items-start gap-3 md:gap-4">
+                                        <div className="space-y-1.5 md:space-y-2">
+                                            <h3 className="text-xl md:text-4xl font-medium text-white group-hover:text-accent transition-colors duration-300 leading-tight">
                                                 {project.title}
                                             </h3>
                                             <p className="text-secondary text-sm md:text-base leading-relaxed line-clamp-2 max-w-md">
@@ -124,13 +124,13 @@ export default function SelectedWork() {
                                             </p>
                                         </div>
 
-                                        <div className="w-12 h-12 rounded-full border border-white/10 flex items-center justify-center group-hover:bg-accent group-hover:border-accent transition-all duration-300 shrink-0">
-                                            <RiArrowRightUpLine className="w-5 h-5 text-white transition-transform duration-300 group-hover:rotate-45" />
+                                        <div className="w-10 h-10 md:w-12 md:h-12 rounded-full border border-white/10 flex items-center justify-center group-hover:bg-accent group-hover:border-accent transition-all duration-300 shrink-0">
+                                            <RiArrowRightUpLine className="w-4 h-4 md:w-5 md:h-5 text-white transition-transform duration-300 group-hover:rotate-45" />
                                         </div>
                                     </div>
 
                                     {/* Tags */}
-                                    <div className="flex flex-wrap gap-2 pt-2">
+                                    <div className="flex flex-wrap gap-2 pt-1 md:pt-2">
                                         {project.features.slice(0, 3).map((feature, idx) => (
                                             <span key={idx} className="text-[10px] md:text-xs text-white/40 uppercase tracking-wider border border-white/5 px-2 py-1 rounded-md">
                                                 {feature}

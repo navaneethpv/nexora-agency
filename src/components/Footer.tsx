@@ -13,7 +13,7 @@ export default function Footer() {
             <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[400px] bg-accent/5 blur-[120px] rounded-full -z-10 opacity-50" />
 
             <div className="section-container">
-                <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 mb-24 px-4 md:px-0">
+                <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 mb-24">
                     {/* Brand Section */}
                     <div className="lg:col-span-5 space-y-8">
                         <motion.div
@@ -98,7 +98,7 @@ export default function Footer() {
                 </div>
 
                 {/* Bottom Bar */}
-                <div className="pt-12 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-6 px-4 md:px-0">
+                <div className="pt-12 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-6">
                     <p className="text-secondary/60 text-[12px] font-medium tracking-wide">
                         © 2026 NEXORA AGENCY. ALL RIGHTS RESERVED.
                     </p>

@@ -5,7 +5,7 @@ export default function Testimonial() {
     return (
         <section className="py-10 md:py-20 px-4 md:px-0">
             <div className="section-container">
-                <div className="relative bg-[#0a0a0a] border border-white/5 rounded-3xl md:rounded-[2.5rem] p-6 md:p-16 overflow-hidden group">
+                <div className="relative bg-[#0a0a0a] border border-white/5 rounded-3xl md:rounded-[2.5rem] p-5 sm:p-6 md:p-16 overflow-hidden group">
                     {/* Background Glow */}
                     <div className="absolute top-0 right-0 w-96 h-96 bg-accent/5 blur-[100px] rounded-full -translate-y-1/2 translate-x-1/2 pointer-events-none" />
 
@@ -15,7 +15,7 @@ export default function Testimonial() {
                         <span className="text-[10px] md:text-xs font-black tracking-[0.3em] text-accent uppercase">PHILOSOPHY</span>
                     </div>
 
-                    <blockquote className="text-3xl sm:text-4xl md:text-7xl font-medium leading-[1.1] mb-12 md:mb-16">
+                    <blockquote className="text-2xl sm:text-3xl md:text-7xl font-medium leading-[1.1] mb-8 md:mb-16">
                         Designed for <span className="text-white">Clarity</span>. <br />
                         <span className="font-normal text-secondary">Built for global scale.</span>
                     </blockquote>

@@ -75,10 +75,10 @@ function FeatureCard({ feature, index, className = "", iconSize = "w-6 h-6 md:w-
     return (
         <ScrollReveal key={index} delay={index * 0.1} direction="up" distance={20} className="h-full">
             <motion.div
-                className={`glass-card p-10 md:p-12 rounded-[2.5rem] transition-all duration-700 group h-full relative overflow-hidden border ${className}`}
+                className={`glass-card p-6 md:p-12 rounded-[2rem] md:rounded-[2.5rem] transition-all duration-700 group h-full relative overflow-hidden border ${className}`}
             >
                 <div className="relative z-10 flex flex-col h-full">
-                    <div className="w-14 h-14 md:w-16 md:h-16 rounded-2xl bg-white/3 border border-white/5 flex items-center justify-center text-accent mb-8 group-hover:bg-accent group-hover:text-white transition-all duration-700">
+                    <div className="w-12 h-12 md:w-16 md:h-16 rounded-2xl bg-white/3 border border-white/5 flex items-center justify-center text-accent mb-6 md:mb-8 group-hover:bg-accent group-hover:text-white transition-all duration-700">
                         <feature.icon className={iconSize} />
                     </div>
                     <h3 className="text-2xl md:text-3xl font-medium mb-4 text-white group-hover:text-accent transition-colors duration-300">
