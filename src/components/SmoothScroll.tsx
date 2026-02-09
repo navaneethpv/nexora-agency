@@ -10,23 +10,28 @@ export default function SmoothScroll({ children }: { children: React.ReactNode }
     const pathname = usePathname();
 
     useEffect(() => {
+        // Detect low-end devices for performance optimization
         const isLowEnd = (navigator as any).deviceMemory !== undefined && (navigator as any).deviceMemory <= 4;
         const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-        const isMobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent) || window.innerWidth < 1024;
 
-        if (prefersReducedMotion || isMobile) {
+        if (prefersReducedMotion) {
             document.documentElement.classList.remove('lenis', 'lenis-smooth');
             return;
         }
 
         const lenis = new Lenis({
-            duration: isLowEnd ? 0.8 : 1.2,
-            easing: (t: number) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-            lerp: isLowEnd ? 0.15 : 0.1,
-            wheelMultiplier: 1.1,
+            // Optimized settings for "instant" feel without lag
+            duration: isLowEnd ? 0.8 : 1.0, // Reduced from 1.2 for snappier response
+            easing: (t: number) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), // Exponential easing
+            orientation: 'vertical',
+            gestureOrientation: 'vertical',
+            smoothWheel: true,
+            wheelMultiplier: 1.2, // Slightly increased for responsive feel
             touchMultiplier: 2,
             infinite: false,
-            syncTouch: true,
+            // We keep smoothTouch false (default) to use native scroll on mobile
+            // This ensures maximum performance ("no lag") on low-end mobile devices
+            // while still allowing Lenis to control other aspects if needed.
         });
 
         lenisRef.current = lenis;
