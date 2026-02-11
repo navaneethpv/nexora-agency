@@ -271,8 +271,6 @@ function GravityStarsBackground({
       const color = readColor();
       for (const p of starsRef.current) {
         ctx.save();
-        ctx.shadowColor = color;
-        ctx.shadowBlur = glowIntensity * (p.glowMultiplier || 1) * 2;
         ctx.globalAlpha = p.opacity;
         ctx.fillStyle = color;
         ctx.beginPath();

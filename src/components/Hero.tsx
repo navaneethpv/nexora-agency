@@ -89,7 +89,7 @@ export default function Hero() {
         >
             <div className="absolute inset-0 z-0 pointer-events-none">
                 <GravityStarsBackground
-                    starsCount={130}
+                    starsCount={60}
                     starsSize={2}
                     starsOpacity={0.7}
                     glowIntensity={15}
@@ -147,7 +147,7 @@ export default function Hero() {
                 </ParallaxScroll>
 
                 <ParallaxScroll speed={0.25} direction="down">
-                    <p className="max-w-[90%] md:max-w-2xl text-base md:text-xl text-secondary mb-10 md:mb-12 leading-relaxed font-medium opacity-90 mx-auto gpu-stable px-4 md:px-0">
+                    <p className="max-w-[90%] md:max-w-2xl text-base md:text-xl text-white/90 mb-10 md:mb-12 leading-relaxed font-semibold mx-auto gpu-stable px-4 md:px-0">
                         Nexora builds clean, scalable, and performance-focused websites and web applications for businesses and institutions.
                     </p>
                 </ParallaxScroll>

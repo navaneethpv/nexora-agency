@@ -130,13 +130,11 @@ export default function MockupShowcase() {
     return (
         <div
             ref={ref}
-            className="min-h-[140vh] md:min-h-[200vh] py-12 md:py-32 overflow-hidden antialiased relative flex flex-col self-auto perspective-[1000px] transform-3d bg-black w-full"
+            className="min-h-[140vh] md:min-h-[200vh] py-12 md:py-32 overflow-hidden antialiased relative flex flex-col bg-black w-full"
         >
             <Header />
             <motion.div
                 style={{
-                    rotateX,
-                    rotateZ,
                     translateY,
                     opacity,
                 }}
@@ -177,14 +175,14 @@ export default function MockupShowcase() {
 const Header = () => {
     return (
         <div className="section-container relative mx-auto py-12 md:py-20 w-full left-0 top-0">
-            <ParallaxScroll speed={0.05} direction="up">
+            <ParallaxScroll speed={0.02} direction="up">
                 <h2 className="text-3xl md:text-6xl font-medium text-white tracking-tight leading-[1.1] mb-6 md:mb-10 gpu-stable">
                     Engineering <br />
                     <span className="bg-clip-text text-transparent bg-linear-to-r from-accent to-accent-secondary font-semibold">Bespoke</span> Digital Platforms
                 </h2>
             </ParallaxScroll>
-            <ParallaxScroll speed={0.1} direction="up">
-                <p className="max-w-2xl text-base md:text-xl font-normal text-secondary leading-relaxed opacity-90">
+            <ParallaxScroll speed={0.04} direction="up">
+                <p className="max-w-2xl text-base md:text-xl font-normal text-white/90 leading-relaxed">
                     At <span className="text-white font-medium">Nexora</span>, we converge technical excellence with
                     distilled design to build high-performance products that command attention.
                 </p>

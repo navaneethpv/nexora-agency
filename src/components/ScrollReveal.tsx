@@ -41,13 +41,11 @@ export default function ScrollReveal({
             opacity: 0,
             x: direction === "left" ? distance : direction === "right" ? -distance : 0,
             y: direction === "up" ? distance : direction === "down" ? -distance : 0,
-            scale: 0.98,
         },
         visible: {
             opacity: 1,
             x: 0,
             y: 0,
-            scale: 1,
             transition: {
                 duration: duration,
                 delay: delay,

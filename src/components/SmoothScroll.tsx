@@ -20,18 +20,14 @@ export default function SmoothScroll({ children }: { children: React.ReactNode }
         }
 
         const lenis = new Lenis({
-            // Optimized settings for "instant" feel without lag
-            duration: isLowEnd ? 0.8 : 1.0, // Reduced from 1.2 for snappier response
-            easing: (t: number) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), // Exponential easing
+            duration: 1.2, // Increased for smoother motion
+            easing: (t: number) => 1 - Math.pow(1 - t, 4), // Quartic ease out
             orientation: 'vertical',
             gestureOrientation: 'vertical',
             smoothWheel: true,
-            wheelMultiplier: 1.2, // Slightly increased for responsive feel
-            touchMultiplier: 2,
+            wheelMultiplier: 1.0, // Back to standard
+            touchMultiplier: 1.5, // Slightly lower for mobile stability
             infinite: false,
-            // We keep smoothTouch false (default) to use native scroll on mobile
-            // This ensures maximum performance ("no lag") on low-end mobile devices
-            // while still allowing Lenis to control other aspects if needed.
         });
 
         lenisRef.current = lenis;
