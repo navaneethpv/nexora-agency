@@ -17,7 +17,7 @@ export default function Hero() {
     const mouseX = useMotionValue(0);
     const mouseY = useMotionValue(0);
 
-    const springConfig = { damping: 25, stiffness: 150 };
+    const springConfig = { damping: 35, stiffness: 120 };
     const mouseXSpring = useSpring(mouseX, springConfig);
     const mouseYSpring = useSpring(mouseY, springConfig);
 
@@ -84,7 +84,7 @@ export default function Hero() {
 
     return (
         <section
-            className="relative min-h-[100dvh] flex flex-col items-center justify-center text-center px-6 overflow-hidden bg-black"
+            className="relative min-h-dvh flex flex-col items-center justify-center text-center px-6 overflow-hidden bg-black"
             style={{ backgroundColor: "#000000" }}
         >
             <div className="absolute inset-0 z-0 pointer-events-none">

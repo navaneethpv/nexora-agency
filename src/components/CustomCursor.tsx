@@ -10,11 +10,11 @@ export default function CustomCursor() {
     const mouseX = useMotionValue(-100);
     const mouseY = useMotionValue(-100);
 
-    const springConfig = { damping: 20, stiffness: 200, mass: 0.5 };
+    const springConfig = { damping: 30, stiffness: 150, mass: 0.5 };
     const cursorX = useSpring(mouseX, springConfig);
     const cursorY = useSpring(mouseY, springConfig);
-    const trailX = useSpring(mouseX, { damping: 40, stiffness: 300 });
-    const trailY = useSpring(mouseY, { damping: 40, stiffness: 300 });
+    const trailX = useSpring(mouseX, { damping: 50, stiffness: 250 });
+    const trailY = useSpring(mouseY, { damping: 50, stiffness: 250 });
 
     useEffect(() => {
         const handleMouseMove = (e: MouseEvent) => {

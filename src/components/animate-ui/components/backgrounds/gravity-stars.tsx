@@ -282,7 +282,13 @@ function GravityStarsBackground({
     [dpr, glowIntensity, readColor],
   );
 
+  const isVisibleRef = React.useRef(true);
+
   const animate = React.useCallback(() => {
+    if (!isVisibleRef.current) {
+      animRef.current = null;
+      return;
+    }
     const canvas = canvasRef.current;
     if (!canvas) return;
     const ctx = canvas.getContext('2d');
@@ -291,6 +297,24 @@ function GravityStarsBackground({
     drawStars(ctx);
     animRef.current = requestAnimationFrame(animate);
   }, [updateStars, drawStars]);
+
+  React.useEffect(() => {
+    const container = containerRef.current;
+    if (!container) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        isVisibleRef.current = entry.isIntersecting;
+        if (entry.isIntersecting && !animRef.current) {
+          animRef.current = requestAnimationFrame(animate);
+        }
+      },
+      { threshold: 0.1 }
+    );
+
+    observer.observe(container);
+    return () => observer.disconnect();
+  }, [animate]);
 
   React.useEffect(() => {
     resizeCanvas();
@@ -334,7 +358,10 @@ function GravityStarsBackground({
 
   React.useEffect(() => {
     if (animRef.current) cancelAnimationFrame(animRef.current);
-    animRef.current = requestAnimationFrame(animate);
+    // Only start if visible
+    if (isVisibleRef.current) {
+      animRef.current = requestAnimationFrame(animate);
+    }
     return () => {
       if (animRef.current) cancelAnimationFrame(animRef.current);
       animRef.current = null;
