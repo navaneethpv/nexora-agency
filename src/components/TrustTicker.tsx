@@ -1,7 +1,7 @@
 "use client";
 
 import { useRef } from "react";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion, useScroll, useTransform, useSpring } from "framer-motion";
 import ShinyText from "./ShinyText";
 import { RiNextjsFill, RiTailwindCssFill } from "react-icons/ri";
 import { SiTypescript, SiAdobephotoshop, SiExpress, SiMongodb, SiAdobeillustrator } from "react-icons/si";
@@ -28,7 +28,8 @@ export default function TrustTicker() {
         offset: ["start end", "end start"],
     });
 
-    const tickerX = useTransform(scrollYProgress, [0, 1], ["0%", "-40%"]);
+    const rawTickerX = useTransform(scrollYProgress, [0, 1], ["0%", "-40%"]);
+    const tickerX = useSpring(rawTickerX, { stiffness: 100, damping: 30, restDelta: 0.001 });
 
     return (
         <section id="trust-section" ref={tickerRef} className="py-20 md:py-32 border-b border-white/5 relative bg-background overflow-hidden">

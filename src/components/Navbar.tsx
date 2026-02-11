@@ -126,7 +126,7 @@ export default function Navbar() {
                         initial={{ opacity: 0, height: 0 }}
                         animate={{ opacity: 1, height: "auto" }}
                         exit={{ opacity: 0, height: 0 }}
-                        className="lg:hidden absolute top-full left-0 w-full mt-2 bg-black/90 backdrop-blur-xl border border-white/10 rounded-3xl overflow-hidden shadow-2xl"
+                        className="lg:hidden absolute top-full left-0 w-full mt-2 bg-black/90 backdrop-blur-md border border-white/10 rounded-3xl overflow-hidden shadow-2xl"
                     >
                         <div className="flex flex-col p-6 gap-4">
                             {navLinks.map((link) => (
