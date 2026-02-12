@@ -16,7 +16,7 @@ export async function POST(req: Request) {
         const displaySubject = subjectMap[subject] || '📬 New Contact Form Submission';
 
         const { data, error } = await resend.emails.send({
-            from: 'Nexora Agency <agency@nexoraweb.tech>',
+            from: `${name} (${email}) <agency@nexoraweb.tech>`,
             to: ['agency@nexoraweb.tech'],
             subject: `${displaySubject} from ${name}`,
             replyTo: email,
