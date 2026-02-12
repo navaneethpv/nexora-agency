@@ -8,7 +8,7 @@ import { projects } from "@/data/work-data";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import FloatingWhatsApp from "@/components/FloatingWhatsApp";
-import { RiArrowLeftLine, RiCheckboxCircleLine, RiStackLine, RiCpuLine, RiTrophyLine, RiArrowRightLine } from "react-icons/ri";
+import { RiArrowLeftLine, RiCheckboxCircleLine, RiStackLine, RiCpuLine, RiTrophyLine, RiArrowRightLine, RiExternalLinkLine } from "react-icons/ri";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useParams } from "next/navigation";
@@ -88,9 +88,19 @@ export default function ProjectPage() {
                             <span className="text-accent font-mono tracking-widest uppercase mb-4 block">
                                 {project.category}
                             </span>
-                            <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold leading-tight">
+                            <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold leading-tight mb-6">
                                 {project.title}
                             </h1>
+                            {project.liveLink && (
+                                <a
+                                    href={project.liveLink}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="inline-flex items-center gap-2 px-6 py-3 bg-white/10 hover:bg-white/20 border border-white/10 rounded-full text-white font-medium transition-all"
+                                >
+                                    Live Demo <RiExternalLinkLine size={18} />
+                                </a>
+                            )}
                         </div>
                         <div className="lg:pl-10 hero-text">
                             <p className="text-xl md:text-2xl text-gray-300 font-medium leading-relaxed">
@@ -167,6 +177,68 @@ export default function ProjectPage() {
                     </div>
                 </div>
             </section>
+
+            {/* Gallery Section */}
+            {project.gallery && project.gallery.length > 0 && (
+                <section className="py-20 md:py-32 px-6 md:px-10 max-w-[1400px] mx-auto content-section">
+                    <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
+                        <div>
+                            <h2 className="text-3xl md:text-5xl font-bold mb-4">Visual Showcase</h2>
+                            <p className="text-gray-400 text-lg max-w-xl">
+                                Detailed snapshots of the interface and user experience across different segments of the platform.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                        {project.gallery.map((image, i) => (
+                            <div
+                                key={i}
+                                className="group relative aspect-video rounded-3xl overflow-hidden border border-white/10 bg-white/5"
+                            >
+                                <Image
+                                    src={image}
+                                    alt={`Screenshot ${i + 1}`}
+                                    fill
+                                    className="object-cover transition-transform duration-700 group-hover:scale-110"
+                                />
+                                <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                                    <span className="text-white font-medium px-6 py-2 rounded-full border border-white/20 backdrop-blur-md">
+                                        View Screenshot
+                                    </span>
+                                </div>
+                            </div>
+                        ))}
+                    </div>
+                </section>
+            )}
+
+            {/* Live Link Section */}
+            {project.liveLink && (
+                <section className="py-20 md:py-32 px-6 md:px-10 content-section">
+                    <div className="max-w-[1400px] mx-auto">
+                        <div className="relative rounded-[3rem] overflow-hidden bg-white/2 border border-white/10 p-12 md:p-20 flex flex-col items-center text-center">
+                            {/* Decorative background */}
+                            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-accent/20 blur-[120px] rounded-full pointer-events-none" />
+
+                            <div className="relative z-10">
+                                <span className="text-accent font-mono tracking-widest uppercase mb-6 block">Experience it live</span>
+                                <h2 className="text-4xl md:text-6xl font-bold mb-8 max-w-3xl">
+                                    See the project in action <br /> from your browser.
+                                </h2>
+                                <a
+                                    href={project.liveLink}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="inline-flex items-center gap-3 bg-white text-black px-10 py-5 rounded-full font-bold text-xl hover:bg-accent hover:text-white transition-all transform hover:scale-105 active:scale-95 shadow-2xl shadow-white/10"
+                                >
+                                    Visit Live Website <RiExternalLinkLine />
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            )}
 
             {/* CTA Section */}
             <section className="py-24 md:py-32 px-6 md:px-10 text-center content-section">

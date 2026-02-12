@@ -12,6 +12,8 @@ export interface Project {
     features: string[];
     techStack: string[];
     outcomes: string[];
+    gallery?: string[];
+    liveLink?: string;
 }
 
 export const projects: Project[] = [
@@ -47,7 +49,14 @@ export const projects: Project[] = [
             "300% increase in direct online enquiries within 3 months",
             "Reduced administrative time for booking management by 60%",
             "Achieved a 98/100 Performance Score on Google Lighthouse"
-        ]
+        ],
+        gallery: [
+            "https://images.unsplash.com/photo-1566073771259-6a8506099945?q=80&w=1400&auto=format&fit=crop",
+            "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?q=80&w=1400&auto=format&fit=crop",
+            "https://images.unsplash.com/photo-1551882547-ff43c61f32a0?q=80&w=1400&auto=format&fit=crop",
+            "https://images.unsplash.com/photo-1563911302283-d2bc120e7458?q=80&w=1400&auto=format&fit=crop"
+        ],
+        liveLink: "https://demo-resort.nexoraweb.tech"
     },
     {
         slug: "college-website-platform",
