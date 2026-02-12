@@ -84,7 +84,7 @@ export default function Hero() {
 
     return (
         <section
-            className="relative min-h-dvh flex flex-col items-center justify-center text-center px-6 overflow-hidden bg-black"
+            className="relative min-h-dvh flex flex-col items-center justify-center text-center px-6 overflow-hidden bg-black pt-36 md:pt-0"
             style={{ backgroundColor: "#000000" }}
         >
             <div className="absolute inset-0 z-0 pointer-events-none">
@@ -137,9 +137,9 @@ export default function Hero() {
                 </motion.div>
 
                 <ParallaxScroll speed={0.1} direction="down">
-                    <h1 className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-black tracking-tight mb-6 md:mb-8 leading-[1.1] md:leading-[1.02] gpu-stable text-wrap-balance">
+                    <h1 className="text-[1.8rem] sm:text-5xl md:text-7xl lg:text-8xl font-black tracking-tight mb-6 md:mb-8 leading-[1.2] md:leading-[1.02] gpu-stable text-wrap-balance">
                         Modern Web Solutions for <br className="hidden md:block" />
-                        <span className="font-medium text-glow bg-clip-text text-transparent bg-linear-to-b from-accent to-accent-secondary min-h-[1.1em] inline-block text-[1.75rem] sm:text-5xl md:text-6xl lg:text-7xl uppercase tracking-wider mt-2 md:mt-0">
+                        <span className="font-medium text-glow bg-clip-text text-transparent bg-linear-to-b from-accent to-accent-secondary min-h-[1.1em] inline-block text-[1.5rem] sm:text-4xl md:text-6xl lg:text-7xl uppercase tracking-wider mt-2 md:mt-0">
                             {currentText}
                             <span className="inline-block w-[2px] md:w-[2.5px] h-[0.85em] bg-accent ml-1 md:ml-2 animate-[blink_1s_step-end_infinite] align-middle shadow-[0_0_8px_rgba(11,185,243,0.8)]"></span>
                         </span>
@@ -147,7 +147,7 @@ export default function Hero() {
                 </ParallaxScroll>
 
                 <ParallaxScroll speed={0.25} direction="down">
-                    <p className="max-w-[90%] md:max-w-2xl text-base md:text-xl text-white/90 mb-10 md:mb-12 leading-relaxed font-semibold mx-auto gpu-stable px-4 md:px-0">
+                    <p className="max-w-[95%] md:max-w-2xl text-sm md:text-xl text-white/90 mb-10 md:mb-12 leading-relaxed font-semibold mx-auto gpu-stable px-4 md:px-0 opacity-80">
                         Nexora builds clean, scalable, and performance-focused websites and web applications for businesses and institutions.
                     </p>
                 </ParallaxScroll>

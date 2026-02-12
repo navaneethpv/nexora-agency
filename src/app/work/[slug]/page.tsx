@@ -237,13 +237,14 @@ export default function ProjectPage() {
                                 animate={{ opacity: 1 }}
                                 exit={{ opacity: 0 }}
                                 onClick={() => setSelectedImage(null)}
-                                className="fixed inset-0 z-100 bg-black/95 backdrop-blur-xl flex items-center justify-center p-4 md:p-12"
+                                className="fixed inset-0 z-[1000] bg-black/95 backdrop-blur-xl flex items-center justify-center p-4 md:p-12"
                             >
                                 <button
                                     onClick={() => setSelectedImage(null)}
-                                    className="absolute top-8 right-8 text-white/60 hover:text-white transition-colors p-2"
+                                    className="absolute top-8 right-8 md:top-12 md:right-12 text-white/70 hover:text-white transition-all p-4 bg-white/5 hover:bg-white/10 border border-white/10 rounded-full z-50 group cursor-pointer"
+                                    aria-label="Close Gallery"
                                 >
-                                    <RiCloseLine size={32} />
+                                    <RiCloseLine size={32} className="group-hover:rotate-90 transition-transform duration-300" />
                                 </button>
 
                                 <motion.div

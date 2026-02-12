@@ -30,15 +30,12 @@ export default function Navbar() {
     ];
 
     return (
-        <nav className="fixed top-4 md:top-8 left-1/2 -translate-x-1/2 z-50 w-full max-w-[96%] md:max-w-[1500px] px-2 md:px-6">
+        <nav className="fixed top-2 md:top-8 left-1/2 -translate-x-1/2 z-50 w-full max-w-[98%] md:max-w-[1500px] px-2 md:px-6">
             <motion.div
                 initial={{ y: -20, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
                 transition={{ duration: 0.5 }}
-                className={`rounded-full p-1.5 md:p-2 flex items-center justify-between w-full border transition-all duration-500 ${scrolled
-                    ? "bg-white/5 backdrop-blur-xl border-white/15 shadow-[0_8px_32px_0_rgba(0,0,0,0.8)]"
-                    : "bg-transparent backdrop-blur-0 border-transparent shadow-none"
-                    }`}
+                className={`glass-pill rounded-full transition-all duration-500 ${scrolled ? 'py-2 md:py-3 shadow-2xl' : 'py-3 md:py-5'} px-5 md:px-10 flex items-center justify-between`}
             >
                 <div className="flex items-center gap-4 lg:gap-8 xl:gap-16 pl-4 md:pl-8 pr-1 md:pr-2 w-full justify-between">
                     <Link
