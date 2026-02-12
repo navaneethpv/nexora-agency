@@ -84,17 +84,19 @@ export default function WhyNexora() {
                                     </p>
 
                                     <div className="space-y-6 relative z-10">
-                                        <Link href="/contact" className="block w-full">
-                                            <button className="w-full bg-accent text-white py-4 md:py-6 rounded-full font-medium text-base md:text-xl group/btn flex items-center justify-center gap-3 active:scale-[0.98] transition-all shadow-lg shadow-accent/10">
-                                                <span>Get started</span>
-                                                <motion.span animate={{ x: [0, 5, 0] }} transition={{ repeat: Infinity, duration: 1.5 }}>→</motion.span>
-                                            </button>
+                                        <Link
+                                            href="/contact"
+                                            className="w-full bg-accent text-white py-4 md:py-6 rounded-full font-medium text-base md:text-xl group/btn flex items-center justify-center gap-3 active:scale-[0.98] transition-all shadow-lg shadow-accent/10"
+                                        >
+                                            <span>Get started</span>
+                                            <motion.span animate={{ x: [0, 5, 0] }} transition={{ repeat: Infinity, duration: 1.5 }}>→</motion.span>
                                         </Link>
 
-                                        <Link href="/contact" className="block w-full">
-                                            <button className="block w-full text-secondary hover:text-white text-[10px] md:text-sm font-medium tracking-widest md:tracking-[0.3em] uppercase transition-colors py-2">
-                                                Or book a strategy call
-                                            </button>
+                                        <Link
+                                            href="/contact"
+                                            className="block w-full text-secondary hover:text-white text-[10px] md:text-sm font-medium tracking-widest md:tracking-[0.3em] uppercase transition-colors py-2"
+                                        >
+                                            Or book a strategy call
                                         </Link>
                                     </div>
                                 </motion.div>

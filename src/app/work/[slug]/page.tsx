@@ -23,6 +23,18 @@ export default function ProjectPage() {
 
     const [selectedImage, setSelectedImage] = useState<string | null>(null);
 
+    // Lock scroll when lightbox is open
+    useEffect(() => {
+        if (selectedImage) {
+            document.body.style.overflow = 'hidden';
+        } else {
+            document.body.style.overflow = 'unset';
+        }
+        return () => {
+            document.body.style.overflow = 'unset';
+        };
+    }, [selectedImage]);
+
     if (!project && slug) {
         // handle not found gracefully or let generic 404 take over
         // For a client component, we might return null or redirect
@@ -86,27 +98,29 @@ export default function ProjectPage() {
                         <RiArrowLeftLine size={20} /> Back to Work
                     </Link>
 
-                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-end mb-16">
-                        <div className="hero-text">
-                            <span className="text-accent font-mono tracking-widest uppercase mb-4 block">
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 items-end mb-12 md:mb-16">
+                        <div className="hero-text space-y-4">
+                            <span className="text-accent font-mono tracking-widest uppercase block">
                                 {project.category}
                             </span>
-                            <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold leading-tight mb-6">
+                            <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold leading-tight">
                                 {project.title}
                             </h1>
                             {project.liveLink && (
-                                <a
-                                    href={project.liveLink}
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    className="inline-flex items-center gap-2 px-6 py-3 bg-white/10 hover:bg-white/20 border border-white/10 rounded-full text-white font-medium transition-all"
-                                >
-                                    Live Demo <RiExternalLinkLine size={18} />
-                                </a>
+                                <div className="pt-2">
+                                    <a
+                                        href={project.liveLink}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="inline-flex items-center gap-2 px-6 py-3 bg-white/10 hover:bg-white/20 border border-white/10 rounded-full text-white font-medium transition-all text-sm md:text-base"
+                                    >
+                                        Live Demo <RiExternalLinkLine size={18} />
+                                    </a>
+                                </div>
                             )}
                         </div>
                         <div className="lg:pl-10 hero-text">
-                            <p className="text-xl md:text-2xl text-gray-300 font-medium leading-relaxed">
+                            <p className="text-lg md:text-2xl text-gray-300 font-medium leading-relaxed">
                                 {project.shortDescription}
                             </p>
                         </div>
@@ -223,7 +237,7 @@ export default function ProjectPage() {
                                 animate={{ opacity: 1 }}
                                 exit={{ opacity: 0 }}
                                 onClick={() => setSelectedImage(null)}
-                                className="fixed inset-0 z-[100] bg-black/95 backdrop-blur-xl flex items-center justify-center p-6 md:p-12"
+                                className="fixed inset-0 z-100 bg-black/95 backdrop-blur-xl flex items-center justify-center p-4 md:p-12"
                             >
                                 <button
                                     onClick={() => setSelectedImage(null)}
@@ -289,10 +303,11 @@ export default function ProjectPage() {
                     <p className="text-lg text-gray-400 mb-10 max-w-xl mx-auto">
                         Let{"'"}s apply the same level of precision and strategy to your next project.
                     </p>
-                    <Link href="/contact">
-                        <button className="bg-accent text-white px-8 md:px-10 py-3 md:py-4 rounded-full font-bold text-lg hover:brightness-110 transition-all shadow-xl shadow-accent/20 active:scale-95 inline-flex items-center gap-2">
-                            Start Your Project <RiArrowRightLine />
-                        </button>
+                    <Link
+                        href="/contact"
+                        className="bg-accent text-white px-8 md:px-10 py-3 md:py-4 rounded-full font-bold text-lg hover:brightness-110 transition-all shadow-xl shadow-accent/20 active:scale-95 inline-flex items-center gap-2"
+                    >
+                        Start Your Project <RiArrowRightLine />
                     </Link>
                 </div>
             </section>

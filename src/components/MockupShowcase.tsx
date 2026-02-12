@@ -213,7 +213,7 @@ const ProductCard = ({
                 scale: 1.02,
             }}
             key={product.title}
-            className="group/product h-48 w-72 md:h-96 md:w-lg relative shrink-0 will-change-transform"
+            className="group/product h-48 w-72 md:h-80 md:w-[450px] lg:h-96 lg:w-[600px] relative shrink-0 will-change-transform"
         >
             <div className="absolute inset-0 rounded-2xl md:rounded-4xl border border-white/10 bg-white/5 -z-10 group-hover/product:border-accent/30 transition-colors duration-500" />
 

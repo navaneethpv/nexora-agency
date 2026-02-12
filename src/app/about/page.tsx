@@ -201,11 +201,12 @@ export default function AboutPage() {
                                 <p className="text-secondary text-base md:text-lg font-medium leading-relaxed">
                                     We focus on building thoughtful digital solutions that prioritize clarity, quality, and long-term reliability. Our approach is simple, transparent, and designed to create lasting value.
                                 </p>
-                                <Link href="/process">
-                                    <button className="bg-accent text-white px-8 py-4 rounded-full font-bold hover:brightness-110 transition-all flex items-center gap-2 group hover:cursor-pointer">
-                                        Learn Our Process
-                                        <RiSparkling2Line size={18} className="group-hover:rotate-12 transition-transform" />
-                                    </button>
+                                <Link
+                                    href="/process"
+                                    className="bg-accent text-white px-8 py-4 rounded-full font-bold hover:brightness-110 transition-all inline-flex items-center gap-2 group hover:cursor-pointer"
+                                >
+                                    Learn Our Process
+                                    <RiSparkling2Line size={18} className="group-hover:rotate-12 transition-transform" />
                                 </Link>
                             </div>
                             <div className="grid grid-cols-1 gap-4">
@@ -328,14 +329,18 @@ export default function AboutPage() {
                                 Let&apos;s talk about building a clear, reliable, and user-friendly digital solution together.
                             </p>
                             <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">
-                                <Link href="/contact">
-                                    <button className="w-full sm:w-auto bg-accent text-white px-10 py-4 rounded-full font-bold text-lg hover:brightness-110 transition-all shadow-2xl shadow-accent/20">
-                                        Start a Conversation
-                                    </button>
+                                <Link
+                                    href="/contact"
+                                    className="w-full sm:w-auto bg-accent text-white px-10 py-4 rounded-full font-bold text-lg hover:brightness-110 transition-all shadow-2xl shadow-accent/20 flex items-center justify-center"
+                                >
+                                    Start a Conversation
                                 </Link>
-                                <button className="w-full sm:w-auto bg-white/5 backdrop-blur-md text-white border border-white/10 px-10 py-4 rounded-full font-bold text-lg hover:bg-white/10 transition-all">
+                                <Link
+                                    href="/#work"
+                                    className="w-full sm:w-auto bg-white/5 backdrop-blur-md text-white border border-white/10 px-10 py-4 rounded-full font-bold text-lg hover:bg-white/10 transition-all flex items-center justify-center"
+                                >
                                     View Our Work
-                                </button>
+                                </Link>
                             </div>
                         </div>
                     </div>
