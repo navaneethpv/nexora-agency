@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useState, useEffect, useRef } from "react";
 import { notFound } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
@@ -8,7 +8,8 @@ import { projects } from "@/data/work-data";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import FloatingWhatsApp from "@/components/FloatingWhatsApp";
-import { RiArrowLeftLine, RiCheckboxCircleLine, RiStackLine, RiCpuLine, RiTrophyLine, RiArrowRightLine, RiExternalLinkLine } from "react-icons/ri";
+import { RiArrowLeftLine, RiCheckboxCircleLine, RiStackLine, RiCpuLine, RiTrophyLine, RiArrowRightLine, RiExternalLinkLine, RiCloseLine } from "react-icons/ri";
+import { motion, AnimatePresence } from "framer-motion";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useParams } from "next/navigation";
@@ -19,6 +20,8 @@ export default function ProjectPage() {
     const params = useParams();
     const slug = params?.slug as string;
     const project = projects.find(p => p.slug === slug);
+
+    const [selectedImage, setSelectedImage] = useState<string | null>(null);
 
     if (!project && slug) {
         // handle not found gracefully or let generic 404 take over
@@ -194,7 +197,8 @@ export default function ProjectPage() {
                         {project.gallery.map((image, i) => (
                             <div
                                 key={i}
-                                className="group relative aspect-video rounded-3xl overflow-hidden border border-white/10 bg-white/5"
+                                onClick={() => setSelectedImage(image)}
+                                className="group relative aspect-video rounded-3xl overflow-hidden border border-white/10 bg-white/5 cursor-zoom-in"
                             >
                                 <Image
                                     src={image}
@@ -210,6 +214,43 @@ export default function ProjectPage() {
                             </div>
                         ))}
                     </div>
+
+                    {/* Lightbox Modal */}
+                    <AnimatePresence>
+                        {selectedImage && (
+                            <motion.div
+                                initial={{ opacity: 0 }}
+                                animate={{ opacity: 1 }}
+                                exit={{ opacity: 0 }}
+                                onClick={() => setSelectedImage(null)}
+                                className="fixed inset-0 z-[100] bg-black/95 backdrop-blur-xl flex items-center justify-center p-6 md:p-12"
+                            >
+                                <button
+                                    onClick={() => setSelectedImage(null)}
+                                    className="absolute top-8 right-8 text-white/60 hover:text-white transition-colors p-2"
+                                >
+                                    <RiCloseLine size={32} />
+                                </button>
+
+                                <motion.div
+                                    initial={{ scale: 0.9, opacity: 0 }}
+                                    animate={{ scale: 1, opacity: 1 }}
+                                    exit={{ scale: 0.9, opacity: 0 }}
+                                    className="relative w-full max-w-6xl h-full flex items-center justify-center"
+                                    onClick={(e: React.MouseEvent) => e.stopPropagation()}
+                                >
+                                    <div className="relative w-full h-full max-h-[80vh] rounded-3xl overflow-hidden border border-white/10 bg-black shadow-2xl">
+                                        <Image
+                                            src={selectedImage}
+                                            alt="Selected Project Screenshot"
+                                            fill
+                                            className="object-contain"
+                                        />
+                                    </div>
+                                </motion.div>
+                            </motion.div>
+                        )}
+                    </AnimatePresence>
                 </section>
             )}
 

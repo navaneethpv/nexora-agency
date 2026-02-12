@@ -90,7 +90,14 @@ export const projects: Project[] = [
             "40% increase in student application submissions via the portal",
             "Wait time for content updates reduced from days to minutes",
             "100% Mobile friendliness score"
-        ]
+        ],
+        gallery: [
+            "https://images.unsplash.com/photo-1523050335456-c38a89b7848b?q=80&w=1400&auto=format&fit=crop",
+            "https://images.unsplash.com/photo-1498243639351-a6c9cf99aef4?q=80&w=1400&auto=format&fit=crop",
+            "https://images.unsplash.com/photo-1525921429624-479b6a29d84c?q=80&w=1400&auto=format&fit=crop",
+            "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?q=80&w=1400&auto=format&fit=crop"
+        ],
+        liveLink: "https://demo-college.nexoraweb.tech"
     },
     {
         slug: "business-portfolio-website",
@@ -124,6 +131,13 @@ export const projects: Project[] = [
             "Bounce rate decreased by 45%",
             "2x increase in qualified leads generated through the site",
             "Ranked on page 1 of Google for key brand terms within 2 months"
-        ]
+        ],
+        gallery: [
+            "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=1400&auto=format&fit=crop",
+            "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=1400&auto=format&fit=crop",
+            "https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=1400&auto=format&fit=crop",
+            "https://images.unsplash.com/photo-1497215728101-856f4ea42174?q=80&w=1400&auto=format&fit=crop"
+        ],
+        liveLink: "https://demo-business.nexoraweb.tech"
     }
 ];
