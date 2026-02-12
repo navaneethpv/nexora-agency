@@ -21,10 +21,27 @@ export default function ContactPage() {
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
         setIsSubmitting(true);
-        // Simulate API call
-        await new Promise(resolve => setTimeout(resolve, 1500));
-        setIsSubmitting(false);
-        setIsSubmitted(true);
+
+        try {
+            const response = await fetch('/api/send', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(formState),
+            });
+
+            if (!response.ok) {
+                throw new Error('Failed to send message');
+            }
+
+            setIsSubmitted(true);
+        } catch (error) {
+            console.error('Error sending message:', error);
+            alert('Something went wrong. Please try again later.');
+        } finally {
+            setIsSubmitting(false);
+        }
     };
 
     return (
@@ -179,6 +196,7 @@ export default function ContactPage() {
                                             <label htmlFor="subject" className="text-sm font-bold text-white/60 ml-1">Subject</label>
                                             <select
                                                 id="subject"
+                                                required
                                                 className="w-full bg-white/5 border border-white/10 rounded-xl px-5 py-4 text-white focus:outline-none focus:border-accent/50 focus:bg-white/10 transition-all font-medium [&>option]:bg-zinc-900"
                                                 value={formState.subject}
                                                 onChange={e => setFormState({ ...formState, subject: e.target.value })}
