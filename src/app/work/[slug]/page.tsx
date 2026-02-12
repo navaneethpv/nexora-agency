@@ -126,7 +126,7 @@ export default function ProjectPage() {
                         </div>
                     </div>
 
-                    <div className="relative aspect-video w-full rounded-3xl overflow-hidden border border-white/10 hero-image">
+                    <div className="relative aspect-[16/10] md:aspect-video w-full rounded-3xl overflow-hidden border border-white/10 hero-image">
                         <Image
                             src={project.coverImage}
                             alt={project.title}
@@ -207,12 +207,12 @@ export default function ProjectPage() {
                         </div>
                     </div>
 
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div className="grid grid-cols-2 gap-4 md:gap-8">
                         {project.gallery.map((image, i) => (
                             <div
                                 key={i}
                                 onClick={() => setSelectedImage(image)}
-                                className="group relative aspect-video rounded-3xl overflow-hidden border border-white/10 bg-white/5 cursor-zoom-in"
+                                className="group relative aspect-square md:aspect-video rounded-2xl md:rounded-3xl overflow-hidden border border-white/10 bg-white/5 cursor-zoom-in"
                             >
                                 <Image
                                     src={image}

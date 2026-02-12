@@ -20,13 +20,13 @@ export default function SmoothScroll({ children }: { children: React.ReactNode }
         }
 
         const lenis = new Lenis({
-            duration: 1.2, // Increased for smoother motion
-            easing: (t: number) => 1 - Math.pow(1 - t, 4), // Quartic ease out
+            duration: 1.0, // Reduced for snappier response
+            easing: (t: number) => 1 - Math.pow(1 - t, 5), // Quantic ease out for better start/stop
             orientation: 'vertical',
             gestureOrientation: 'vertical',
             smoothWheel: true,
-            wheelMultiplier: 1.0, // Back to standard
-            touchMultiplier: 1.5, // Slightly lower for mobile stability
+            wheelMultiplier: 1.1, // Slightly increased for a more responsive feel
+            touchMultiplier: 1.8, // Improved for mobile scrolling
             infinite: false,
         });
 

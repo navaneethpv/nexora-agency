@@ -8,6 +8,8 @@ html.lenis,
 html.lenis body {
   height: auto;
   overscroll-behavior: none;
+  scroll-behavior: auto !important;
+  overflow-anchor: none;
 }
 
 .lenis.lenis-smooth {
@@ -166,9 +168,17 @@ body::before {
 
 .glass-pill {
   background: rgba(10, 10, 10, 0.85);
-  /* Darker and more opaque to replace blur */
   border: 1px solid var(--border-subtle);
   box-shadow: 0 4px 24px -1px rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(12px);
+}
+
+@media (max-width: 768px) {
+  .glass-pill {
+    backdrop-filter: none;
+    /* Disable blur on mobile for massive scroll gain */
+    background: rgba(10, 10, 10, 0.95);
+  }
 }
 
 .glass-card {
