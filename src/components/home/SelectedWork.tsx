@@ -104,12 +104,7 @@ export default function SelectedWork() {
                                         />
                                     </ParallaxScroll>
 
-                                    {/* Floating Badge */}
-                                    <div className="absolute top-4 right-4 z-20 bg-black/40 backdrop-blur-md border border-white/10 px-4 py-1.5 rounded-full">
-                                        <span className="text-[10px] md:text-xs font-medium tracking-widest uppercase text-white/80">
-                                            {project.category}
-                                        </span>
-                                    </div>
+                                    {/* Floating Badge Removed */}
                                 </div>
 
                                 {/* Content */}
