@@ -74,11 +74,11 @@ export default function SelectedWork() {
                 <div className="mb-12 md:mb-32 work-title flex flex-col md:flex-row md:items-end justify-between gap-8">
                     <div>
                         <h2 className="text-4xl md:text-7xl font-medium tracking-tighter text-white uppercase leading-[0.9]">
-                            Selected <span className="text-secondary opacity-60">Equity</span>
+                            Showcase <span className="text-secondary opacity-60">Projects</span>
                         </h2>
                     </div>
                     <p className="text-secondary text-base md:text-lg font-light max-w-md leading-relaxed border-l border-white/10 pl-6 mt-4 md:mt-0 block">
-                        A cinematic distillation of high-performance digital systems and architectural brand equity.
+                        A cinematic distillation of high-performance digital systems and industry-leading design solutions.
                     </p>
                 </div>
 

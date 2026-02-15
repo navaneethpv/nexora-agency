@@ -24,7 +24,7 @@ export default function HomeClient() {
             <FeaturesSection />
 
             <div className="flex flex-col gap-16 md:gap-48 pb-20 md:pb-48">
-                {/* Proof - Selected Work */}
+                {/* Proof - Showcase Projects */}
                 <SelectedWork />
 
                 {/* Strategy & Thinking - Process */}
