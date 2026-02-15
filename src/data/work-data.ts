@@ -4,8 +4,6 @@ export interface Project {
     category: string;
     shortDescription: string;
     coverImage: string;
-    macbookImage?: string;
-    mobileImage?: string;
     overview: string;
     challenge: string[];
     solution: string[];
@@ -23,8 +21,6 @@ export const projects: Project[] = [
         category: "Luxury Hospitality · Web Experience",
         shortDescription: "A high-end, visual-heavy resort website designed for premium user experience with direct WhatsApp booking integration.",
         coverImage: "/resort-macbook-mockup.png",
-        macbookImage: "/resort-mac.png",
-        mobileImage: "https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?q=80&w=800&auto=format&fit=crop",
         overview: "This project focused on creating an immersive digital experience for a luxury boutique resort. By focusing on a premium, high-performance frontend, we captured the essence of the property while facilitating instant bookings and personalized enquiries directly via WhatsApp.",
         challenge: [
             "Traditional booking engines felt too robotic and impersonal for a luxury brand",
@@ -64,8 +60,6 @@ export const projects: Project[] = [
         category: "Institutional Website",
         shortDescription: "A modern, accessible website designed for educational institutions.",
         coverImage: "/institutional-academic.png",
-        macbookImage: "/college-mac.png",
-        mobileImage: "https://images.unsplash.com/photo-1523240795612-9a054b0db644?q=80&w=800&auto=format&fit=crop",
         overview: "We developed a structured digital presence for educational institutions, focusing on clear information architecture and accessible user journeys. The platform allows students and faculty to access vital information easily while maintaining a professional and modern aesthetic.",
         challenge: [
             "Information architecture was cluttered, making it hard for students to find courses",
@@ -105,8 +99,6 @@ export const projects: Project[] = [
         category: "Brand Website",
         shortDescription: "A clean and professional portfolio website for a growing business.",
         coverImage: "/device-mockup.png",
-        macbookImage: "/device-mockup.png",
-        mobileImage: "https://images.unsplash.com/photo-1661956602116-aa6865609028?q=80&w=800&auto=format&fit=crop",
         overview: "Built for modern retail brands, this project focuses on a fluid product discovery experience and professional brand storytelling. The goal was to create a digital presence that builds trust and clearly communicates the business's value proposition.",
         challenge: [
             "Generic design failed to differentiate the brand from competitors",
