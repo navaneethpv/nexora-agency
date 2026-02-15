@@ -41,7 +41,7 @@ export default function Hero() {
     }, [mouseX, mouseY, isLowEnd]);
 
     // Typing Animation Logic
-    const words = ["Startups", "Business", "Institutions", "Scale"];
+    const words = ["Startups", "Business", "Institutions"];
     const [currentWordIndex, setCurrentWordIndex] = useState(0);
     const [currentText, setCurrentText] = useState("");
     const [isDeleting, setIsDeleting] = useState(false);
