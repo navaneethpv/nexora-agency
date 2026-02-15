@@ -86,12 +86,12 @@ export const projects: Project[] = [
             "100% Mobile friendliness score"
         ],
         gallery: [
-            "https://images.unsplash.com/photo-1523050335456-c38a89b7848b?q=80&w=1400&auto=format&fit=crop",
-            "https://images.unsplash.com/photo-1498243639351-a6c9cf99aef4?q=80&w=1400&auto=format&fit=crop",
-            "https://images.unsplash.com/photo-1525921429624-479b6a29d84c?q=80&w=1400&auto=format&fit=crop",
-            "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?q=80&w=1400&auto=format&fit=crop"
+            "/Gallery/college1.png",
+            "/Gallery/college2.png",
+            "/Gallery/college3.png",
+            "/Gallery/college4.png"
         ],
-        liveLink: "https://demo-college.nexoraweb.tech"
+        liveLink: "https://beta.cmcollege.edu.in/"
     },
     {
         slug: "business-portfolio-website",
