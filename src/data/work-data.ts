@@ -51,12 +51,12 @@ export const projects: Project[] = [
             "Achieved a perfect 100/100 Performance Score on Google Lighthouse"
         ],
         gallery: [
-            "/Gallery/resort-mac.png",
-            "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?q=80&w=1400&auto=format&fit=crop",
-            "https://images.unsplash.com/photo-1551882547-ff43c61f32a0?q=80&w=1400&auto=format&fit=crop",
-            "https://images.unsplash.com/photo-1563911302283-d2bc120e7458?q=80&w=1400&auto=format&fit=crop"
+            "/Gallery/resort1.png",
+            "/Gallery/resort2.png",
+            "/Gallery/resort3.png",
+            "/Gallery/resort4.png"
         ],
-        liveLink: "https://demo-resort.nexoraweb.tech"
+        liveLink: "https://vagenza.vercel.app/"
     },
     {
         slug: "college-website-platform",
