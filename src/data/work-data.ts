@@ -18,37 +18,37 @@ export interface Project {
 
 export const projects: Project[] = [
     {
-        slug: "resort-website-admin-portal",
-        title: "Resort Website & Admin Portal",
-        category: "Website · Admin System",
-        shortDescription: "A modern resort website with an admin portal to manage rooms, bookings, content, and enquiries.",
+        slug: "premium-resort-website",
+        title: "Premium Resort Website",
+        category: "Luxury Hospitality · Web Experience",
+        shortDescription: "A high-end, visual-heavy resort website designed for premium user experience with direct WhatsApp booking integration.",
         coverImage: "/resort-macbook-mockup.png",
         macbookImage: "/resort-mac.png",
         mobileImage: "https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?q=80&w=800&auto=format&fit=crop",
-        overview: "This project focuses on creating a clean and user-friendly website for a resort, along with an internal admin portal to manage daily operations efficiently. The goal was to improve the guest booking experience while giving administrators a simple interface to manage rooms, availability, and enquiries.",
+        overview: "This project focused on creating an immersive digital experience for a luxury boutique resort. By focusing on a premium, high-performance frontend, we captured the essence of the property while facilitating instant bookings and personalized enquiries directly via WhatsApp.",
         challenge: [
-            "Manual booking management led to errors and double-bookings",
-            "No centralized system for managing room availability and pricing",
-            "Poor mobile experience resulted in high bounce rates for potential guests"
+            "Traditional booking engines felt too robotic and impersonal for a luxury brand",
+            "High friction in the booking process led to visitor drop-offs",
+            "Need for a website that reflected the premium nature of the resort through high-end visuals"
         ],
         solution: [
-            "Developed a responsive, high-performance website for varying device sizes",
-            "Built a centralized admin dashboard for real-time inventory management",
-            "Implemented a seamless booking request flow to capture high-intent leads",
-            "Streamlined content management for non-technical staff"
+            "Designed a premium, visual-first UI with smooth scroll animations and parallax effects",
+            "Integrated a one-click WhatsApp booking system for direct guest interaction",
+            "Optimized image assets for lightning-fast performance without sacrificing quality",
+            "Implemented a mobile-optimized experience for travelers on the go"
         ],
         features: [
-            "Real-time Room Availability & Pricing",
-            "Secure Booking & Enquiry Engine",
-            "Admin Dashboard with Analytics",
-            "Dynamic Content Management System (CMS)",
-            "Mobile-first Responsive Design"
+            "Direct WhatsApp Booking Integration",
+            "High-Definition Visual Showcases",
+            "Immersive Parallax & Motion Effects",
+            "Interactive Room & Amenity Gallery",
+            "Personalized Availability Enquiry System"
         ],
-        techStack: ["Next.js", "TypeScript", "Tailwind CSS", "Neon DB", "Prisma", "Framer Motion"],
+        techStack: ["Next.js", "TypeScript", "Tailwind CSS", "Framer Motion", "Cloudinary"],
         outcomes: [
-            "300% increase in direct online enquiries within 3 months",
-            "Reduced administrative time for booking management by 60%",
-            "Achieved a 98/100 Performance Score on Google Lighthouse"
+            "150% increase in direct booking enquiries via WhatsApp",
+            "Average session duration increased by 85% due to immersive UI",
+            "Achieved a perfect 100/100 Performance Score on Google Lighthouse"
         ],
         gallery: [
             "https://images.unsplash.com/photo-1566073771259-6a8506099945?q=80&w=1400&auto=format&fit=crop",
