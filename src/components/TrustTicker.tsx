@@ -1,7 +1,6 @@
 "use client";
 
-import { useRef } from "react";
-import { motion, useScroll, useTransform, useSpring } from "framer-motion";
+import { motion } from "framer-motion";
 import ShinyText from "./ShinyText";
 import { RiNextjsFill, RiTailwindCssFill } from "react-icons/ri";
 import { SiTypescript, SiAdobephotoshop, SiExpress, SiMongodb, SiAdobeillustrator } from "react-icons/si";
@@ -21,23 +20,13 @@ const techStack = [
 ];
 
 export default function TrustTicker() {
-    const tickerRef = useRef<HTMLDivElement>(null);
-
-    const { scrollYProgress } = useScroll({
-        target: tickerRef,
-        offset: ["start end", "end start"],
-    });
-
-    const rawTickerX = useTransform(scrollYProgress, [0, 1], ["0%", "-40%"]);
-    const tickerX = useSpring(rawTickerX, { stiffness: 100, damping: 30, restDelta: 0.001 });
-
     return (
-        <section id="trust-section" ref={tickerRef} className="py-20 md:py-32 border-b border-white/5 relative bg-background overflow-hidden">
+        <section id="trust-section" className="py-20 md:py-32 border-b border-white/5 relative bg-background overflow-hidden">
             <div className="section-container relative">
                 <div className="mb-12 md:mb-16 relative z-10 flex">
                     <ShinyText
                         text="ENGINEERING SCALE FOR INDUSTRY LEADERS"
-                        className="text-[10px] md:text-xs font-semibold uppercase tracking-[0.5em] opacity-40"
+                        className="text-[10px] md:text-lg font-semibold uppercase tracking-[0.5em] opacity-40"
                         color="rgba(255,255,255,0.4)"
                         shineColor="#ffffff"
                         speed={4}
@@ -47,8 +36,9 @@ export default function TrustTicker() {
                 <div className="w-full relative z-10">
                     <div className="flex overflow-hidden mask-[linear-gradient(to_right,transparent,black_10%,black_90%,transparent)] pointer-events-none">
                         <motion.div
-                            style={{ x: tickerX }}
-                            className="flex flex-nowrap gap-16 md:gap-32 items-center shrink-0 py-4 md:py-8"
+                            animate={{ x: ["0%", "-50%"] }}
+                            transition={{ duration: 45, ease: "linear", repeat: Infinity }}
+                            className="flex flex-nowrap gap-16 md:gap-32 items-center shrink-0 py-4 md:py-8 w-max pr-16 md:pr-32"
                         >
                             {[...techStack, ...techStack, ...techStack, ...techStack].map((tech, i) => (
                                 <div
