@@ -21,14 +21,14 @@ const techStack = [
 
 export default function TrustTicker() {
     return (
-        <section id="trust-section" className="py-20 md:py-32 border-b border-white/5 relative bg-background overflow-hidden">
-            <div className="section-container relative">
-                <div className="mb-12 md:mb-16 relative z-10 flex">
+        <section id="trust-section" className="py-16 md:py-24 border-b border-[#163832] bg-[#051F20] overflow-hidden">
+            <div className="section-container relative max-w-[1400px] mx-auto px-6">
+                <div className="mb-10 flex">
                     <ShinyText
-                        text="ENGINEERING SCALE FOR INDUSTRY LEADERS"
-                        className="text-[10px] md:text-lg font-semibold uppercase tracking-[0.5em] opacity-40"
-                        color="rgba(255,255,255,0.4)"
-                        shineColor="#ffffff"
+                        text="POWERING MODERN EXPERIENCES"
+                        className="text-xs font-semibold uppercase tracking-[0.3em]"
+                        color="rgba(142,182,155,0.5)"
+                        shineColor="#DAF1DE"
                         speed={4}
                     />
                 </div>
@@ -38,17 +38,17 @@ export default function TrustTicker() {
                         <motion.div
                             animate={{ x: ["0%", "-50%"] }}
                             transition={{ duration: 45, ease: "linear", repeat: Infinity }}
-                            className="flex flex-nowrap gap-16 md:gap-32 items-center shrink-0 py-4 md:py-8 w-max pr-16 md:pr-32"
+                            className="flex flex-nowrap gap-12 md:gap-24 items-center shrink-0 py-4 w-max pr-16 md:pr-32"
                         >
                             {[...techStack, ...techStack, ...techStack, ...techStack].map((tech, i) => (
                                 <div
                                     key={i}
-                                    className="flex items-center gap-4 md:gap-8 group shrink-0"
+                                    className="flex items-center gap-4 md:gap-6 group shrink-0"
                                 >
-                                    <div className="relative z-10 p-3 md:p-5 bg-white/3 rounded-2xl border border-white/5 transition-colors group-hover:border-accent/40 group-hover:bg-white/5">
-                                        <tech.icon className="w-8 h-8 md:w-12 md:h-12 text-white/20 group-hover:text-white transition-all duration-700" />
+                                    <div className="p-3 md:p-4 bg-[#0B2B26] rounded-xl border border-[#163832] transition-colors group-hover:border-[#235347]">
+                                        <tech.icon className="w-7 h-7 md:w-9 md:h-9 text-[#8EB69B]/70 group-hover:text-[#DAF1DE] transition-colors duration-500" />
                                     </div>
-                                    <span className="text-lg md:text-3xl font-medium tracking-tight text-white/30 group-hover:text-white transition-colors duration-400">
+                                    <span className="text-lg md:text-2xl font-light tracking-tight text-[#8EB69B]/80 group-hover:text-[#DAF1DE] transition-colors duration-400">
                                         {tech.name}
                                     </span>
                                 </div>

@@ -28,23 +28,17 @@ export default function FAQ() {
     const [openIndex, setOpenIndex] = useState<number | null>(null);
 
     return (
-        <section className="relative py-24 md:py-40 bg-background overflow-hidden">
-            {/* Ambient background glows */}
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full max-w-[1600px] pointer-events-none opacity-20">
-                <div className="absolute top-0 right-1/4 w-[500px] h-[500px] bg-accent/10 blur-[130px] rounded-full" />
-            </div>
-
-            <div className="section-container relative z-10">
-                <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 md:gap-24">
+        <section className="py-32 bg-[#051F20]">
+            <div className="section-container relative z-10 max-w-[1400px] mx-auto px-6">
+                <div className="grid grid-cols-1 lg:grid-cols-12 gap-20">
                     {/* Left Column: Title */}
-                    <div className="lg:col-span-5">
+                    <div className="lg:col-span-4">
                         <ScrollReveal direction="right" distance={30}>
                             <div className="sticky top-32">
-                                <h2 className="text-4xl md:text-6xl font-medium tracking-tighter text-white leading-[0.9] mb-8">
-                                    Commonly <br />
-                                    <span className="text-accent font-bold">Quest</span>ions
+                                <h2 className="text-4xl md:text-5xl font-light tracking-tight text-[#DAF1DE] leading-tight mb-6">
+                                    Frequently<br />Asked Questions
                                 </h2>
-                                <p className="text-secondary text-base md:text-xl font-normal leading-relaxed opacity-70 max-w-md">
+                                <p className="text-[#8EB69B] text-base font-light leading-relaxed max-w-sm">
                                     Everything you need to know about our distilled engineering process and technical ethics.
                                 </p>
                             </div>
@@ -52,29 +46,28 @@ export default function FAQ() {
                     </div>
 
                     {/* Right Column: Accordion */}
-                    <div className="lg:col-span-7 space-y-4">
+                    <div className="lg:col-span-8 space-y-4">
                         {faqs.map((faq, index) => (
                             <ScrollReveal key={index} delay={index * 0.1} direction="up" distance={20}>
                                 <div
-                                    className={`glass-card rounded-3xl border transition-all duration-500 overflow-hidden ${openIndex === index
-                                        ? 'bg-white/5 border-accent/30'
-                                        : 'bg-white/2 border-white/5 hover:border-white/20'
+                                    className={`rounded-2xl border transition-colors duration-300 overflow-hidden ${openIndex === index
+                                        ? 'bg-[#0B2B26] border-[#235347]'
+                                        : 'bg-transparent border-[#163832] hover:border-[#235347]'
                                         }`}
                                 >
                                     <button
                                         onClick={() => setOpenIndex(openIndex === index ? null : index)}
-                                        className="w-full flex justify-between items-center text-left p-6 md:p-10 group"
+                                        className="w-full flex justify-between items-center text-left p-8 group"
                                         aria-expanded={openIndex === index}
                                         aria-controls={`faq-answer-${index}`}
                                         id={`faq-question-${index}`}
                                     >
-                                        <span className={`text-xl md:text-2xl font-medium pr-8 transition-colors duration-300 ${openIndex === index ? 'text-accent' : 'text-white/90'
+                                        <span className={`text-xl font-medium pr-8 transition-colors duration-300 ${openIndex === index ? 'text-[#DAF1DE]' : 'text-[#DAF1DE]/90 group-hover:text-[#DAF1DE]'
                                             }`}>
                                             {faq.question}
                                         </span>
-                                        <div className={`w-10 h-10 rounded-full border border-white/10 flex items-center justify-center shrink-0 transition-all duration-500 ${openIndex === index ? 'rotate-45 bg-accent border-accent text-white' : 'group-hover:border-accent text-white/50'
-                                            }`}>
-                                            <RiAddLine className="w-5 h-5" />
+                                        <div className={`w-10 h-10 rounded-full border border-[#235347] flex items-center justify-center shrink-0 transition-transform duration-500 ${openIndex === index ? 'rotate-45' : ''}`}>
+                                            <RiAddLine className={`w-5 h-5 transition-colors ${openIndex === index ? 'text-[#DAF1DE]' : 'text-[#8EB69B] group-hover:text-[#DAF1DE]'}`} />
                                         </div>
                                     </button>
                                     <AnimatePresence>
@@ -86,9 +79,9 @@ export default function FAQ() {
                                                 initial={{ height: 0, opacity: 0 }}
                                                 animate={{ height: "auto", opacity: 1 }}
                                                 exit={{ height: 0, opacity: 0 }}
-                                                transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+                                                transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
                                             >
-                                                <div className="px-6 md:px-10 pb-8 md:pb-12 text-base md:text-xl text-secondary leading-relaxed font-normal opacity-80 border-t border-white/5 pt-6">
+                                                <div className="px-8 pb-10 text-base text-[#8EB69B] font-light leading-relaxed border-t border-[#163832] pt-6">
                                                     {faq.answer}
                                                 </div>
                                             </motion.div>
