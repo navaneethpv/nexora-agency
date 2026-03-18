@@ -7,6 +7,13 @@ import { motion, AnimatePresence } from "framer-motion";
 import { RiMenu4Line, RiCloseLine } from "react-icons/ri";
 import useMagnetic from "@/hooks/useMagnetic";
 
+export const navLinks = [
+    { name: "About", href: "/about" },
+    { name: "Services", href: "/#services" },
+    { name: "Work", href: "/#work" },
+    { name: "Contact", href: "/contact" },
+];
+
 export default function Navbar() {
     const magneticBtn = useMagnetic();
     const [scrolled, setScrolled] = useState(false);
@@ -22,12 +29,7 @@ export default function Navbar() {
 
     const [hoveredPath, setHoveredPath] = useState<string | null>(null);
 
-    const navLinks = [
-        { name: "About", href: "/about" },
-        { name: "Services", href: "/#services" },
-        { name: "Work", href: "/#work" },
-        { name: "Contact", href: "/contact" },
-    ];
+
 
     return (
         <nav className="fixed top-2 md:top-8 left-1/2 -translate-x-1/2 z-50 w-full max-w-[98%] md:max-w-[1500px] px-2 md:px-6">

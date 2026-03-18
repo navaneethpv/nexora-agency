@@ -20,6 +20,7 @@ import {
 
 import TrustTicker from "@/components/TrustTicker";
 import FAQ from "@/components/FAQ";
+import { navLinks } from "@/components/Navbar";
 
 function NewNavbar() {
     const [scrolled, setScrolled] = useState(false);
@@ -32,13 +33,6 @@ function NewNavbar() {
         window.addEventListener("scroll", handleScroll, { passive: true });
         return () => window.removeEventListener("scroll", handleScroll);
     }, []);
-
-    const navLinks = [
-        { name: "Services", href: "/#services" },
-        { name: "Portfolio", href: "/#portfolio" },
-        { name: "Solutions", href: "/#solutions" },
-        { name: "About", href: "/about" },
-    ];
 
     return (
         <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled ? 'bg-[#051F20]/95 py-4 border-b border-[#163832]' : 'bg-transparent py-6'}`}>
@@ -182,9 +176,9 @@ function NewFooter() {
                         <h4 className="text-[#DAF1DE] font-semibold text-sm tracking-wider uppercase mb-8">Newsletter</h4>
                         <p className="text-[#8EB69B] text-sm mb-6 font-light">Stay updated with digital trends.</p>
                         <form className="flex border border-[#163832] rounded-full overflow-hidden bg-[#051F20] focus-within:border-[#8EB69B] transition-colors">
-                            <input 
-                                type="email" 
-                                placeholder="Email address" 
+                            <input
+                                type="email"
+                                placeholder="Email address"
                                 className="bg-transparent border-none text-[#DAF1DE] text-sm px-5 py-3 outline-none w-full placeholder-[#8EB69B]/50"
                             />
                             <button type="submit" className="bg-[#163832] px-5 flex items-center justify-center text-[#DAF1DE] hover:bg-[#235347] transition-colors">
@@ -291,7 +285,7 @@ export default function NewHomeLayout() {
                     <div className="max-w-xl">
                         <div className="text-xs font-semibold text-[#8EB69B] uppercase tracking-[0.2em] mb-6">Our Expertise</div>
                         <h2 className="text-4xl md:text-5xl font-light leading-[1.1] tracking-tight text-[#DAF1DE]">
-                            Future-proof solutions<br className="hidden md:block"/> for scaling startups.
+                            Future-proof solutions<br className="hidden md:block" /> for scaling startups.
                         </h2>
                     </div>
                     <div className="max-w-sm text-[#8EB69B] font-light text-lg leading-relaxed md:pb-2">
