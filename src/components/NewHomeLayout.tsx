@@ -17,6 +17,7 @@ import {
 } from "react-icons/ri";
 import { GravityStarsBackground } from "@/components/animate-ui/components/backgrounds/gravity-stars";
 import TrustTicker from "@/components/TrustTicker";
+import FAQ from "@/components/FAQ";
 import Footer from "@/components/Footer";
 
 // Inline new Navbar matching the design (transparent, centered text links)
@@ -309,6 +310,9 @@ export default function NewHomeLayout() {
                     </div>
                 </div>
             </section>
+
+            {/* FAQ SECTION */}
+            <FAQ />
 
             {/* CTA SECTION */}
             <section className="px-6 py-24 pb-32 max-w-[1400px] mx-auto">
